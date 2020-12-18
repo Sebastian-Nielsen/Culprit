@@ -1,0 +1,56 @@
+/**
+ * [For how to use this build.gradle](http://tutorials.jenkov.com/gradle/dependency-management.html)
+ * Dependencies:
+ * - [Flexmark](https://github.com/vsch/flexmark-java)
+ */
+
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+//    implementation 'junit:junit:4.12'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0' // Added by intellij by default
+    testRuntimeOnly    'org.junit.jupiter:junit-jupiter-engine'    // Added by intellij by default
+
+    // To use: assertThat
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
+
+    // To mock stuff
+    testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.9'
+    testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.9'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '2.0.0-beta'
+
+
+//    testImplementation 'org.mockito:mockito-all:1.10.19'
+//    testImplementation "org.powermock:powermock-module-junit4:2.0.7"
+//    testImplementation "org.powermock:powermock-module-junit4-rule:2.0.7"
+//    testImplementation "org.powermock:powermock-api-mockito2:2.0.7"
+//    testImplementation "org.powermock:powermock-classloading-xstream:1.6.6"
+
+    // Dependency of Flexmark
+    compile group: 'com.vladsch.flexmark', name: 'flexmark-all', version: '0.62.2'
+    // To use: FileUtils
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+}
+
+// Use JUnit as testing platform
+test {
+    useJUnitPlatform()
+}
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="unitTests.DeployerImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-18T23:31:41" hostname="DESKTOP-S" time="0.06">
+  <properties/>
+  <testcase name="shouldCopyFileHierarchyToDeployDir(File)" classname="unitTests.DeployerImplTest" time="0.06"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
