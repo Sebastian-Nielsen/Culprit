@@ -4,11 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="" />
+    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/testHelper/TestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/DeployerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileHandlerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/TestHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileHandlerImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileHandlerImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileOptionExtractorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileOptionExtractorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/testTempFolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/testTempFolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.DeployerImplTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.DeployerImplTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileHandlerImplTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileHandlerImplTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileOptionExtractorTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileOptionExtractorTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.ValidatorTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.ValidatorTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.FileUtilsSuiteClasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.FileUtilsSuiteClasses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.DeployerImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.DeployerImplTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileHandlerImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileHandlerImplTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileOptionExtractorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileOptionExtractorTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.ValidatorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.ValidatorTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/FileHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileHandlerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileHandlerImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionImplExtractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\sebas\IdeaProjects\culprit_2\build" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -33,7 +82,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1lkvKXuAXNfs6NcOWXyrIYJblOB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -43,7 +98,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../culprit" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -67,7 +122,7 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\fileUtilTestFiles\lvlA" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'unitTests'">
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
     <configuration name="DeployerImplTest.shouldCopyFileHierarchyToDeployDir" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -110,6 +165,48 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="FileHandlerImplTest.shouldHasNextTwice" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.FileHandlerImplTest.shouldHasNextTwice&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'culprit_2.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests *" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in 'unitTests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -131,55 +228,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="testTempFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.testTempFolder&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="testTempFolder.tefst" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.testTempFolder.tefst&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Gradle.FileHandlerImplTest.shouldHasNextTwice" />
         <item itemvalue="Gradle.Tests in 'unitTests'" />
         <item itemvalue="Gradle.DeployerImplTest.shouldCopyFileHierarchyToDeployDir" />
         <item itemvalue="Gradle.DeployerImplTest.teshouldCopyFileHierarchyst" />
-        <item itemvalue="Gradle.testTempFolder.tefst" />
-        <item itemvalue="Gradle.testTempFolder" />
       </list>
     </recent_temporary>
   </component>
@@ -196,5 +251,8 @@
       <updated>1608153843430</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/culprit_2$Tests_in__unitTests_.ic" NAME="Tests in 'unitTests' Coverage Results" MODIFIED="1608334259112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

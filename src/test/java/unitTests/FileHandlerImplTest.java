@@ -1,18 +1,17 @@
 package unitTests;
 
 import framework.FileHandler;
-import framework.FileHandlerImpl;
+import common.FileHandlerImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static testHelper.TestHelper.getResourceFile;
 
 public class FileHandlerImplTest {
 
@@ -20,7 +19,8 @@ public class FileHandlerImplTest {
 
 	@BeforeEach
 	public void setup() throws IOException {
-		fileHandler = createFileHandlerImpl("FileHandlerTest.md");
+		final String fileName = "FileHandlerTest.md";
+		fileHandler = newFileHandlerImpl(fileName);
 	}
 
 
@@ -38,8 +38,10 @@ public class FileHandlerImplTest {
 	@Test
 	public void shouldHasNextTwice() throws IOException {
 		assertTrue(fileHandler.hasNext()); // has first line
+
 		fileHandler.readLine();
 		assertTrue(fileHandler.hasNext()); // has second line
+
 		fileHandler.readLine();
 		assertFalse(fileHandler.hasNext());// has third line
 	}
@@ -48,12 +50,7 @@ public class FileHandlerImplTest {
 	/* === PRIVATE METHODS */
 
 	@NotNull
-	private FileHandlerImpl createFileHandlerImpl(String name) throws IOException {
-		return new FileHandlerImpl(getFile(name));
-	}
-
-	@NotNull
-	private File getFile(String name) {
-		return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(name)).getFile());
+	private FileHandlerImpl newFileHandlerImpl(String name) throws IOException {
+		return new FileHandlerImpl(getResourceFile(name));
 	}
 }

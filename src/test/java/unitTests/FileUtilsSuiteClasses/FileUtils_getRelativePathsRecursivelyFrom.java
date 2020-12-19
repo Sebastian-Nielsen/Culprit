@@ -7,24 +7,23 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInRelativeOrder;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static testHelper.TestHelper.getResourceFile;
 
 public class FileUtils_getRelativePathsRecursivelyFrom {
 
-	private final String ROOT_FILENAME = "basicFileHierarchy/root";
-	private final String ROOT_ABS_PATH = getAbsResourcePath(ROOT_FILENAME);
-	private final File   ROOT_FOLDER   = new File(ROOT_ABS_PATH);
+	private final String ROOT_DIRNAME = "basicFileHierarchy/root";
+	private final File   ROOT_DIR     = getResourceFile(ROOT_DIRNAME);
 
 
 	@Test
-	public void shouldRetrieveAllRelativePaths() throws IOException, URISyntaxException {
+	public void shouldRetrieveAllRelativePaths() throws Exception {
 		// Exercise
-		String[] actualPaths = FileUtils.getRelativePathsFrom(ROOT_FOLDER, ROOT_ABS_PATH);
+		String[] actualPaths = FileUtils.getRelativePathsFrom(ROOT_DIR);
 		// Verify
 		String[] expectedPaths = new String[]{
 			"A",              // 1
@@ -40,12 +39,5 @@ public class FileUtils_getRelativePathsRecursivelyFrom {
 	}
 
 
-
-	/* PRIVATE METHODS */
-
-	@NotNull
-	private String getAbsResourcePath(String name) {
-		return Objects.requireNonNull(getClass().getClassLoader().getResource(name)).getFile();
-	}
 
 }

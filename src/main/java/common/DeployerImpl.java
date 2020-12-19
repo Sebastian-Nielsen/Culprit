@@ -1,4 +1,6 @@
-package framework;
+package common;
+
+import framework.Deployer;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,6 +39,7 @@ public class DeployerImpl implements Deployer {
 		for (File contentFile : listAllFilesOf(contentRootFolder))
 
 			createDeployFileFrom(contentFile);
+
 	}
 
 	@Override

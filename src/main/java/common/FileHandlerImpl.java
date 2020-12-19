@@ -1,5 +1,6 @@
-package framework;
+package common;
 
+import framework.FileHandler;
 import org.apache.pdfbox.util.filetypedetector.FileType;
 
 import java.io.*;

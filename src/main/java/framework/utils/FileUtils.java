@@ -24,8 +24,9 @@ public class FileUtils {
 	 * Get {@link File}s recursively in {@code folder} in a depth-first manner.
 	 * @return A list of all files in {@code folder}
 	 */
-	public static String[] getRelativePathsFrom(File folder, String base) throws IOException {
-		URI uri = new File(base).toURI();
+	public static String[] getRelativePathsFrom(File folder) throws IOException {
+		String basePath = "" + folder;
+		URI uri = new File(basePath).toURI();
 
 //		System.out.println("base: " + base);
 //		System.out.println(uri + " sadflkj ");
