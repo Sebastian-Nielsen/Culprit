@@ -8,8 +8,8 @@ public interface FileOptionExtractor {
 	/**
 	 * Extracts all FileOptions in {@code file}
 	 * @param file
-	 * @return list of FileOptionImpl objects
+	 * @return list of FileOption objects
 	 * @throws IOException
 	 */
-	List<FileOptionImpl> extractFileOptionsFrom(File file) throws IOException;
+	List<FileOption> extractFileOptionsFrom(File file) throws IOException;
 }

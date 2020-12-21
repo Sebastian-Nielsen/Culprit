@@ -8,8 +8,8 @@ testHelper/TestHelper.java
  testHelper.TestHelper
 unitTests/DeployerImplTest.java
  unitTests.DeployerImplTest
-unitTests/ValidatorTest.java
- unitTests.ValidatorTest
+unitTests/FileHandlerImplTest.java
+ unitTests.FileHandlerImplTest
 integrationTests/customerTest.java
  integrationTests.customerTest
 unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java
@@ -18,7 +18,9 @@ unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java
  unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom
 unitTests/CompilerImplTest.java
  unitTests.CompilerImplTest
+unitTests/ValidatorTest.java
+ unitTests.ValidatorTest
+unitTests/FileOptionTest.java
+ unitTests.FileOptionTest
 unitTests/FileOptionExtractorTest.java
  unitTests.FileOptionExtractorTest
-unitTests/FileHandlerImplTest.java
- unitTests.FileHandlerImplTest

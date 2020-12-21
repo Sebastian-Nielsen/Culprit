@@ -1,7 +1,7 @@
 package common;
 
 import framework.FileHandler;
-import framework.FileOptionImpl;
+import framework.FileOption;
 import framework.FileOptionExtractor;
 
 import java.io.File;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static framework.Validator.isFileOption;
+import static framework.FileOption.isFileOption;
 
 public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	private final FileHandler fileHandler;
@@ -19,17 +19,17 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	}
 
 	@Override
-	public List<FileOptionImpl> extractFileOptionsFrom(File file) throws IOException {
-		List<FileOptionImpl> fileOptionImpls = new ArrayList<>();
+	public List<FileOption> extractFileOptionsFrom(File file) throws IOException {
+		List<FileOption> FileOptions = new ArrayList<>();
 
 		while (fileHandler.hasNext()) {
 			String line = fileHandler.readLine();
 			if (isFileOption(line))
-				fileOptionImpls.add(new FileOptionImpl(line));
+				FileOptions.add(new FileOption(line));
 			else
 				break;
 		}
 
-		return fileOptionImpls;
+		return FileOptions;
 	}
 }

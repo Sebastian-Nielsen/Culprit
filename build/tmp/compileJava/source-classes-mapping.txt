@@ -10,12 +10,12 @@ common/DeployerImpl.java
  common.DeployerImpl
 framework/Deployer.java
  framework.Deployer
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 framework/Validator.java
  framework.Validator
-common/FileOptionExtractorImpl.java
- common.FileOptionExtractorImpl
 framework/FileOption.java
  framework.FileOption
  framework.FileOption$KEY
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
+common/FileOptionExtractorImpl.java
+ common.FileOptionExtractorImpl
