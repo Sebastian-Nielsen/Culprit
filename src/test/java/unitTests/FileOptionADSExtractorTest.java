@@ -7,10 +7,6 @@ import common.FileOptionExtractorImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 import stubs.FileHandlerStub;
 
 import java.io.File;
@@ -62,10 +58,10 @@ public class FileOptionExtractorTest {
 		final List<FileOption> fileOptions;
 		fileOptions = extractFileOptions();
 		// Verify
-		FileOption FileOption1 = getFirstOf(fileOptions);
+		FileOption fileOptions1 = getFirstOf(fileOptions);
 		String expectedKey = "key1";
 		String expectedVal = "val1";
-		assertFileOptionHas(FileOption1, expectedKey, expectedVal);
+		assertFileOptionHas(fileOptions1, expectedKey, expectedVal);
 	}
 
 	@Test
@@ -74,10 +70,10 @@ public class FileOptionExtractorTest {
 		final List<FileOption> fileOptions;
 		fileOptions = extractFileOptions();
 		// Verify
-		FileOption FileOption2 = getSecondOf(fileOptions);
+		FileOption fileOptions2 = getSecondOf(fileOptions);
 		String expectedKey = "key2";
 		String expectedVal = "val2";
-		assertFileOptionHas(FileOption2, expectedKey, expectedVal);
+		assertFileOptionHas(fileOptions2, expectedKey, expectedVal);
 	}
 
 
