@@ -1,5 +1,7 @@
 package framework;
 
+
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
@@ -18,7 +20,7 @@ import static java.util.regex.Pattern.CASE_INSENSITIVE;
  * (2) Given a line from a .md file, create a FileOption instance from it.
  *      (if the line doesn't contain a valid FileOption, then throw an exception.
  */
-public interface FileOption {
+public class FileOption {
 	/**
 	 * The set of valid {@code FileOption} keys.
 	 */
@@ -27,8 +29,7 @@ public interface FileOption {
 		// Whether the file contains dynamic links
 		D_LINKS("(true|false)", CASE_INSENSITIVE);
 
-
-		public final Pattern validValuesPattern;
+		final Pattern validValuesPattern;
 
 		/**
 		 * @param validValuesRegex regex string representing the set of valid values for the key.
@@ -49,10 +50,47 @@ public interface FileOption {
 
 	}
 
-	static boolean isFileOption(String line) {
-		throw new RuntimeException("Not implemented");
+	private final KEY key;
+	private final String val;
+
+	/**
+	 * Precondition: isFileOption() returns true for {@code FileOptionComment}
+	 * @param FileOptionComment a .md comment of the form `[key] <>(value)` that classifies
+	 *                          as a valid FileOptionComment (see {@link FileOption}#what-is-a-FileOption?)
+	 */
+	public FileOption(String FileOptionComment) {
+		this.key = getFileOptionKeyOf(FileOptionComment);
+		this.val = getValOf(FileOptionComment);
 	}
 
-	String getVal();
+	public static String getKeyOf(String comment) {
+		Matcher matcher = Pattern.compile("^\s*\\[(.*?)]").matcher(comment);
+		matcher.find();
+		return matcher.group(1);
+	}
 
+
+	/* === PRIVATE METHODS */
+
+	private static String getValOf(String comment) {
+		Matcher matcher = Pattern.compile("^.*?].*?\\((.*?)\\)").matcher(comment);
+		matcher.find();
+		return matcher.group(1);
+	}
+
+	/**
+	 * @throws IllegalArgumentException If the key identified of the FileOption isn't valid.
+	 */
+	private static KEY getFileOptionKeyOf(String line) {
+		return KEY.valueOf(getKeyOf(line).toUpperCase());
+	}
+
+
+	/* GETTERS & SETTERS */
+
+	public String getVal() {
+		return val;
+	}
+
+	public KEY getKey() { return key; }
 }

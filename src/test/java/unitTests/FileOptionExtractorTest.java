@@ -1,9 +1,9 @@
 package unitTests;
 
 import framework.FileOption;
-import framework.FileOption;
 import framework.FileOptionExtractor;
 import common.FileOptionExtractorImpl;
+import framework.ValidatorImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,11 +25,10 @@ public class FileOptionExtractorTest {
 
 	private @NotNull FileOptionExtractor extractor;
 
-	private @NotNull final String FILEOPTION1 = "[key1]: <> (val1)";
-	private @NotNull final String FILEOPTION2 = "[key2]: <> (val2)";
-
 	@BeforeEach
 	public void setup() {
+		String FILEOPTION1 = "[key1]: <> (val1)";
+		String FILEOPTION2 = "[key2]: <> (val2)";
 
 		String[] linesToExtractFrom = new String[]{
 				FILEOPTION1,           // Valid fileOption                - Line 1
@@ -101,6 +100,10 @@ public class FileOptionExtractorTest {
 
 	@NotNull
 	private FileOptionExtractor newFileOptionExtractor(String[] linesToExtractFrom) {
-		return new FileOptionExtractorImpl(new FileHandlerStub(linesToExtractFrom));
+		return new FileOptionExtractorImpl(
+				new FileHandlerStub(linesToExtractFrom),
+				ValidatorImpl.getInstance()
+				);
 	}
+
 }

@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOptionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionADSExtractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionADSTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ValidatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionADSExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionADSTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/ValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/ValidatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -59,6 +62,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="last.edited.regexp" value="Sample Text" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../culprit" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
