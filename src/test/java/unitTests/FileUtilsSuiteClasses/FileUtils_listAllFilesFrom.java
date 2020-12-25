@@ -26,7 +26,7 @@ public class FileUtils_listAllFilesFrom {
 	@Test
 	public void shouldRetrieveAllFiles() throws IOException {
 		// Exercise
-		File[] actualFiles = FileUtils.listAllFilesOf(ROOT_FOLDER);
+		File[] actualFiles = FileUtils.listAllFilesFrom(ROOT_FOLDER);
 		// Verify
 		File[] expectedFiles = new File[]{
 			new File(ROOT_ABS_PATH + "/A"),             // 1
@@ -43,7 +43,7 @@ public class FileUtils_listAllFilesFrom {
 	@Test
 	public void shouldRetrieveFilesDepthFirst() throws IOException {
 		// Exercise
-		File[] actualFiles = FileUtils.listAllFilesOf(ROOT_FOLDER);
+		File[] actualFiles = FileUtils.listAllFilesFrom(ROOT_FOLDER);
 		// Verify
 		File[] expectedRelativeOrderOfFolders = new File[]{
 				new File(ROOT_ABS_PATH + "/lvlB"),

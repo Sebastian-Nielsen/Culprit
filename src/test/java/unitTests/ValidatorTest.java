@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 
 import static constants.Constants.*;
+import static constants.FileOptionConstants.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -37,22 +38,9 @@ public class ValidatorTest {
 
 	private boolean isFileOption(String line) {
 		String formattedLine = line.formatted(
-				getArbitraryValidKey(),
-				getArbitraryValidVal()
+				ARBITRARY_KEY_1,
+				ARBITRARY_VAL_1
 		);
-
 		return validator.isFileOption(formattedLine);
 	}
-
-	@NotNull
-	private String getArbitraryValidVal() {
-		return "9cdd0616-7940-4a73-89fa-862627fc8bd5";
-	}
-
-	@NotNull
-	private FileOption.KEY getArbitraryValidKey() {
-		return FileOption.KEY.ID;
-	}
-
-
 }

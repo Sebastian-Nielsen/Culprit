@@ -24,7 +24,6 @@ public class DeployerImplTest {
 	private final String CONTENT_ROOT_DIRNAME = "basicFileHierarchy/root";
 	private final File   CONTENT_ROOT_DIR      = getResourceFile(CONTENT_ROOT_DIRNAME);
 
-
 	@Test
 	public void shouldCopyFileHierarchyToDeployDir(@TempDir File deployFolder) throws Exception {
 		// Fixture

@@ -1,62 +1,42 @@
-Hcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\A
-Kcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB
-Mcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\B
-Qcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC1
-Tcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC1\C1
-Qcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC2
-Tcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC2\C2
-> actual > A
-> actual > lvlB/
-> actual > lvlB/B
-> actual > lvlB/lvlC1/
-> actual > lvlB/lvlC1/C1
-> actual > lvlB/lvlC2/
-> actual > lvlB/lvlC2/C2
-> actual > A
-> actual > lvlB/
-> actual > lvlB/B
-> actual > lvlB/lvlC1/
-> actual > lvlB/lvlC1/C1
-> actual > lvlB/lvlC2/
-> actual > lvlB/lvlC2/C2
-triggered
-7line: [ID]: <> (5fdc6765-6622-4e00-80e1-91b5be6fe0e1)
-true
-valid
-7line: [ID]: <> (686b09f2-9e99-42b3-b2dc-576b43e95cbf)
-true
-valid
-^line: Since this is not a fileOption, the extractor should ignore everything below this line
-false
-triggered
-7line: [ID]: <> (5fdc6765-6622-4e00-80e1-91b5be6fe0e1)
-true
-valid
-7line: [ID]: <> (686b09f2-9e99-42b3-b2dc-576b43e95cbf)
-true
-valid
-^line: Since this is not a fileOption, the extractor should ignore everything below this line
-false
-	triggered
-	7line: [ID]: <> (5fdc6765-6622-4e00-80e1-91b5be6fe0e1)
-	true
-	valid
-	7line: [ID]: <> (686b09f2-9e99-42b3-b2dc-576b43e95cbf)
-	true
-	valid
-	^line: Since this is not a fileOption, the extractor should ignore everything below this line
-	false
-
-> actual > A
-
-> actual > lvlB/
-
-> actual > lvlB/B
-
-> actual > lvlB/lvlC1/
-
-> actual > lvlB/lvlC1/C1
-
-> actual > lvlB/lvlC2/
-
-> actual > lvlB/lvlC2/C2
+h2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
+h2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
+o2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
+x2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
+h3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
+h3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
+o3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
+x3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
+4>The ID of this file: 
+
+%2d424a8f-6fe8-455d-81de-6be20691cf32
+
+†This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the compiler should not do anything to this file. 
+4>The ID of this file:
+
+%1bafbfc7-11d8-4e26-9edc-4ff3092d37a7
+
+3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+2[link to C](3ad5a033-98e0-4842-b89e-555641d90f5c)
+
+3[link to D](4f198863-f01a-428e-8343-6060330501df)
+4>This file has ID:
+
+%3ad5a033-98e0-4842-b89e-555641d90f5c
+
+2[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
+
+3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+3[link to D](4f198863-f01a-428e-8343-6060330501df)
+4>This file has ID: 
+
+%4f198863-f01a-428e-8343-6060330501df
+
+2[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
+
+3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+3[link to C](3ad5a033-98e0-4842-b89e-555641d901df)
+null
+null

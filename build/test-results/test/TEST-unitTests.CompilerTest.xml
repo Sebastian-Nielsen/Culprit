@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="unitTests.CompilerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-25T22:53:30" hostname="DESKTOP-S" time="0.061">
+  <properties/>
+  <testcase name="shouldCompileFilesWhenListOfFileOptionsContainsDLINKS()" classname="unitTests.CompilerTest" time="0.061"/>
+  <system-out><![CDATA[2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
+2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
+2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
+2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
+3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
+3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
+3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
+3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
+4>The ID of this file: 
+
+2d424a8f-6fe8-455d-81de-6be20691cf32
+
+This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the compiler should not do anything to this file. 
+4>The ID of this file:
+
+1bafbfc7-11d8-4e26-9edc-4ff3092d37a7
+
+[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+[link to C](3ad5a033-98e0-4842-b89e-555641d90f5c)
+
+[link to D](4f198863-f01a-428e-8343-6060330501df)
+4>This file has ID:
+
+3ad5a033-98e0-4842-b89e-555641d90f5c
+
+[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
+
+[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+[link to D](4f198863-f01a-428e-8343-6060330501df)
+4>This file has ID: 
+
+4f198863-f01a-428e-8343-6060330501df
+
+[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
+
+[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+[link to C](3ad5a033-98e0-4842-b89e-555641d901df)
+null
+null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -25,7 +25,7 @@ public class FileOption {
 	 * The set of valid {@code FileOption} keys.
 	 */
 	public enum KEY {
-		ID("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"),
+		 ID("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"),
 		// Whether the file contains dynamic links
 		D_LINKS("(true|false)", CASE_INSENSITIVE);
 

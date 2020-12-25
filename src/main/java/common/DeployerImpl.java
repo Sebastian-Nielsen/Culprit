@@ -28,15 +28,15 @@ public class DeployerImpl implements Deployer {
 	}
 
 	public DeployerImpl() {
-		this.contentRootFolder = new File(CWD + "src/content");
-		this.deployRootFolder  = new File(CWD + "src/ioFiles.deployment");
+		this.contentRootFolder = new File(CWD + "content");
+		this.deployRootFolder  = new File(CWD + "deployment");
 	}
 
 
 	@Override
  	public void deploy() throws IOException {
 
-		for (File contentFile : listAllFilesOf(contentRootFolder))
+		for (File contentFile : listAllFilesFrom(contentRootFolder))
 			createDeployFileFrom(contentFile);
 
 	}
@@ -63,7 +63,7 @@ public class DeployerImpl implements Deployer {
 
 	private void createDeployFileFrom(File contentFile) throws IOException {
 		File deployFile = new File(getAbsDeployPath(contentFile));
-		System.out.println("creating: " + deployFile);
+
 		if (contentFile.isFile())
 			deployFile.createNewFile();
 		else
