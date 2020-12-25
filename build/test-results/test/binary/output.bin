@@ -1,0 +1,62 @@
+Hcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\A
+Kcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB
+Mcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\B
+Qcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC1
+Tcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC1\C1
+Qcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC2
+Tcreating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC2\C2
+> actual > A
+> actual > lvlB/
+> actual > lvlB/B
+> actual > lvlB/lvlC1/
+> actual > lvlB/lvlC1/C1
+> actual > lvlB/lvlC2/
+> actual > lvlB/lvlC2/C2
+> actual > A
+> actual > lvlB/
+> actual > lvlB/B
+> actual > lvlB/lvlC1/
+> actual > lvlB/lvlC1/C1
+> actual > lvlB/lvlC2/
+> actual > lvlB/lvlC2/C2
+triggered
+7line: [ID]: <> (5fdc6765-6622-4e00-80e1-91b5be6fe0e1)
+true
+valid
+7line: [ID]: <> (686b09f2-9e99-42b3-b2dc-576b43e95cbf)
+true
+valid
+^line: Since this is not a fileOption, the extractor should ignore everything below this line
+false
+triggered
+7line: [ID]: <> (5fdc6765-6622-4e00-80e1-91b5be6fe0e1)
+true
+valid
+7line: [ID]: <> (686b09f2-9e99-42b3-b2dc-576b43e95cbf)
+true
+valid
+^line: Since this is not a fileOption, the extractor should ignore everything below this line
+false
+	triggered
+	7line: [ID]: <> (5fdc6765-6622-4e00-80e1-91b5be6fe0e1)
+	true
+	valid
+	7line: [ID]: <> (686b09f2-9e99-42b3-b2dc-576b43e95cbf)
+	true
+	valid
+	^line: Since this is not a fileOption, the extractor should ignore everything below this line
+	false
+
+> actual > A
+
+> actual > lvlB/
+
+> actual > lvlB/B
+
+> actual > lvlB/lvlC1/
+
+> actual > lvlB/lvlC1/C1
+
+> actual > lvlB/lvlC2/
+
+> actual > lvlB/lvlC2/C2

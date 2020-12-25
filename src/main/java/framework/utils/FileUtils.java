@@ -28,12 +28,12 @@ public class FileUtils {
 		String basePath = "" + folder;
 		URI uri = new File(basePath).toURI();
 
-//		System.out.println("base: " + base);
+//		System.out.println("base: " +   base);
 //		System.out.println(uri + " sadflkj ");
 
 		return Arrays.stream(listAllFilesOf(folder))
 				.map(file -> getRelativePath(file, uri))
-//				.peek(file -> System.out.println("> actual > " +file))
+				.peek(file -> System.out.println("> actual > " +file))
 				.toArray(String[]::new);
 	}
 

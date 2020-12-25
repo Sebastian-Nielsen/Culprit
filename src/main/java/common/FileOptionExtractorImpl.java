@@ -21,12 +21,19 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 
 	@Override
 	public List<FileOption> extractFileOptionsFrom(File file) throws IOException {
+		System.out.println("triggered");
 		List<FileOption> fileOptions = new ArrayList<>();
 
 		while (fileHandler.hasNext()) {
 			String line = fileHandler.readLine();
-			if (validator.isFileOption(line)) // TODO get this out in a validator class that is injectable https://stackoverflow.com/a/62629620/7123519
+
+			System.out.println("line: " + line);
+			System.out.println(validator.isFileOption(line));
+
+			if (validator.isFileOption(line)) {
+				System.out.println("valid");
 				fileOptions.add(new FileOption(line));
+			}
 			else
 				break;
 		}

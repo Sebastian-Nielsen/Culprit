@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T18:34:14" hostname="DESKTOP-S" time="0.01">
+<testsuite name="unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-25T12:22:19" hostname="DESKTOP-S" time="0.005">
   <properties/>
-  <testcase name="shouldRetrieveAllRelativePaths()" classname="unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom" time="0.01"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="shouldRetrieveAllRelativePaths()" classname="unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom" time="0.005"/>
+  <system-out><![CDATA[> actual > A
+> actual > lvlB/
+> actual > lvlB/B
+> actual > lvlB/lvlC1/
+> actual > lvlB/lvlC1/C1
+> actual > lvlB/lvlC2/
+> actual > lvlB/lvlC2/C2
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

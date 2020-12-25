@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unitTests.DeployerImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-21T18:34:14" hostname="DESKTOP-S" time="0.148">
+<testsuite name="unitTests.DeployerImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-25T12:22:19" hostname="DESKTOP-S" time="0.078">
   <properties/>
-  <testcase name="shouldCopyFileHierarchyToDeployDir(File)" classname="unitTests.DeployerImplTest" time="0.148"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="shouldCopyFileHierarchyToDeployDir(File)" classname="unitTests.DeployerImplTest" time="0.078"/>
+  <system-out><![CDATA[creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\A
+creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB
+creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\B
+creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC1
+creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC1\C1
+creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC2
+creating: C:\Users\sebas\AppData\Local\Temp\junit9891046323207451077\lvlB\lvlC2\C2
+> actual > A
+> actual > lvlB/
+> actual > lvlB/B
+> actual > lvlB/lvlC1/
+> actual > lvlB/lvlC1/C1
+> actual > lvlB/lvlC2/
+> actual > lvlB/lvlC2/C2
+> actual > A
+> actual > lvlB/
+> actual > lvlB/B
+> actual > lvlB/lvlC1/
+> actual > lvlB/lvlC1/C1
+> actual > lvlB/lvlC2/
+> actual > lvlB/lvlC2/C2
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -4,18 +4,20 @@ common/FileHandlerImpl.java
  common.FileHandlerImpl
 framework/Constants/Constants.java
  framework.Constants.Constants
-framework/utils/FileUtils.java
- framework.utils.FileUtils
-common/DeployerImpl.java
- common.DeployerImpl
-framework/Deployer.java
- framework.Deployer
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
 framework/Validator.java
  framework.Validator
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 framework/FileOption.java
  framework.FileOption
  framework.FileOption$KEY
+framework/Deployer.java
+ framework.Deployer
+framework/utils/FileUtils.java
+ framework.utils.FileUtils
+framework/ValidatorImpl.java
+ framework.ValidatorImpl
 common/FileOptionExtractorImpl.java
  common.FileOptionExtractorImpl
+common/DeployerImpl.java
+ common.DeployerImpl

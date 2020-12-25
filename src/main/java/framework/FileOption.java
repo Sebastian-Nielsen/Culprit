@@ -24,12 +24,12 @@ public class FileOption {
 	/**
 	 * The set of valid {@code FileOption} keys.
 	 */
-	enum KEY {
+	public enum KEY {
 		ID("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"),
 		// Whether the file contains dynamic links
 		D_LINKS("(true|false)", CASE_INSENSITIVE);
 
-		final Pattern validValuesPattern;
+		private final Pattern validValuesPattern;
 
 		/**
 		 * @param validValuesRegex regex string representing the set of valid values for the key.
@@ -48,9 +48,14 @@ public class FileOption {
 			return false;
 		}
 
+		public boolean isValidValue(String value) {
+			Matcher matcher = validValuesPattern.matcher(value);
+			return matcher.find();
+
+		}
 	}
 
-	private final KEY key;
+	private final String key;
 	private final String val;
 
 	/**
@@ -59,7 +64,7 @@ public class FileOption {
 	 *                          as a valid FileOptionComment (see {@link FileOption}#what-is-a-FileOption?)
 	 */
 	public FileOption(String FileOptionComment) {
-		this.key = getFileOptionKeyOf(FileOptionComment);
+		this.key = getKeyOf(FileOptionComment);
 		this.val = getValOf(FileOptionComment);
 	}
 
@@ -69,14 +74,14 @@ public class FileOption {
 		return matcher.group(1);
 	}
 
-
-	/* === PRIVATE METHODS */
-
-	private static String getValOf(String comment) {
+	public static String getValOf(String comment) {
 		Matcher matcher = Pattern.compile("^.*?].*?\\((.*?)\\)").matcher(comment);
 		matcher.find();
 		return matcher.group(1);
 	}
+
+
+	/* === PRIVATE METHODS */
 
 	/**
 	 * @throws IllegalArgumentException If the key identified of the FileOption isn't valid.
@@ -88,9 +93,12 @@ public class FileOption {
 
 	/* GETTERS & SETTERS */
 
+	public String getKey() {
+		return key;
+	}
+
 	public String getVal() {
 		return val;
 	}
 
-	public KEY getKey() { return key; }
 }

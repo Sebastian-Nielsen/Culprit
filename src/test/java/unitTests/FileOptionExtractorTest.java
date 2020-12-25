@@ -3,6 +3,7 @@ package unitTests;
 import framework.FileOption;
 import framework.FileOptionExtractor;
 import common.FileOptionExtractorImpl;
+import framework.Validator;
 import framework.ValidatorImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import static constants.FileOptionConstants.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,25 +26,43 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class FileOptionExtractorTest {
 
 	private @NotNull FileOptionExtractor extractor;
+	private @NotNull final Validator validator = ValidatorImpl.getInstance();
+
+	private String EXPECTED_KEY1;
+	private String EXPECTED_VAL1;
+	private String EXPECTED_KEY2;
+	private String EXPECTED_VAL2;
 
 	@BeforeEach
 	public void setup() {
-		String FILEOPTION1 = "[key1]: <> (val1)";
-		String FILEOPTION2 = "[key2]: <> (val2)";
+		EXPECTED_KEY1 = ARBITRARY_KEY_1;
+		EXPECTED_VAL1 = ARBITRARY_VAL_1;
+		String ARBITRARY_FILEOPTION_1 = FILEOPTION_TEMPLATE.formatted(ARBITRARY_KEY_1, ARBITRARY_VAL_1);
+
+		EXPECTED_KEY2 = ARBITRARY_KEY_2;
+		EXPECTED_VAL2 = ARBITRARY_VAL_2;
+		String ARBITRARY_FILEOPTION_2 = FILEOPTION_TEMPLATE.formatted(ARBITRARY_KEY_2, ARBITRARY_VAL_2);
+
+		assertValidFileOptions(ARBITRARY_FILEOPTION_1, ARBITRARY_FILEOPTION_1);
 
 		String[] linesToExtractFrom = new String[]{
-				FILEOPTION1,           // Valid fileOption                - Line 1
-				FILEOPTION2,           // Valid fileOption                - Line 2
-				"Since this is not a fileOption, the extractor" +   //    - Line 3
+				ARBITRARY_FILEOPTION_1,  // VALID                      - Line 1
+				ARBITRARY_FILEOPTION_2,  // VALID                      - Line 2
+				"Since this is not a fileOption, the extractor" +   // - Line 3
 						" should ignore everything below this line",
-				"[key3]: <> (val3)"    // INVALID fileOption              - Line 4
+				ARBITRARY_FILEOPTION_3, // INVALID ∵ bad position      - Line 4
 		};
 
 		extractor = newFileOptionExtractor(linesToExtractFrom);
 	}
 
+	private void assertValidFileOptions(String fileoption1, String fileoption2) {
+		assertTrue(validator.isFileOption(fileoption1), "Invalid FileOption");
+		assertTrue(validator.isFileOption(fileoption2), "Invalid FileOption");
+	}
 
-	@Test   // TODO FIX THIS SHIT
+
+	@Test
 	public void shouldExtractTwoFileOptions() throws IOException {
 		// Exercise
 		final List<FileOption> fileOptions;
@@ -58,9 +78,7 @@ public class FileOptionExtractorTest {
 		fileOptions = extractFileOptions();
 		// Verify
 		FileOption fileOptions1 = getFirstOf(fileOptions);
-		String expectedKey = "key1";
-		String expectedVal = "val1";
-		assertFileOptionHas(fileOptions1, expectedKey, expectedVal);
+		assertFileOptionHas(fileOptions1, EXPECTED_KEY1, EXPECTED_VAL1);
 	}
 
 	@Test
@@ -70,9 +88,7 @@ public class FileOptionExtractorTest {
 		fileOptions = extractFileOptions();
 		// Verify
 		FileOption fileOptions2 = getSecondOf(fileOptions);
-		String expectedKey = "key2";
-		String expectedVal = "val2";
-		assertFileOptionHas(fileOptions2, expectedKey, expectedVal);
+		assertFileOptionHas(fileOptions2, EXPECTED_KEY2, EXPECTED_VAL2);
 	}
 
 
@@ -102,7 +118,7 @@ public class FileOptionExtractorTest {
 	private FileOptionExtractor newFileOptionExtractor(String[] linesToExtractFrom) {
 		return new FileOptionExtractorImpl(
 				new FileHandlerStub(linesToExtractFrom),
-				ValidatorImpl.getInstance()
+				validator
 				);
 	}
 

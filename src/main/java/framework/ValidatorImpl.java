@@ -1,6 +1,7 @@
 package framework;
 
 import static framework.FileOption.getKeyOf;
+import static framework.FileOption.getValOf;
 
 public class ValidatorImpl implements Validator {
 	private static final Validator instance = new ValidatorImpl();
@@ -8,8 +9,7 @@ public class ValidatorImpl implements Validator {
 	private ValidatorImpl() {}
 
 	/**
-	 * FileOption format:  (== markdown comment)
-	 *      `[whatever]:<> (whatever2)`
+	 * FileOption format: `[key]:<> (value)`
 	 * @return True if {@code line} complies to the FileOption format, false otherwise.
 	 */
 	@Override
@@ -17,12 +17,16 @@ public class ValidatorImpl implements Validator {
 		if (line == null)
 			return false;
 
-		boolean isValidMdComment = line.matches(" {0,3}\\[.*?]:\s*<>\s+\\(.*?\\)\s*");
-		if (!isValidMdComment)
+		boolean isValidMdCommentFormat = line.matches(" {0,3}\\[.*?]:\s*<>\s+\\(.*?\\)\s*");
+		if (!isValidMdCommentFormat)
 			return false;
 
-		boolean hasValidKey = FileOption.KEY.contains(FileOption.getKeyOf(line));
+		boolean hasValidKey = FileOption.KEY.contains(getKeyOf(line));
 		if (!hasValidKey)
+			return false;
+
+		boolean hasValidValue = FileOption.KEY.valueOf(getKeyOf(line)).isValidValue(getValOf(line));
+		if (!hasValidValue)
 			return false;
 
 		return true;

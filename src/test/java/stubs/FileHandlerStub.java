@@ -12,6 +12,12 @@ public class FileHandlerStub implements FileHandler {
 	private int index = 0;
 
 	public FileHandlerStub(String[] lines) {
+//		System.out.println("FileHandlerStub constructor");
+//		System.out.println("-----------");
+//		for (String line : lines) {
+//			System.out.println(line);
+//		}
+//		System.out.println("-----------");
 		this.lines = lines;
 	}
 

@@ -37,7 +37,6 @@ public class DeployerImpl implements Deployer {
  	public void deploy() throws IOException {
 
 		for (File contentFile : listAllFilesOf(contentRootFolder))
-
 			createDeployFileFrom(contentFile);
 
 	}
@@ -64,10 +63,11 @@ public class DeployerImpl implements Deployer {
 
 	private void createDeployFileFrom(File contentFile) throws IOException {
 		File deployFile = new File(getAbsDeployPath(contentFile));
-
+		System.out.println("creating: " + deployFile);
 		if (contentFile.isFile())
 			deployFile.createNewFile();
 		else
 			deployFile.mkdirs();
+
 	}
 }
