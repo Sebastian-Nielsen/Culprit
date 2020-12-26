@@ -17,5 +17,5 @@ public interface Compiler {
 	 * respective compiled content.
 	 * @param fileToKeyToVal
 	 */
-	public Map<File, String> compile(Map<File, Map<String, String>> fileToKeyToVal) throws IOException;
+	public Map<File, String> compile(Map<File, Map<FileOption.KEY, String>> fileToKeyToVal) throws IOException;
 }

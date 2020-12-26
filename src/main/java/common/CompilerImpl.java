@@ -56,7 +56,7 @@ public class CompilerImpl implements Compiler {
 	}
 
 
-	public Map<File, String> compile(Map<File, Map<String, String>> fileToKeyToVal) throws IOException {
+	public Map<File, String> compile(Map<File, Map<KEY, String>> fileToKeyToVal) throws IOException {
 		Map<File, String> fileToCompiledContent = new HashMap<>();
 
 		for (File file : listAllNonDirFilesFrom(contentRootFolder))
@@ -69,8 +69,9 @@ public class CompilerImpl implements Compiler {
 		return fileToCompiledContent;
 	}
 
-	private String compile(File file, Map<String, String> keyToVal) throws IOException {
-		KEY ID = keyToVal.getOrDefault(ID, null);
+	private String compile(File file, Map<KEY, String> keyToVal) throws IOException {
+		String ID_val     = keyToVal.get(KEY.ID);
+		String DLINKS_val = keyToVal.getOrDefault(KEY.D_LINKS, "false");
 
 
 		return String.join("\n", Files.readAllLines(file.toPath()));
