@@ -1,42 +1,42 @@
-h2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-h2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-o2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-x2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
-h3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-h3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-o3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-x3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
-4>The ID of this file: 
-
-%2d424a8f-6fe8-455d-81de-6be20691cf32
-
-†This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the compiler should not do anything to this file. 
-4>The ID of this file:
-
-%1bafbfc7-11d8-4e26-9edc-4ff3092d37a7
-
-3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
-
-2[link to C](3ad5a033-98e0-4842-b89e-555641d90f5c)
-
-3[link to D](4f198863-f01a-428e-8343-6060330501df)
-4>This file has ID:
-
-%3ad5a033-98e0-4842-b89e-555641d90f5c
-
-2[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
-
-3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
-
-3[link to D](4f198863-f01a-428e-8343-6060330501df)
-4>This file has ID: 
-
-%4f198863-f01a-428e-8343-6060330501df
-
-2[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
-
-3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
-
-3[link to C](3ad5a033-98e0-4842-b89e-555641d901df)
-null
-null
+h2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
+h2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
+o2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
+x2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
+h3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
+h3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
+o3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
+x3>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
+4>The ID of this file: 
+
+%2d424a8f-6fe8-455d-81de-6be20691cf32
+
+†This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the compiler should not do anything to this file. 
+4>The ID of this file:
+
+%1bafbfc7-11d8-4e26-9edc-4ff3092d37a7
+
+3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+2[link to C](3ad5a033-98e0-4842-b89e-555641d90f5c)
+
+3[link to D](4f198863-f01a-428e-8343-6060330501df)
+4>This file has ID:
+
+%3ad5a033-98e0-4842-b89e-555641d90f5c
+
+2[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
+
+3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+3[link to D](4f198863-f01a-428e-8343-6060330501df)
+4>This file has ID: 
+
+%4f198863-f01a-428e-8343-6060330501df
+
+2[link to A](1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)
+
+3[link to B](2d424a8f-6fe8-455d-81de-6be20691cf32) 
+
+3[link to C](3ad5a033-98e0-4842-b89e-555641d901df)
+null
+null

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unitTests.CompilerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-25T22:53:30" hostname="DESKTOP-S" time="0.061">
+<testsuite name="unitTests.CompilerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-26T12:25:42" hostname="DESKTOP-S" time="0.041">
   <properties/>
-  <testcase name="shouldCompileFilesWhenListOfFileOptionsContainsDLINKS()" classname="unitTests.CompilerTest" time="0.061"/>
+  <testcase name="shouldCompileFilesWhenListOfFileOptionsContainsDLINKS()" classname="unitTests.CompilerTest" time="0.041"/>
   <system-out><![CDATA[2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
 2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
 2<C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md

@@ -2,20 +2,20 @@ package framework;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 public interface Compiler {
 	/**
-	 * A prescan has to be carried out before compile.
-	 */
-	public void prescan();
+	 *
+//	 */
+//	void preprocess(Map<File, Map<String, String>> fileToKeyToVal);
 
 	/**
 	 * Compiles all files in *deployment*.
 	 * Precondition: `prescan` must've been run prior.
 	 * @return a map of each {@code File} in *deployment* to their
 	 * respective compiled content.
+	 * @param fileToKeyToVal
 	 */
-	public Map<File, String> compile(Map<File, List<FileOption>> fileToListOfFileOption) throws IOException;
+	public Map<File, String> compile(Map<File, Map<String, String>> fileToKeyToVal) throws IOException;
 }

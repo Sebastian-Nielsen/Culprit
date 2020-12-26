@@ -5,19 +5,13 @@ import framework.Compiler;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Map.*;
-
-import static framework.utils.FileUtils.listAllFilesFrom;
 import static framework.utils.FileUtils.listAllNonDirFilesFrom;
 
 import framework.FileOption;
-
-import javax.management.RuntimeErrorException;
 
 import static framework.FileOption.KEY.*;
 import static framework.FileOption.KEY;
@@ -30,12 +24,13 @@ public class CompilerImpl implements Compiler {
 		this.contentRootFolder = contentRootFolder;
 	}
 
-	public void preprocess(Map<File, List<FileOption>> fileToListOfFileOption) {
-		for (Entry<File, List<FileOption>> e : fileToListOfFileOption.entrySet()) {
-			File file                    = e.getKey();
-			List<FileOption> fileOptions = e.getValue();
+	public void preprocess(Map<File, Map<String, String>> fileToKeyToVal) {
+		for (File file : fileToKeyToVal.keySet()) {
+			Map<String, String> keyToVal = fileToKeyToVal.get(file);
 
-			processFileOptionsOf(file, fileOptions);
+			System.out.println("12038: " + keyToVal.get(ID));
+
+//			processFileOptionsOf(file, fileOptions);
 
 //			fileToID.put(
 //				file,
@@ -60,24 +55,24 @@ public class CompilerImpl implements Compiler {
 		}
 	}
 
-	public void prescan() {
-//		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
-//
-//		}
+
+	public Map<File, String> compile(Map<File, Map<String, String>> fileToKeyToVal) throws IOException {
+		Map<File, String> fileToCompiledContent = new HashMap<>();
+
+		for (File file : listAllNonDirFilesFrom(contentRootFolder))
+			fileToCompiledContent.put(
+					file,
+					compile(file, fileToKeyToVal.get(file))
+			);
+
+
+		return fileToCompiledContent;
 	}
 
-	public Map<File, String> compile(Map<File, List<FileOption>>  fileToListOfFileOption) throws IOException {
-		Map<File, String> m = new HashMap<>();
+	private String compile(File file, Map<String, String> keyToVal) throws IOException {
+		KEY ID = keyToVal.getOrDefault(ID, null);
 
-		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
-			String compiledContent = compile(file);
-			m.put(file, compiledContent);
-		}
 
-		return m;
-	}
-
-	private String compile(File file) throws IOException {
 		return String.join("\n", Files.readAllLines(file.toPath()));
 	}
 }

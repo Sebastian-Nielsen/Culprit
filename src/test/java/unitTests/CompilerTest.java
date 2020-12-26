@@ -57,16 +57,16 @@ public class CompilerTest {
 				new FileOption("[D_LINKS]: <> (true)")
 		);
 
-		final Map<File, List<FileOption>> fileToListOfFileOptions = Map.of(
-				fileA, fileOptionsOfFileA,
-				fileB, fileOptionsOfFileB,
-				fileC, fileOptionsOfFileC,
-				fileD, fileOptionsOfFileD
-		);
+//		final Map<File, Map<FileOption.KEY, String>> fileToListOfFileOptions = Map.of(
+//				fileA, Map.of(),
+//				fileB, fileOptionsOfFileB,
+//				fileC, fileOptionsOfFileC,
+//				fileD, fileOptionsOfFileD
+//		);
 
 		compiler = new CompilerImpl(contentRootFolder);
 		// Exercise
-		Map<File, String> fileToCompiledContent = compiler.compile(fileToListOfFileOptions);
+//		Map<File, String> fileToCompiledContent = compiler.compile(fileToListOfFileOptions);
 		// Verify
 		Map<File, String> actual, expected;
 		expected = filesToTheirContent(contentRootFolder);

@@ -14,8 +14,8 @@ constants/Constants.java
  constants.Constants
 unitTests/FileOptionTest.java
  unitTests.FileOptionTest
-unitTests/CompilerImplTest.java
- unitTests.CompilerImplTest
+unitTests/DeployerImplTest.java
+ unitTests.DeployerImplTest
 testHelper/TestHelper.java
  testHelper.TestHelper
 unitTests/ValidatorTest.java
@@ -24,9 +24,9 @@ unitTests/FileUtilsSuiteClasses/FileUtils_miscellaneous.java
  unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous
 unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java
  unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom
-unitTests/DeployerImplTest.java
- unitTests.DeployerImplTest
 unitTests/CompilerTest.java
  unitTests.CompilerTest
+unitTests/CompilerImplTest.java
+ unitTests.CompilerImplTest
 unitTests/FileOptionExtractorTest.java
  unitTests.FileOptionExtractorTest

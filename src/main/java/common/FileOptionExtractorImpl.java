@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static framework.FileOption.KEY.ID;
+
 public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	private final FileHandler fileHandler;
 	private final Validator validator;
@@ -21,20 +23,20 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 		this.validator = validator;
 	}
 
-	public Map<FileOption.KEY, String> extractKeyToValMapFrom(File file) throws IOException {
-		Map<FileOption.KEY, String> keysToVal = new HashMap<>();
+	public Map<String, String> extractKeyToValMapFrom(File file) throws IOException {
+		Map<String, String> keysToVal = new HashMap<>();
 
 		while (fileHandler.hasNext()) {
 			String line = fileHandler.readLine();
 
 			if (validator.isFileOption(line)) {
-				FileOption fo = new FileOption(line);
+				FileOption fo =  new FileOption(line);
 				keysToVal.put(fo.getKey(), fo.getVal());
 			} else
 				break;
 		}
 
-		return fileOptions;
+		return keysToVal;
 	}
 
 	@Override
