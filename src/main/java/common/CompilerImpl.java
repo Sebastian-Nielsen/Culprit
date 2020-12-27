@@ -7,14 +7,12 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import framework.FileOption;
-import org.apache.commons.io.FileUtils;
 
 import static framework.FileOption.KEY.*;
 import static framework.FileOption.KEY;
@@ -23,7 +21,7 @@ import static org.apache.commons.io.FileUtils.readFileToString;
 
 public class CompilerImpl implements Compiler {
 	private final File contentRootFolder;
-	private final Map<String, File> IDToFile = new HashMap<>();
+	private final Map<String, File> IDValToFile = new HashMap<>();
 
 	public CompilerImpl(File contentRootFolder) {
 		this.contentRootFolder = contentRootFolder;
@@ -40,15 +38,13 @@ public class CompilerImpl implements Compiler {
 
 			assertHasAllRequiredFileOptions(file, fileToKeyToVal);
 
-			recordIDAndFile(file, fileToKeyToVal);
+			recordIDValAndFile(file, fileToKeyToVal);
 		}
 
 	}
 
-	private void recordIDAndFile(File file, Map<File, Map<KEY, String>> fileToKeyToVal) {
-		Map<KEY, String> keyToVal = fileToKeyToVal.get(file);
-
-			IDToFile.put(
+	private void recordIDValAndFile(File file, Map<File, Map<KEY, String>> fileToKeyToVal) {
+			IDValToFile.put(
 					fileToKeyToVal.get(file).get(ID),
 					file
 			);
@@ -72,21 +68,6 @@ public class CompilerImpl implements Compiler {
 
 	}
 
-//	private void processFileOptionsOf(File file, List<FileOption> fileOptions) {
-//		for (FileOption fileOption : fileOptions) {
-//			KEY key = KEY.valueOf(fileOption.getKey());
-//
-//			switch (key) {
-//				case ID:
-//					fileToID.put(file, ID);
-//					break;
-//				case D_LINKS:
-//					break;
-//				default:
-//					throw new RuntimeException("We shouldn't hit this ever");
-//			}
-//		}
-//	}
 
 	public Map<File, String> compile(Map<File, Map<KEY, String>> fileToKeyToVal) throws IOException {
 		Map<File, String> fileToCompiledContent = new HashMap<>();
@@ -103,10 +84,6 @@ public class CompilerImpl implements Compiler {
 
 	private String compile(File fileToCompile, Map<KEY, String> keyToVal) throws IOException {
 		String content = contentOf(fileToCompile);
-
-//		System.out.println("======");
-//		System.out.println(fileToCompile);
-//		System.out.println(keyToVal.get(ID));
 
 //		String ID_val     = keyToVal.getOrDefault(KEY.ID,      KEY.ID.getDefaultVal(fileToCompile));
 		String DLINKS_val = keyToVal.getOrDefault(KEY.D_LINKS, "false");
@@ -140,8 +117,7 @@ public class CompilerImpl implements Compiler {
 		if (!matcher.find())
 			return contentOfFileToCompile;
 
-		String temp = replaceAllIDsWithFilePaths(matcher, fileToCompile);
-		return temp;
+		return replaceAllIDsWithFilePaths(matcher, fileToCompile);
 	}
 
 	private String replaceAllIDsWithFilePaths(Matcher matcher, File file) {
@@ -149,50 +125,45 @@ public class CompilerImpl implements Compiler {
 		do {
 			String linkText   = matcher.group(1);
 			String id         = matcher.group(2);
-			String pathToFile = convertToRelativeFilePath(id, file);
+			File fileOfID     = IDValToFile.get(id);
+			String pathToFile = relativeFilePathBetween(file, fileOfID);
 			String replacement = "[" + linkText + "](" + pathToFile + ")";
 
 			matcher.appendReplacement(buffer, replacement);
 		} while (matcher.find());
-		// For some reason stringbuffer adds '\r', which makes our tests fail because our
-		// expected doesn't have any "\r", so remove all '\r'.
+
 		return buffer.toString();
 	}
 
-	private String convertToRelativeFilePath(String id, File file) {
-		Path base = Paths.get("" + file);
-		Path inRelationTo = Paths.get(normalize("" + IDToFile.get(id)));
-		System.out.println("okay ye");
-		System.out.println("==========");
-		System.out.println(id);
-		for (String key : IDToFile.keySet()) {
-			System.out.println(key + ">6>" + IDToFile.get(key));
-		}
-		System.out.println(IDToFile.get(id));
-		System.out.println("==========");
-		System.out.println(base);
-		System.out.println(inRelationTo);
-		return base.relativize(inRelationTo).toString();
+	/**
+	 * Calculates the relative file path; E.g.
+	 * +-------------------------------------------------------------------------+
+	 * |baseFile: "resources/compilerTest_testFiles/D_LINKS/expected/nested/C.md"|
+	 * |  toFile: "resources/compilerTest_testFiles/D_LINKS/expected/A.md"       |
+	 * |                ->                                                       |                    |
+	 * | @return    "./../A.md"                                                  |
+	 * +-------------------------------------------------------------------------+
+	 * @param baseFile file from which to start  the relative path from
+	 * @param toFile   file to   which to end up the relative path to
+	 * @return relative filePath, e.g. "./../B.md"
+	 */
+	private String relativeFilePathBetween(File baseFile, File toFile) {
+		Path baseFilePath = Paths.get("" + baseFile);
+		Path   toFilePath = Paths.get(normalize("" + toFile));
+
+		String relativePath = baseFilePath.relativize(toFilePath).toString();
+
+		relativePath = relativePath.replaceAll("\\\\", "/");
+		relativePath = removeLeadingDot(relativePath);
+
+		return relativePath;
 	}
 
-//	private String replaceLinksIn(File file, String toReplace) {
-//		try {
-//			String content = FileUtils.readFileToString(file, "UTF-8");
-//			Matcher matcher = Pattern.compile(toReplace).matcher(content);
-//			StringBuffer s = new StringBuffer();
-//			while (matcher.find()) {
-////				System.out.println("group 2 match: " + matcher.group(2) + " -> " + getPathOf(matcher.group(2)));
-//				matcher.appendReplacement(s,
-//						"[" + matcher.group(1) + "](" + getPathOf(matcher.group(2)) + ")");
-//			}
-//			content = s.toString();
-//
-//			FileUtils.writeStringToFile(file, content, "UTF-8");
-//
-//			return content;
-//		} catch (IOException e) {
-//			throw new RuntimeException("Generating file failed:\n " + e);
-//		}
-//	}
+	private String removeLeadingDot(String relativePath) {
+		if (relativePath.startsWith("."))
+			return relativePath.substring(1);
+		return relativePath;
+	}
+
 
 }

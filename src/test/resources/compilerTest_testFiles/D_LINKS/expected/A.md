@@ -4,6 +4,6 @@ The ID of this file:
 
 [link to B](./B.md) 
 
-[link to C](nested/C.md)
+[link to C](./nested/C.md)
 
-[link to D](nested/x2Nested/D.md)
+[link to D](./nested/x2nested/D.md)

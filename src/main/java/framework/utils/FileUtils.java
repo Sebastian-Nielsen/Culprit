@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.apache.commons.io.FileUtils.readFileToString;
+
 public class FileUtils {
 
 	/**
@@ -101,8 +103,10 @@ public class FileUtils {
 	}
 
 	public static String contentOf(File file) throws IOException {
-		return org.apache.commons.io.
-				FileUtils.readFileToString(file, "UTF-8").replaceAll("\r","");
+		String content = readFileToString(file, "UTF-8");
+		// For some reason ´readFileToString` adds '\r', which makes our tests fail because our
+		// expected doesn't have any "\r", so remove all '\r'.
+		return content.replaceAll("\r","");
 	}
 }
 

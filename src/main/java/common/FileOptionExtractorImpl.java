@@ -11,27 +11,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static framework.FileOption.KEY.ID;
+import static framework.FileOption.KEY;
 
 public class  FileOptionExtractorImpl implements FileOptionExtractor {
-	private final FileHandler fileHandler;
 	private final Validator validator;
+	private final FileHandler fileHandler;
 
 	public FileOptionExtractorImpl(FileHandler fileHandler, Validator validator) {
 		this.fileHandler = fileHandler;
 		this.validator = validator;
 	}
 
-	public Map<String, String> extractKeyToValMapFrom(File file) throws IOException {
-		Map<String, String> keysToVal = new HashMap<>();
+	@Override
+	public Map<KEY, String> extractKeyToValMapFrom(File file) throws IOException {
+		Map<KEY, String> keysToVal = new HashMap<>();
 
 		while (fileHandler.hasNext()) {
 			String line = fileHandler.readLine();
 
 			if (validator.isFileOption(line)) {
 				FileOption fo =  new FileOption(line);
-				keysToVal.put(fo.getKey(), fo.getVal());
+				keysToVal.put(KEY.valueOf(fo.getKey()), fo.getVal());
 			} else
 				break;
 		}
@@ -40,7 +40,7 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	}
 
 	@Override
-	public List<FileOption> extractFileOptionsFrom(File file) throws IOException {
+	public List<FileOption> extractFileOptions() throws IOException {
 		List<FileOption> fileOptions = new ArrayList<>();
 
 		while (fileHandler.hasNext()) {

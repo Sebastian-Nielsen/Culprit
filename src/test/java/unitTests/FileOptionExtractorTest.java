@@ -66,7 +66,7 @@ public class FileOptionExtractorTest {
 	public void shouldExtractTwoFileOptions() throws IOException {
 		// Exercise
 		final List<FileOption> fileOptions;
-		fileOptions = extractFileOptions();
+		fileOptions = extractor.extractFileOptions();
 		// Verify
 		assertEquals(fileOptions.size(), 2);
 	}
@@ -75,7 +75,7 @@ public class FileOptionExtractorTest {
 	public void shouldExtractFileOption1AsTheFirst() throws IOException {
 		// Exercise
 		final List<FileOption> fileOptions;
-		fileOptions = extractFileOptions();
+		fileOptions = extractor.extractFileOptions();
 		// Verify
 		FileOption fileOptions1 = getFirstOf(fileOptions);
 		assertFileOptionHas(fileOptions1, EXPECTED_KEY1, EXPECTED_VAL1);
@@ -85,7 +85,7 @@ public class FileOptionExtractorTest {
 	public void shouldExtractFileOption2AsTheSecond() throws IOException {
 		// Exercise
 		final List<FileOption> fileOptions;
-		fileOptions = extractFileOptions();
+		fileOptions = extractor.extractFileOptions();
 		// Verify
 		FileOption fileOptions2 = getSecondOf(fileOptions);
 		assertFileOptionHas(fileOptions2, EXPECTED_KEY2, EXPECTED_VAL2);
@@ -105,13 +105,6 @@ public class FileOptionExtractorTest {
 	private void assertFileOptionHas(FileOption fileOption, String expectedKey, String expectedVal) {
 		assertThat(fileOption.getKey(), is(expectedKey));
 		assertThat(fileOption.getVal(), is(expectedVal));
-	}
-
-	private List<FileOption> extractFileOptions() throws IOException {
-		File dummyFile = null;
-		// The file is not used in `extractFileOptionsFrom` since the fileHandler 
-		// is stubbed to return some hard-coded text. Hence why we use a dummy file.
-		return extractor.extractFileOptionsFrom(dummyFile);
 	}
 
 	@NotNull

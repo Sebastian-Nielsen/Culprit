@@ -21,6 +21,7 @@ import java.util.Map;
 
 import static framework.utils.FileUtils.filesToTheirContent;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static testHelper.TestHelper.getResourceFile;
 
 /**
@@ -35,7 +36,7 @@ public class CompilerTest {
 	}
 
 	@Test
-	public void shouldCompileFilesWhenListOfFileOptionsContainsDLINKS() throws IOException {
+	public void shouldCompileDLINKSInFiles() throws IOException {
 		// Fixture
 		final String EXPECTED_ROOT_PATH = "compilerTest_testFiles/D_LINKS/expected";
 		final String    INPUT_ROOT_PATH = "compilerTest_testFiles/D_LINKS/input";
@@ -78,6 +79,9 @@ public class CompilerTest {
 		assertIdenticalMaps(actual, expected);
 	}
 
+
+	/* === PRIVATE METHODS */
+
 	private void assertIdenticalMaps(Map<File, String> actual,
 	                                 Map<File, String> expected) {
 
@@ -86,7 +90,14 @@ public class CompilerTest {
 		Collection<String> expectedCompiledContent = expected.values();
 		Collection<String>   actualCompiledContent =   actual.values();
 
-		assertEquals(actualCompiledContent, expectedCompiledContent);
+		assertContainsSameElements(actualCompiledContent, expectedCompiledContent);
+	}
+
+	private void assertContainsSameElements(Collection<String> actualCompiledContent, Collection<String> expectedCompiledContent) {
+		assertTrue(
+				  actualCompiledContent.containsAll(expectedCompiledContent)  &&
+				expectedCompiledContent.containsAll(  actualCompiledContent)
+		);
 	}
 
 	private void assertIdenticalLengths(Map<File, String> actual,

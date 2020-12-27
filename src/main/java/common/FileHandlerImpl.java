@@ -18,21 +18,6 @@ public class FileHandlerImpl implements FileHandler, AutoCloseable {
 		nextLine = reader.readLine();
 	}
 
-//	@Override
-//	public void focus(File file) throws IOException {
-//		reader.close();
-//		reader = new BufferedReader(new FileReader(file));
-//	}
-
-//	public static boolean createFile(String absPath) throws IOException {
-//		File file = new File(absPath);
-//		System.out.println("[createFile] isFile:" + file.isFile() + ",  " + file);
-//
-//		if (file.isFile())
-//			return file.createNewFile();
-//		return file.mkdir();
-//	}
-
 	@Override
 	public String readLine() throws IOException {
 		String line = nextLine;

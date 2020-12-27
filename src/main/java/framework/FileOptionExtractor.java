@@ -3,12 +3,16 @@ package framework;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import static framework.FileOption.KEY;
 
 public interface FileOptionExtractor {
+	Map<KEY, String> extractKeyToValMapFrom(File file) throws IOException;
+
 	/**
 	 * Extracts all FileOptions in {@code file}
-	 * @param file file to extract {@code FileOption}s from
 	 * @return list of FileOption objects
 	 */
-	List<FileOption> extractFileOptionsFrom(File file) throws IOException;
+	@Deprecated
+	List<FileOption> extractFileOptions() throws IOException;
 }

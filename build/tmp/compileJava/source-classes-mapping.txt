@@ -7,21 +7,21 @@ framework/ValidatorImpl.java
 framework/FileOption.java
  framework.FileOption
  framework.FileOption$KEY
-common/FileOptionExtractorImpl.java
- common.FileOptionExtractorImpl
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
-framework/FileHandler.java
- framework.FileHandler
-common/FileHandlerImpl.java
- common.FileHandlerImpl
-framework/Compiler.java
- framework.Compiler
-framework/Deployer.java
- framework.Deployer
 framework/utils/FileUtils.java
  framework.utils.FileUtils
 common/DeployerImpl.java
  common.DeployerImpl
+framework/FileHandler.java
+ framework.FileHandler
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
+framework/Compiler.java
+ framework.Compiler
+framework/Deployer.java
+ framework.Deployer
+common/FileHandlerImpl.java
+ common.FileHandlerImpl
+common/FileOptionExtractorImpl.java
+ common.FileOptionExtractorImpl
 common/CompilerImpl.java
  common.CompilerImpl

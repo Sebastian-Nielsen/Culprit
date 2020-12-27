@@ -8,49 +8,16 @@
 3[link to C](33333333-3333-3333-3333-3333333333333)
 
 4[link to D](44444444-4444-4444-4444-4444444444444)
-	okay ye
-==========
-'22222222-2222-2222-2222-2222222222222
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-==========
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-	okay ye
-==========
-'33333333-3333-3333-3333-3333333333333
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-==========
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-	okay ye
-==========
-'44444444-4444-4444-4444-4444444444444
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-==========
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
 fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
 +The ID of this file:
 
 &11111111-1111-1111-1111-1111111111111
 
-[link to B](..B.md) 
+[link to B](./B.md) 
 
-[link to C](..nestedC.md)
+[link to C](./nested/C.md)
 
-$[link to D](..nestedx2nestedD.md)+
+&[link to D](./nested/x2nested/D.md)+
 (((((((((((((((((((((88
 The ID of this file: 
 
@@ -73,49 +40,16 @@
 4[link to B](22222222-2222-2222-2222-2222222222222) 
 
 4[link to D](44444444-4444-4444-4444-4444444444444)
-	okay ye
-==========
-'11111111-1111-1111-1111-1111111111111
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-==========
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-	okay ye
-==========
-'22222222-2222-2222-2222-2222222222222
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-==========
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-	okay ye
-==========
-'44444444-4444-4444-4444-4444444444444
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-==========
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
 mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
 +This file has ID:
 
 &33333333-3333-3333-3333-3333333333333
 
-[link to A](....A.md)
+[link to A](./../A.md)
 
-[link to B](....B.md) 
+[link to B](./../B.md) 
 
-[link to D](..x2nestedD.md)+
+[link to D](./x2nested/D.md)+
 (((((((((((((((((((((88
 This file has ID: 
 
@@ -126,46 +60,16 @@
 4[link to B](22222222-2222-2222-2222-2222222222222) 
 
 4[link to C](33333333-3333-3333-3333-3333333333333)
-	okay ye
-==========
-'11111111-1111-1111-1111-1111111111111
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-==========
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-	okay ye
-==========
-'22222222-2222-2222-2222-2222222222222
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-==========
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-	okay ye
-==========
-'33333333-3333-3333-3333-3333333333333
-ž44444444-4444-4444-4444-4444444444444>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2nested\D.md
-Ž11111111-1111-1111-1111-1111111111111>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-Ž22222222-2222-2222-2222-2222222222222>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-•33333333-3333-3333-3333-3333333333333>6>C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-==========
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
 vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
 +This file has ID: 
 
 &44444444-4444-4444-4444-4444444444444
 
-[link to A](......A.md)
+[link to A](./../../A.md)
 
-[link to B](......B.md) 
+[link to B](./../../B.md) 
 
-[link to C](....C.md)+
+[link to C](./../C.md)+
+==============
+'..\..\C.md'
+==============
