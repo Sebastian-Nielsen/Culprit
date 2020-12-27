@@ -1,9 +1,12 @@
 package framework;
 
 
+import java.io.File;
+import java.util.EnumSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static framework.FileOption.KEY.ID;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 
 /**
@@ -25,20 +28,22 @@ public class FileOption {
 	 * The set of valid {@code FileOption} keys.
 	 */
 	public enum KEY {
-		 ID("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"),
+		 ID("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", null),
 		// Whether the file contains dynamic links
-		D_LINKS("(true|false)", CASE_INSENSITIVE);
+		D_LINKS("(true|false)", "false");
 
 		private final Pattern validValuesPattern;
+		public final String defaultVal;
+
 
 		/**
 		 * @param validValuesRegex regex string representing the set of valid values for the key.
+		 * @param defaultVal the default value of the KEY.
+		 *                   'null' signifies the value has to be given.
 		 */
-		KEY(String validValuesRegex, int flag) {
-			this.validValuesPattern = Pattern.compile(validValuesRegex, flag);
-		}
-		KEY(String validValuesRegex) {
-			this.validValuesPattern = Pattern.compile(validValuesRegex);
+		KEY(String validValuesRegex, String defaultVal) {
+			this.defaultVal = defaultVal;
+			this.validValuesPattern = Pattern.compile(validValuesRegex, CASE_INSENSITIVE);
 		}
 
 		public static boolean contains(String key) {
@@ -54,6 +59,7 @@ public class FileOption {
 
 		}
 	}
+	public static final EnumSet<KEY> REQUIRED_KEYS = EnumSet.of(ID);
 
 	private final String key;
 	private final String val;

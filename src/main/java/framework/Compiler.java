@@ -8,7 +8,7 @@ public interface Compiler {
 	/**
 	 *
 //	 */
-//	void preprocess(Map<File, Map<String, String>> fileToKeyToVal);
+	void preprocess(Map<File, Map<FileOption.KEY, String>> fileToKeyToVal);
 
 	/**
 	 * Compiles all files in *deployment*.

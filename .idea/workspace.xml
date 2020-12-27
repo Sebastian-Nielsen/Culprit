@@ -5,8 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Compiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Compiler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOption$KEY.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/FileOption$KEY.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/FileOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/CompilerImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/CompilerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/CompilerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.CompilerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.CompilerTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expectedCompiledContent/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expectedCompiledContent/B.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expectedCompiledContent/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expectedCompiledContent/nested/x2Nested/D.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/input/nested/x2Nested/D.md" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/input/nested/x2Nested/D.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.CompilerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.CompilerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/CompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/CompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expectedCompiledContent/A.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expecteD/A.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expectedCompiledContent/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expecteD/B.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expectedCompiledContent/nested/C.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expecteD/nested/C.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expectedCompiledContent/nested/x2Nested/D.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expecteD/nested/x2Nested/D.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/A.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/A.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/nested/C.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/nested/C.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/nested/x2Nested/D.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/nested/x2Nested/D.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +120,7 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'unitTests'">
+  <component name="RunManager" selected="Gradle.CompilerTest.shouldCompileFilesWhenListOfFileOptionsContainsDLINKS">
     <configuration name="CompilerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -107,33 +142,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FileOptionExtractorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CompilerTest.shouldCompileFilesWhenListOfFileOptionsContainsDLINKS" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileOptionExtractorTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="FileOptionExtractorTest.shouldExtractTwoFileOptions" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileOptionExtractorTest.shouldExtractTwoFileOptions&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.CompilerTest.shouldCompileFilesWhenListOfFileOptionsContainsDLINKS&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -191,13 +205,34 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="testTempFolder.tefst" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.testTempFolder.tefst&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'unitTests'" />
+        <item itemvalue="Gradle.CompilerTest.shouldCompileFilesWhenListOfFileOptionsContainsDLINKS" />
+        <item itemvalue="Gradle.testTempFolder.tefst" />
         <item itemvalue="Gradle.CompilerTest" />
+        <item itemvalue="Gradle.Tests in 'unitTests'" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Gradle.FileOptionExtractorTest" />
-        <item itemvalue="Gradle.FileOptionExtractorTest.shouldExtractTwoFileOptions" />
       </list>
     </recent_temporary>
   </component>
@@ -214,6 +249,58 @@
       <updated>1608153843430</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/CompilerImpl.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/CompilerImpl.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/CompilerImpl.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/CompilerImpl.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/unitTests/CompilerTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/unitTests/CompilerTest.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/CompilerImpl.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
+        <PinnedItemInfo parentTag="java.util.regex.Matcher" memberName="text" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="buffer.toStringCache" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/culprit_2$Tests_in__unitTests_.ic" NAME="Tests in 'unitTests' Coverage Results" MODIFIED="1608334259112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

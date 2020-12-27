@@ -3,18 +3,24 @@ package unitTests;
 import common.CompilerImpl;
 import framework.Compiler;
 import framework.FileOption;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+
+import static framework.FileOption.KEY.D_LINKS;
+import static framework.FileOption.KEY.ID;
+
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import static framework.utils.FileUtils.filesToTheirContent;
-import static java.util.Arrays.asList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static testHelper.TestHelper.getResourceFile;
 
 /**
@@ -31,78 +37,61 @@ public class CompilerTest {
 	@Test
 	public void shouldCompileFilesWhenListOfFileOptionsContainsDLINKS() throws IOException {
 		// Fixture
-		final String CONTENT_ROOT_PATH = "compilerTest_testFiles/D_LINKS/input";
-		final File contentRootFolder = getResourceFile(CONTENT_ROOT_PATH);
-		final File fileA = getResourceFile(CONTENT_ROOT_PATH + "/A.md");
-		final File fileB = getResourceFile(CONTENT_ROOT_PATH + "/B.md");
-		final File fileC = getResourceFile(CONTENT_ROOT_PATH + "/nested/C.md");
-		final File fileD = getResourceFile(CONTENT_ROOT_PATH + "/nested/x2nested/D.md");
+		final String EXPECTED_ROOT_PATH = "compilerTest_testFiles/D_LINKS/expected";
+		final String    INPUT_ROOT_PATH = "compilerTest_testFiles/D_LINKS/input";
+		final File EXPECTED_ROOT_FOLDER = getResourceFile(EXPECTED_ROOT_PATH);
+		final File    INPUT_ROOT_FOLDER = getResourceFile(INPUT_ROOT_PATH);
+		final File fileA = getResourceFile(INPUT_ROOT_PATH + "/A.md");
+		final File fileB = getResourceFile(INPUT_ROOT_PATH + "/B.md");
+		final File fileC = getResourceFile(INPUT_ROOT_PATH + "/nested/C.md");
+		final File fileD = getResourceFile(INPUT_ROOT_PATH + "/nested/x2nested/D.md");
 
-		final List<FileOption>  fileOptionsOfFileA,fileOptionsOfFileB,
-								fileOptionsOfFileC,fileOptionsOfFileD;
+		final Map<File, Map<FileOption.KEY, String>> fileToKeyToVal;
+		fileToKeyToVal =
+			Map.of(
+				fileA,  Map.of(
+						ID, "11111111-1111-1111-1111-1111111111111",
+						D_LINKS, "true"),
 
-		fileOptionsOfFileA = asList(
-				new FileOption("[ID]: <> (1bafbfc7-11d8-4e26-9edc-4ff3092d37a7)"),
-				new FileOption("[D_LINKS]: <> (true)")
-		);
-		fileOptionsOfFileB = asList(
-				new FileOption("[ID]: <> (2d424a8f-6fe8-455d-81de-6be20691cf32)"),
-				new FileOption("[D_LINKS]: <> (true)")
-		);
-		fileOptionsOfFileC = asList(
-				new FileOption("[ID]: <> (3ad5a033-98e0-4842-b89e-555641d90f5c)")
-		);
-		fileOptionsOfFileD = asList(
-				new FileOption("[ID]: <> (4f198863-f01a-428e-8343-6060330501df)"),
-				new FileOption("[D_LINKS]: <> (true)")
-		);
+				fileB,  Map.of(
+						ID, "22222222-2222-2222-2222-2222222222222",
+						D_LINKS, "true"),
 
-//		final Map<File, Map<FileOption.KEY, String>> fileToListOfFileOptions = Map.of(
-//				fileA, Map.of(),
-//				fileB, fileOptionsOfFileB,
-//				fileC, fileOptionsOfFileC,
-//				fileD, fileOptionsOfFileD
-//		);
+				fileC,  Map.of(
+						ID, "33333333-3333-3333-3333-3333333333333",
+						D_LINKS, "true"),
 
-		compiler = new CompilerImpl(contentRootFolder);
+				fileD,  Map.of(
+						ID, "44444444-4444-4444-4444-4444444444444",
+						D_LINKS, "true")
+			);
+
+		compiler = new CompilerImpl(INPUT_ROOT_FOLDER);
+
 		// Exercise
-//		Map<File, String> fileToCompiledContent = compiler.compile(fileToListOfFileOptions);
+		compiler.preprocess(fileToKeyToVal);
+		Map<File, String> fileToCompiledContent = compiler.compile(fileToKeyToVal);
+
 		// Verify
-		Map<File, String> actual, expected;
-		expected = filesToTheirContent(contentRootFolder);
-		actual   = fileToCompiledContent;
+		Map<File, String> expected = filesToTheirContent(EXPECTED_ROOT_FOLDER);
+		Map<File, String> actual   = fileToCompiledContent;
 		assertIdenticalMaps(actual, expected);
 	}
 
 	private void assertIdenticalMaps(Map<File, String> actual,
 	                                 Map<File, String> expected) {
 
-		assertIdenticalLengthedKeysets(actual, expected);
-		//getRelativePath()
-		for (File file : expected.keySet())
-			System.out.println("2<" + file);
-		for (File file :   actual.keySet()) {
-			System.out.println("3>" + file);
-		}
-		for (String file :   actual.values()) {
-			System.out.println("4>" + file);
-		}
+		assertIdenticalLengths(actual, expected);
 
-		System.out.println(String.join("\n", expected.get(0)));
-		System.out.println(String.join("\n",   actual.get(0)));
+		Collection<String> expectedCompiledContent = expected.values();
+		Collection<String>   actualCompiledContent =   actual.values();
 
-//			assertThat(actual.values(),
-//					is(expected.values()));
-
-//		for (List<String> contentAsLines: actual.values())
-//			assertThat(contentAsLinesact, )
-
-
+		assertEquals(actualCompiledContent, expectedCompiledContent);
 	}
 
-	private void assertIdenticalLengthedKeysets(Map<File, String> actual,
-	                                            Map<File, String> expected) {
-//		assertEquals(actual.keySet().size(), expected.keySet().size());
+	private void assertIdenticalLengths(Map<File, String> actual,
+	                                    Map<File, String> expected) {
+		assertEquals(actual.size(), expected.size());
 	}
 
 }

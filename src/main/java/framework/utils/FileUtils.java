@@ -93,4 +93,17 @@ public class FileUtils {
 		return fileToContent;
 	}
 
+	/**
+	 * Replace all "\\" occurences in a path with "/".
+	 */
+	public static String normalize(String path) {
+		return path.replaceAll("\\\\", "/");
+	}
+
+	public static String contentOf(File file) throws IOException {
+		return org.apache.commons.io.
+				FileUtils.readFileToString(file, "UTF-8").replaceAll("\r","");
+	}
 }
+
+
