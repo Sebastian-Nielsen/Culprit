@@ -11,7 +11,6 @@
 //
 //import java.io.File;
 //import java.io.IOException;
-//import java.util.List;
 //import java.util.Map;
 //import static framework.FileOption.KEY;
 //
@@ -28,15 +27,25 @@
 //		CONTENT_ROOT_FOLDER = getResourceFile(CONTENT_ROOT_PATH);
 //		File  DEPLOY_ROOT_FOLDER = tempDir;
 //
-//		FileHandler filehandler = new FileHandlerImpl(CONTENT_ROOT_FOLDER);
-//		Validator   validator   = ValidatorImpl.getInstance();
-//
-//		extractor = new FileOptionExtractorImpl(validator);
 //		compiler  = new CompilerImpl(CONTENT_ROOT_FOLDER);
 //	}
 //
 //	@Test
 //	public void test_1_withoutFacade() throws IOException {
-//		Map<KEY, String> keyToVal = extractor.extractKeyToValMapFrom(CONTENT_ROOT_FOLDER);
+//		FileHandler filehandler = new FileHandlerImpl(CONTENT_ROOT_FOLDER);
+//		Validator   validator   = ValidatorImpl.getInstance();
+//
+//		extractor = new FileOptionExtractorImpl(filehandler, validator);
+//
+//
+//
+//		FileOptionContainer fileOptions = extractor.extractFileOptions();
+//
+//		for (Map.Entry<KEY, String> keyStringEntry : keyToVal.entrySet()) {
+//			System.out.println("============");
+//			System.out.println(keyStringEntry.getKey());
+//			System.out.println(keyStringEntry.getValue());
+//			System.out.println("============");
+//		}
 //	}
 //}

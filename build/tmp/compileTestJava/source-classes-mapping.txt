@@ -1,32 +1,32 @@
+unitTests/testTempFolder.java
+ unitTests.testTempFolder
 stubs/FileHandlerStub.java
  stubs.FileHandlerStub
-integrationTests/customerTest.java
- integrationTests.customerTest
-unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java
- unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom
-constants/FileOptionConstants.java
- constants.FileOptionConstants
-unitTests/ValidatorTest.java
- unitTests.ValidatorTest
+unitTests/CompilerTest.java
+ unitTests.CompilerTest
 unitTests/DeployerImplTest.java
  unitTests.DeployerImplTest
+unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java
+ unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom
+unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java
+ unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom
+unitTests/FileHandlerImplTest.java
+ unitTests.FileHandlerImplTest
+unitTests/FileOptionExtractorTestv2.java
+ unitTests.FileOptionExtractorTestv2
 constants/Constants.java
  constants.Constants
 unitTests/FileOptionTest.java
  unitTests.FileOptionTest
-stubs/ValidatorStub.java
- stubs.ValidatorStub
-testHelper/TestHelper.java
- testHelper.TestHelper
-unitTests/testTempFolder.java
- unitTests.testTempFolder
 unitTests/FileUtilsSuiteClasses/FileUtils_miscellaneous.java
  unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous
-unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java
- unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom
-unitTests/CompilerTest.java
- unitTests.CompilerTest
-unitTests/FileHandlerImplTest.java
- unitTests.FileHandlerImplTest
+testHelper/TestHelper.java
+ testHelper.TestHelper
+unitTests/ValidatorTest.java
+ unitTests.ValidatorTest
+constants/FileOptionConstants.java
+ constants.FileOptionConstants
+stubs/ValidatorStub.java
+ stubs.ValidatorStub
 unitTests/FileOptionExtractorTest.java
  unitTests.FileOptionExtractorTest

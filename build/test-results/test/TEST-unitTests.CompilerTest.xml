@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unitTests.CompilerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-27T14:24:44" hostname="DESKTOP-S" time="0.078">
+<testsuite name="unitTests.CompilerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-27T21:48:57" hostname="DESKTOP-S" time="0.095">
   <properties/>
-  <testcase name="shouldCompileDLINKSInFiles()" classname="unitTests.CompilerTest" time="0.078"/>
+  <testcase name="shouldCompileDLINKSInFiles()" classname="unitTests.CompilerTest" time="0.095"/>
   <system-out><![CDATA[(((((((((((((((((((((88
 The ID of this file:
 

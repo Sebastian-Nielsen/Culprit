@@ -7,6 +7,7 @@ import framework.FileOption;
 import static framework.FileOption.KEY.D_LINKS;
 import static framework.FileOption.KEY.ID;
 
+import framework.FileOptionContainer;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,12 +48,12 @@ public class CompilerTest {
 		final File fileC = getResourceFile(INPUT_ROOT_PATH + "/nested/C.md");
 		final File fileD = getResourceFile(INPUT_ROOT_PATH + "/nested/x2nested/D.md");
 
-		final Map<File, Map<FileOption.KEY, String>> fileToKeyToVal;
-		fileToKeyToVal =
+		final Map<File, FileOptionContainer> fileToFileOptionContainer;
+		fileToFileOptionContainer =
 			Map.of(
-				fileA,  Map.of(
+				fileA,  new FileOptionContainer(){
 						ID, "11111111-1111-1111-1111-1111111111111",
-						D_LINKS, "true"),
+						D_LINKS, "true"},
 
 				fileB,  Map.of(
 						ID, "22222222-2222-2222-2222-2222222222222",
@@ -70,8 +71,8 @@ public class CompilerTest {
 		compiler = new CompilerImpl(INPUT_ROOT_FOLDER);
 
 		// Exercise
-		compiler.preprocess(fileToKeyToVal);
-		Map<File, String> fileToCompiledContent = compiler.compile(fileToKeyToVal);
+		compiler.preprocess(fileToFileOptionContainer);
+		Map<File, String> fileToCompiledContent = compiler.compile(fileToFileOptionContainer);
 
 		// Verify
 		Map<File, String> expected = filesToTheirContent(EXPECTED_ROOT_FOLDER);

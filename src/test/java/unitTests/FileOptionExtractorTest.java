@@ -1,10 +1,7 @@
 package unitTests;
 
-import framework.FileOption;
-import framework.FileOptionExtractor;
+import framework.*;
 import common.FileOptionExtractorImpl;
-import framework.Validator;
-import framework.ValidatorImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,8 +14,8 @@ import java.util.List;
 import static constants.FileOptionConstants.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static framework.FileOption.KEY;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test list:
@@ -28,9 +25,9 @@ public class FileOptionExtractorTest {
 	private @NotNull FileOptionExtractor extractor;
 	private @NotNull final Validator validator = ValidatorImpl.getInstance();
 
-	private String EXPECTED_KEY1;
+	private KEY    EXPECTED_KEY1;
 	private String EXPECTED_VAL1;
-	private String EXPECTED_KEY2;
+	private KEY    EXPECTED_KEY2;
 	private String EXPECTED_VAL2;
 
 	@BeforeEach
@@ -43,14 +40,17 @@ public class FileOptionExtractorTest {
 		EXPECTED_VAL2 = ARBITRARY_VAL_2;
 		String ARBITRARY_FILEOPTION_2 = FILEOPTION_TEMPLATE.formatted(ARBITRARY_KEY_2, ARBITRARY_VAL_2);
 
+		// ==== For this test to make sense:
 		assertValidFileOptions(ARBITRARY_FILEOPTION_1, ARBITRARY_FILEOPTION_1);
+		assertNotEquals(ARBITRARY_KEY_1, ARBITRARY_KEY_2);
+		// ====
 
 		String[] linesToExtractFrom = new String[]{
 				ARBITRARY_FILEOPTION_1,  // VALID                      - Line 1
 				ARBITRARY_FILEOPTION_2,  // VALID                      - Line 2
 				"Since this is not a fileOption, the extractor" +   // - Line 3
 						" should ignore everything below this line",
-				ARBITRARY_FILEOPTION_3, // INVALID ∵ bad position      - Line 4
+				ARBITRARY_FILEOPTION_2, // INVALID ∵ bad position      - Line 4
 		};
 
 		extractor = newFileOptionExtractor(linesToExtractFrom);
@@ -65,47 +65,29 @@ public class FileOptionExtractorTest {
 	@Test
 	public void shouldExtractTwoFileOptions() throws IOException {
 		// Exercise
-		final List<FileOption> fileOptions;
-		fileOptions = extractor.extractFileOptions();
+		FileOptionContainer fileOptions = extractor.extractFileOptions();
 		// Verify
 		assertEquals(fileOptions.size(), 2);
 	}
 
 	@Test
-	public void shouldExtractFileOption1AsTheFirst() throws IOException {
+	public void shouldExtractFileOption1() throws IOException {
 		// Exercise
-		final List<FileOption> fileOptions;
-		fileOptions = extractor.extractFileOptions();
+		FileOptionContainer fileOptions = extractor.extractFileOptions();
 		// Verify
-		FileOption fileOptions1 = getFirstOf(fileOptions);
-		assertFileOptionHas(fileOptions1, EXPECTED_KEY1, EXPECTED_VAL1);
+		assertThat(fileOptions.get(EXPECTED_KEY1), is(EXPECTED_VAL1));
 	}
 
 	@Test
-	public void shouldExtractFileOption2AsTheSecond() throws IOException {
+	public void shouldExtractFileOption2() throws IOException {
 		// Exercise
-		final List<FileOption> fileOptions;
-		fileOptions = extractor.extractFileOptions();
+		FileOptionContainer fileOptions = extractor.extractFileOptions();
 		// Verify
-		FileOption fileOptions2 = getSecondOf(fileOptions);
-		assertFileOptionHas(fileOptions2, EXPECTED_KEY2, EXPECTED_VAL2);
+		assertThat(fileOptions.get(EXPECTED_KEY2), is(EXPECTED_VAL2));
 	}
 
 
 	/* === PRIVATE METHODS */
-
-	private FileOption getFirstOf(List<FileOption> fileOptions) {
-		return fileOptions.get(0);
-	}
-
-	private FileOption getSecondOf(List<FileOption> fileOptions) {
-		return fileOptions.get(1);
-	}
-
-	private void assertFileOptionHas(FileOption fileOption, String expectedKey, String expectedVal) {
-		assertThat(fileOption.getKey(), is(expectedKey));
-		assertThat(fileOption.getVal(), is(expectedVal));
-	}
 
 	@NotNull
 	private FileOptionExtractor newFileOptionExtractor(String[] linesToExtractFrom) {

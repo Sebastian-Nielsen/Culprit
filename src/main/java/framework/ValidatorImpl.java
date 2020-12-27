@@ -21,11 +21,11 @@ public class ValidatorImpl implements Validator {
 		if (!isValidMdCommentFormat)
 			return false;
 
-		boolean hasValidKey = FileOption.KEY.contains(getKeyOf(line));
+		boolean hasValidKey = FileOption.KEY.contains("" + getKeyOf(line));
 		if (!hasValidKey)
 			return false;
 
-		boolean hasValidValue = FileOption.KEY.valueOf(getKeyOf(line)).isValidValue(getValOf(line));
+		boolean hasValidValue = getKeyOf(line).isValidValue(getValOf(line));
 		if (!hasValidValue)
 			return false;
 
