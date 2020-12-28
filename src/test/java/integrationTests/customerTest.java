@@ -5,6 +5,7 @@ import common.DeployerImpl;
 import common.FileHandlerImpl;
 import common.FileOptionExtractorImpl;
 import framework.*;
+import framework.Compiler;
 import framework.Precompiler;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +29,7 @@ public class customerTest {
 	private Deployer deployer;
 	private File DEPLOY_ROOT_FOLDER;
 	private File DEPLOY_ROOT_FOLDER_2;
+	private Compiler mdToHtmlCompiler;
 
 	@BeforeEach
 	public void setup(@TempDir File tempDir) throws IOException {
@@ -37,14 +39,18 @@ public class customerTest {
 
 		DEPLOY_ROOT_FOLDER_2 = new File("src/test/java/tempOutput");
 
-		deployer = new DeployerImpl(CONTENT_ROOT_FOLDER, DEPLOY_ROOT_FOLDER_2);
+		deployer    = new DeployerImpl(   CONTENT_ROOT_FOLDER, DEPLOY_ROOT_FOLDER_2);
 		precompiler = new PrecompilerImpl(CONTENT_ROOT_FOLDER);
-		validator = ValidatorImpl.getInstance();
+		validator        = ValidatorImpl.getInstance();
+		mdToHtmlCompiler = CompilerImpl .getInstance();
 	}
 
 	@Test
-	public void test_1_withoutFacade() {
-		CompilerFacade compiler = new CompilerFacade(deployer, precompiler, CONTENT_ROOT_FOLDER);
+	public void test_1_withoutFacade() throws Exception {
+		CompilerFacade compiler = new CompilerFacade(
+				deployer, precompiler, mdToHtmlCompiler, CONTENT_ROOT_FOLDER
+		);
+		compiler.compile();
 	}
 
 }

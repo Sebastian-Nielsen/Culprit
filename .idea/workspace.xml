@@ -5,26 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/FileOptionExtractorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/FileOptionExtractorImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Compiler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/CompilerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/CompilerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/CompilerFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/mdToHTMLAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/integrationTests/customerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/integrationTests/customerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/integrationTests.customerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/integrationTests.customerTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/integrationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/integrationTests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-integrationTests.customerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-integrationTests.customerTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerSettingsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerSettingsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ProdCompilerSettingsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerSettingsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/mdToHTMLAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/CompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/B.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/input/B.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +73,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SWEA-exam" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />

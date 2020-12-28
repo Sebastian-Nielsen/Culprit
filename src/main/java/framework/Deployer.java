@@ -16,7 +16,7 @@ import java.io.IOException;
 public interface Deployer {
 
 	/**
-	 *  Copy the file-hiearachy from *content* to *deployment*
+	 *  Copy the file-hiearchy from *content* to *deployment*
 	 */
 	void deploy() throws IOException;
 

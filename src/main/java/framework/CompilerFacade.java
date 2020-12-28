@@ -5,6 +5,7 @@ import common.FileOptionExtractorImpl;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,52 +19,54 @@ public class CompilerFacade {
 
 	private final Deployer deployer;
 	private final Precompiler precompiler;
+	private final Compiler compiler;
 
 	private final File contentRootFolder;
 
-	public CompilerFacade(Deployer deployer, Precompiler precompiler,
-	                      File contentRootFolder) {
-		this.deployer = deployer;
-		this.precompiler = precompiler;
-
-		this.contentRootFolder = contentRootFolder;
-	}
-
-	public CompilerFacade(Deployer deployer, Precompiler precompiler) {
-		this.deployer = deployer;
-		this.precompiler = precompiler;
-
-		this.contentRootFolder = new File(CWD + "content");
+	public CompilerFacade(CompilerSettingsFactory compilerSettingsFac) {
+		this.precompiler = compilerSettingsFac.createPrecompiler();
+		this.deployer    = compilerSettingsFac.createDeployer();
+		this.compiler    = compilerSettingsFac.createCompiler();
+		this.contentRootFolder = compilerSettingsFac.getContentRootFolder();
 	}
 
 	public void compile() throws Exception {
 		deployer.deploy();
 
-		Map<File, String> fileToPrecompiledContent
-				= precompiler.compileAllFiles(extractAllFOContainer());
+		Map<File, String> fileToMd   = precompiler.compileAllFiles(extractFOContainerFromEachFile());
 
-		for (File contentFile : listAllNonDirFilesFrom(contentRootFolder)) {
-			File deployFile = deployer.getDeployEquivalentOf(contentFile);
+		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
 
-			String precompiledContent = fileToPrecompiledContent.get(contentFile);
-			String html = mdToHTMLAdapter.compile(precompiledContent);
-
-			FileUtils.writeStringToFile(deployFile, html, Charset.defaultCharset());
-		}
+		writeStringToAssociatedFile(fileToHtml);
 	}
 
 
 	/* === PRIVATE METHODS */
 
-	private Map<File, FileOptionContainer> extractAllFOContainer() throws Exception {
+	private void writeStringTo(File file, String content) throws IOException {
+		FileUtils.writeStringToFile(file, content, Charset.defaultCharset());
+	}
+
+	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
+
+		for (File contentFile : listAllNonDirFilesFrom(contentRootFolder)) {
+
+			File deployFile = deployer.getDeployEquivalentOf(contentFile);
+
+			String content = fileToContent.get(contentFile);
+			writeStringTo(deployFile, content);
+		}
+
+	}
+
+	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
 		FileOptionExtractor foExtractor;
 		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
 
-			foExtractor = new FileOptionExtractorImpl(
-								new FileHandlerImpl(file),
-								validator);
+			foExtractor = new FileOptionExtractorImpl(new FileHandlerImpl(file),
+														validator);
 
 			fileToFOContainer.put(
 					file,

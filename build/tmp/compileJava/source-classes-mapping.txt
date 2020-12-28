@@ -9,8 +9,8 @@ framework/FileOptionContainer.java
 framework/ValidatorImpl.java
  framework.ValidatorImpl
  framework.ValidatorImpl$REGEXES
-framework/ProdCompilerSettingsFactory.java
- framework.ProdCompilerSettingsFactory
+framework/Precompiler.java
+ framework.Precompiler
 framework/FileOption.java
  framework.FileOption
  framework.FileOption$KEY
@@ -22,17 +22,23 @@ common/PrecompilerImpl.java
  common.PrecompilerImpl
 common/FileHandlerImpl.java
  common.FileHandlerImpl
-common/DeployerImpl.java
- common.DeployerImpl
-framework/Deployer.java
- framework.Deployer
-framework/CompilerSettingsFactory.java
- framework.CompilerSettingsFactory
-framework/mdToHTMLAdapter.java
- framework.mdToHTMLAdapter
 framework/Validator.java
  framework.Validator
-framework/Precompiler.java
- framework.Precompiler
+framework/Deployer.java
+ framework.Deployer
+common/DeployerImpl.java
+ common.DeployerImpl
+framework/Compiler.java
+ framework.Compiler
+framework/CompilerImpl.java
+ framework.CompilerImpl
 framework/CompilerFacade.java
  framework.CompilerFacade
+common/compilerSettingsFactories/CustomCompilerSettingsFactory.java
+ common.compilerSettingsFactories.CustomCompilerSettingsFactory
+framework/CompilerSettingsFactory.java
+ framework.CompilerSettingsFactory
+common/compilerSettingsFactories/ProductionCompilerSettingsFactory.java
+ common.compilerSettingsFactories.ProductionCompilerSettingsFactory
+framework/Main.java
+ framework.Main

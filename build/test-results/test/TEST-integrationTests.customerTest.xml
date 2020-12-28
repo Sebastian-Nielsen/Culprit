@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="integrationTests.customerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-28T13:20:51" hostname="DESKTOP-S" time="0.041">
+<testsuite name="integrationTests.customerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-28T14:26:39" hostname="DESKTOP-S" time="0.319">
   <properties/>
-  <testcase name="test_1_withoutFacade()" classname="integrationTests.customerTest" time="0.041"/>
+  <testcase name="test_1_withoutFacade()" classname="integrationTests.customerTest" time="0.319"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
