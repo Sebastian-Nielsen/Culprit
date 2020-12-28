@@ -17,7 +17,7 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	}
 
 	@Override
-	public FileOptionContainer extractFileOptions() throws IOException {
+	public FileOptionContainer extractFOContainer() throws IOException {
 		FileOptionContainer foContainer = new FileOptionContainer();
 
 		while (fileHandler.hasNext()) {

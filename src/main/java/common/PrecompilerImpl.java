@@ -1,6 +1,6 @@
 package common;
 
-import framework.Compiler;
+import framework.Precompiler;
 import framework.FileOption;
 import framework.FileOptionContainer;
 
@@ -20,39 +20,69 @@ import static framework.FileOption.KEY.ID;
 import static framework.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.*;
 
-public class CompilerImpl implements Compiler {
+public class PrecompilerImpl implements Precompiler {
 	private final File contentRootFolder;
 	private final Map<String, File> IDValToFile = new HashMap<>();
 
-	public CompilerImpl(File contentRootFolder) {
+	public PrecompilerImpl(File contentRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 	}
 
-	public CompilerImpl() {
+	public PrecompilerImpl() {
 		this.contentRootFolder = new File(CWD + "content");
 	}
 
+	public Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException {
+		preprocess(fileToFOContainer);
+
+		Map<File, String> fileToCompiledContent = new HashMap<>();
+
+		for (File file : listAllNonDirFilesFrom(contentRootFolder))
+
+			fileToCompiledContent.put(
+					file,
+					compileSingleFile(file, fileToFOContainer.get(file))
+			);
+
+		return fileToCompiledContent;
+	}
+
+	public String compileSingleFile(File fileToCompile, FileOptionContainer foContainer) throws IOException {
+		String     ID_val = foContainer.get(KEY.ID); // Required FileOption
+		String DLINKS_val = foContainer.getOrDefault(KEY.D_LINKS, "false");
+
+		String content = contentOf(fileToCompile);
+		content = handleDLINKS(DLINKS_val, content, fileToCompile);
+
+		return content;
+	}
+
+
+	/* === PRIVATE METHODS */
+
 	/**
 	 * Go through all files while:
-	 * (1) record (value of {@code ID}, {@code File}) pairs
-	 * (2) Asserting that each {@code File} has all _required_ {@code FileOption}s
+	 * (1) Asserting each {@code File} has all _required_ {@code FileOption}s
+	 * (2) Store (`value of {@code ID}`, `{@code File}`) pairs
 	 */
-	public void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {
+	private void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {
 
 		for (File file : fileToFOContainer.keySet()) {
 
 			assertHasAllRequiredFileOptions(file, fileToFOContainer);
 
-			recordIDValAndFile(file, fileToFOContainer);
+			storeValOfIDToFile(             file, fileToFOContainer);
+
 		}
 
 	}
 
-	private void recordIDValAndFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
-			IDValToFile.put(
-					fileToFOContainer.get(file).get(ID),
-					file
-			);
+	private void storeValOfIDToFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
+		String valOfID = fileToFOContainer.get(file).get(ID);
+		IDValToFile.put(
+				valOfID,
+				file
+		);
 	}
 
 	private void assertHasAllRequiredFileOptions(File file, Map<File, FileOptionContainer> fileToFOContainer) {
@@ -71,31 +101,6 @@ public class CompilerImpl implements Compiler {
 						"to File: " + file + "\n\n");
 		}
 
-	}
-
-
-	public Map<File, String> compile(Map<File, FileOptionContainer> fileToFOContainer) throws IOException {
-		Map<File, String> fileToCompiledContent = new HashMap<>();
-
-		for (File file : listAllNonDirFilesFrom(contentRootFolder))
-
-			fileToCompiledContent.put(
-					file,
-					compile(file, fileToFOContainer.get(file))
-			);
-
-		return fileToCompiledContent;
-	}
-
-
-	private String compile(File fileToCompile, FileOptionContainer keyToVal) throws IOException {
-//		String ID_val     = keyToVal.getOrDefault(KEY.ID,      KEY.ID.getDefaultVal(fileToCompile));
-		String DLINKS_val = keyToVal.getOrDefault(KEY.D_LINKS, "false");
-
-		String content = contentOf(fileToCompile);
-		content = handleDLINKS(DLINKS_val, content, fileToCompile);
-
-		return content;
 	}
 
 	/**

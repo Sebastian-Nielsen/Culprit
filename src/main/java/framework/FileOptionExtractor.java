@@ -12,6 +12,6 @@ public interface FileOptionExtractor {
 	 * @return a {@code FileOptionContainer} containing all the FileOption
 	 * (key, value) pairs present in {@code file}
 	 */
-	FileOptionContainer extractFileOptions() throws IOException;
+	FileOptionContainer extractFOContainer() throws IOException;
 
 }

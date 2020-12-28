@@ -1,32 +1,38 @@
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 framework/Constants/Constants.java
  framework.Constants.Constants
 framework/utils/FileUtils.java
  framework.utils.FileUtils
-common/DeployerImpl.java
- common.DeployerImpl
-framework/Compiler.java
- framework.Compiler
-framework/Validator.java
- framework.Validator
-framework/Deployer.java
- framework.Deployer
-common/FileHandlerImpl.java
- common.FileHandlerImpl
-framework/FileHandler.java
- framework.FileHandler
 framework/FileOptionContainer.java
  framework.FileOptionContainer
 framework/ValidatorImpl.java
  framework.ValidatorImpl
  framework.ValidatorImpl$REGEXES
+framework/ProdCompilerSettingsFactory.java
+ framework.ProdCompilerSettingsFactory
 framework/FileOption.java
  framework.FileOption
  framework.FileOption$KEY
 common/FileOptionExtractorImpl.java
  common.FileOptionExtractorImpl
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
-common/CompilerImpl.java
- common.CompilerImpl
+framework/FileHandler.java
+ framework.FileHandler
+common/PrecompilerImpl.java
+ common.PrecompilerImpl
+common/FileHandlerImpl.java
+ common.FileHandlerImpl
+common/DeployerImpl.java
+ common.DeployerImpl
+framework/Deployer.java
+ framework.Deployer
+framework/CompilerSettingsFactory.java
+ framework.CompilerSettingsFactory
 framework/mdToHTMLAdapter.java
  framework.mdToHTMLAdapter
+framework/Validator.java
+ framework.Validator
+framework/Precompiler.java
+ framework.Precompiler
+framework/CompilerFacade.java
+ framework.CompilerFacade

@@ -7,9 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import stubs.FileHandlerStub;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import static constants.FileOptionConstants.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -65,7 +63,7 @@ public class FileOptionExtractorTest {
 	@Test
 	public void shouldExtractTwoFileOptions() throws IOException {
 		// Exercise
-		FileOptionContainer fileOptions = extractor.extractFileOptions();
+		FileOptionContainer fileOptions = extractor.extractFOContainer();
 		// Verify
 		assertEquals(fileOptions.size(), 2);
 	}
@@ -73,7 +71,7 @@ public class FileOptionExtractorTest {
 	@Test
 	public void shouldExtractFileOption1() throws IOException {
 		// Exercise
-		FileOptionContainer fileOptions = extractor.extractFileOptions();
+		FileOptionContainer fileOptions = extractor.extractFOContainer();
 		// Verify
 		assertThat(fileOptions.get(EXPECTED_KEY1), is(EXPECTED_VAL1));
 	}
@@ -81,7 +79,7 @@ public class FileOptionExtractorTest {
 	@Test
 	public void shouldExtractFileOption2() throws IOException {
 		// Exercise
-		FileOptionContainer fileOptions = extractor.extractFileOptions();
+		FileOptionContainer fileOptions = extractor.extractFOContainer();
 		// Verify
 		assertThat(fileOptions.get(EXPECTED_KEY2), is(EXPECTED_VAL2));
 	}

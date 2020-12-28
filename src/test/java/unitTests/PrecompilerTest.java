@@ -1,7 +1,7 @@
 package unitTests;
 
-import common.CompilerImpl;
-import framework.Compiler;
+import common.PrecompilerImpl;
+import framework.Precompiler;
 
 import static framework.FileOption.KEY.D_LINKS;
 import static framework.FileOption.KEY.ID;
@@ -30,8 +30,8 @@ import static testHelper.TestHelper.getResourceFile;
  * Test list:
  * - 'D_LINK' test with some fileOptions and files.
  */
-public class CompilerTest {
-	private Compiler compiler;
+public class PrecompilerTest {
+	private Precompiler precompiler;
 
 	@BeforeEach
 	public void setup() {
@@ -49,9 +49,9 @@ public class CompilerTest {
 		final File fileC = getResourceFile(INPUT_ROOT_PATH + "/nested/C.md");
 		final File fileD = getResourceFile(INPUT_ROOT_PATH + "/nested/x2nested/D.md");
 
-		final Map<File, FileOptionContainer> fileToFileOptionContainer;
+		final Map<File, FileOptionContainer> fileToFOContainer;
 		
-		fileToFileOptionContainer =
+		fileToFOContainer =
 			Map.of(
 				fileA,  new FileOptionContainer(
 							entry(ID, "11111111-1111-1111-1111-111111111111"),
@@ -70,11 +70,10 @@ public class CompilerTest {
 							entry(D_LINKS, "true"))
 			);
 
-		compiler = new CompilerImpl(INPUT_ROOT_FOLDER);
+		precompiler = new PrecompilerImpl(INPUT_ROOT_FOLDER);
 
 		// Exercise
-		compiler.preprocess(fileToFileOptionContainer);
-		Map<File, String> fileToCompiledContent = compiler.compile(fileToFileOptionContainer);
+		Map<File, String> fileToCompiledContent = precompiler.compileAllFiles(fileToFOContainer);
 
 		// Verify
 		Map<File, String> expected = filesToTheirContent(EXPECTED_ROOT_FOLDER);
