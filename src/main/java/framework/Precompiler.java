@@ -1,5 +1,7 @@
 package framework;
 
+import framework.singleClasses.FileOptionContainer;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;

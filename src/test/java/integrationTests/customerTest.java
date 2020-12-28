@@ -1,24 +1,20 @@
 package integrationTests;
 
+import common.CompilerImpl;
 import common.PrecompilerImpl;
 import common.DeployerImpl;
-import common.FileHandlerImpl;
-import common.FileOptionExtractorImpl;
 import framework.*;
 import framework.Compiler;
 import framework.Precompiler;
-import org.apache.commons.io.FileUtils;
+import framework.singleClasses.CompilerFacade;
+import framework.singleClasses.ValidatorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
 
-import static framework.utils.FileUtils.listAllNonDirFilesFrom;
 import static testHelper.TestHelper.getResourceFile;
 
 public class customerTest {
@@ -42,7 +38,7 @@ public class customerTest {
 		deployer    = new DeployerImpl(   CONTENT_ROOT_FOLDER, DEPLOY_ROOT_FOLDER_2);
 		precompiler = new PrecompilerImpl(CONTENT_ROOT_FOLDER);
 		validator        = ValidatorImpl.getInstance();
-		mdToHtmlCompiler = CompilerImpl .getInstance();
+		mdToHtmlCompiler = CompilerImpl.getInstance();
 	}
 
 	@Test

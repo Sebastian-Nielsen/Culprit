@@ -1,14 +1,13 @@
-package framework;
+package framework.singleClasses;
 
 
-import java.io.File;
 import java.util.EnumSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static framework.FileOption.KEY.ID;
+import static framework.singleClasses.FileOption.KEY.ID;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
-import static framework.ValidatorImpl.REGEXES;
+import static framework.singleClasses.ValidatorImpl.REGEXES;
 
 /**
  * === Representation of a FileOption

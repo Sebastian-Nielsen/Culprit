@@ -1,12 +1,11 @@
-package framework;
+package framework.singleClasses;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import static framework.FileOption.KEY;
+import static framework.singleClasses.FileOption.KEY;
 /**
  * Basically a list of FileOptions, though augmented to also
  * be able to access a FileOption value simply by calling a getter

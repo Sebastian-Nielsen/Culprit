@@ -1,7 +1,11 @@
-package framework;
+package framework.singleClasses;
 
 import common.FileHandlerImpl;
 import common.FileOptionExtractorImpl;
+import framework.*;
+import framework.Compiler;
+import framework.singleClasses.FileOptionContainer;
+import framework.singleClasses.ValidatorImpl;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -10,7 +14,6 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import static framework.Constants.Constants.CWD;
 import static framework.utils.FileUtils.listAllNonDirFilesFrom;
 
 public class CompilerFacade {
@@ -41,6 +44,21 @@ public class CompilerFacade {
 	}
 
 
+	/* === Builder options-setter methods */
+
+	public static class Builder {
+		// Required parameters
+		private final CompilerSettingsFactory compilerSettingsFac;
+
+		// Optional parameters - initialized to default values
+		private boolean shouldAddDefaultIndexes = true;
+
+		public Builder(CompilerSettingsFactory compilerSettingsFac) {
+			this.compilerSettingsFac = compilerSettingsFac;
+		}
+	}
+
+
 	/* === PRIVATE METHODS */
 
 	private void writeStringTo(File file, String content) throws IOException {
@@ -60,6 +78,7 @@ public class CompilerFacade {
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
+
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
 		FileOptionExtractor foExtractor;

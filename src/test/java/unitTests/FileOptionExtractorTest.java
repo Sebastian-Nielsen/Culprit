@@ -2,6 +2,8 @@ package unitTests;
 
 import framework.*;
 import common.FileOptionExtractorImpl;
+import framework.singleClasses.FileOptionContainer;
+import framework.singleClasses.ValidatorImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,7 @@ import java.io.IOException;
 import static constants.FileOptionConstants.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static framework.FileOption.KEY;
+import static framework.singleClasses.FileOption.KEY;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

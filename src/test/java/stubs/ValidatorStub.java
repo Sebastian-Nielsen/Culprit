@@ -1,6 +1,5 @@
 package stubs;
 
-import framework.FileOption;
 import framework.Validator;
 
 public class ValidatorStub implements Validator {

@@ -1,7 +1,9 @@
-package framework;
+package framework.singleClasses;
 
-import static framework.FileOption.getKeyOf;
-import static framework.FileOption.getValOf;
+import framework.Validator;
+
+import static framework.singleClasses.FileOption.getKeyOf;
+import static framework.singleClasses.FileOption.getValOf;
 
 public class ValidatorImpl implements Validator {
 	private static final Validator instance = new ValidatorImpl();

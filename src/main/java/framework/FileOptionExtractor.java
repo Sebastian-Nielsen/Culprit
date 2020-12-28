@@ -1,9 +1,8 @@
 package framework;
 
+import framework.singleClasses.FileOptionContainer;
+
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import static framework.FileOption.KEY;
 
 public interface FileOptionExtractor {
 

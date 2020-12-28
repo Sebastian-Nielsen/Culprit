@@ -1,8 +1,8 @@
 package common;
 
 import framework.Precompiler;
-import framework.FileOption;
-import framework.FileOptionContainer;
+import framework.singleClasses.FileOption;
+import framework.singleClasses.FileOptionContainer;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,22 +14,17 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static framework.Constants.Constants.CWD;
-import static framework.FileOption.KEY;
-import static framework.FileOption.KEY.ID;
-import static framework.ValidatorImpl.REGEXES;
+import static framework.singleClasses.FileOption.KEY;
+import static framework.singleClasses.FileOption.KEY.ID;
+import static framework.singleClasses.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.*;
 
 public class PrecompilerImpl implements Precompiler {
 	private final File contentRootFolder;
-	private final Map<String, File> IDValToFile = new HashMap<>();
+	private final Map<String, File> idToFile = new HashMap<>();
 
 	public PrecompilerImpl(File contentRootFolder) {
 		this.contentRootFolder = contentRootFolder;
-	}
-
-	public PrecompilerImpl() {
-		this.contentRootFolder = new File(CWD + "content");
 	}
 
 	public Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException {
@@ -63,29 +58,28 @@ public class PrecompilerImpl implements Precompiler {
 	/**
 	 * Go through all files while:
 	 * (1) Asserting each {@code File} has all _required_ {@code FileOption}s
-	 * (2) Store (`value of {@code ID}`, `{@code File}`) pairs
+	 * (2) Store ({@code ID}, {@code File}) pair in map
 	 */
 	private void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {
 
-		for (File file : fileToFOContainer.keySet()) {
+		Set<File> files = fileToFOContainer.keySet();
+		for (File file : files) {
 
-			assertHasAllRequiredFileOptions(file, fileToFOContainer);
+			assertFileHasAllRequiredFileOptions(file, fileToFOContainer);
 
-			storeValOfIDToFile(             file, fileToFOContainer);
+			putIDToFile(file, fileToFOContainer);
 
 		}
 
 	}
 
-	private void storeValOfIDToFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
-		String valOfID = fileToFOContainer.get(file).get(ID);
-		IDValToFile.put(
-				valOfID,
-				file
-		);
+	private void putIDToFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
+		FileOptionContainer foContainer = fileToFOContainer.get(file);
+		String id         = foContainer.get(ID);
+		idToFile.put(id, file);
 	}
 
-	private void assertHasAllRequiredFileOptions(File file, Map<File, FileOptionContainer> fileToFOContainer) {
+	private void assertFileHasAllRequiredFileOptions(File file, Map<File, FileOptionContainer> fileToFOContainer) {
 
 		Set<KEY> keysOfFile = fileToFOContainer.get(file).keySet();
 
@@ -130,7 +124,7 @@ public class PrecompilerImpl implements Precompiler {
 		do {
 			String linkText   = matcher.group(1);
 			String id         = matcher.group(2);
-			File fileOfID        = IDValToFile.get(id);
+			File fileOfID        = idToFile.get(id);
 			String pathToFile = relativeFilePathBetween(file, fileOfID);
 			String replacement = "[" + linkText + "](" + pathToFile + ")";
 

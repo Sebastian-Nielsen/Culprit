@@ -1,9 +1,7 @@
 package unitTests;
 
-import framework.FileOption;
 import framework.Validator;
-import framework.ValidatorImpl;
-import org.jetbrains.annotations.NotNull;
+import framework.singleClasses.ValidatorImpl;
 import org.junit.jupiter.api.Test;
 
 import static constants.Constants.*;

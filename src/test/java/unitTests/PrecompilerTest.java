@@ -3,10 +3,10 @@ package unitTests;
 import common.PrecompilerImpl;
 import framework.Precompiler;
 
-import static framework.FileOption.KEY.D_LINKS;
-import static framework.FileOption.KEY.ID;
+import static framework.singleClasses.FileOption.KEY.D_LINKS;
+import static framework.singleClasses.FileOption.KEY.ID;
 
-import framework.FileOptionContainer;
+import framework.singleClasses.FileOptionContainer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ import java.util.Map;
 import static java.util.AbstractMap.SimpleEntry;
 
 import static java.util.Map.Entry;
-import static framework.FileOption.KEY;
+import static framework.singleClasses.FileOption.KEY;
 
 import static framework.utils.FileUtils.filesToTheirContent;
 import static org.junit.jupiter.api.Assertions.assertEquals;

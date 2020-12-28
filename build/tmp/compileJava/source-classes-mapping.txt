@@ -1,44 +1,44 @@
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
+framework/Compiler.java
+ framework.Compiler
 framework/Constants/Constants.java
  framework.Constants.Constants
-framework/utils/FileUtils.java
- framework.utils.FileUtils
-framework/FileOptionContainer.java
- framework.FileOptionContainer
-framework/ValidatorImpl.java
- framework.ValidatorImpl
- framework.ValidatorImpl$REGEXES
-framework/Precompiler.java
- framework.Precompiler
-framework/FileOption.java
- framework.FileOption
- framework.FileOption$KEY
+common/compilerSettingsFactories/CustomCompilerSettingsFactory.java
+ common.compilerSettingsFactories.CustomCompilerSettingsFactory
+framework/singleClasses/FileOption.java
+ framework.singleClasses.FileOption
+ framework.singleClasses.FileOption$KEY
 common/FileOptionExtractorImpl.java
  common.FileOptionExtractorImpl
+common/CompilerImpl.java
+ common.CompilerImpl
+framework/Precompiler.java
+ framework.Precompiler
 framework/FileHandler.java
  framework.FileHandler
-common/PrecompilerImpl.java
- common.PrecompilerImpl
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 common/FileHandlerImpl.java
  common.FileHandlerImpl
+framework/singleClasses/ValidatorImpl.java
+ framework.singleClasses.ValidatorImpl
+ framework.singleClasses.ValidatorImpl$REGEXES
 framework/Validator.java
  framework.Validator
 framework/Deployer.java
  framework.Deployer
-common/DeployerImpl.java
- common.DeployerImpl
-framework/Compiler.java
- framework.Compiler
-framework/CompilerImpl.java
- framework.CompilerImpl
-framework/CompilerFacade.java
- framework.CompilerFacade
-common/compilerSettingsFactories/CustomCompilerSettingsFactory.java
- common.compilerSettingsFactories.CustomCompilerSettingsFactory
 framework/CompilerSettingsFactory.java
  framework.CompilerSettingsFactory
+framework/singleClasses/FileOptionContainer.java
+ framework.singleClasses.FileOptionContainer
 common/compilerSettingsFactories/ProductionCompilerSettingsFactory.java
  common.compilerSettingsFactories.ProductionCompilerSettingsFactory
+common/PrecompilerImpl.java
+ common.PrecompilerImpl
+framework/singleClasses/CompilerFacade.java
+ framework.singleClasses.CompilerFacade
+framework/utils/FileUtils.java
+ framework.utils.FileUtils
+common/DeployerImpl.java
+ common.DeployerImpl
 framework/Main.java
  framework.Main

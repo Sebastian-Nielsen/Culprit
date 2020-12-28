@@ -28,14 +28,13 @@ public class DeployerImpl implements Deployer {
 	}
 
 	public DeployerImpl() {
-		this.contentRootFolder = new File(CWD + "content");
-		this.deployRootFolder  = new File(CWD + "deployment");
+		this.contentRootFolder = new File(CWD + "/" + "content");
+		this.deployRootFolder  = new File(CWD + "/" + "deployment");
 	}
 
 
 	@Override
  	public void deploy() throws IOException {
-
 		for (File contentFile : listAllFilesFrom(contentRootFolder))
 			createDeployFileFrom(contentFile);
 

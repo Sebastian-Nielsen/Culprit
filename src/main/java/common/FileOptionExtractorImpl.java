@@ -1,11 +1,10 @@
 package common;
 
 import framework.*;
+import framework.singleClasses.FileOption;
+import framework.singleClasses.FileOptionContainer;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import static framework.FileOption.KEY;
 
 public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	private final Validator validator;

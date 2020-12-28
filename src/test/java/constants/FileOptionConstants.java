@@ -1,10 +1,7 @@
 package constants;
 
-import java.util.AbstractMap.*;
-import java.util.Map.*;
-
-import static framework.FileOption.KEY.*;
-import static framework.FileOption.*;
+import static framework.singleClasses.FileOption.KEY.*;
+import static framework.singleClasses.FileOption.*;
 
 public class FileOptionConstants {
 	public static final String FILEOPTION_TEMPLATE = "[%s]: <> (%s)";

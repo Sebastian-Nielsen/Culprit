@@ -1,5 +1,6 @@
 package common.compilerSettingsFactories;
 
+import common.CompilerImpl;
 import common.PrecompilerImpl;
 import common.DeployerImpl;
 import framework.*;
