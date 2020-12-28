@@ -3,6 +3,7 @@ package integrationTests;
 import common.CompilerImpl;
 import common.PrecompilerImpl;
 import common.DeployerImpl;
+import common.compilerSettingsFactories.CustomCompilerDependencyFactory;
 import framework.*;
 import framework.Compiler;
 import framework.Precompiler;
@@ -43,9 +44,16 @@ public class customerTest {
 
 	@Test
 	public void test_1_withoutFacade() throws Exception {
-		CompilerFacade compiler = new CompilerFacade(
-				deployer, precompiler, mdToHtmlCompiler, CONTENT_ROOT_FOLDER
-		);
+		CompilerDependencyFactory factory =
+				new CustomCompilerDependencyFactory(
+						CONTENT_ROOT_FOLDER,
+						DEPLOY_ROOT_FOLDER
+				);
+
+		CompilerFacade compiler = new CompilerFacade
+				.Builder(factory)
+				.build();
+
 		compiler.compile();
 	}
 

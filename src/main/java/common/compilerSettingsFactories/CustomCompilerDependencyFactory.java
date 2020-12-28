@@ -8,16 +8,16 @@ import framework.Compiler;
 
 import java.io.File;
 
-public class CustomCompilerSettingsFactory implements CompilerSettingsFactory {
+public class CustomCompilerDependencyFactory implements CompilerDependencyFactory {
 
 	private final File contentRootFolder;
 	private final File deployRootFolder;
 
-	public CustomCompilerSettingsFactory(String contentRootPath, String deployRootPath) {
+	public CustomCompilerDependencyFactory(String contentRootPath, String deployRootPath) {
 		this.contentRootFolder = new File(contentRootPath);
 		this.deployRootFolder  = new File(deployRootPath);
 	}
-	public CustomCompilerSettingsFactory(File contentRootFolder, File deployRootFolder) {
+	public CustomCompilerDependencyFactory(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
 	}

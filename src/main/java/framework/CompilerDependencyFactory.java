@@ -2,7 +2,7 @@ package framework;
 
 import java.io.File;
 
-public interface CompilerSettingsFactory {
+public interface CompilerDependencyFactory {
 
 	Deployer createDeployer();
 

@@ -5,36 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/FileOptionExtractorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/FileOptionExtractorImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/PrecompilerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/PrecompilerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/CompilerFacade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOption$KEY.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Precompiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Precompiler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/ValidatorImpl$REGEXES.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/ValidatorImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerSettingsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerSettingsFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/FileOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/FileOptionContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ValidatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/ValidatorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/constants/FileOptionConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constants/FileOptionConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerSettingsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerDependencyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerSettingsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stubs/ValidatorStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stubs/ValidatorStub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/ValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/ValidatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

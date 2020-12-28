@@ -25,12 +25,20 @@ public class CompilerFacade {
 	private final Compiler compiler;
 
 	private final File contentRootFolder;
+	private final boolean addIdToContentFilesWithoutOne;
+	private final boolean addDefaultIndexes;
 
-	public CompilerFacade(CompilerSettingsFactory compilerSettingsFac) {
-		this.precompiler = compilerSettingsFac.createPrecompiler();
-		this.deployer    = compilerSettingsFac.createDeployer();
-		this.compiler    = compilerSettingsFac.createCompiler();
-		this.contentRootFolder = compilerSettingsFac.getContentRootFolder();
+	public CompilerFacade(Builder builder) {
+
+		CompilerDependencyFactory compilerDepedencyFac = builder.compilerDependencyFac;
+		this.deployer          = compilerDepedencyFac.createDeployer();
+		this.precompiler       = compilerDepedencyFac.createPrecompiler();
+		this.compiler          = compilerDepedencyFac.createCompiler();
+		this.contentRootFolder = compilerDepedencyFac.getContentRootFolder();
+
+		this.addIdToContentFilesWithoutOne = builder.addIdToContentFilesWithoutOne;
+		this.addDefaultIndexes             = builder.addDefaultIndexes;
+
 	}
 
 	public void compile() throws Exception {
@@ -41,21 +49,6 @@ public class CompilerFacade {
 		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
 
 		writeStringToAssociatedFile(fileToHtml);
-	}
-
-
-	/* === Builder options-setter methods */
-
-	public static class Builder {
-		// Required parameters
-		private final CompilerSettingsFactory compilerSettingsFac;
-
-		// Optional parameters - initialized to default values
-		private boolean shouldAddDefaultIndexes = true;
-
-		public Builder(CompilerSettingsFactory compilerSettingsFac) {
-			this.compilerSettingsFac = compilerSettingsFac;
-		}
 	}
 
 
@@ -78,7 +71,7 @@ public class CompilerFacade {
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
-
+		System.out.println("This run");
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
 		FileOptionExtractor foExtractor;
@@ -97,4 +90,38 @@ public class CompilerFacade {
 		return fileToFOContainer;
 	}
 
+
+	/* === Builder options-setter methods */
+
+	public static class Builder {
+		// Required parameters
+		private final CompilerDependencyFactory compilerDependencyFac;
+
+		// Optional parameters - initialized to default values
+		/**
+		 * Whether to add default index.html files to all
+		 * directories that doesn't already have one
+		 */
+		private boolean addDefaultIndexes = true;
+		/**
+		 * If the fileOption
+		 */
+		private boolean addIdToContentFilesWithoutOne = true;
+
+
+		public Builder(CompilerDependencyFactory factory) {
+			this.compilerDependencyFac = factory;
+		}
+		public Builder setAddIdToContentFilesWithoutOne(boolean addIdToContentFilesWithoutOne) {
+			this.addIdToContentFilesWithoutOne = addIdToContentFilesWithoutOne;
+			return this;
+		}
+		public Builder setAddDefaultIndexes(boolean shouldAddDefaultIndexes) {
+			this.addDefaultIndexes = shouldAddDefaultIndexes;
+			return this;
+		}
+		public CompilerFacade build() {
+			return new CompilerFacade(this);
+		}
+	}
 }
