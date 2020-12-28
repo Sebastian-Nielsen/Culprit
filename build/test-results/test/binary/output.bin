@@ -1,75 +1,24 @@
-(((((((((((((((((((((88
-The ID of this file:
 
-&11111111-1111-1111-1111-1111111111111
 
-4[link to B](22222222-2222-2222-2222-2222222222222) 
 
-3[link to C](33333333-3333-3333-3333-3333333333333)
+==================
+1Writing to file: src\test\java\tempOutput\A.html
+8content: [ID]:<> (11111111-1111-1111-1111-111111111111)
+[D_LINKS]:<> (true)
 
-4[link to D](44444444-4444-4444-4444-4444444444444)
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\A.md
-+The ID of this file:
+&This is a [link to C](./nested/C.md).
 
-&11111111-1111-1111-1111-1111111111111
+'This text should be included as well.
 
-[link to B](./B.md) 
 
-[link to C](./nested/C.md)
 
-&[link to D](./nested/x2nested/D.md)+
-(((((((((((((((((((((88
-The ID of this file: 
+==================
+8Writing to file: src\test\java\tempOutput\nested\C.html
+8content: [ID]:<> (22222222-2222-2222-2222-222222222222)
+[D_LINKS]:<> (true)
 
-&22222222-2222-2222-2222-2222222222222
+!This is a [link to A](./../A.md)
 
-†This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the compiler should not do anything to this file. 
-fC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\B.md
-+The ID of this file: 
+6This is an [external (broken) link](/somewebpage.com)
 
-&22222222-2222-2222-2222-2222222222222
-
-‡This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the compiler should not do anything to this file. +
-(((((((((((((((((((((88
-This file has ID:
-
-&33333333-3333-3333-3333-3333333333333
-
-3[link to A](11111111-1111-1111-1111-1111111111111)
-
-4[link to B](22222222-2222-2222-2222-2222222222222) 
-
-4[link to D](44444444-4444-4444-4444-4444444444444)
-mC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\C.md
-+This file has ID:
-
-&33333333-3333-3333-3333-3333333333333
-
-[link to A](./../A.md)
-
-[link to B](./../B.md) 
-
-[link to D](./x2nested/D.md)+
-(((((((((((((((((((((88
-This file has ID: 
-
-&44444444-4444-4444-4444-4444444444444
-
-3[link to A](11111111-1111-1111-1111-1111111111111)
-
-4[link to B](22222222-2222-2222-2222-2222222222222) 
-
-4[link to C](33333333-3333-3333-3333-3333333333333)
-vC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\compilerTest_testFiles\D_LINKS\input\nested\x2Nested\D.md
-+This file has ID: 
-
-&44444444-4444-4444-4444-4444444444444
-
-[link to A](./../../A.md)
-
-[link to B](./../../B.md) 
-
-[link to C](./../C.md)+
-==============
-'..\..\C.md'
-==============
+'This text should be included as well.

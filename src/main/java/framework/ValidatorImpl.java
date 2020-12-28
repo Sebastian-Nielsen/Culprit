@@ -6,6 +6,12 @@ import static framework.FileOption.getValOf;
 public class ValidatorImpl implements Validator {
 	private static final Validator instance = new ValidatorImpl();
 
+	public static class REGEXES {
+
+		public static final String MD_COMMENT_FORMAT = " {0,3}\\[.*?]:\s*<>\s+\\(.*?\\)\s*";
+		public static final String UUID = "[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}";
+	}
+
 	private ValidatorImpl() {}
 
 	/**
@@ -17,7 +23,7 @@ public class ValidatorImpl implements Validator {
 		if (line == null)
 			return false;
 
-		boolean isValidMdCommentFormat = line.matches(" {0,3}\\[.*?]:\s*<>\s+\\(.*?\\)\s*");
+		boolean isValidMdCommentFormat = line.matches(REGEXES.MD_COMMENT_FORMAT);
 		if (!isValidMdCommentFormat)
 			return false;
 

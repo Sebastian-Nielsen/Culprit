@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import static framework.FileOption.KEY.ID;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
+import static framework.ValidatorImpl.REGEXES;
 
 /**
  * === Representation of a FileOption
@@ -28,13 +29,12 @@ public class FileOption {
 	 * The set of valid {@code FileOption} keys.
 	 */
 	public enum KEY {
-		 ID("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", null),
+		 ID(REGEXES.UUID, null),
 		// Whether the file contains dynamic links
 		D_LINKS("(true|false)", "false");
 
 		private final Pattern validValuesPattern;
 		public final String defaultVal;
-
 
 		/**
 		 * @param validValuesRegex regex string representing the set of valid values for the key.
@@ -74,5 +74,11 @@ public class FileOption {
 		matcher.find();
 		return matcher.group(1);
 	}
+
+
+	/* === PRIVATE METHODS */
+
+
+
 
 }

@@ -1,6 +1,8 @@
 package common;
 
 import framework.Compiler;
+import framework.FileOption;
+import framework.FileOptionContainer;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,12 +14,11 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import framework.FileOption;
-
-import static framework.FileOption.KEY.*;
+import static framework.Constants.Constants.CWD;
 import static framework.FileOption.KEY;
+import static framework.FileOption.KEY.ID;
+import static framework.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.*;
-import static org.apache.commons.io.FileUtils.readFileToString;
 
 public class CompilerImpl implements Compiler {
 	private final File contentRootFolder;
@@ -27,32 +28,36 @@ public class CompilerImpl implements Compiler {
 		this.contentRootFolder = contentRootFolder;
 	}
 
+	public CompilerImpl() {
+		this.contentRootFolder = new File(CWD + "content");
+	}
+
 	/**
 	 * Go through all files while:
 	 * (1) record (value of {@code ID}, {@code File}) pairs
 	 * (2) Asserting that each {@code File} has all _required_ {@code FileOption}s
 	 */
-	public void preprocess(Map<File, Map<KEY, String>> fileToKeyToVal) {
+	public void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {
 
-		for (File file : fileToKeyToVal.keySet()) {
+		for (File file : fileToFOContainer.keySet()) {
 
-			assertHasAllRequiredFileOptions(file, fileToKeyToVal);
+			assertHasAllRequiredFileOptions(file, fileToFOContainer);
 
-			recordIDValAndFile(file, fileToKeyToVal);
+			recordIDValAndFile(file, fileToFOContainer);
 		}
 
 	}
 
-	private void recordIDValAndFile(File file, Map<File, Map<KEY, String>> fileToKeyToVal) {
+	private void recordIDValAndFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
 			IDValToFile.put(
-					fileToKeyToVal.get(file).get(ID),
+					fileToFOContainer.get(file).get(ID),
 					file
 			);
 	}
 
-	private void assertHasAllRequiredFileOptions(File file, Map<File, Map<KEY, String>> fileToKeyToVal) {
+	private void assertHasAllRequiredFileOptions(File file, Map<File, FileOptionContainer> fileToFOContainer) {
 
-		Set<KEY> keysOfFile = fileToKeyToVal.get(file).keySet();
+		Set<KEY> keysOfFile = fileToFOContainer.get(file).keySet();
 
 		for (KEY key : FileOption.REQUIRED_KEYS) {
 
@@ -69,31 +74,26 @@ public class CompilerImpl implements Compiler {
 	}
 
 
-	public Map<File, String> compile(Map<File, Map<KEY, String>> fileToKeyToVal) throws IOException {
+	public Map<File, String> compile(Map<File, FileOptionContainer> fileToFOContainer) throws IOException {
 		Map<File, String> fileToCompiledContent = new HashMap<>();
 
 		for (File file : listAllNonDirFilesFrom(contentRootFolder))
+
 			fileToCompiledContent.put(
 					file,
-					compile(file, fileToKeyToVal.get(file))
+					compile(file, fileToFOContainer.get(file))
 			);
 
 		return fileToCompiledContent;
 	}
 
 
-	private String compile(File fileToCompile, Map<KEY, String> keyToVal) throws IOException {
-		String content = contentOf(fileToCompile);
-
+	private String compile(File fileToCompile, FileOptionContainer keyToVal) throws IOException {
 //		String ID_val     = keyToVal.getOrDefault(KEY.ID,      KEY.ID.getDefaultVal(fileToCompile));
 		String DLINKS_val = keyToVal.getOrDefault(KEY.D_LINKS, "false");
 
-		System.out.println("(((((((((((((((((((((88");
-		System.out.println(content);
+		String content = contentOf(fileToCompile);
 		content = handleDLINKS(DLINKS_val, content, fileToCompile);
-
-		System.out.println(fileToCompile);
-		System.out.println("+" + content + "+");
 
 		return content;
 	}
@@ -111,7 +111,7 @@ public class CompilerImpl implements Compiler {
 		if (value.equals("false"))
 			return contentOfFileToCompile;
 
-		String markdownLinkRegex = "\\[(.*?)]\\((.*?)\\)";
+		String markdownLinkRegex = "\\[(.*?)]\\((%s)\\)".formatted(REGEXES.UUID);
 		Matcher matcher = Pattern.compile(markdownLinkRegex).matcher(contentOfFileToCompile);
 
 		if (!matcher.find())
@@ -125,12 +125,14 @@ public class CompilerImpl implements Compiler {
 		do {
 			String linkText   = matcher.group(1);
 			String id         = matcher.group(2);
-			File fileOfID     = IDValToFile.get(id);
+			File fileOfID        = IDValToFile.get(id);
 			String pathToFile = relativeFilePathBetween(file, fileOfID);
 			String replacement = "[" + linkText + "](" + pathToFile + ")";
 
 			matcher.appendReplacement(buffer, replacement);
 		} while (matcher.find());
+
+		matcher.appendTail(buffer);
 
 		return buffer.toString();
 	}

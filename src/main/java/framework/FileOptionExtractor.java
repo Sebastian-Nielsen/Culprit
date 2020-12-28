@@ -6,11 +6,12 @@ import java.util.Map;
 import static framework.FileOption.KEY;
 
 public interface FileOptionExtractor {
-	Map<KEY, String> extractKeyToValMap() throws IOException;
 
 	/**
 	 * Extracts all FileOptions in {@code file}
-	 * @return list of FileOption objects
+	 * @return a {@code FileOptionContainer} containing all the FileOption
+	 * (key, value) pairs present in {@code file}
 	 */
 	FileOptionContainer extractFileOptions() throws IOException;
+
 }

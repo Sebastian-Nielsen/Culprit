@@ -42,6 +42,11 @@ public class DeployerImpl implements Deployer {
 	}
 
 	@Override
+	public File getDeployEquivalentOf(File contentFile) {
+		return new File(getAbsDeployPath(contentFile));
+	}
+
+	@Override
 	public void addDefaultIndexesTo() {
 
 	}
@@ -62,7 +67,7 @@ public class DeployerImpl implements Deployer {
 	}
 
 	private void createDeployFileFrom(File contentFile) throws IOException {
-		File deployFile = new File(getAbsDeployPath(contentFile));
+		File deployFile = getDeployEquivalentOf(contentFile);
 
 		if (contentFile.isFile())
 			deployFile.createNewFile();

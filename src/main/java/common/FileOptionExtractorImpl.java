@@ -17,18 +17,14 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	}
 
 	@Override
-	public Map<KEY, String> extractKeyToValMap() throws IOException {
-		return null;
-	}
-
 	public FileOptionContainer extractFileOptions() throws IOException {
-		FileOptionContainer fileOptions = new FileOptionContainer();
+		FileOptionContainer foContainer = new FileOptionContainer();
 
 		while (fileHandler.hasNext()) {
 			String line = fileHandler.readLine();
 
 			if (validator.isFileOption(line))
-				fileOptions.put(
+				foContainer.put(
 						FileOption.getKeyOf(line),
 						FileOption.getValOf(line)
 				);
@@ -36,43 +32,7 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 				break;
 		}
 
-		return fileOptions;
+		return foContainer;
 	}
-
-//	@Override
-//	public Map<KEY, String> extractKeyToValMap() throws IOException {
-//		Map<KEY, String> keyToVal = new HashMap<>();
-//
-//		while (fileHandler.hasNext()) {
-//			String line = fileHandler.readLine();
-//
-//			if (validator.isFileOption(line)) {
-//				fileOptions.put(
-//						FileOption.getKeyOf(line),
-//						FileOption.getValOf(line)
-//				);
-//			} else
-//				break;
-//		}
-//
-//		return keyToVal;
-//	}
-
-//	@Override
-//	public List<FileOption> extractFileOptions() throws IOException {
-//		List<FileOption> fileOptions = new ArrayList<>();
-//
-//		while (fileHandler.hasNext()) {
-//			String line = fileHandler.readLine();
-//
-//			if (validator.isFileOption(line))
-//				fileOptions.add(new FileOption(line));
-//			else
-//				break;
-//		}
-//
-//		return fileOptions;
-//	}
-
 
 }
