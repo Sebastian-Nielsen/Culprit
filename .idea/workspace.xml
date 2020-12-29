@@ -5,91 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/compilerSettingsFactories/CustomCompilerDependencyFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOption$KEY.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOption.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOptionContainer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOptionExtractorImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOptionInserter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/common/other/UUIDGeneratorImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Compiler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/CompilerDependencyFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/UUIDGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/ValidatorImpl$REGEXES.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/ValidatorImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/stubs/UUIDGeneratorStub.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileOptionInserterTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.DeployerImplTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/content/A.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/content/B.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/content/nested/x2Nested/C.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/A.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/B.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/C.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/A.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/B.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/C.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/A.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/C.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/E.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/A.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/B.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/C.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/D.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/E.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.DeployerImplTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/math/index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/other/test.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/math/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/other/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/other/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionInserter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/other/UUIDGeneratorImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/UUIDGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stubs/UUIDGeneratorStub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionInserterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/content/A.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/content/B.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/content/nested/x2Nested/C.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/A.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/B.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/C.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/A.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/B.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/C.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/A.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/C.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/E.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/A.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/B.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/C.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/D.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/E.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultBodyTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultHeadTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/HtmlTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/LinkTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/framework/html/BodyTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/framework/html/HeadTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/framework/html/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,10 +45,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -158,6 +84,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="common.html" />
       <recent name="framework" />
       <recent name="common" />
       <recent name="" />
@@ -183,7 +110,7 @@
       <module name="culprit_2.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="framework.*" />
+          <option name="PATTERN" value="common.html.tags.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

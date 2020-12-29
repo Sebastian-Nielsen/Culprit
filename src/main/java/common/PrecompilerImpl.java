@@ -126,9 +126,9 @@ public class PrecompilerImpl implements Precompiler {
 	private String replaceAllIDsWithFilePaths(Matcher matcher, File file) {
 		StringBuffer buffer = new StringBuffer();
 		do {
-			String linkText   = matcher.group(1);
-			String id         = matcher.group(2);
-			File fileOfID        = idToFile.get(id);
+			String linkText = matcher.group(1);
+			String id       = matcher.group(2);
+			File fileOfID     = idToFile.get(id);
 			String pathToFile = relativeFilePathBetween(file, fileOfID);
 			String replacement = "[" + linkText + "](" + pathToFile + ")";
 

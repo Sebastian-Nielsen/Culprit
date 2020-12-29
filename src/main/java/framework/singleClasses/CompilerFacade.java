@@ -2,12 +2,16 @@ package framework.singleClasses;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
+import common.html.HtmlBuilder;
 import framework.Compiler;
 import framework.*;
+import common.html.tags.HtmlTag;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static framework.utils.FileUtils.listAllNonDirFilesFrom;
 import static framework.utils.FileUtils.writeStringTo;
@@ -40,11 +44,36 @@ public class CompilerFacade {
 	public void compile() throws Exception {
 		prepare();
 
-		Map<File, String> fileToMd   = precompiler.compileAllFiles(extractFOContainerFromEachFile());
+		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachFile();
 
-		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
+		Map<File, String> fileToMd       = precompiler.compileAllFiles(fileToFOContainer);
+
+		Map<File, String> fileToHtmlBody = compiler   .compileAllFiles(fileToMd);
+
+		Map<File, String> fileToHtml = buildHtmlTagForEachFile(fileToHtmlBody, fileToFOContainer);
 
 		writeStringToAssociatedFile(fileToHtml);
+	}
+
+	private Map<File, HtmlTag> buildHtmlTagForEachFile(Map<File, String> fileToHtmlBody,
+	                                Map<File, FileOptionContainer> fileToFOContainer) {
+
+		Map<File, HtmlTag> fileToHtml = new HashMap<>();
+
+		Set<File> files = fileToHtmlBody.keySet();
+		for (File file : files) {
+
+			FileOptionContainer foContainer = fileToFOContainer.get(file);
+			String              htmlBody    = fileToHtmlBody   .get(file);
+
+			fileToHtml.put(
+					file,
+					"" + HtmlBuilder.buildHtmlTag(htmlBody, foContainer)
+			);
+
+		}
+
+		return fileToHtml;
 	}
 
 
