@@ -1,18 +1,19 @@
-framework/Compiler.java
- framework.Compiler
+framework/UUIDGeneratorImpl.java
+ framework.UUIDGeneratorImpl
 framework/Constants/Constants.java
  framework.Constants.Constants
-framework/singleClasses/FileOptionContainer.java
- framework.singleClasses.FileOptionContainer
-framework/singleClasses/FileOption.java
- framework.singleClasses.FileOption
- framework.singleClasses.FileOption$KEY
+common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
+ common.compilerSettingsFactories.ProductionCompilerDependencyFactory
+framework/Compiler.java
+ framework.Compiler
 common/FileOptionExtractorImpl.java
  common.FileOptionExtractorImpl
+framework/CompilerDependencyFactory.java
+ framework.CompilerDependencyFactory
 common/CompilerImpl.java
  common.CompilerImpl
-framework/Precompiler.java
- framework.Precompiler
+framework/UUIDGenerator.java
+ framework.UUIDGenerator
 framework/FileHandler.java
  framework.FileHandler
 framework/FileOptionExtractor.java
@@ -22,6 +23,19 @@ common/FileHandlerImpl.java
 framework/singleClasses/ValidatorImpl.java
  framework.singleClasses.ValidatorImpl
  framework.singleClasses.ValidatorImpl$REGEXES
+common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
+ common.compilerSettingsFactories.CustomCompilerDependencyFactory
+framework/Main.java
+ framework.Main
+framework/Deployer.java
+ framework.Deployer
+framework/singleClasses/FileOptionContainer.java
+ framework.singleClasses.FileOptionContainer
+framework/Precompiler.java
+ framework.Precompiler
+framework/singleClasses/FileOption.java
+ framework.singleClasses.FileOption
+ framework.singleClasses.FileOption$KEY
 framework/Validator.java
  framework.Validator
 common/PrecompilerImpl.java
@@ -29,17 +43,7 @@ common/PrecompilerImpl.java
 framework/singleClasses/CompilerFacade.java
  framework.singleClasses.CompilerFacade
  framework.singleClasses.CompilerFacade$Builder
-common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
- common.compilerSettingsFactories.ProductionCompilerDependencyFactory
 framework/utils/FileUtils.java
  framework.utils.FileUtils
-common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
- common.compilerSettingsFactories.CustomCompilerDependencyFactory
 common/DeployerImpl.java
  common.DeployerImpl
-framework/Deployer.java
- framework.Deployer
-framework/Main.java
- framework.Main
-framework/CompilerDependencyFactory.java
- framework.CompilerDependencyFactory

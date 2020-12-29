@@ -81,14 +81,12 @@ public class CompilerFacade {
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
-		System.out.println("This run");
+
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
-		FileOptionExtractor foExtractor;
 		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
 
-			foExtractor = new FileOptionExtractorImpl(new FileHandlerImpl(file),
-														validator);
+			FileOptionExtractor foExtractor = newFileOptionExtractor(file);
 
 			fileToFOContainer.put(
 					file,
@@ -100,6 +98,12 @@ public class CompilerFacade {
 		return fileToFOContainer;
 	}
 
+
+	/* === PRIVAT METHODS */
+
+	private FileOptionExtractor newFileOptionExtractor(File fileToExtractFrom) throws IOException {
+		return new FileOptionExtractorImpl(new FileHandlerImpl(fileToExtractFrom));
+	}
 
 	/* === Builder options-setter methods */
 

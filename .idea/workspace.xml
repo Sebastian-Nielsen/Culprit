@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Deployer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Deployer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
@@ -16,8 +15,6 @@
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" afterDir="false" />
     </list>

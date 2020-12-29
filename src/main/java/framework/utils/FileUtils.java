@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -39,8 +38,11 @@ public class FileUtils {
 				.toArray(File[]::new);
 	}
 
-	public static String[] listContentOfAllFilesFrom(File folder) {
-		return allNonDirFilesFrom(folder)
+	public static String[] listContentOfFilesFrom(String folderPath) throws IOException {
+		return listContentOfFilesFrom(new File(folderPath));
+	}
+	public static String[] listContentOfFilesFrom(File folder) throws IOException {
+		return Arrays.stream(listAllNonDirFilesFrom(folder))
 				.map(FileUtils::contentOf)
 				.toArray(String[]::new);
 	}
@@ -49,8 +51,9 @@ public class FileUtils {
 	 * Return the content of the given {@code File}
 	 */
 	public static String contentOf(File file) {
+		String content;
 		try {
-			String content = readFileToString(file, "UTF-8");
+			content = readFileToString(file, "UTF-8");
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -64,7 +67,11 @@ public class FileUtils {
 	 * within a folder in {@code folder}.
 	 */
 	public static Stream<File> allNonDirFilesFrom(File folder) {
-		return Arrays.stream(folder.listFiles()).filter(File::isFile);
+		File[] files = folder.listFiles();
+		if (files == null)
+			return Stream.empty();
+		else
+			return Arrays.stream(files).filter(File::isFile);
 	}
 
 	/**

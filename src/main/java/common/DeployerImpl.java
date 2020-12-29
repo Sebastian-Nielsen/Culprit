@@ -1,8 +1,10 @@
 package common;
 
 import framework.Deployer;
+import framework.FileOptionExtractor;
 import framework.UUIDGenerator;
 import framework.UUIDGeneratorImpl;
+import framework.singleClasses.ValidatorImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,10 +31,10 @@ public class DeployerImpl implements Deployer {
 //		UUIDGenerator = uuidGenerator;
 //	}
 
-	public DeployerImpl(File contentRootFolder, File deployRootFolder) {
-		this.contentRootFolder = contentRootFolder;
-		this.deployRootFolder  = deployRootFolder;
-		this.uuidGenerator = new UUIDGeneratorImpl();
+	public DeployerImpl(String contentRootString, String deployRootString, UUIDGenerator uuidGenerator) {
+		this.contentRootFolder = new File(contentRootString);
+		this.deployRootFolder  = new File(deployRootString );
+		this.uuidGenerator = uuidGenerator;
 	}
 
 	public DeployerImpl(File contentRootFolder, File deployRootFolder, UUIDGenerator uuidGenerator) {
@@ -41,9 +43,16 @@ public class DeployerImpl implements Deployer {
 		this.uuidGenerator = uuidGenerator;
 	}
 
+	public DeployerImpl(File contentRootFolder, File deployRootFolder) {
+		this.contentRootFolder = contentRootFolder;
+		this.deployRootFolder  = deployRootFolder;
+		this.uuidGenerator = new UUIDGeneratorImpl();
+	}
+
 	public DeployerImpl() {
 		this.contentRootFolder = new File(CWD + "/" + "content");
 		this.deployRootFolder  = new File(CWD + "/" + "deployment");
+		this.uuidGenerator = new UUIDGeneratorImpl();
 	}
 
 
@@ -65,12 +74,27 @@ public class DeployerImpl implements Deployer {
 	}
 
 	@Override
-	public void addIdToContentFilesWithoutOne() {
-		return;
+	public void addIdToContentFilesWithoutOne() throws IOException {
+
+		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
+
+			ewFileOptionExtractor(file);
+
+
+
+		}
+
 	}
 
 
 	/* === PRIVATE METHODS */
+
+	private FileOptionExtractor newFileOptionExtractor(File fileToExtractFrom) throws IOException {
+		return new FileOptionExtractorImpl(
+					new FileHandlerImpl(fileToExtractFrom),
+					ValidatorImpl.getInstance()
+		);
+	}
 
 	private void addDefaultIndexesRecursivelyTo(File folder) {
 

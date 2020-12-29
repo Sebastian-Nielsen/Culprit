@@ -3,6 +3,7 @@ package common;
 import framework.*;
 import framework.singleClasses.FileOption;
 import framework.singleClasses.FileOptionContainer;
+import framework.singleClasses.ValidatorImpl;
 
 import java.io.IOException;
 
@@ -13,6 +14,11 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 	public FileOptionExtractorImpl(FileHandler fileHandler, Validator validator) {
 		this.fileHandler = fileHandler;
 		this.validator   = validator;
+	}
+
+	public FileOptionExtractorImpl(FileHandler fileHandler) {
+		this.fileHandler = fileHandler;
+		this.validator = ValidatorImpl.getInstance();
 	}
 
 	@Override

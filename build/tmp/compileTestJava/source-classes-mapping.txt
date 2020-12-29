@@ -6,6 +6,8 @@ stubs/FileHandlerStub.java
  stubs.FileHandlerStub
 constants/FileOptionConstants.java
  constants.FileOptionConstants
+stubs/UUIDGeneratorStub.java
+ stubs.UUIDGeneratorStub
 testHelper/TestHelper.java
  testHelper.TestHelper
 unitTests/ValidatorTest.java
