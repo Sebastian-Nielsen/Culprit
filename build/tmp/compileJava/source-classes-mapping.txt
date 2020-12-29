@@ -1,13 +1,14 @@
-framework/Validator.java
- framework.Validator
+framework/singleClasses/CompilerFacade.java
+ framework.singleClasses.CompilerFacade
+ framework.singleClasses.CompilerFacade$Builder
 framework/Constants/Constants.java
  framework.Constants.Constants
 common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
  common.compilerSettingsFactories.ProductionCompilerDependencyFactory
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
-framework/Main.java
- framework.Main
+framework/utils/FileUtils.java
+ framework.utils.FileUtils
+common/fileOption/FileOptionInserter.java
+ common.fileOption.FileOptionInserter
 framework/CompilerDependencyFactory.java
  framework.CompilerDependencyFactory
 common/fileOption/FileOptionContainer.java
@@ -21,8 +22,8 @@ framework/UUIDGenerator.java
  framework.UUIDGenerator
 framework/FileHandler.java
  framework.FileHandler
-common/other/UUIDGeneratorImpl.java
- common.other.UUIDGeneratorImpl
+common/PrecompilerImpl.java
+ common.PrecompilerImpl
 common/FileHandlerImpl.java
  common.FileHandlerImpl
 framework/singleClasses/ValidatorImpl.java
@@ -30,22 +31,21 @@ framework/singleClasses/ValidatorImpl.java
  framework.singleClasses.ValidatorImpl$REGEXES
 common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
  common.compilerSettingsFactories.CustomCompilerDependencyFactory
-framework/Compiler.java
- framework.Compiler
+common/DeployerImpl.java
+ common.DeployerImpl
 framework/Deployer.java
  framework.Deployer
 framework/Precompiler.java
  framework.Precompiler
-common/PrecompilerImpl.java
- common.PrecompilerImpl
-framework/singleClasses/CompilerFacade.java
- framework.singleClasses.CompilerFacade
- framework.singleClasses.CompilerFacade$Builder
-framework/utils/FileUtils.java
- framework.utils.FileUtils
-common/DeployerImpl.java
- common.DeployerImpl
-common/fileOption/FileOptionInserter.java
- common.fileOption.FileOptionInserter
+framework/Validator.java
+ framework.Validator
+common/other/UUIDGeneratorImpl.java
+ common.other.UUIDGeneratorImpl
+framework/Compiler.java
+ framework.Compiler
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 common/fileOption/FileOptionExtractorImpl.java
  common.fileOption.FileOptionExtractorImpl
+framework/Main.java
+ framework.Main

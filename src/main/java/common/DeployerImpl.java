@@ -22,43 +22,29 @@ public class DeployerImpl implements Deployer {
 
 	private final File contentRootFolder;
 	private final File deployRootFolder;
-	private final UUIDGenerator uuidGenerator;
+	private final FileOptionInserter fileOptionInserter;
 
-//	/**
-//	 * @param relativeContentPath Relative path to the content root folder; e.g. "src/content"
-//	 * @param relativeDeployPath  Relative path to the deploy  root folder; e.g  "src/ioFiles.deployment"
-//	 * @param uuidGenerator
-//	 */
-//	public DeployerImpl(String relativeContentPath, String relativeDeployPath, framework.UUIDGenerator uuidGenerator) {
-//		this.contentRootFolder = new File(CWD + "/" + relativeContentPath);
-//		this.deployRootFolder  = new File(CWD + "/" + relativeDeployPath);
-//		UUIDGenerator = uuidGenerator;
-//	}
-
-	public DeployerImpl(String contentRootString, String deployRootString, UUIDGenerator uuidGenerator) {
-		this.contentRootFolder = new File(contentRootString);
-		this.deployRootFolder  = new File(deployRootString );
-		this.uuidGenerator = uuidGenerator;
+	/**
+	 * @param relativeContentPath Relative path to the content root folder; e.g. "src/content"
+	 * @param relativeDeployPath  Relative path to the deploy  root folder; e.g  "src/ioFiles.deployment"
+	 */
+	public DeployerImpl(String relativeContentPath, String relativeDeployPath, FileOptionInserter fileOptionInserter) {
+		this.contentRootFolder = new File(CWD + '/' + relativeContentPath);
+		this.deployRootFolder  = new File(CWD + '/' + relativeDeployPath);
+		this.fileOptionInserter = fileOptionInserter;
 	}
 
-	public DeployerImpl(File contentRootFolder, File deployRootFolder, UUIDGenerator uuidGenerator) {
+	public DeployerImpl(File contentRootFolder, File deployRootFolder, FileOptionInserter fileOptionInserter) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
-		this.uuidGenerator = uuidGenerator;
+		this.fileOptionInserter = fileOptionInserter;
 	}
 
 	public DeployerImpl(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
-		this.uuidGenerator = UUIDGeneratorImpl.getInstance();
+		this.fileOptionInserter = new FileOptionInserter();
 	}
-
-	public DeployerImpl() {
-		this.contentRootFolder = new File(CWD + "/" + "content");
-		this.deployRootFolder  = new File(CWD + "/" + "deployment");
-		this.uuidGenerator = UUIDGeneratorImpl.getInstance();
-	}
-
 
 	@Override
  	public void deploy() throws IOException {
@@ -73,7 +59,7 @@ public class DeployerImpl implements Deployer {
 	}
 
 	@Override
-	public void addDefaultIndexes() {
+	public void addDefaultIndexes() throws IOException {
 		addDefaultIndexesRecursivelyTo(deployRootFolder);
 	}
 
@@ -85,12 +71,10 @@ public class DeployerImpl implements Deployer {
 		Set<File> files = fileToFOContainer.keySet();
 		for (File file : files) {
 
-			boolean foContainerHasIDKey = fileToFOContainer.get(file).containsKey(ID);
-			if (!foContainerHasIDKey)
+			boolean foContainerHasIdKey = fileToFOContainer.get(file).containsKey(ID);
+			if (!foContainerHasIdKey)
 
 				addIdTo(file);
-
-
 		}
 
 	}
@@ -99,29 +83,47 @@ public class DeployerImpl implements Deployer {
 	/* === PRIVATE METHODS */
 
 	private void addIdTo(File file) throws IOException {
-		new FileOptionInserter().addIdTo(file);
+		fileOptionInserter.addIdTo(file);
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder) throws Exception {
+
 		return FileOptionExtractorImpl.getInstance()
 				.extractFOContainerFromEachFileIn(folder);
+
 	}
 
-	private void addDefaultIndexesRecursivelyTo(File folder) {
+	private void addDefaultIndexesRecursivelyTo(File folder) throws IOException {
 
-		for (File file : folder.listFiles())
+		boolean hasSeenIndexFile = false;
+
+		for (File file : folder.listFiles()) {
 
 			if (file.isDirectory())
 				addDefaultIndexesRecursivelyTo(file);
+
+			if (isIndexFile(file))
+				hasSeenIndexFile = true;
+		}
+
+		if (!hasSeenIndexFile)
+			new File(folder + "/index.html").createNewFile();
 	}
 
+	private boolean isIndexFile(File file) {
+		return file.toString().equals("index.html");
+	}
+
+
 	private void addDefaultIndexTo(File folder) throws IOException {
+
 		Stream<File> files = allNonDirFilesFrom(folder);
 
 		// if an 'index.html' doesn't already exist; create one.
 		boolean doesIndexFileExist = files.anyMatch(isEqual("index.html"));
 		if (!doesIndexFileExist)
 			createDefaultIndexIn(folder);
+
 	}
 
 	private void createDefaultIndexIn(File folder) throws IOException {

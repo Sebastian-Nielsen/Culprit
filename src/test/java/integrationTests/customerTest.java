@@ -43,7 +43,7 @@ public class customerTest {
 	}
 
 	@Test
-	public void test_1_withoutFacade() throws Exception {
+	public void test_1() throws Exception {
 		CompilerDependencyFactory factory =
 				new CustomCompilerDependencyFactory(
 						CONTENT_ROOT_FOLDER,
@@ -52,6 +52,8 @@ public class customerTest {
 
 		CompilerFacade compiler = new CompilerFacade
 				.Builder(factory)
+				.setAddIdToContentFilesWithoutOne(false)
+				.setAddDefaultIndexes(true)
 				.build();
 
 		compiler.compile();

@@ -1,36 +1,36 @@
-stubs/UUIDGeneratorStub.java
- stubs.UUIDGeneratorStub
-unitTests/ValidatorTest.java
- unitTests.ValidatorTest
-stubs/FileHandlerStub.java
- stubs.FileHandlerStub
-testHelper/TestHelper.java
- testHelper.TestHelper
-stubs/ValidatorStub.java
- stubs.ValidatorStub
-constants/FileOptionConstants.java
- constants.FileOptionConstants
-unitTests/FileOptionTest.java
- unitTests.FileOptionTest
-unitTests/FileHandlerImplTest.java
- unitTests.FileHandlerImplTest
-constants/Constants.java
- constants.Constants
 unitTests/testTempFolder.java
  unitTests.testTempFolder
-unitTests/FileOptionInserterTest.java
- unitTests.FileOptionInserterTest
 unitTests/PrecompilerTest.java
  unitTests.PrecompilerTest
-unitTests/FileUtilsSuiteClasses/FileUtils_miscellaneous.java
- unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous
-unitTests/DeployerImplTest.java
- unitTests.DeployerImplTest
-integrationTests/customerTest.java
- integrationTests.customerTest
+stubs/FileHandlerStub.java
+ stubs.FileHandlerStub
+unitTests/FileHandlerImplTest.java
+ unitTests.FileHandlerImplTest
+stubs/UUIDGeneratorStub.java
+ stubs.UUIDGeneratorStub
 unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java
  unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom
 unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java
  unitTests.FileUtilsSuiteClasses.FileUtils_listAllFilesFrom
 unitTests/FileOptionExtractorTest.java
  unitTests.FileOptionExtractorTest
+constants/Constants.java
+ constants.Constants
+unitTests/FileOptionInserterTest.java
+ unitTests.FileOptionInserterTest
+unitTests/FileOptionTest.java
+ unitTests.FileOptionTest
+unitTests/FileUtilsSuiteClasses/FileUtils_miscellaneous.java
+ unitTests.FileUtilsSuiteClasses.FileUtils_miscellaneous
+testHelper/TestHelper.java
+ testHelper.TestHelper
+unitTests/ValidatorTest.java
+ unitTests.ValidatorTest
+constants/FileOptionConstants.java
+ constants.FileOptionConstants
+stubs/ValidatorStub.java
+ stubs.ValidatorStub
+unitTests/DeployerImplTest.java
+ unitTests.DeployerImplTest
+integrationTests/customerTest.java
+ integrationTests.customerTest

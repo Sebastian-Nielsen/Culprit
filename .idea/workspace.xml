@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/FileOptionExtractorImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/PrecompilerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/PrecompilerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Deployer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Deployer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Precompiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/Precompiler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/integrationTests/customerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/integrationTests/customerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
@@ -20,20 +15,9 @@
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/FileOptionExtractorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionExtractorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileOptionExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/FileOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/FileOptionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/ValidatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/ValidatorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/constants/FileOptionConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constants/FileOptionConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileOptionExtractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +50,7 @@
         <option value="Interface" />
         <option value="package-info" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -81,6 +66,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -88,7 +74,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/expected" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expected/nested/x2Nested" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -102,21 +88,21 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\addDefaultIndexes\expected\nested\x2Nested" />
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\addDefaultIndexes\expected" />
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\addDefaultIndexes\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\expected" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\compilerTest_testFiles\D_LINKS\expectedCompiledContent" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\java" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\testClassSpecific" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\global\root" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\global" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\compilerTest_testFiles\D_LINKS\expectedCompiledContent" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.FileOptionInserterTest.shouldAddIdFileOptionToMarkdownFile">
+  <component name="RunManager" selected="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder">
     <configuration name="DeployerImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -138,12 +124,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FileOptionInserterTest.shouldAddIdFileOptionToMarkdownFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DeployerImplTest.shouldAddDefaultIndexesToDeployFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileOptionInserterTest.shouldAddIdFileOptionToMarkdownFile&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldAddDefaultIndexesToDeployFolder&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -159,12 +145,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'unitTests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DeployerImplTest.shouldAddIdToContentFilesWithoutOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.*&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldAddIdToContentFilesWithoutOne&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -180,12 +166,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="customerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;integrationTests.customerTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -201,12 +187,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="customerTest.test_1_withoutFacade" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'culprit_2.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;integrationTests.customerTest.test_1_withoutFacade&quot;" />
+        <option name="scriptParameters" value="--tests *" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -224,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FileOptionInserterTest.shouldAddIdFileOptionToMarkdownFile" />
+        <item itemvalue="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" />
+        <item itemvalue="Gradle.DeployerImplTest.shouldAddDefaultIndexesToDeployFolder" />
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Gradle.DeployerImplTest" />
-        <item itemvalue="Gradle.Tests in 'unitTests'" />
-        <item itemvalue="Gradle.customerTest.test_1_withoutFacade" />
-        <item itemvalue="Gradle.customerTest" />
+        <item itemvalue="Gradle.DeployerImplTest.shouldAddIdToContentFilesWithoutOne" />
       </list>
     </recent_temporary>
   </component>

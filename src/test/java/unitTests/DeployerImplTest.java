@@ -1,6 +1,7 @@
 package unitTests;
 
 import common.DeployerImpl;
+import common.fileOption.FileOptionInserter;
 import framework.Deployer;
 import framework.UUIDGenerator;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,9 +10,10 @@ import org.junit.jupiter.api.io.TempDir;
 import stubs.UUIDGeneratorStub;
 
 import java.io.File;
+import java.io.IOException;
 
-import static framework.utils.FileUtils.getRelativePathsFrom;
-import static framework.utils.FileUtils.listContentOfFilesFrom;
+import static framework.utils.FileUtils.*;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static testHelper.TestHelper.getResourceFile;
 
@@ -22,11 +24,11 @@ import static testHelper.TestHelper.getResourceFile;
  */
 public class DeployerImplTest {
 
-	private File DEPLOY_ROOT_FOLDER;
+	private File DEPLOY_ROOT_DIR;
 
 	@BeforeEach
 	public void setup(@TempDir File tempDir) {
-		DEPLOY_ROOT_FOLDER = tempDir;
+		DEPLOY_ROOT_DIR = tempDir;
 	}
 
 	@Test
@@ -34,31 +36,83 @@ public class DeployerImplTest {
 		// Fixture
 		final String CONTENT_ROOT_DIRNAME  = "basicFileHierarchy/root";
 		final File   CONTENT_ROOT_DIR      = getResourceFile(CONTENT_ROOT_DIRNAME);
-		Deployer deployer = new DeployerImpl(CONTENT_ROOT_DIR, DEPLOY_ROOT_FOLDER);
+		Deployer deployer = new DeployerImpl(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR);
 		// Exercise
 		deployer.deploy();
 		// Verify post-exercise state
 		String[] expectedHierarchy = getRelativePathsFrom(CONTENT_ROOT_DIR);
-		String[]   actualHierarchy = getRelativePathsFrom(DEPLOY_ROOT_FOLDER);
+		String[]   actualHierarchy = getRelativePathsFrom(DEPLOY_ROOT_DIR);
 
-		assertArrayEquals(actualHierarchy, expectedHierarchy);
+		assertArrayEquals(expectedHierarchy, actualHierarchy);
 	}
 
 	@Test
 	public void shouldAddIdToContentFilesWithoutOne() throws Exception {
 		// Fixture
-		final File CONTENT_ROOT_DIR = getResourceFile("DeployerTest_testFiles/input");
+		final String methodSpecificTestDirname = "addIdsToFilesWithoutOne";
 
-		Deployer deployer = newDeployer(CONTENT_ROOT_DIR, new UUIDGeneratorStub());
+		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/input");
+
+		final Deployer deployer = newDeployer(CONTENT_DIR, new UUIDGeneratorStub());
 
 		// Exercise
 		deployer.addIdToContentFilesWithoutOne();
 
 		// Verify post-exercise state
-		File EXPECTED_DIR = getResourceFile("DeployerTest_testFiles/expected");
-		String[] expectedFileContents = listContentOfFilesFrom(EXPECTED_DIR);
-		String[]   actualFileContents = listContentOfFilesFrom(CONTENT_ROOT_DIR);
+		final File EXPECTED_DIR = getTestDir(methodSpecificTestDirname + "/expected");
 
+		String[] expectedFileContents = listContentOfFilesFrom(EXPECTED_DIR);
+		String[]   actualFileContents = listContentOfFilesFrom( CONTENT_DIR);
+
+		assertArrayEquals(expectedFileContents, actualFileContents);
+	}
+
+	@Test
+	public void shouldCreateDefaultIndexFilesInDeployFolder() throws IOException {
+		// Fixture
+		final String methodSpecificTestDirname = "addDefaultIndexes";
+
+		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/content");
+		final File  DEPLOY_DIR = getTestDir(methodSpecificTestDirname + "/deploy");
+
+		final Deployer deployer = new DeployerImpl(CONTENT_DIR, DEPLOY_DIR);
+
+		// Exercise
+		deployer.addDefaultIndexes();
+
+		// Verify
+		final File EXPECTED_DIR = getTestDir(methodSpecificTestDirname + "/expectedDeploy");
+
+		String[]   actualFileContents = listContentOfFilesFrom(DEPLOY_DIR);
+		String[] expectedFileContents = listContentOfFilesFrom(EXPECTED_DIR);
+
+		assertArrayEquals(expectedFileContents, actualFileContents);
+	}
+
+	@Test
+	public void shouldAddDefaultIndexContentToDefaultCreatedIndexFiles() {
+		//TODO
+	}
+
+
+	/* === PRIVATE METHODS */
+
+	private File getTestDir(String dirname) {
+		return getResourceFile(
+				"DeployerTest_testFiles/" + dirname
+		);
+	}
+
+	private Deployer newDeployer(File contentRootDir, UUIDGenerator uuidGenerator) {
+
+		File dummyDeployFile = new File("");
+		FileOptionInserter foInserter = new FileOptionInserter(uuidGenerator);
+
+		return new DeployerImpl(contentRootDir, dummyDeployFile, foInserter);
+
+	}
+
+	private void debugPrint(String[] expectedFileContents, String[] actualFileContents) {
 		System.out.println("=======");
 		for (String expectedContent : expectedFileContents) {
 			System.out.println(expectedContent);
@@ -70,13 +124,5 @@ public class DeployerImplTest {
 			System.out.println("-------------");
 		}
 		System.out.println("=======");
-
-	}
-
-
-	/* === PRIVATE METHODS */
-	private Deployer newDeployer(File contentRootDir, UUIDGenerator uuidGenerator) {
-		File dummyDeployFile = new File("");
-		return new DeployerImpl(contentRootDir, dummyDeployFile, uuidGenerator);
 	}
 }

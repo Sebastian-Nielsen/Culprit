@@ -64,8 +64,10 @@ public class CompilerFacade {
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
+
 		return FileOptionExtractorImpl.getInstance()
 				.extractFOContainerFromEachFileIn(contentRootFolder);
+
 	}
 
 	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
@@ -82,20 +84,21 @@ public class CompilerFacade {
 	}
 
 
-	/* === Builder options-setter methods */
+	/* === Builder Pattern */
 
 	public static class Builder {
-		// Required parameters
+		// === Required parameters
 		private final CompilerDependencyFactory compilerDependencyFac;
 
-		// Optional parameters - initialized to default values
+		// === Optional parameters
+		// === === Preparation related parameters, see {@link prepare}
 		/**
 		 * Whether to add default index.html files to all
 		 * directories that doesn't already have one
 		 */
 		private boolean addDefaultIndexes = true;
 		/**
-		 * If the fileOption
+		 * Whether to add an ID FileOption to files that doesn't have one
 		 */
 		private boolean addIdToContentFilesWithoutOne = true;
 
