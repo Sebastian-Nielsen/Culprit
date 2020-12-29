@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="unitTests.DeployerImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-29T15:09:36" hostname="DESKTOP-S" time="0.062">
+  <properties/>
+  <testcase name="shouldCreateDefaultIndexFilesInDeployFolder()" classname="unitTests.DeployerImplTest" time="0.062"/>
+  <system-out><![CDATA[expected: 6
+actual: 6
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\A.html
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\B.html
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\index.html
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\index.html
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\x2Nested
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\x2Nested\C.html
+C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\x2Nested\index.html
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -2,13 +2,11 @@ package framework.singleClasses;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import framework.*;
 import framework.Compiler;
-import org.apache.commons.io.FileUtils;
+import framework.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.Map;
 
 import static framework.utils.FileUtils.listAllNonDirFilesFrom;

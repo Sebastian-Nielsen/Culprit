@@ -74,9 +74,13 @@ public class PrecompilerImpl implements Precompiler {
 	}
 
 	private void putIDToFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
+
+		File htmlFile = new File(changeFileExt("" + file, "html"));
+
 		FileOptionContainer foContainer = fileToFOContainer.get(file);
 		String id         = foContainer.get(ID);
-		idToFile.put(id, file);
+
+		idToFile.put(id, htmlFile);
 	}
 
 	private void assertFileHasAllRequiredFileOptions(File file, Map<File, FileOptionContainer> fileToFOContainer) {

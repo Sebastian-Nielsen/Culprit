@@ -3,8 +3,8 @@ framework/singleClasses/CompilerFacade.java
  framework.singleClasses.CompilerFacade$Builder
 framework/Constants/Constants.java
  framework.Constants.Constants
-common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
- common.compilerSettingsFactories.ProductionCompilerDependencyFactory
+common/fileOption/FileOptionExtractorImpl.java
+ common.fileOption.FileOptionExtractorImpl
 framework/utils/FileUtils.java
  framework.utils.FileUtils
 common/fileOption/FileOptionInserter.java
@@ -22,15 +22,15 @@ framework/UUIDGenerator.java
  framework.UUIDGenerator
 framework/FileHandler.java
  framework.FileHandler
-common/PrecompilerImpl.java
- common.PrecompilerImpl
+framework/Main.java
+ framework.Main
 common/FileHandlerImpl.java
  common.FileHandlerImpl
 framework/singleClasses/ValidatorImpl.java
  framework.singleClasses.ValidatorImpl
  framework.singleClasses.ValidatorImpl$REGEXES
-common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
- common.compilerSettingsFactories.CustomCompilerDependencyFactory
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 common/DeployerImpl.java
  common.DeployerImpl
 framework/Deployer.java
@@ -43,9 +43,9 @@ common/other/UUIDGeneratorImpl.java
  common.other.UUIDGeneratorImpl
 framework/Compiler.java
  framework.Compiler
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
-common/fileOption/FileOptionExtractorImpl.java
- common.fileOption.FileOptionExtractorImpl
-framework/Main.java
- framework.Main
+common/PrecompilerImpl.java
+ common.PrecompilerImpl
+common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
+ common.compilerSettingsFactories.ProductionCompilerDependencyFactory
+common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
+ common.compilerSettingsFactories.CustomCompilerDependencyFactory
