@@ -1,7 +1,7 @@
 package constants;
 
-import static framework.singleClasses.FileOption.KEY.*;
-import static framework.singleClasses.FileOption.*;
+import static common.fileOption.FileOption.KEY.*;
+import static common.fileOption.FileOption.*;
 
 public class FileOptionConstants {
 	public static final String FILEOPTION_TEMPLATE = "[%s]: <> (%s)";

@@ -1,11 +1,11 @@
-package framework.singleClasses;
+package common.fileOption;
 
 
 import java.util.EnumSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static framework.singleClasses.FileOption.KEY.ID;
+import static common.fileOption.FileOption.KEY.ID;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static framework.singleClasses.ValidatorImpl.REGEXES;
 

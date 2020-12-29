@@ -1,6 +1,6 @@
 package framework;
 
-import framework.singleClasses.FileOptionContainer;
+import common.fileOption.FileOptionContainer;
 
 import java.io.File;
 import java.io.IOException;

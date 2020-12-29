@@ -1,8 +1,7 @@
-package common;
+package common.fileOption;
 
+import common.FileHandlerImpl;
 import framework.*;
-import framework.singleClasses.FileOption;
-import framework.singleClasses.FileOptionContainer;
 import framework.singleClasses.ValidatorImpl;
 
 import java.io.File;

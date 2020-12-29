@@ -1,8 +1,8 @@
 package common;
 
 import framework.Precompiler;
-import framework.singleClasses.FileOption;
-import framework.singleClasses.FileOptionContainer;
+import common.fileOption.FileOption;
+import common.fileOption.FileOptionContainer;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static framework.singleClasses.FileOption.KEY;
-import static framework.singleClasses.FileOption.KEY.ID;
+import static common.fileOption.FileOption.KEY;
+import static common.fileOption.FileOption.KEY.ID;
 import static framework.singleClasses.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.*;
 

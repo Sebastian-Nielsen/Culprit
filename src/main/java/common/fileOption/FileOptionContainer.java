@@ -1,11 +1,11 @@
-package framework.singleClasses;
+package common.fileOption;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import static framework.singleClasses.FileOption.KEY;
+import static common.fileOption.FileOption.KEY;
 /**
  * Basically a list of FileOptions, though augmented to also
  * be able to access a FileOption value simply by calling a getter
@@ -40,6 +40,9 @@ public class FileOptionContainer {
 		return keyToVal.keySet();
 	}
 
+	public boolean containsKey(KEY key) {
+		return keyToVal.containsKey(key);
+	}
 
 	/* GETTERS */
 

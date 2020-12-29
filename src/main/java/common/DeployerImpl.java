@@ -1,16 +1,20 @@
 package common;
 
+import common.fileOption.FileOptionExtractorImpl;
+import common.fileOption.FileOptionInserter;
+import common.other.UUIDGeneratorImpl;
 import framework.Deployer;
-import framework.FileOptionExtractor;
 import framework.UUIDGenerator;
-import framework.UUIDGeneratorImpl;
-import framework.singleClasses.ValidatorImpl;
+import common.fileOption.FileOptionContainer;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static framework.Constants.Constants.CWD;
+import static common.fileOption.FileOption.KEY.ID;
 import static framework.utils.FileUtils.*;
 import static java.util.function.Predicate.isEqual;
 
@@ -46,13 +50,13 @@ public class DeployerImpl implements Deployer {
 	public DeployerImpl(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
-		this.uuidGenerator = new UUIDGeneratorImpl();
+		this.uuidGenerator = UUIDGeneratorImpl.getInstance();
 	}
 
 	public DeployerImpl() {
 		this.contentRootFolder = new File(CWD + "/" + "content");
 		this.deployRootFolder  = new File(CWD + "/" + "deployment");
-		this.uuidGenerator = new UUIDGeneratorImpl();
+		this.uuidGenerator = UUIDGeneratorImpl.getInstance();
 	}
 
 
@@ -69,17 +73,22 @@ public class DeployerImpl implements Deployer {
 	}
 
 	@Override
-	public void addDefaultIndexes() throws IOException {
+	public void addDefaultIndexes() {
 		addDefaultIndexesRecursivelyTo(deployRootFolder);
 	}
 
 	@Override
-	public void addIdToContentFilesWithoutOne() throws IOException {
+	public void addIdToContentFilesWithoutOne() throws Exception {
 
-		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
+		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachFileIn(contentRootFolder);
 
-			newFileOptionExtractor(file);
+		Set<File> files = fileToFOContainer.keySet();
+		for (File file : files) {
 
+			boolean foContainerHasIDKey = fileToFOContainer.get(file).containsKey(ID);
+			if (!foContainerHasIDKey)
+
+				addIdTo(file);
 
 
 		}
@@ -89,10 +98,13 @@ public class DeployerImpl implements Deployer {
 
 	/* === PRIVATE METHODS */
 
-	private FileOptionExtractor newFileOptionExtractor(File fileToExtractFrom) throws IOException {
-		return new FileOptionExtractorImpl(
-				ValidatorImpl.getInstance()
-		);
+	private void addIdTo(File file) throws IOException {
+		new FileOptionInserter().addIdTo(file);
+	}
+
+	private Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder) throws Exception {
+		return FileOptionExtractorImpl.getInstance()
+				.extractFOContainerFromEachFileIn(folder);
 	}
 
 	private void addDefaultIndexesRecursivelyTo(File folder) {

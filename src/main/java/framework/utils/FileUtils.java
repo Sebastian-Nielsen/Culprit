@@ -1,8 +1,8 @@
 package framework.utils;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -45,6 +45,21 @@ public class FileUtils {
 		return Arrays.stream(listAllNonDirFilesFrom(folder))
 				.map(FileUtils::contentOf)
 				.toArray(String[]::new);
+	}
+
+	public static void writeStringTo(File file, String content) throws IOException {
+		org.apache.commons.io.FileUtils.writeStringToFile(file, content, Charset.defaultCharset());
+	}
+
+	public static void insertLineAtTopOf(File file, String lineToPrepend) throws IOException {
+		String newContent = lineToPrepend + '\n' + contentOf(file);
+
+		file.delete();
+
+		FileOutputStream fos = new FileOutputStream(file);
+		fos.write(newContent.getBytes());
+		fos.flush();
+		fos.close();
 	}
 
 	/**

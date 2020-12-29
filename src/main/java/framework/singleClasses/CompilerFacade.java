@@ -1,6 +1,7 @@
 package framework.singleClasses;
 
-import common.FileOptionExtractorImpl;
+import common.fileOption.FileOptionContainer;
+import common.fileOption.FileOptionExtractorImpl;
 import framework.*;
 import framework.Compiler;
 import org.apache.commons.io.FileUtils;
@@ -8,10 +9,10 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.HashMap;
 import java.util.Map;
 
 import static framework.utils.FileUtils.listAllNonDirFilesFrom;
+import static framework.utils.FileUtils.writeStringTo;
 
 public class CompilerFacade {
 
@@ -51,7 +52,7 @@ public class CompilerFacade {
 
 	/* === PRIVATE METHODS */
 
-	private void prepare() throws IOException {
+	private void prepare() throws Exception {
 		deployer.deploy();
 
 		if (addDefaultIndexes)
@@ -60,16 +61,11 @@ public class CompilerFacade {
 		if (addIdToContentFilesWithoutOne)
 			deployer.addIdToContentFilesWithoutOne();
 
-
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
 		return FileOptionExtractorImpl.getInstance()
 				.extractFOContainerFromEachFileIn(contentRootFolder);
-	}
-
-	private void writeStringTo(File file, String content) throws IOException {
-		FileUtils.writeStringToFile(file, content, Charset.defaultCharset());
 	}
 
 	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
@@ -79,6 +75,7 @@ public class CompilerFacade {
 			File deployFile = deployer.getDeployEquivalentOf(contentFile);
 
 			String content = fileToContent.get(contentFile);
+
 			writeStringTo(deployFile, content);
 		}
 

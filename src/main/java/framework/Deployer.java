@@ -36,5 +36,5 @@ public interface Deployer {
 	 */
 	void addDefaultIndexes() throws IOException;
 
-	void addIdToContentFilesWithoutOne() throws IOException;
+	void addIdToContentFilesWithoutOne() throws Exception;
 }
