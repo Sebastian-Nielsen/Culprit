@@ -2,8 +2,8 @@ framework/Compiler.java
  framework.Compiler
 framework/Constants/Constants.java
  framework.Constants.Constants
-common/DeployerImpl.java
- common.DeployerImpl
+framework/singleClasses/FileOptionContainer.java
+ framework.singleClasses.FileOptionContainer
 framework/singleClasses/FileOption.java
  framework.singleClasses.FileOption
  framework.singleClasses.FileOption$KEY
@@ -24,22 +24,22 @@ framework/singleClasses/ValidatorImpl.java
  framework.singleClasses.ValidatorImpl$REGEXES
 framework/Validator.java
  framework.Validator
-framework/Deployer.java
- framework.Deployer
-framework/utils/FileUtils.java
- framework.utils.FileUtils
-framework/singleClasses/FileOptionContainer.java
- framework.singleClasses.FileOptionContainer
 common/PrecompilerImpl.java
  common.PrecompilerImpl
-framework/CompilerDependencyFactory.java
- framework.CompilerDependencyFactory
-common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
- common.compilerSettingsFactories.ProductionCompilerDependencyFactory
-common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
- common.compilerSettingsFactories.CustomCompilerDependencyFactory
 framework/singleClasses/CompilerFacade.java
  framework.singleClasses.CompilerFacade
  framework.singleClasses.CompilerFacade$Builder
+common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
+ common.compilerSettingsFactories.ProductionCompilerDependencyFactory
+framework/utils/FileUtils.java
+ framework.utils.FileUtils
+common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
+ common.compilerSettingsFactories.CustomCompilerDependencyFactory
+common/DeployerImpl.java
+ common.DeployerImpl
+framework/Deployer.java
+ framework.Deployer
 framework/Main.java
  framework.Main
+framework/CompilerDependencyFactory.java
+ framework.CompilerDependencyFactory

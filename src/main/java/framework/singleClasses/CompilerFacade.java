@@ -4,8 +4,6 @@ import common.FileHandlerImpl;
 import common.FileOptionExtractorImpl;
 import framework.*;
 import framework.Compiler;
-import framework.singleClasses.FileOptionContainer;
-import framework.singleClasses.ValidatorImpl;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -42,13 +40,25 @@ public class CompilerFacade {
 	}
 
 	public void compile() throws Exception {
-		deployer.deploy();
+		prepare();
 
 		Map<File, String> fileToMd   = precompiler.compileAllFiles(extractFOContainerFromEachFile());
 
 		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
 
 		writeStringToAssociatedFile(fileToHtml);
+	}
+
+	private void prepare() throws IOException {
+		deployer.deploy();
+
+		if (addDefaultIndexes)
+			deployer.addDefaultIndexes();
+
+		if (addIdToContentFilesWithoutOne)
+			deployer.addIdToContentFilesWithoutOne();
+
+
 	}
 
 

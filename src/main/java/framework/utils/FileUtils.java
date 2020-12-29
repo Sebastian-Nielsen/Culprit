@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static org.apache.commons.io.FileUtils.readFileToString;
 
@@ -36,6 +37,34 @@ public class FileUtils {
 				.map(Path::toFile)
 				.filter(File::isFile)
 				.toArray(File[]::new);
+	}
+
+	public static String[] listContentOfAllFilesFrom(File folder) {
+		return allNonDirFilesFrom(folder)
+				.map(FileUtils::contentOf)
+				.toArray(String[]::new);
+	}
+
+	/**
+	 * Return the content of the given {@code File}
+	 */
+	public static String contentOf(File file) {
+		try {
+			String content = readFileToString(file, "UTF-8");
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		// For some reason ´readFileToString` adds '\r', which makes our tests fail because our
+		// expected doesn't have any "\r", so remove all '\r'.
+		return content.replaceAll("\r","");
+	}
+
+	/**
+	 * Get all folders available in {@code folder} that are not nested
+	 * within a folder in {@code folder}.
+	 */
+	public static Stream<File> allNonDirFilesFrom(File folder) {
+		return Arrays.stream(folder.listFiles()).filter(File::isFile);
 	}
 
 	/**
@@ -100,13 +129,6 @@ public class FileUtils {
 	 */
 	public static String normalize(String path) {
 		return path.replaceAll("\\\\", "/");
-	}
-
-	public static String contentOf(File file) throws IOException {
-		String content = readFileToString(file, "UTF-8");
-		// For some reason ´readFileToString` adds '\r', which makes our tests fail because our
-		// expected doesn't have any "\r", so remove all '\r'.
-		return content.replaceAll("\r","");
 	}
 }
 
