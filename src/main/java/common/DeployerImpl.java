@@ -78,7 +78,7 @@ public class DeployerImpl implements Deployer {
 
 		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
 
-			ewFileOptionExtractor(file);
+			newFileOptionExtractor(file);
 
 
 
@@ -91,8 +91,7 @@ public class DeployerImpl implements Deployer {
 
 	private FileOptionExtractor newFileOptionExtractor(File fileToExtractFrom) throws IOException {
 		return new FileOptionExtractorImpl(
-					new FileHandlerImpl(fileToExtractFrom),
-					ValidatorImpl.getInstance()
+				ValidatorImpl.getInstance()
 		);
 	}
 

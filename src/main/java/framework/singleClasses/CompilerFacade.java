@@ -1,6 +1,5 @@
 package framework.singleClasses;
 
-import common.FileHandlerImpl;
 import common.FileOptionExtractorImpl;
 import framework.*;
 import framework.Compiler;
@@ -49,6 +48,9 @@ public class CompilerFacade {
 		writeStringToAssociatedFile(fileToHtml);
 	}
 
+
+	/* === PRIVATE METHODS */
+
 	private void prepare() throws IOException {
 		deployer.deploy();
 
@@ -61,8 +63,10 @@ public class CompilerFacade {
 
 	}
 
-
-	/* === PRIVATE METHODS */
+	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
+		return FileOptionExtractorImpl.getInstance()
+				.extractFOContainerFromEachFileIn(contentRootFolder);
+	}
 
 	private void writeStringTo(File file, String content) throws IOException {
 		FileUtils.writeStringToFile(file, content, Charset.defaultCharset());
@@ -80,30 +84,6 @@ public class CompilerFacade {
 
 	}
 
-	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
-
-		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
-
-		for (File file : listAllNonDirFilesFrom(contentRootFolder)) {
-
-			FileOptionExtractor foExtractor = newFileOptionExtractor(file);
-
-			fileToFOContainer.put(
-					file,
-					foExtractor.extractFOContainer()
-			);
-
-		}
-
-		return fileToFOContainer;
-	}
-
-
-	/* === PRIVAT METHODS */
-
-	private FileOptionExtractor newFileOptionExtractor(File fileToExtractFrom) throws IOException {
-		return new FileOptionExtractorImpl(new FileHandlerImpl(fileToExtractFrom));
-	}
 
 	/* === Builder options-setter methods */
 

@@ -7,7 +7,6 @@ import framework.singleClasses.ValidatorImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import stubs.FileHandlerStub;
 
 import java.io.IOException;
 
@@ -92,7 +91,6 @@ public class FileOptionExtractorTest {
 	@NotNull
 	private FileOptionExtractor newFileOptionExtractor(String[] linesToExtractFrom) {
 		return new FileOptionExtractorImpl(
-				new FileHandlerStub(linesToExtractFrom),
 				validator
 				);
 	}
