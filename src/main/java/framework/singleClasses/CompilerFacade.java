@@ -5,7 +5,6 @@ import common.fileOption.FileOptionExtractorImpl;
 import common.html.HtmlBuilder;
 import framework.Compiler;
 import framework.*;
-import common.html.tags.HtmlTag;
 
 import java.io.File;
 import java.io.IOException;
@@ -55,10 +54,10 @@ public class CompilerFacade {
 		writeStringToAssociatedFile(fileToHtml);
 	}
 
-	private Map<File, HtmlTag> buildHtmlTagForEachFile(Map<File, String> fileToHtmlBody,
+	private Map<File, String> buildHtmlTagForEachFile(Map<File, String> fileToHtmlBody,
 	                                Map<File, FileOptionContainer> fileToFOContainer) {
 
-		Map<File, HtmlTag> fileToHtml = new HashMap<>();
+		Map<File, String> fileToHtml = new HashMap<>();
 
 		Set<File> files = fileToHtmlBody.keySet();
 		for (File file : files) {
@@ -68,11 +67,10 @@ public class CompilerFacade {
 
 			fileToHtml.put(
 					file,
-					"" + HtmlBuilder.buildHtmlTag(htmlBody, foContainer)
+					HtmlBuilder.buildHtml(htmlBody, foContainer)
 			);
 
 		}
-
 		return fileToHtml;
 	}
 

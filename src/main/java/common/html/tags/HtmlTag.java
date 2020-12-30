@@ -15,7 +15,12 @@ public class HtmlTag {
 	}
 
 	public String toString() {
-		return null;
+		return //"<html>\n" +
+					headTag + "" +
+					bodyTag;
+				//"</html>";
+
+
 	}
 
 	/* === Builder Pattern */
@@ -24,13 +29,13 @@ public class HtmlTag {
 
 		// === Optional parameters
 		private HeadTag headTag = new DefaultHeadTag();
-		private BodyTag bodyTag = new DefaultBodyTag();
+		private BodyTag bodyTag = new CompositeBodyTag();
 
 		public Builder setHeadTag(HeadTag head) {
 			headTag = head;
 			return this;
 		}
-		public Builder setBodyTag(DefaultBodyTag body) {
+		public Builder setBodyTag(BodyTag body) {
 			bodyTag = body;
 			return this;
 		}

@@ -42,8 +42,10 @@ public class PrecompilerTest {
 		// Fixture
 		final String EXPECTED_ROOT_PATH = "compilerTest_testFiles/D_LINKS/expected";
 		final String    INPUT_ROOT_PATH = "compilerTest_testFiles/D_LINKS/input";
+
 		final File EXPECTED_ROOT_FOLDER = getResourceFile(EXPECTED_ROOT_PATH);
 		final File    INPUT_ROOT_FOLDER = getResourceFile(INPUT_ROOT_PATH);
+
 		final File fileA = getResourceFile(INPUT_ROOT_PATH + "/A.md");
 		final File fileB = getResourceFile(INPUT_ROOT_PATH + "/B.md");
 		final File fileC = getResourceFile(INPUT_ROOT_PATH + "/nested/C.md");
@@ -78,6 +80,15 @@ public class PrecompilerTest {
 		// Verify
 		Map<File, String> expected = filesToTheirContent(EXPECTED_ROOT_FOLDER);
 		Map<File, String> actual   = fileToCompiledContent;
+		for (String value : expected.values()) {
+			System.out.println(value);
+			System.out.println("-----");
+		}
+		System.out.println("======");
+		for (String value : actual.values()) {
+			System.out.println(value);
+			System.out.println("---");
+		}
 		assertIdenticalMaps(actual, expected);
 	}
 	
@@ -99,6 +110,11 @@ public class PrecompilerTest {
 	}
 
 	private void assertContainsSameElements(Collection<String> actualCompiledContent, Collection<String> expectedCompiledContent) {
+		for (String actual : actualCompiledContent) {
+			assertTrue(expectedCompiledContent.contains(actual),
+					"The following actualCompiledContent isn't in expected:\n" +
+							"===========\n\n" + actual + "\n\n");
+		}
 		assertTrue(
 				  actualCompiledContent.containsAll(expectedCompiledContent)  &&
 				expectedCompiledContent.containsAll(  actualCompiledContent)

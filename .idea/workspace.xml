@@ -1,21 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="culprit_2:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultBodyTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultHeadTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/HtmlTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/LinkTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/html/BodyTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/html/HeadTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/framework/html/Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/CompositeBodyTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/CssLinkTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/A.extIsIgnored" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/nested/C.extIsIgnored" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/nested/x2Nested/D.extIsIgnored" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.css/coverage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.img/arrowDown.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.img/arrowUp.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/DeployerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/FileHandlerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/PrecompilerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/compilerSettingsFactories/CustomCompilerDependencyFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOption$KEY.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOption.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOptionContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOptionExtractorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/fileOption/FileOptionInserter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/other/UUIDGeneratorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Compiler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/CompilerDependencyFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Constants/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Deployer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/FileOptionExtractor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Precompiler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/UUIDGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/Validator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/ValidatorImpl$REGEXES.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/ValidatorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/utils/FileUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/constants/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/constants/FileOptionConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/integrationTests/customerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stubs/FileHandlerStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stubs/UUIDGeneratorStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stubs/ValidatorStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/testHelper/TestHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/DeployerImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileHandlerImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileOptionExtractorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileOptionInserterTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileOptionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/FileUtilsSuiteClasses/FileUtils_miscellaneous.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/PrecompilerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/ValidatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/unitTests/testTempFolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/.classes/Constants.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_BLOCK.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_CLASS.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_CLASS_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_LINE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_LINE_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_METHOD.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_METHOD_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.Constants/index_SORT_BY_NAME_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/.classes/FileUtils.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_BLOCK.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_CLASS.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_CLASS_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_LINE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_LINE_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_METHOD.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_METHOD_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework.utils/index_SORT_BY_NAME_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/Deployer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/DeployerImpl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/FileHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/FileHandlerImpl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/FileOptionExtractor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/FileOptionExtractorImpl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/.classes/Validator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_BLOCK.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_CLASS.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_CLASS_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_LINE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_LINE_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_METHOD.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_METHOD_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/framework/index_SORT_BY_NAME_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_BLOCK.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_CLASS.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_CLASS_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_LINE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_LINE_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_METHOD.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_METHOD_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index_SORT_BY_NAME_DESC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/unitTests.DeployerImplTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/unitTests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/content/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/content/B.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/content/nested/x2Nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/A.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/B.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/C.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/A.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/B.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/C.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/E.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/B.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/D.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/E.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/FileHandlerTest.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/basicFileHierarchy/root/A" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/basicFileHierarchy/root/lvlB/B" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/basicFileHierarchy/root/lvlB/lvlC1/C1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/basicFileHierarchy/root/lvlB/lvlC2/C2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expected/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expected/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/B.extIsIgnored" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expected/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/expected/nested/x2Nested/D.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/input/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/input/B.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/input/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/compilerTest_testFiles/D_LINKS/input/nested/x2Nested/D.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/customerTest_testFiles/input/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/customerTest_testFiles/input/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-unitTests.DeployerImplTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/math/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/math/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/other/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/other/test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultBodyTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultHeadTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultHeadTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/HtmlTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/HtmlTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/LinkTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/BodyTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/html/BodyTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/html/Tag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/A.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/B.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/nested/C.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/compilerTest_testFiles/D_LINKS/expected/nested/x2Nested/D.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +210,28 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="culprit_2" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="culprit_2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="culprit_2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -54,9 +248,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/content/index.md" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1lkvKXuAXNfs6NcOWXyrIYJblOB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -75,9 +266,9 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expected/nested/x2Nested" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/culprit_2_jar/culprit_2.jar" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -97,11 +288,11 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\build\libs" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\testClassSpecific" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\global\root" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\global" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -110,7 +301,7 @@
       <module name="culprit_2.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="common.html.tags.*" />
+          <option name="PATTERN" value="framework.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,54 +309,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeployerImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'constants'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeployerImplTest.shouldAddDefaultIndexesToDeployFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldAddDefaultIndexesToDeployFolder&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder&quot;" />
+        <option name="scriptParameters" value="--tests &quot;constants.*&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -202,13 +351,52 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="culprit_2 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/culprit_2_jar/culprit_2.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\sebas\IdeaProjects\culprit_2" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <configuration name="culprit_2-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/culprit_2-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Tests in 'constants'" />
+      <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+      <item itemvalue="Gradle.culprit_2 [jar]" />
+      <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JAR Application.culprit_2-1.0-SNAPSHOT.jar" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.culprit_2-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" />
-        <item itemvalue="Gradle.DeployerImplTest.shouldAddDefaultIndexesToDeployFolder" />
+        <item itemvalue="Gradle.culprit_2 [jar]" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Gradle.DeployerImplTest" />
+        <item itemvalue="Gradle.Tests in 'constants'" />
       </list>
     </recent_temporary>
   </component>
@@ -231,8 +419,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="25" />
+          <line>77</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

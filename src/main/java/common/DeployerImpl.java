@@ -2,9 +2,8 @@ package common;
 
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionInserter;
-import common.other.UUIDGeneratorImpl;
+import common.html.HtmlBuilder;
 import framework.Deployer;
-import framework.UUIDGenerator;
 import common.fileOption.FileOptionContainer;
 
 import java.io.File;
@@ -107,7 +106,7 @@ public class DeployerImpl implements Deployer {
 		}
 
 		if (!hasSeenIndexFile)
-			new File(folder + "/index.html").createNewFile();
+			createDefaultIndexIn(folder);
 	}
 
 	private boolean isIndexFile(File file) {
@@ -126,10 +125,20 @@ public class DeployerImpl implements Deployer {
 
 	}
 
+	/**
+	 * Creates a default-index.html and writes the default-index.html content to it.
+	 * @param folder folder in which to create the default-index
+	 */
 	private void createDefaultIndexIn(File folder) throws IOException {
-		new File(folder + "/index.html").createNewFile();
-		// Write default
-		// TODO
+		System.out.println("called 87");
+
+		String defaultIndexHtml = HtmlBuilder.buildDefaultIndexHtml(folder);
+
+		File indexFile = new File(folder + "/index.html");
+
+		indexFile.createNewFile();
+
+		writeStringTo(indexFile, defaultIndexHtml);
 	}
 
 	private String getRelativeDeployPath(File contentFile) {

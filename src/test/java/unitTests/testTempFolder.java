@@ -11,12 +11,12 @@ import static testHelper.TestHelper.getResourceFile;
 
 public class testTempFolder {
 
-	@Test
+//	@Test
 	public void tefst() {
 		final String INPUT_ROOT_PATH = "compilerTest_testFiles/D_LINKS/input";
 
-		File baseFile = getResourceFile(INPUT_ROOT_PATH + "/nested/x2Nested/D.md");
-		File relFile  = getResourceFile(INPUT_ROOT_PATH + "/nested/C.md");
+		File baseFile = getResourceFile(INPUT_ROOT_PATH + "/nested/x2Nested/D.extIsIgnored");
+		File relFile  = getResourceFile(INPUT_ROOT_PATH + "/nested/C.extIsIgnored");
 
 		Path base = baseFile.toPath();
 		Path inRelationTo = Paths.get(normalize("" + relFile));

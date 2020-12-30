@@ -21,7 +21,7 @@ import static framework.utils.FileUtils.*;
 
 public class PrecompilerImpl implements Precompiler {
 	private final File contentRootFolder;
-	private final Map<String, File> idToFile = new HashMap<>();
+	private final Map<String, File> idToDeployFile = new HashMap<>();
 
 	public PrecompilerImpl(File contentRootFolder) {
 		this.contentRootFolder = contentRootFolder;
@@ -58,7 +58,7 @@ public class PrecompilerImpl implements Precompiler {
 	/**
 	 * Go through all files while:
 	 * (1) Asserting each {@code File} has all _required_ {@code FileOption}s
-	 * (2) Store ({@code ID}, {@code File}) pair in map
+	 * (2) Store ({@code ID}, deploy-{@code File}) pair in map
 	 */
 	private void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {
 
@@ -67,20 +67,20 @@ public class PrecompilerImpl implements Precompiler {
 
 			assertFileHasAllRequiredFileOptions(file, fileToFOContainer);
 
-			putIDToFile(file, fileToFOContainer);
+			putIDToDeployFile(file, fileToFOContainer);
 
 		}
 
 	}
 
-	private void putIDToFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
+	private void putIDToDeployFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
 
 		File htmlFile = new File(changeFileExt("" + file, "html"));
 
 		FileOptionContainer foContainer = fileToFOContainer.get(file);
 		String id         = foContainer.get(ID);
 
-		idToFile.put(id, htmlFile);
+		idToDeployFile.put(id, htmlFile);
 	}
 
 	private void assertFileHasAllRequiredFileOptions(File file, Map<File, FileOptionContainer> fileToFOContainer) {
@@ -128,7 +128,7 @@ public class PrecompilerImpl implements Precompiler {
 		do {
 			String linkText = matcher.group(1);
 			String id       = matcher.group(2);
-			File fileOfID     = idToFile.get(id);
+			File fileOfID     = idToDeployFile.get(id);
 			String pathToFile = relativeFilePathBetween(file, fileOfID);
 			String replacement = "[" + linkText + "](" + pathToFile + ")";
 

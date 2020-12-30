@@ -1,10 +1,0 @@
-expected: 6
-actual: 6
-sC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\A.html
-sC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\B.html
-wC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\index.html
-sC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested
-~C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\index.html
-|C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\x2Nested
-ƒC:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\x2Nested\C.html
-‡C:\Users\sebas\IdeaProjects\culprit_2\build\resources\test\DeployerTest_testFiles\addDefaultIndexes\deploy\nested\x2Nested\index.html

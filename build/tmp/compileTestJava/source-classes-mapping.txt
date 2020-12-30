@@ -4,8 +4,8 @@ unitTests/PrecompilerTest.java
  unitTests.PrecompilerTest
 stubs/FileHandlerStub.java
  stubs.FileHandlerStub
-unitTests/FileHandlerImplTest.java
- unitTests.FileHandlerImplTest
+unitTests/DeployerImplTest.java
+ unitTests.DeployerImplTest
 stubs/UUIDGeneratorStub.java
  stubs.UUIDGeneratorStub
 unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java
@@ -28,9 +28,9 @@ unitTests/ValidatorTest.java
  unitTests.ValidatorTest
 constants/FileOptionConstants.java
  constants.FileOptionConstants
-stubs/ValidatorStub.java
- stubs.ValidatorStub
-unitTests/DeployerImplTest.java
- unitTests.DeployerImplTest
 integrationTests/customerTest.java
  integrationTests.customerTest
+stubs/ValidatorStub.java
+ stubs.ValidatorStub
+unitTests/FileHandlerImplTest.java
+ unitTests.FileHandlerImplTest

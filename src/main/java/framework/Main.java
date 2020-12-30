@@ -14,6 +14,8 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 
+		cleanDeploy();
+
 		CompilerFacade compiler =
 				new CompilerFacade
 				.Builder(new ProductionCompilerDependencyFactory())
@@ -22,7 +24,6 @@ public class Main {
 				.build();
 
 		compiler.compile();
-//		cleanDeploy();
 
 	}
 
