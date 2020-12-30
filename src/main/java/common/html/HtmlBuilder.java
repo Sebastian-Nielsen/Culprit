@@ -1,14 +1,14 @@
 package common.html;
 
-import common.fileOption.FileOptionContainer;
 import common.html.tags.*;
 
-import javax.swing.text.html.HTML;
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
-import static common.html.Constants.DEFAULT_HEADER_TAGS;
 import static common.html.tags.Tag.TYPE.*;
-import static javax.swing.text.html.HTML.Attribute.HREF;
+import static common.html.tags.Tag.TYPE.LINK;
+import static javax.swing.text.html.HTML.Attribute.*;
 
 public class HtmlBuilder {
 
@@ -20,18 +20,78 @@ public class HtmlBuilder {
 	 * @return {@code toString} of {@code HtmlTag}
 	 */
 	public static String buildDefaultIndexHtml(File folder) {
+		System.out.println("This is triggered for: " + folder);
+
 		Tag bodyTag = new Tag(BODY);
 
-		Tag olTag = generateOlTagOfAllFilesIn(folder);
+		Tag olTag = generateCustomOlTagForDefaultIndex(folder);
+		System.out.println(olTag);
+
 		bodyTag.addChild(olTag);
 
 		return bodyTag.toString();
 	}
 
-	private static Tag generateOlTagOfAllFilesIn(File folder) {
+
+	public static Tag buildHtmlTag(String htmlBody) {
+		// TODO: Enhance this to depend on the fileoption specified in the file.
+		Tag htmlTag = new Tag(HTML);
+		Tag headTag = newDefaultHeadTag();
+		Tag bodyTag = new Tag(BODY);
+
+		bodyTag.setContent(htmlBody);
+
+		htmlTag.addChild(headTag);
+		htmlTag.addChild(bodyTag);
+
+		return htmlTag;
+	}
+
+
+	/* === Default Tags */
+
+	public static Tag newDefaultHeadTag() {
+		Tag headTag = new Tag(HEAD);
+
+		headTag.addChildren(List.of(
+				newDefaultCssLinkTag("global.css"),
+				newDefaultCssLinkTag("main.css"),
+				newDefaultCssLinkTag("index.css")
+		));
+
+		return headTag;
+	}
+
+	/**
+	 * Create a default link {@code Tag}
+	 * @param hrefVal value of the HREF attribute
+	 * @return
+	 *      `<link rel="stylesheet" text="text/css" href="{{hrefVal}}" />`
+	 */
+	public static Tag newDefaultCssLinkTag(String hrefVal) {
+		Tag linkTag = new Tag(LINK);
+
+		linkTag.setAttrToVal(HREF, hrefVal);
+		linkTag.setAttrToVal(TEXT, "text/css");
+		linkTag.setAttrToVal(REL,  "stylesheet");
+
+		return linkTag;
+	}
+
+
+	/* === PRIVATE METHODS */
+
+	/**
+	 * For each {@code File} (both dirs and files) in the specified folder,
+	 * create a li {@code Tag} and add it to the ol {@code Tag} to return.
+	 * @param folder folder from which to list the files from.
+	 * @return an ol {@code Tag}
+	 */
+	private static Tag generateCustomOlTagForDefaultIndex(File folder) {
 		Tag olTag = new Tag(OL);
 
 		File[] filesInFolder = folder.listFiles();
+		System.out.println("filesInFolder: " + Arrays.toString(filesInFolder));
 		for (File file : filesInFolder)
 
 			olTag.addChild(
@@ -50,7 +110,11 @@ public class HtmlBuilder {
 		String liContent =        file.getName();
 		String hrefVal   = "./" + file.getName();
 
-		return newClickableLi(liContent, hrefVal);
+		Tag li = newClickableLi(liContent, hrefVal);
+
+		System.out.println("Generated li: " + li);
+
+		return li;
 	}
 
 	/**
@@ -72,30 +136,5 @@ public class HtmlBuilder {
 
 		return liTag;
 	}
-
-//	/**
-//	 * Creates a {@code li} element
-//	 * @param content the plaintext content of the {@code li} element
-//	 */
-//	public static Tag newLiTag(String content) {
-//		return new StringLiTag(content);
-//	}
-
-	public static String buildHtml(String htmlBody, FileOptionContainer foContainer) {
-		// TODO: Enhance this to depend on the fileoption specified in the file.
-		Tag htmlTag = new Tag(HTML);
-		Tag headTag = new Tag(HEAD);
-		Tag bodyTag = new Tag(BODY);
-
-		headTag.addChildren(DEFAULT_HEADER_TAGS);
-		bodyTag.setContent(htmlBody);
-
-		htmlTag.addChild(headTag);
-		htmlTag.addChild(bodyTag);
-
-		return htmlTag.toString();
-	}
-
-
 
 }

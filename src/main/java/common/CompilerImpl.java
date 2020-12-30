@@ -4,6 +4,7 @@ import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
+import common.html.tags.Tag;
 import framework.Compiler;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,6 +12,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static common.html.HtmlBuilder.buildHtmlTag;
 
 public class CompilerImpl implements Compiler {
 
@@ -43,18 +46,14 @@ public class CompilerImpl implements Compiler {
 		Set<File> files = fileToMd.keySet();
 		for (File file : files) {
 
-			String  md      = fileToMd.get(file);
-			String  html    = compile(md);
-			HtmlTag htmlTag = buildDefaultHtmlTag(html);
+			String  md       = fileToMd.get(file);
+			String  htmlBody = compile(md);
+			Tag     htmlTag  = buildHtmlTag(htmlBody);
 
-			fileToHtml.put(file, html);
+			fileToHtml.put(file, htmlTag.toString());
 		}
 
 		return fileToHtml;
-	}
-
-	private HtmlTag buildDefaultHtmlTag(String html) {
-		return null;//new CompositeBodyTag(html);
 	}
 
 }

@@ -1,74 +1,58 @@
-framework/utils/FileUtils.java
- framework.utils.FileUtils
-framework/html/Tag.java
- framework.html.Tag
-framework/html/HeadTag.java
- framework.html.HeadTag
-common/other/UUIDGeneratorImpl.java
- common.other.UUIDGeneratorImpl
-common/html/tags/CssLinkTag.java
- common.html.tags.CssLinkTag
+framework/Main.java
+ framework.Main
 framework/CompilerDependencyFactory.java
  framework.CompilerDependencyFactory
 common/fileOption/FileOptionContainer.java
  common.fileOption.FileOptionContainer
-common/html/tags/DefaultHeadTag.java
- common.html.tags.DefaultHeadTag
+framework/singleClasses/ValidatorImpl.java
+ framework.singleClasses.ValidatorImpl
+ framework.singleClasses.ValidatorImpl$REGEXES
 framework/UUIDGenerator.java
  framework.UUIDGenerator
 common/PrecompilerImpl.java
  common.PrecompilerImpl
 common/FileHandlerImpl.java
  common.FileHandlerImpl
-framework/FileHandler.java
- framework.FileHandler
-common/fileOption/FileOption.java
- common.fileOption.FileOption
- common.fileOption.FileOption$KEY
+common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
+ common.compilerSettingsFactories.CustomCompilerDependencyFactory
+common/DeployerImpl.java
+ common.DeployerImpl
 framework/Deployer.java
  framework.Deployer
+common/html/Constants.java
+ common.html.Constants
 framework/Precompiler.java
  framework.Precompiler
 framework/Validator.java
  framework.Validator
 framework/Compiler.java
  framework.Compiler
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
 common/fileOption/FileOptionExtractorImpl.java
  common.fileOption.FileOptionExtractorImpl
-framework/html/LinkTag.java
- framework.html.LinkTag
-common/fileOption/FileOptionInserter.java
- common.fileOption.FileOptionInserter
+common/other/UUIDGeneratorImpl.java
+ common.other.UUIDGeneratorImpl
 framework/Constants/Constants.java
  framework.Constants.Constants
-framework/singleClasses/ValidatorImpl.java
- framework.singleClasses.ValidatorImpl
- framework.singleClasses.ValidatorImpl$REGEXES
-framework/html/BodyTag.java
- framework.html.BodyTag
-common/html/tags/CompositeBodyTag.java
- common.html.tags.CompositeBodyTag
-common/html/tags/StringBodyTag.java
- common.html.tags.StringBodyTag
-common/DeployerImpl.java
- common.DeployerImpl
 common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
  common.compilerSettingsFactories.ProductionCompilerDependencyFactory
-common/CompilerImpl.java
- common.CompilerImpl
-common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
- common.compilerSettingsFactories.CustomCompilerDependencyFactory
-framework/Main.java
- framework.Main
+framework/utils/FileUtils.java
+ framework.utils.FileUtils
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
+common/fileOption/FileOptionInserter.java
+ common.fileOption.FileOptionInserter
+common/fileOption/FileOption.java
+ common.fileOption.FileOption
+ common.fileOption.FileOption$KEY
+framework/FileHandler.java
+ framework.FileHandler
 framework/singleClasses/CompilerFacade.java
  framework.singleClasses.CompilerFacade
  framework.singleClasses.CompilerFacade$Builder
-common/html/tags/HtmlTag.java
- common.html.tags.HtmlTag
- common.html.tags.HtmlTag$Builder
 common/html/HtmlBuilder.java
  common.html.HtmlBuilder
-common/html/tags/StringLiTag.java
- common.html.tags.StringLiTag
+common/html/tags/Tag.java
+ common.html.tags.Tag
+ common.html.tags.Tag$TYPE
+common/CompilerImpl.java
+ common.CompilerImpl

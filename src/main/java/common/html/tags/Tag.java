@@ -31,10 +31,20 @@ public class Tag {
 	}
 
 	public String toString() {
-		return getOpenTag() + content + getCloseTag();
+		return getOpenTag() +
+				getContent() +
+				getChildrenTags() +
+				getCloseTag();
 	}
 
-	public String getAttributes() {
+	private String getContent() {
+		if (content.equals(""))
+			return content;
+		else
+			return content + '\n';
+	}
+
+	private String getAttributes() {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		for (HTML.Attribute attr : attrToVal.keySet())
@@ -46,6 +56,12 @@ public class Tag {
 					.append('"');
 
 		return "" + stringBuilder;
+	}
+
+	public String getChildrenTags() {
+		return childrenTags.stream()
+				.map(Tag::toString)
+				.collect(Collectors.joining("\n"));
 	}
 
 	private String getOpenTag() {

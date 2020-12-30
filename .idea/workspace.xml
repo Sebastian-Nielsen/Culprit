@@ -10,24 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/HtmlBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/html/HtmlBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/CompositeBodyTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/CssLinkTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/DefaultHeadTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/HtmlTag$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/HtmlTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/StringBodyTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/StringLiTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/BodyTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/HeadTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/LinkTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/Tag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/other/test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/fileA.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deployment/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/math/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/math/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/other/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/other/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/other/test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/CompositeBodyTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/CompositeOlTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/CssLinkTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/DefaultHeadTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/HtmlTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/StringBodyTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/StringLiTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/BodyTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/CompositeTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/HeadTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/LinkTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/OlTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/StringTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/html/Tag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -3,6 +3,7 @@ package framework.singleClasses;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import common.html.HtmlBuilder;
+import common.html.tags.Tag;
 import framework.Compiler;
 import framework.*;
 
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static common.html.HtmlBuilder.buildHtmlTag;
 import static framework.utils.FileUtils.listAllNonDirFilesFrom;
 import static framework.utils.FileUtils.writeStringTo;
 
@@ -64,10 +66,11 @@ public class CompilerFacade {
 
 			FileOptionContainer foContainer = fileToFOContainer.get(file);
 			String              htmlBody    = fileToHtmlBody   .get(file);
+			Tag                 htmlTag     = buildHtmlTag(htmlBody);
 
 			fileToHtml.put(
 					file,
-					HtmlBuilder.buildHtml(htmlBody, foContainer)
+					htmlTag.toString()
 			);
 
 		}
