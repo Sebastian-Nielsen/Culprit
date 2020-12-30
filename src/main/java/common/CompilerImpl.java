@@ -4,7 +4,6 @@ import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
-import common.html.tags.HtmlTag;
 import framework.Compiler;
 import org.jetbrains.annotations.NotNull;
 
