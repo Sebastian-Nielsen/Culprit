@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="unitTests.FileOptionInserterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-30T18:19:47" hostname="DESKTOP-S" time="0.009">
+  <properties/>
+  <testcase name="shouldAddIdFileOptionToMarkdownFile(File)" classname="unitTests.FileOptionInserterTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

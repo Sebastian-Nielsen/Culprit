@@ -78,15 +78,34 @@ public class FileUtils {
 	}
 
 	/**
-	 * Get all folders available in {@code folder} that are not nested
+	 * Get all not nested non-folders in {@code folder} that are
 	 * within a folder in {@code folder}.
 	 */
-	public static Stream<File> allNonDirFilesFrom(File folder) {
+	public static Stream<File> streamOfAllNonDirsFrom(File folder) {
 		File[] files = folder.listFiles();
-		if (files == null)
-			return Stream.empty();
-		else
-			return Arrays.stream(files).filter(File::isFile);
+		return Arrays.stream(files).filter(File::isFile);
+	}
+
+	/**
+	 * Get all not nested non-folders in {@code folder} that are
+	 * within a folder in {@code folder}.
+	 */
+	public static File[] allDirsFrom(File folder) {
+		File[] files = folder.listFiles();
+		return Arrays.stream(files)
+				.filter(File::isDirectory)
+				.toArray(File[]::new);
+	}
+
+	/**
+	 * Get all non-folders available in {@code folder} that are not nested
+	 * within a folder in {@code folder}.
+	 */
+	public static File[] allNonDirFrom(File folder) {
+		File[] files = folder.listFiles();
+		return Arrays.stream(files)
+				.filter(File::isFile)
+				.toArray(File[]::new);
 	}
 
 	/**

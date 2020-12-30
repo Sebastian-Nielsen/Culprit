@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="unitTests.PrecompilerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-30T18:19:47" hostname="DESKTOP-S" time="0.056">
+  <properties/>
+  <testcase name="shouldCompileDLINKSInFiles()" classname="unitTests.PrecompilerTest" time="0.056"/>
+  <system-out><![CDATA[This file has ID:
+
+33333333-3333-3333-3333-333333333333
+
+[link to A](./../A.html)
+
+[link to B](./../B.html) 
+
+[link to D](./x2nested/D.html)
+-----
+The ID of this file:
+
+11111111-1111-1111-1111-111111111111
+
+[link to B](./B.html) 
+
+[link to C](./nested/C.html)
+
+[link to D](./nested/x2nested/D.html)
+-----
+The ID of this file: 
+
+22222222-2222-2222-2222-222222222222
+
+This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the precompiler should not do anything to this file. 
+-----
+This file has ID: 
+
+44444444-4444-4444-4444-444444444444
+
+[link to A](./../../A.html)
+
+[link to B](./../../B.html) 
+
+[link to C](./../C.html)
+-----
+======
+The ID of this file: 
+
+22222222-2222-2222-2222-222222222222
+
+This file has D_LINKS FileOption sat to true, but doesn't have any FileOption, so the precompiler should not do anything to this file. 
+---
+The ID of this file:
+
+11111111-1111-1111-1111-111111111111
+
+[link to B](./B.html) 
+
+[link to C](./nested/C.html)
+
+[link to D](./nested/x2nested/D.html)
+---
+This file has ID:
+
+33333333-3333-3333-3333-333333333333
+
+[link to A](./../A.html)
+
+[link to B](./../B.html) 
+
+[link to D](./x2nested/D.html)
+---
+This file has ID: 
+
+44444444-4444-4444-4444-444444444444
+
+[link to A](./../../A.html)
+
+[link to B](./../../B.html) 
+
+[link to C](./../C.html)
+---
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

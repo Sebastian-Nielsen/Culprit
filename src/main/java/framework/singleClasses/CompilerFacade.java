@@ -47,11 +47,9 @@ public class CompilerFacade {
 
 		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachFile();
 
-		Map<File, String> fileToMd       = precompiler.compileAllFiles(fileToFOContainer);
+		Map<File, String> fileToMd   = precompiler.compileAllFiles(fileToFOContainer);
 
-		Map<File, String> fileToHtmlBody = compiler   .compileAllFiles(fileToMd);
-
-		Map<File, String> fileToHtml = buildHtmlTagForEachFile(fileToHtmlBody, fileToFOContainer);
+		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
 
 		writeStringToAssociatedFile(fileToHtml);
 	}
@@ -64,7 +62,7 @@ public class CompilerFacade {
 		Set<File> files = fileToHtmlBody.keySet();
 		for (File file : files) {
 
-			FileOptionContainer foContainer = fileToFOContainer.get(file);
+//			FileOptionContainer foContainer = fileToFOContainer.get(file);
 			String              htmlBody    = fileToHtmlBody   .get(file);
 			Tag                 htmlTag     = buildHtmlTag(htmlBody);
 

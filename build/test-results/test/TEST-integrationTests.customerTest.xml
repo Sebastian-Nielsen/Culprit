@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="integrationTests.customerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-30T18:19:46" hostname="DESKTOP-S" time="0.385">
+  <properties/>
+  <testcase name="test_1()" classname="integrationTests.customerTest" time="0.385"/>
+  <system-out><![CDATA[Generated li: <li >
+<a href="./C.html" >
+C.html
+</a>
+</li>
+
+Generated li: <li >
+<a href="./nested" >
+nested
+</a>
+</li>
+
+Generated li: <li >
+<a href="./A.html" >
+A.html
+</a>
+</li>
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

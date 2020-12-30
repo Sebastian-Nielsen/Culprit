@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="culprit_2:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/culprit_2_jar</output-path>
+    <output-path>$USER_HOME$/WebstormProjects/Culprit</output-path>
     <root id="archive" name="culprit_2.jar">
       <element id="module-output" name="culprit_2.main" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.openhtmltopdf/openhtmltopdf-jsoup-dom-converter/1.0.0/dba071d26065e53a83270ae01d4b1d3f2faa1757/openhtmltopdf-jsoup-dom-converter-1.0.0.jar" path-in-jar="/" />

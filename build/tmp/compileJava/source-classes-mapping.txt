@@ -1,5 +1,6 @@
-framework/Main.java
- framework.Main
+common/html/tags/Tag.java
+ common.html.tags.Tag
+ common.html.tags.Tag$TYPE
 framework/CompilerDependencyFactory.java
  framework.CompilerDependencyFactory
 common/fileOption/FileOptionContainer.java
@@ -15,8 +16,8 @@ common/FileHandlerImpl.java
  common.FileHandlerImpl
 common/compilerSettingsFactories/CustomCompilerDependencyFactory.java
  common.compilerSettingsFactories.CustomCompilerDependencyFactory
-common/DeployerImpl.java
- common.DeployerImpl
+framework/FileOptionExtractor.java
+ framework.FileOptionExtractor
 framework/Deployer.java
  framework.Deployer
 common/html/Constants.java
@@ -31,14 +32,14 @@ common/fileOption/FileOptionExtractorImpl.java
  common.fileOption.FileOptionExtractorImpl
 common/other/UUIDGeneratorImpl.java
  common.other.UUIDGeneratorImpl
+framework/utils/FileUtils.java
+ framework.utils.FileUtils
 framework/Constants/Constants.java
  framework.Constants.Constants
 common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java
  common.compilerSettingsFactories.ProductionCompilerDependencyFactory
-framework/utils/FileUtils.java
- framework.utils.FileUtils
-framework/FileOptionExtractor.java
- framework.FileOptionExtractor
+framework/Main.java
+ framework.Main
 common/fileOption/FileOptionInserter.java
  common.fileOption.FileOptionInserter
 common/fileOption/FileOption.java
@@ -49,10 +50,9 @@ framework/FileHandler.java
 framework/singleClasses/CompilerFacade.java
  framework.singleClasses.CompilerFacade
  framework.singleClasses.CompilerFacade$Builder
+common/DeployerImpl.java
+ common.DeployerImpl
 common/html/HtmlBuilder.java
  common.html.HtmlBuilder
-common/html/tags/Tag.java
- common.html.tags.Tag
- common.html.tags.Tag$TYPE
 common/CompilerImpl.java
  common.CompilerImpl

@@ -116,7 +116,7 @@ public class DeployerImpl implements Deployer {
 
 	private void addDefaultIndexTo(File folder) throws IOException {
 
-		Stream<File> files = allNonDirFilesFrom(folder);
+		Stream<File> files = streamOfAllNonDirsFrom(folder);
 
 		// if an 'index.html' doesn't already exist; create one.
 		boolean doesIndexFileExist = files.anyMatch(isEqual("index.html"));
@@ -130,8 +130,6 @@ public class DeployerImpl implements Deployer {
 	 * @param folder folder in which to create the default-index
 	 */
 	private void createDefaultIndexIn(File folder) throws IOException {
-		System.out.println("called 87");
-
 		String defaultIndexHtml = HtmlBuilder.buildDefaultIndexHtml(folder);
 
 		File indexFile = new File(folder + "/index.html");

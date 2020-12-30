@@ -53,7 +53,7 @@ public class Tag {
 					.append(attr)
 					.append("=\"")
 					.append( attrToVal.get(attr) )
-					.append('"');
+					.append("\" ");
 
 		return "" + stringBuilder;
 	}

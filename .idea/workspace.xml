@@ -10,31 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/CompilerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/HtmlBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/common/html/HtmlBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/CompositeBodyTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/CssLinkTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/DefaultHeadTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/HtmlTag$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/HtmlTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/StringBodyTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/common/html/tags/StringLiTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/BodyTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/HeadTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/LinkTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/html/Tag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/framework/singleClasses/CompilerFacade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/other/test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/fileA.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/math/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/math/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/other/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/other/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/other/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/tags/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,9 +88,9 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/culprit_2_jar/culprit_2.jar" />
+    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects/Culprit" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -134,14 +110,14 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\content" />
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\content\math" />
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\deployment\other" />
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\deployment\math" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\build\libs" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\testClassSpecific" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\global\root" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -155,12 +131,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests in 'constants'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;constants.*&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -230,19 +206,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.Tests in 'constants'" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="Gradle.culprit_2 [jar]" />
+      <item itemvalue="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="JAR Application.culprit_2-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" />
         <item itemvalue="JAR Application.culprit_2-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.culprit_2 [jar]" />
-        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Gradle.Tests in 'constants'" />
       </list>
     </recent_temporary>
   </component>

@@ -3,11 +3,11 @@ package common.html;
 import common.html.tags.*;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 import static common.html.tags.Tag.TYPE.*;
 import static common.html.tags.Tag.TYPE.LINK;
+import static framework.utils.FileUtils.*;
 import static javax.swing.text.html.HTML.Attribute.*;
 
 public class HtmlBuilder {
@@ -20,16 +20,17 @@ public class HtmlBuilder {
 	 * @return {@code toString} of {@code HtmlTag}
 	 */
 	public static String buildDefaultIndexHtml(File folder) {
-		System.out.println("This is triggered for: " + folder);
-
+		Tag htmlTag = new Tag(HTML);
+		Tag headTag = newDefaultHeadTag();
 		Tag bodyTag = new Tag(BODY);
 
 		Tag olTag = generateCustomOlTagForDefaultIndex(folder);
-		System.out.println(olTag);
-
 		bodyTag.addChild(olTag);
 
-		return bodyTag.toString();
+		htmlTag.addChild(headTag);
+		htmlTag.addChild(bodyTag);
+
+		return htmlTag.toString();
 	}
 
 
@@ -72,7 +73,6 @@ public class HtmlBuilder {
 		Tag linkTag = new Tag(LINK);
 
 		linkTag.setAttrToVal(HREF, hrefVal);
-		linkTag.setAttrToVal(TEXT, "text/css");
 		linkTag.setAttrToVal(REL,  "stylesheet");
 
 		return linkTag;
@@ -90,18 +90,47 @@ public class HtmlBuilder {
 	private static Tag generateCustomOlTagForDefaultIndex(File folder) {
 		Tag olTag = new Tag(OL);
 
-		File[] filesInFolder = folder.listFiles();
-		System.out.println("filesInFolder: " + Arrays.toString(filesInFolder));
-		for (File file : filesInFolder)
+		Tag olTagForDirs  = generateCustomOlTagForDefaultIndex(  allDirsFrom(folder));
+		Tag olTagForFiles = generateCustomOlTagForDefaultIndex(allNonDirFrom(folder));
 
-			olTag.addChild(
+		olTag.addChild(olTagForDirs);
+		olTag.addChild(olTagForFiles);
+
+		return olTag;
+	}
+
+	private static Tag generateCustomOlTagForDefaultIndex(File[] files) {
+		Tag olTag = new Tag(OL);
+
+		for (File file : files)
+
+				olTag.addChild(
 					// `<li>
 					//      <a href="./{{file.getName()}}">
 					//          {{file.getName()}}
 					//      </a>
 					// </li>`
 					generateLiTagOf(file)
-			);
+				);
+
+		return olTag;
+	}
+
+	private static Tag generateCustomOlTagForDefaultIndexFor(File folder) {
+		Tag olTag = new Tag(OL);
+
+		streamOfAllNonDirsFrom(folder).forEach(file ->
+
+				olTag.addChild(
+					// `<li>
+					//      <a href="./{{file.getName()}}">
+					//          {{file.getName()}}
+					//      </a>
+					// </li>`
+					generateLiTagOf(file)
+				)
+
+		);
 
 		return olTag;
 	}
