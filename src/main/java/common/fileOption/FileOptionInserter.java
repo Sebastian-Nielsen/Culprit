@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static common.fileOption.FileOption.KEY.ID;
-import static framework.utils.FileUtils.insertLineAtTopOf;
+import static framework.utils.FileUtils.Modifier.insertLineAtTopOf;
 
 public class FileOptionInserter {
 

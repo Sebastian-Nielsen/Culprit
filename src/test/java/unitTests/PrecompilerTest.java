@@ -1,27 +1,22 @@
 package unitTests;
 
 import common.PrecompilerImpl;
-import framework.Precompiler;
-
-import static common.fileOption.FileOption.KEY.D_LINKS;
-import static common.fileOption.FileOption.KEY.ID;
-
 import common.fileOption.FileOptionContainer;
+import framework.Precompiler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
-import static java.util.AbstractMap.SimpleEntry;
 
-import static java.util.Map.Entry;
 import static common.fileOption.FileOption.KEY;
-
-import static framework.utils.FileUtils.filesToTheirContent;
+import static common.fileOption.FileOption.KEY.D_LINKS;
+import static common.fileOption.FileOption.KEY.ID;
+import static framework.utils.FileUtils.Lister.filesToTheirContent;
+import static java.util.AbstractMap.SimpleEntry;
+import static java.util.Map.Entry;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static testHelper.TestHelper.getResourceFile;

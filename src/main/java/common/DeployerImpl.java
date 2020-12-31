@@ -5,16 +5,23 @@ import common.fileOption.FileOptionInserter;
 import common.html.HtmlBuilder;
 import framework.Deployer;
 import common.fileOption.FileOptionContainer;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
 import static framework.Constants.Constants.CWD;
 import static common.fileOption.FileOption.KEY.ID;
-import static framework.utils.FileUtils.*;
+import static framework.utils.FileUtils.Filename.changeFileExt;
+import static framework.utils.FileUtils.Filename.getRelativePath;
+import static framework.utils.FileUtils.Lister.*;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Modifier.writeStringTo;
 import static java.util.function.Predicate.isEqual;
 
 public class DeployerImpl implements Deployer {
@@ -47,7 +54,8 @@ public class DeployerImpl implements Deployer {
 
 	@Override
  	public void deploy() throws IOException {
-		for (File contentFile : listAllFilesFrom(contentRootFolder))
+
+		for (File contentFile : listFilesAndDirsFrom(contentRootFolder, RECURSIVE))
 			createDeployFileFrom(contentFile);
 
 	}
@@ -58,7 +66,7 @@ public class DeployerImpl implements Deployer {
 	}
 
 	@Override
-	public void addDefaultIndexes() throws IOException {
+	public void addDefaultIndexes() throws Exception {
 		addDefaultIndexesRecursivelyTo(deployRootFolder);
 	}
 
@@ -70,10 +78,11 @@ public class DeployerImpl implements Deployer {
 		Set<File> files = fileToFOContainer.keySet();
 		for (File file : files) {
 
-			boolean foContainerHasIdKey = fileToFOContainer.get(file).containsKey(ID);
-			if (!foContainerHasIdKey)
+			boolean foContainerOfFileHasIdKey = fileToFOContainer.get(file).containsKey(ID);
+			if (!foContainerOfFileHasIdKey)
 
 				addIdTo(file);
+
 		}
 
 	}
@@ -92,34 +101,27 @@ public class DeployerImpl implements Deployer {
 
 	}
 
-	private void addDefaultIndexesRecursivelyTo(File folder) throws IOException {
 
-		boolean hasSeenIndexFile = false;
+	/* ===================================================== */
 
-		for (File file : folder.listFiles()) {
 
-			if (file.isDirectory())
-				addDefaultIndexesRecursivelyTo(file);
+	private void addDefaultIndexesRecursivelyTo(File folder) throws Exception {
 
-			if (isIndexFile(file))
-				hasSeenIndexFile = true;
-		}
+		for (File dir : listDirsFrom(folder, NONRECURSIVE))
 
-		if (!hasSeenIndexFile)
-			createDefaultIndexIn(folder);
+			addDefaultIndexesRecursivelyTo(dir);
+
+		addDefaultIndexTo(folder);
+
 	}
 
-	private boolean isIndexFile(File file) {
-		return file.toString().equals("index.html");
-	}
+	/**
+	 * Add a default index `index.html` to {@code folder}
+	 * if one doesn't already exist.
+	 */
+	private void addDefaultIndexTo(File folder) throws Exception {
 
-
-	private void addDefaultIndexTo(File folder) throws IOException {
-
-		Stream<File> files = streamOfAllNonDirsFrom(folder);
-
-		// if an 'index.html' doesn't already exist; create one.
-		boolean doesIndexFileExist = files.anyMatch(isEqual("index.html"));
+		boolean doesIndexFileExist = streamNonDirsFrom(folder, NONRECURSIVE).anyMatch(isEqual("index.html"));
 		if (!doesIndexFileExist)
 			createDefaultIndexIn(folder);
 
@@ -138,6 +140,10 @@ public class DeployerImpl implements Deployer {
 
 		writeStringTo(indexFile, defaultIndexHtml);
 	}
+
+
+	/* ===================================================== */
+
 
 	private String getRelativeDeployPath(File contentFile) {
 

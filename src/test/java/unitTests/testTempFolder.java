@@ -1,12 +1,10 @@
 package unitTests;
 
-import org.junit.jupiter.api.Test;
-
-import java.io.*;
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static framework.utils.FileUtils.normalize;
+import static framework.utils.FileUtils.Filename.normalize;
 import static testHelper.TestHelper.getResourceFile;
 
 public class testTempFolder {

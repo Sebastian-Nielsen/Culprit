@@ -2,3 +2,5 @@
 
 
 This file is: "/fileD.md"
+
+![](../deployment/.fileD_images/test.png)

@@ -2,10 +2,10 @@ package framework.singleClasses;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import common.html.HtmlBuilder;
 import common.html.tags.Tag;
 import framework.Compiler;
 import framework.*;
+import framework.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +14,10 @@ import java.util.Map;
 import java.util.Set;
 
 import static common.html.HtmlBuilder.buildHtmlTag;
-import static framework.utils.FileUtils.listAllNonDirFilesFrom;
-import static framework.utils.FileUtils.writeStringTo;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.listNonDirsFrom;
+import static framework.utils.FileUtils.Lister.listNonDirsRecursivelyFrom;
+import static framework.utils.FileUtils.Modifier.writeStringTo;
 
 public class CompilerFacade {
 
@@ -98,7 +100,7 @@ public class CompilerFacade {
 
 	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
 
-		for (File contentFile : listAllNonDirFilesFrom(contentRootFolder)) {
+		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
 
 			File deployFile = deployer.getDeployEquivalentOf(contentFile);
 

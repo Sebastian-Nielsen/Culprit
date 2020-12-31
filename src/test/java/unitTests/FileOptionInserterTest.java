@@ -1,7 +1,6 @@
 package unitTests;
 
 import common.fileOption.FileOptionInserter;
-import framework.UUIDGenerator;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -11,8 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 import static common.fileOption.FileOption.KEY.ID;
-import static framework.utils.FileUtils.contentOf;
-import static framework.utils.FileUtils.writeStringTo;
+import static framework.utils.FileUtils.Modifier.writeStringTo;
+import static framework.utils.FileUtils.Retriever.contentOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 

@@ -2,3 +2,11 @@
 
 
 This is file: "/fileC.md"
+
+![img.png](img.png)
+
+klklj
+k
+kj
+3
+jk

@@ -1,8 +1,9 @@
 package common;
 
-import framework.Precompiler;
 import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
+import framework.Precompiler;
+import framework.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,12 @@ import java.util.regex.Pattern;
 import static common.fileOption.FileOption.KEY;
 import static common.fileOption.FileOption.KEY.ID;
 import static framework.singleClasses.ValidatorImpl.REGEXES;
-import static framework.utils.FileUtils.*;
+import static framework.utils.FileUtils.Filename.changeFileExt;
+import static framework.utils.FileUtils.Filename.normalize;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.listNonDirsFrom;
+import static framework.utils.FileUtils.Lister.listNonDirsRecursivelyFrom;
+import static framework.utils.FileUtils.Retriever.contentOf;
 
 public class PrecompilerImpl implements Precompiler {
 	private final File contentRootFolder;
@@ -32,7 +38,7 @@ public class PrecompilerImpl implements Precompiler {
 
 		Map<File, String> fileToCompiledContent = new HashMap<>();
 
-		for (File file : listAllNonDirFilesFrom(contentRootFolder))
+		for (File file : listNonDirsFrom(contentRootFolder, RECURSIVE))
 
 			fileToCompiledContent.put(
 					file,
@@ -64,6 +70,8 @@ public class PrecompilerImpl implements Precompiler {
 
 		Set<File> files = fileToFOContainer.keySet();
 		for (File file : files) {
+
+			if (!file.getName().endsWith(".md")) continue;
 
 			assertFileHasAllRequiredFileOptions(file, fileToFOContainer);
 

@@ -1,11 +1,8 @@
 package unitTests.FileUtilsSuiteClasses;
 
-import framework.utils.FileUtils;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
-import static framework.utils.FileUtils.changeFileExt;
+import static framework.utils.FileUtils.Filename.changeFileExt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

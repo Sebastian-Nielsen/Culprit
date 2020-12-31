@@ -1,7 +1,6 @@
 package unitTests.FileUtilsSuiteClasses;
 
 
-import framework.utils.FileUtils;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +9,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInRelativeOrder;
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
@@ -26,7 +25,7 @@ public class FileUtils_listAllFilesFrom {
 	@Test
 	public void shouldRetrieveAllFiles() throws IOException {
 		// Exercise
-		File[] actualFiles = FileUtils.listAllFilesFrom(ROOT_FOLDER);
+		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVE);
 		// Verify
 		File[] expectedFiles = new File[]{
 			new File(ROOT_ABS_PATH + "/A"),             // 1
@@ -43,7 +42,7 @@ public class FileUtils_listAllFilesFrom {
 	@Test
 	public void shouldRetrieveFilesDepthFirst() throws IOException {
 		// Exercise
-		File[] actualFiles = FileUtils.listAllFilesFrom(ROOT_FOLDER);
+		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVE);
 		// Verify
 		File[] expectedRelativeOrderOfFolders = new File[]{
 				new File(ROOT_ABS_PATH + "/lvlB"),

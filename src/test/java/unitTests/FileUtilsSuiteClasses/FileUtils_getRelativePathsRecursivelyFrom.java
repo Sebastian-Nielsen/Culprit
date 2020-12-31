@@ -1,16 +1,10 @@
 package unitTests.FileUtilsSuiteClasses;
 
-import framework.utils.FileUtils;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Objects;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInRelativeOrder;
+import static framework.utils.FileUtils.Lister.getRelativePathsFrom;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static testHelper.TestHelper.getResourceFile;
 
@@ -23,7 +17,7 @@ public class FileUtils_getRelativePathsRecursivelyFrom {
 	@Test
 	public void shouldRetrieveAllRelativePaths() throws Exception {
 		// Exercise
-		String[] actualPaths = FileUtils.getRelativePathsFrom(ROOT_DIR);
+		String[] actualPaths = getRelativePathsFrom(ROOT_DIR);
 		// Verify
 		String[] expectedPaths = new String[]{
 			"A",              // 1

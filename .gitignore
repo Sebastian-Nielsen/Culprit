@@ -1,0 +1,9 @@
+deployment/*
+
+out
+out/*
+
+build
+build/*
+
+.idea

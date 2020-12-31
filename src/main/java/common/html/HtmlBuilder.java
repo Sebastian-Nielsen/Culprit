@@ -3,11 +3,15 @@ package common.html;
 import common.html.tags.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import static common.html.tags.Tag.TYPE.*;
 import static common.html.tags.Tag.TYPE.LINK;
 import static framework.utils.FileUtils.*;
+import static framework.utils.FileUtils.Lister.*;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static javax.swing.text.html.HTML.Attribute.*;
 
 public class HtmlBuilder {
@@ -19,7 +23,7 @@ public class HtmlBuilder {
 	 * @param folder the folder that the generation of the dynamic html is based on
 	 * @return {@code toString} of {@code HtmlTag}
 	 */
-	public static String buildDefaultIndexHtml(File folder) {
+	public static String buildDefaultIndexHtml(File folder) throws IOException {
 		Tag htmlTag = new Tag(HTML);
 		Tag headTag = newDefaultHeadTag();
 		Tag bodyTag = new Tag(BODY);
@@ -87,11 +91,11 @@ public class HtmlBuilder {
 	 * @param folder folder from which to list the files from.
 	 * @return an ol {@code Tag}
 	 */
-	private static Tag generateCustomOlTagForDefaultIndex(File folder) {
+	private static Tag generateCustomOlTagForDefaultIndex(File folder) throws IOException {
 		Tag olTag = new Tag(OL);
 
-		Tag olTagForDirs  = generateCustomOlTagForDefaultIndex(  allDirsFrom(folder));
-		Tag olTagForFiles = generateCustomOlTagForDefaultIndex(allNonDirFrom(folder));
+		Tag olTagForDirs  = generateCustomOlTagForDefaultIndex(listDirsFrom(   folder, NONRECURSIVE));
+		Tag olTagForFiles = generateCustomOlTagForDefaultIndex(listNonDirsFrom(folder, NONRECURSIVE));
 
 		olTag.addChild(olTagForDirs);
 		olTag.addChild(olTagForFiles);
@@ -116,10 +120,10 @@ public class HtmlBuilder {
 		return olTag;
 	}
 
-	private static Tag generateCustomOlTagForDefaultIndexFor(File folder) {
+	private static Tag generateCustomOlTagForDefaultIndexFor(File folder) throws IOException {
 		Tag olTag = new Tag(OL);
 
-		streamOfAllNonDirsFrom(folder).forEach(file ->
+		for (File file : listNonDirsFrom(folder, NONRECURSIVE))
 
 				olTag.addChild(
 					// `<li>
@@ -128,9 +132,7 @@ public class HtmlBuilder {
 					//      </a>
 					// </li>`
 					generateLiTagOf(file)
-				)
-
-		);
+				);
 
 		return olTag;
 	}

@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.IOException;
 
 import static framework.utils.FileUtils.*;
+import static framework.utils.FileUtils.Lister.getRelativePathsFrom;
+import static framework.utils.FileUtils.Lister.listContentOfFilesFrom;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static testHelper.TestHelper.getResourceFile;
@@ -68,7 +70,7 @@ public class DeployerImplTest {
 	}
 
 	@Test
-	public void shouldCreateDefaultIndexFilesInDeployFolder() throws IOException {
+	public void shouldCreateDefaultIndexFilesInDeployFolder() throws Exception {
 		// Fixture
 		final String methodSpecificTestDirname = "addDefaultIndexes";
 

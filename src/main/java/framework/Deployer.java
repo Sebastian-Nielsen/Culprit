@@ -34,7 +34,10 @@ public interface Deployer {
 	/**
 	 * Creates an `index.html` file for each folder in *deployment* that doesn't already have one.
 	 */
-	void addDefaultIndexes() throws IOException;
+	void addDefaultIndexes() throws Exception;
 
+	/**
+	 * Adds an ID fileoption (`[ID]:<> ({{uuid}})`) to files in *content* without one.
+	 */
 	void addIdToContentFilesWithoutOne() throws Exception;
 }
