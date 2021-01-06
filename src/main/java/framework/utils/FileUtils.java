@@ -171,8 +171,7 @@ public class FileUtils {
 
 		private static Stream<File> streamNonDirsNonRecursivelyFrom(File folder) throws IOException {
 			File[] files = listNonDirsFrom(folder, NONRECURSIVE);
-			System.out.println("in folder: " + folder);
-			System.out.println("123 " + files.toString());
+
 			if (files == null)
 				return Stream.empty();
 			else

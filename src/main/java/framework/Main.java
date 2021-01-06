@@ -10,6 +10,10 @@ import framework.singleClasses.CompilerFacade;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +33,11 @@ public class Main {
 				.Builder(new ProductionCompilerDependencyFactory())
 				.setAddDefaultIndexes(true)
 				.setAddIdToContentFilesWithoutOne(true)
+				.setPrettifyHtml(true)
 				.build();
+
+		System.out.println(new File("").getAbsoluteFile().getName());
+		System.out.println(System.getProperty("user.dir"));
 
 		cleanDeployDir();
 

@@ -137,9 +137,20 @@ public class HTML {
         public static final Tag A = new Tag("a");
 
         /**
+         * Tag &lt;article&gt;
+         */
+        public static final Tag ARTICLE = new Tag("article");
+
+        /**
+         * Tag &lt;aside&gt;
+         */
+        public static final Tag ASIDE = new Tag("aside");
+
+        /**
          * Tag &lt;address&gt;
          */
         public static final Tag ADDRESS = new Tag("address");
+
         /**
          * Tag &lt;applet&gt;
          */
@@ -529,7 +540,7 @@ public class HTML {
         public static final Tag COMMENT = new Tag("comment");
 
         static final Tag[] allTags  = {
-            A, ADDRESS, APPLET, AREA, B, BASE, BASEFONT, BIG,
+            A, ARTICLE, ASIDE, ADDRESS, APPLET, AREA, B, BASE, BASEFONT, BIG,
             BLOCKQUOTE, BODY, BR, CAPTION, CENTER, CITE, CODE,
             DD, DFN, DIR, DIV, DL, DT, EM, FONT, FORM, FRAME,
             FRAMESET, H1, H2, H3, H4, H5, H6, HEAD, HR, HTML,

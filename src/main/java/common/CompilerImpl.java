@@ -4,7 +4,6 @@ import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
-import common.html.Tag;
 import framework.Compiler;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,11 +45,11 @@ public class CompilerImpl implements Compiler {
 		Set<File> files = fileToMd.keySet();
 		for (File file : files) {
 
-			String md             = fileToMd.get(file);
-			String articleContent = compile(md);
-			Tag    htmlTag        = buildDefaultPageHtmlFrom(articleContent);
+			String md         = fileToMd.get(file);
+			String articleTag = compile(md);
+			String htmlTag    = buildDefaultPageHtmlFrom(articleTag);
 
-			fileToHtml.put(file, htmlTag.toString());
+			fileToHtml.put(file, htmlTag);
 		}
 
 		return fileToHtml;

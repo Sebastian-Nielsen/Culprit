@@ -10,19 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/asdf/æøå_test.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/asdf/twix.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/.fileD_images/test.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionExtractorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionExtractorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Builder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/Builder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/tags/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Tag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Constants/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/common/html/BuilderTagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/common/html/BuilderTagTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,20 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BuilderTagTest.testing">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="framework.Main" />
+      <module name="culprit_2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="framework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BuilderTagTest.testing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -168,12 +181,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BuilderTagTest.testingHtmlBuilder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder&quot;" />
+        <option name="scriptParameters" value="--tests &quot;common.html.BuilderTagTest.testingHtmlBuilder&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -216,10 +229,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
-    <configuration name="culprit_2-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/culprit_2-1.0-SNAPSHOT.jar" />
-      <method v="2" />
-    </configuration>
     <configuration name="gradlew" type="ShConfigurationType" temporary="true">
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="$PROJECT_DIR$/gradlew" />
@@ -235,19 +244,19 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-      <item itemvalue="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" />
       <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="JAR Application.culprit_2-1.0-SNAPSHOT.jar" />
       <item itemvalue="Shell Script.gradlew" />
       <item itemvalue="Gradle.BuilderTagTest.testing" />
+      <item itemvalue="Gradle.BuilderTagTest.testingHtmlBuilder" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BuilderTagTest.testing" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Gradle.BuilderTagTest.testingHtmlBuilder" />
+        <item itemvalue="Gradle.BuilderTagTest.testing" />
         <item itemvalue="Shell Script.gradlew" />
-        <item itemvalue="Gradle.DeployerImplTest.shouldCreateDefaultIndexFilesInDeployFolder" />
-        <item itemvalue="JAR Application.culprit_2-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>

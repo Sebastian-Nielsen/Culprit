@@ -4,65 +4,98 @@ import java.util.*;
 
 public class Builder {
 
-//	public static class Builder {
+	private static final String INDENT_CHAR = "  ";
 
-//		private Tag result;
-		private StringBuilder stringBuilder = new StringBuilder();
+	private final StringBuilder stringBuilder = new StringBuilder();
+	private final Deque<HTML.Tag> openedTags  = new ArrayDeque<>();
 
-		public String getResult() {
-			return stringBuilder.toString();
-		}
+	@Override
+	public String toString() {
+		return stringBuilder.toString();
+	}
 
-		private Deque<HTML.Tag> openedTags = new ArrayDeque<>();
+	public Builder open(HTML.Tag tag) {
+		stringBuilder
+				.append(getIndent())
+				.append("<").append(tag).append(">\n");
+		openedTags.addFirst(tag);
+		return this;
+	}
 
-		public Builder open(HTML.Tag tag) {
-			stringBuilder.append("\t".repeat(openedTags.size()) + "<" + tag + ">\n");
-			openedTags.addFirst(tag);
-			return this;
-		}
+	public Builder setText(String text) {
+		stringBuilder
+				.append(INDENT_CHAR.repeat(openedTags.size()))
+				.append(text)
+				.append('\n');
+		return this;
+	}
 
-		/**
-		 * Precondition: the html has to be valid string format
-		 */
-		public Builder insertRaw(String html) {
-			stringBuilder.append(html);
-			return this;
-		}
+	/**
+	 * Precondition: the html has to be valid string format
+	 */
+	public Builder insertRaw(String html) {
+		stringBuilder.append(html);
+		return this;
+	}
 
-		public Builder open(HTML.Tag tag, Map<HTML.Attribute, String> attrToValue) {
+	public Builder openSingle(HTML.Tag tag, Map<HTML.Attribute, String> attrToVal) {
 
+		stringBuilder
+				.append(getIndent())
+				.append("<")
+				.append(tag);
+
+		for (Map.Entry<HTML.Attribute, String> attrValEntry : attrToVal.entrySet())
 			stringBuilder
-					.append("\t".repeat(openedTags.size()))
-					.append("<")
-					.append(tag);
+					.append(" ")
+					.append(attrValEntry.getKey())
+					.append("=\"")
+					.append(attrValEntry.getValue())
+					.append('"');
 
-			for (Map.Entry<HTML.Attribute, String> attrValEntry : attrToValue.entrySet())
-				stringBuilder
-							.append(" ")
-							.append(attrValEntry.getKey())
-							.append("=\"")
-							.append(attrValEntry.getValue())
-							.append('"');
+		stringBuilder.append(">\n");
 
-			stringBuilder.append(">\n");
+		return this;
+	}
 
-			openedTags.addFirst(tag);
+	public Builder open(HTML.Tag tag, Map<HTML.Attribute, String> attrToValue) {
 
-			return this;
-		}
+		stringBuilder
+				.append(getIndent())
+				.append("<")
+				.append(tag);
 
-		public Builder close(HTML.Tag tag) {
-			if (!openedTags.pop().equals(tag))
-				throw new RuntimeException("18492");
-			stringBuilder.append("\t".repeat(openedTags.size()) + "</" + tag + ">\n");
-			return this;
-		}
+		for (Map.Entry<HTML.Attribute, String> attrValEntry : attrToValue.entrySet())
+			stringBuilder
+					.append(" ")
+					.append(attrValEntry.getKey())
+					.append("=\"")
+					.append(attrValEntry.getValue())
+					.append('"');
 
-		public Builder setAttr(HTML.Attribute attr, String value) {
+		stringBuilder.append(">\n");
 
-			return this;
-		}
+		openedTags.addFirst(tag);
 
-//	}
+		return this;
+	}
 
+	public Builder close(HTML.Tag tag) {
+		if (!openedTags.pop().equals(tag))
+			throw new RuntimeException("18492");
+		stringBuilder.append(getIndent() + "</" + tag + ">\n");
+		return this;
+	}
+
+	public Builder insertBuilder(Builder builder) {
+		stringBuilder.append(builder.toString());
+		return this;
+	}
+
+
+	/* === PRIVATE METHODS */
+
+	private String getIndent() {
+		return INDENT_CHAR.repeat(openedTags.size());
+	}
 }

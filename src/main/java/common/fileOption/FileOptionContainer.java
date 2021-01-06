@@ -18,7 +18,6 @@ public class FileOptionContainer {
 
 	@Override
 	public String toString() {
-		String s = "";
 		return keyToVal.toString();
 	}
 
