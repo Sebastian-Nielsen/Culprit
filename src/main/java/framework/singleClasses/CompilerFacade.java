@@ -2,10 +2,9 @@ package framework.singleClasses;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import common.html.tags.Tag;
+import common.html.Tag;
 import framework.Compiler;
 import framework.*;
-import framework.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,10 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static common.html.HtmlBuilder.buildHtmlTag;
+import static common.html.HtmlBuilder.buildDefaultPageHtmlFrom;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
-import static framework.utils.FileUtils.Lister.listNonDirsRecursivelyFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 
 public class CompilerFacade {
@@ -66,7 +64,7 @@ public class CompilerFacade {
 
 //			FileOptionContainer foContainer = fileToFOContainer.get(file);
 			String              htmlBody    = fileToHtmlBody   .get(file);
-			Tag                 htmlTag     = buildHtmlTag(htmlBody);
+			Tag                 htmlTag     = buildDefaultPageHtmlFrom(htmlBody);
 
 			fileToHtml.put(
 					file,

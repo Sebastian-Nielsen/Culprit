@@ -4,6 +4,7 @@ import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import framework.Precompiler;
 import framework.utils.FileUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,11 +49,12 @@ public class PrecompilerImpl implements Precompiler {
 		return fileToCompiledContent;
 	}
 
-	public String compileSingleFile(File fileToCompile, FileOptionContainer foContainer) throws IOException {
+	public String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException {
 		String     ID_val = foContainer.get(KEY.ID); // Required FileOption
 		String DLINKS_val = foContainer.getOrDefault(KEY.D_LINKS, "false");
 
 		String content = contentOf(fileToCompile);
+
 		content = handleDLINKS(DLINKS_val, content, fileToCompile);
 
 		return content;

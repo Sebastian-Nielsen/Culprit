@@ -227,7 +227,8 @@ public class FileUtils {
 
 
 		public static void writeStringTo(File file, String content) throws IOException {
-			org.apache.commons.io.FileUtils.writeStringToFile(file, content, Charset.defaultCharset());
+			Charset charset = Charset.availableCharsets().get("utf-8");
+			org.apache.commons.io.FileUtils.writeStringToFile(file, content, charset);
 		}
 		public static void insertLineAtTopOf(File file, String lineToPrepend) throws IOException {
 			String newContent = lineToPrepend + '\n' + contentOf(file);
@@ -254,7 +255,15 @@ public class FileUtils {
 		public static String contentOf(File file) {
 			String content;
 			try {
-				content = readFileToString(file, "UTF-8");
+				content = readFileToString(file, "ISO-8859-1");
+
+				if (file.getName().endsWith("twix.md")) {
+					System.out.println("(((((((((((((((((((((");
+					System.out.println(content);
+					System.out.println("(((((((((((((((((((((");
+//					System.exit(0);
+				}
+
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}

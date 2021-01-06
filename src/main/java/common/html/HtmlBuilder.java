@@ -1,18 +1,16 @@
 package common.html;
 
-import common.html.tags.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static common.html.tags.Tag.TYPE.*;
-import static common.html.tags.Tag.TYPE.LINK;
-import static framework.utils.FileUtils.*;
+import static common.html.Constants.CHARSET_UTF8_Attr;
+import static common.html.Constants.META_CHARSET_UTF8;
+import static common.html.Tag.TYPE.*;
+import static common.html.Tag.TYPE.LINK;
 import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
-import static javax.swing.text.html.HTML.Attribute.*;
+import static common.html.HTML.Attribute.*;
 
 public class HtmlBuilder {
 
@@ -25,7 +23,7 @@ public class HtmlBuilder {
 	 */
 	public static String buildDefaultIndexHtml(File folder) throws IOException {
 		Tag htmlTag = new Tag(HTML);
-		Tag headTag = newDefaultHeadTag();
+		Tag headTag = newDefaultHeadTag();      // TODO: finsish css and html for default indexes
 		Tag bodyTag = new Tag(BODY);
 
 		Tag olTag = generateCustomOlTagForDefaultIndex(folder);
@@ -38,13 +36,21 @@ public class HtmlBuilder {
 	}
 
 
-	public static Tag buildHtmlTag(String htmlBody) {
+	public static Tag buildDefaultPageHtmlFrom(String articleContent) {
 		// TODO: Enhance this to depend on the fileoption specified in the file.
 		Tag htmlTag = new Tag(HTML);
 		Tag headTag = newDefaultHeadTag();
 		Tag bodyTag = new Tag(BODY);
 
-		bodyTag.setContent(htmlBody);
+		Tag article    = new Tag(ARTICLE);
+		Tag  leftAside = new Tag(ASIDE);
+		Tag rightAside = new Tag(ASIDE);
+
+		article.setContent(articleContent);
+
+		bodyTag.addChild(leftAside);
+		bodyTag.addChild(rightAside);
+		bodyTag.addChild(article);
 
 		htmlTag.addChild(headTag);
 		htmlTag.addChild(bodyTag);
@@ -61,11 +67,14 @@ public class HtmlBuilder {
 		headTag.addChildren(List.of(
 				newDefaultCssLinkTag("global.css"),
 				newDefaultCssLinkTag("main.css"),
-				newDefaultCssLinkTag("index.css")
+				newDefaultCssLinkTag("index.css"),
+				META_CHARSET_UTF8
 		));
 
 		return headTag;
 	}
+
+	/* ============================================================ */
 
 	/**
 	 * Create a default link {@code Tag}
@@ -76,12 +85,13 @@ public class HtmlBuilder {
 	public static Tag newDefaultCssLinkTag(String hrefVal) {
 		Tag linkTag = new Tag(LINK);
 
-		linkTag.setAttrToVal(HREF, hrefVal);
-		linkTag.setAttrToVal(REL,  "stylesheet");
+		linkTag.putAttrToVal(HREF, hrefVal);
+		linkTag.putAttrToVal(REL,  "stylesheet");
 
 		return linkTag;
 	}
 
+	/* ============================================================ */
 
 	/* === PRIVATE METHODS */
 
@@ -160,7 +170,7 @@ public class HtmlBuilder {
 		Tag liTag = new Tag(LI);
 		Tag  aTag = new Tag(A);
 
-		aTag.setAttrToVal(HREF, hrefVal);
+		aTag.putAttrToVal(HREF, hrefVal);
 		aTag.setContent(liContent);
 
 		liTag.addChild(aTag);

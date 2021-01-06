@@ -1,13 +1,16 @@
-package common.html.tags;
+package common.html;
 
-import javax.swing.text.html.HTML;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import static common.html.HTML.Attribute;
 
 public class Tag {
 
 	public enum TYPE {
-		BODY, HEAD, DIV, A, LI, OL, HTML, LINK;
+		BODY, HEAD, DIV, A, LI, OL, HTML, LINK, ARTICLE, ASIDE, META;
 
 		@Override
 		public String toString() {
@@ -16,7 +19,7 @@ public class Tag {
 	}
 
 	private final TYPE type;
-	private final Map<HTML.Attribute, String> attrToVal;
+	private final Map<Attribute, String> attrToVal;
 	private final List<Tag> childrenTags = new ArrayList<>();
 	private String content = "";
 
@@ -27,7 +30,7 @@ public class Tag {
 
 	public Tag(TYPE type, Map<HTML.Attribute, String> attrToVal) {
 		this.type = type;
-		this.attrToVal = attrToVal;
+		this.attrToVal = new HashMap<>(attrToVal);
 	}
 
 	public String toString() {
@@ -47,7 +50,8 @@ public class Tag {
 	private String getAttributes() {
 		StringBuilder stringBuilder = new StringBuilder();
 
-		for (HTML.Attribute attr : attrToVal.keySet())
+		for (Attribute
+				attr : attrToVal.keySet())
 
 			stringBuilder
 					.append(attr)
@@ -76,7 +80,7 @@ public class Tag {
 		this.content = content;
 	}
 
-	public void setAttrToVal(HTML.Attribute attr, String value) {
+	public void putAttrToVal(HTML.Attribute attr, String value) {
 		attrToVal.put(attr, value);
 	}
 
