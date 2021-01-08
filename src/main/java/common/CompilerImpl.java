@@ -25,7 +25,7 @@ public class CompilerImpl implements Compiler {
 	}
 
 	@Override
-	public String compile(String markdown)  {
+	public String compile(String markdown, HtmlTemplate template)  {
         MutableDataSet options = new MutableDataSet();
 
         Parser parser = Parser.builder(options).build();
@@ -35,7 +35,12 @@ public class CompilerImpl implements Compiler {
         Node document = parser.parse(markdown);
         String html = renderer.render(document);
 
-        return html;
+		return switch (template) {
+			case DEFAULT_PAGE -> buildDefaultPageHtmlFrom(html);
+			case NONE -> html;
+			default -> throw new RuntimeException("We shouldn't get here");
+		};
+
 	}
 
 	@Override
@@ -45,9 +50,8 @@ public class CompilerImpl implements Compiler {
 		Set<File> files = fileToMd.keySet();
 		for (File file : files) {
 
-			String md         = fileToMd.get(file);
-			String articleTag = compile(md);
-			String htmlTag    = buildDefaultPageHtmlFrom(articleTag);
+			String md      = fileToMd.get(file);
+			String htmlTag = compile(md, HtmlTemplate.DEFAULT_PAGE);
 
 			fileToHtml.put(file, htmlTag);
 		}

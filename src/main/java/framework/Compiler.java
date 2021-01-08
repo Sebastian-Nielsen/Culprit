@@ -9,7 +9,21 @@ import java.util.Map;
  */
 public interface Compiler {
 
-	public String compile(String markdown);
+	/**
+	 * An enum for each html-template that it's possible
+	 * to insert the html (from the compiled .md) into.
+	 */
+	public enum HtmlTemplate {
+		NONE,
+		DEFAULT_PAGE
+	}
+
+	/**
+	 * @param markdown markdown to compile
+	 * @param template see {@link HtmlTemplate}
+	 * @return the compiled html of the {@code markdown} contained within the specified html-{@code template}
+	 */
+	public String compile(String markdown, HtmlTemplate template);
 
 	/**
 	 * Compiles from .md to .html for all {@code File}s in the supplied map.

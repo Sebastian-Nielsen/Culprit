@@ -49,6 +49,7 @@ public class PrecompilerImpl implements Precompiler {
 		return fileToCompiledContent;
 	}
 
+	@Override
 	public String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException {
 		String     ID_val = foContainer.get(KEY.ID); // Required FileOption
 		String DLINKS_val = foContainer.getOrDefault(KEY.D_LINKS, "false");
@@ -68,7 +69,7 @@ public class PrecompilerImpl implements Precompiler {
 	 * (1) Asserting each {@code File} has all _required_ {@code FileOption}s
 	 * (2) Store ({@code ID}, deploy-{@code File}) pair in map
 	 */
-	private void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {
+	private void preprocess(Map<File, FileOptionContainer> fileToFOContainer) {  // TODO: I dont like this method :/
 
 		Set<File> files = fileToFOContainer.keySet();
 		for (File file : files) {
@@ -152,12 +153,14 @@ public class PrecompilerImpl implements Precompiler {
 
 	/**
 	 * Calculates the relative file path; E.g.
+	 * <pre>
 	 * +-------------------------------------------------------------------------+
 	 * |baseFile: "resources/compilerTest_testFiles/D_LINKS/expected/nested/C.md"|
 	 * |  toFile: "resources/compilerTest_testFiles/D_LINKS/expected/A.md"       |
 	 * |                ->                                                       |                    |
 	 * | @return    "./../A.md"                                                  |
 	 * +-------------------------------------------------------------------------+
+	 * </pre>
 	 * @param baseFile file from which to start  the relative path from
 	 * @param toFile   file to   which to end up the relative path to
 	 * @return relative filePath, e.g. "./../B.md"

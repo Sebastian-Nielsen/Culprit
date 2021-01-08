@@ -1,6 +1,7 @@
 package framework;
 
 import common.fileOption.FileOptionContainer;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,4 +16,6 @@ public interface Precompiler {
 	 * respective compiled content.
 	 */
 	Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException;
+
+	String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException;
 }

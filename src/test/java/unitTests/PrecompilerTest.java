@@ -15,8 +15,11 @@ import static common.fileOption.FileOption.KEY;
 import static common.fileOption.FileOption.KEY.D_LINKS;
 import static common.fileOption.FileOption.KEY.ID;
 import static framework.utils.FileUtils.Lister.filesToTheirContent;
+import static framework.utils.FileUtils.Retriever.contentOf;
 import static java.util.AbstractMap.SimpleEntry;
 import static java.util.Map.Entry;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static testHelper.TestHelper.getResourceFile;
@@ -41,31 +44,47 @@ public class PrecompilerTest {
 		final File EXPECTED_ROOT_FOLDER = getResourceFile(EXPECTED_ROOT_PATH);
 		final File    INPUT_ROOT_FOLDER = getResourceFile(INPUT_ROOT_PATH);
 
-		final File fileA = getResourceFile(INPUT_ROOT_PATH + "/A.md");
-		final File fileB = getResourceFile(INPUT_ROOT_PATH + "/B.md");
-		final File fileC = getResourceFile(INPUT_ROOT_PATH + "/nested/C.md");
-		final File fileD = getResourceFile(INPUT_ROOT_PATH + "/nested/x2nested/D.md");
+		final String A = "/A";
+		final String B = "/B";
+		final String C = "/nested/C";
+		final String D = "/nested/x2nested/D";
+		final String E = "/nested_v2/E";
+
+		final File inputFileA = getResourceFile(INPUT_ROOT_PATH + A + ".md");
+		final File inputFileB = getResourceFile(INPUT_ROOT_PATH + B + ".md");
+		final File inputFileC = getResourceFile(INPUT_ROOT_PATH + C + ".md");
+		final File inputFileD = getResourceFile(INPUT_ROOT_PATH + D + ".md");
+		final File inputFileE = getResourceFile(INPUT_ROOT_PATH + E + ".md");
+
+		final File expectedFileA = getResourceFile(EXPECTED_ROOT_PATH + A + ".extIsIgnored");
+		final File expectedFileB = getResourceFile(EXPECTED_ROOT_PATH + B + ".extIsIgnored");
+		final File expectedFileC = getResourceFile(EXPECTED_ROOT_PATH + C + ".extIsIgnored");
+		final File expectedFileD = getResourceFile(EXPECTED_ROOT_PATH + D + ".extIsIgnored");
+		final File expectedFileE = getResourceFile(EXPECTED_ROOT_PATH + E + ".extIsIgnored");
 
 		final Map<File, FileOptionContainer> fileToFOContainer;
-		
 		fileToFOContainer =
-			Map.of(
-				fileA,  new FileOptionContainer(
-							entry(ID, "11111111-1111-1111-1111-111111111111"),
-							entry(D_LINKS, "true")),
+				Map.of(
+						inputFileA, new FileOptionContainer(
+									entry(ID, "11111111-1111-1111-1111-111111111111"),
+									entry(D_LINKS, "true")),
 
-				fileB,  new FileOptionContainer(
-							entry(ID, "22222222-2222-2222-2222-222222222222"),
-							entry(D_LINKS, "true")),
+						inputFileB, new FileOptionContainer(
+									entry(ID, "22222222-2222-2222-2222-222222222222"),
+									entry(D_LINKS, "true")),
 
-				fileC,  new FileOptionContainer(
-							entry(ID, "33333333-3333-3333-3333-333333333333"),
-							entry(D_LINKS, "true")),
+						inputFileC, new FileOptionContainer(
+									entry(ID, "33333333-3333-3333-3333-333333333333"),
+									entry(D_LINKS, "true")),
 
-				fileD,  new FileOptionContainer(
-							entry(ID, "44444444-4444-4444-4444-444444444444"),
-							entry(D_LINKS, "true"))
-			);
+						inputFileD, new FileOptionContainer(
+									entry(ID, "44444444-4444-4444-4444-444444444444"),
+									entry(D_LINKS, "true")),
+
+						inputFileE, new FileOptionContainer(
+									entry(ID, "55555555-5555-5555-5555-555555555555"),
+									entry(D_LINKS, "true"))
+				);
 
 		precompiler = new PrecompilerImpl(INPUT_ROOT_FOLDER);
 
@@ -73,52 +92,26 @@ public class PrecompilerTest {
 		Map<File, String> fileToCompiledContent = precompiler.compileAllFiles(fileToFOContainer);
 
 		// Verify
-		Map<File, String> expected = filesToTheirContent(EXPECTED_ROOT_FOLDER);
-		Map<File, String> actual   = fileToCompiledContent;
-		for (String value : expected.values()) {
-			System.out.println(value);
-			System.out.println("-----");
-		}
-		System.out.println("======");
-		for (String value : actual.values()) {
-			System.out.println(value);
-			System.out.println("---");
-		}
-		assertIdenticalMaps(actual, expected);
+		assertThat(fileToCompiledContent.get(inputFileA), is(contentOf(expectedFileA)));
+		assertThat(fileToCompiledContent.get(inputFileB), is(contentOf(expectedFileB)));
+		assertThat(fileToCompiledContent.get(inputFileC), is(contentOf(expectedFileC)));
+		assertThat(fileToCompiledContent.get(inputFileD), is(contentOf(expectedFileD)));
+		assertThat(fileToCompiledContent.get(inputFileE), is(contentOf(expectedFileE)));
+
+//		System.out.println("-----------------");
+//		System.out.println(fileToCompiledContent.get(inputFileE));
+//		System.out.println("-----------------");
+//		System.out.println(contentOf(expectedFileE));
+//		System.out.println("-----------------");
+
 	}
-	
-	private Entry<KEY, String> entry(KEY key, String value) {
-		return new SimpleEntry<>(key, value);
-	}
+
+
 
 	/* === PRIVATE METHODS */
 
-	private void assertIdenticalMaps(Map<File, String> actual,
-	                                 Map<File, String> expected) {
-
-		assertIdenticalLengths(actual, expected);
-
-		Collection<String> expectedCompiledContent = expected.values();
-		Collection<String>   actualCompiledContent =   actual.values();
-
-		assertContainsSameElements(actualCompiledContent, expectedCompiledContent);
-	}
-
-	private void assertContainsSameElements(Collection<String> actualCompiledContent, Collection<String> expectedCompiledContent) {
-		for (String actual : actualCompiledContent) {
-			assertTrue(expectedCompiledContent.contains(actual),
-					"The following actualCompiledContent isn't in expected:\n" +
-							"===========\n\n" + actual + "\n\n");
-		}
-		assertTrue(
-				  actualCompiledContent.containsAll(expectedCompiledContent)  &&
-				expectedCompiledContent.containsAll(  actualCompiledContent)
-		);
-	}
-
-	private void assertIdenticalLengths(Map<File, String> actual,
-	                                    Map<File, String> expected) {
-		assertEquals(actual.size(), expected.size());
+	private Entry<KEY, String> entry(KEY key, String value) {
+		return new SimpleEntry<>(key, value);
 	}
 
 }

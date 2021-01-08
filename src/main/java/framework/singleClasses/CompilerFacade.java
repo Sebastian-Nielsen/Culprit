@@ -1,5 +1,6 @@
 package framework.singleClasses;
 
+import common.FileHandlerImpl;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import framework.Compiler;
@@ -7,6 +8,8 @@ import framework.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
+
+import static framework.Compiler.HtmlTemplate;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +45,10 @@ public class CompilerFacade {
 		this.prettifyHtml                  = builder.prettifyHtml;
 	}
 
+	/**
+	 * Compile all files in {@code contentRootfolder}
+	 * output result to {@code deployRootFolder}
+	 */
 	public void compile() throws Exception {
 		prepare();
 
@@ -55,8 +62,27 @@ public class CompilerFacade {
 		writeStringToAssociatedFile(fileToHtml);
 	}
 
+	/**
+	 * Compile the specified file only
+	 */
+	public void compile(File contentFile) throws IOException {
+		String md      = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
+		String htmlTag = compiler   .compile(md, HtmlTemplate.DEFAULT_PAGE);
+
+		File deployFile = deployer.getDeployEquivalentOf(contentFile);
+
+		writeStringTo(deployFile, htmlTag);
+	}
+
 
 	/* === PRIVATE METHODS */
+
+	private FileOptionContainer extractFoContainerFrom(File file) throws IOException {
+
+		FileOptionExtractor foExtractor = FileOptionExtractorImpl.getInstance();
+		return foExtractor.extractFOContainer(  new FileHandlerImpl(file)  );
+
+	}
 
 	private void prettifyHtml(Map<File, String> fileToHtml) {
 		for (File file : fileToHtml.keySet()) {
@@ -119,7 +145,7 @@ public class CompilerFacade {
 		/**
 		 * Single {@code File} to compile
 		 */
-		private File compileSingleFile = null;
+		private File compileSingleFile = null;    // CURRENTLY NOT USED, WE JUST CALL .compile(File file);
 		/**
 		 * Whether to prettify html or simply output the semi-prettified html
 		 */

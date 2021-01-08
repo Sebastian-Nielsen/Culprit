@@ -55,7 +55,7 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
-		String mdFilesOnly = "md";
+		final String mdFilesOnly = "md";
 		for (File file : listNonDirsFrom(folder, RECURSIVE, mdFilesOnly))
 
 			fileToFOContainer.put(
