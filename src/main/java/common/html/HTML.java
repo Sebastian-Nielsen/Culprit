@@ -352,6 +352,11 @@ public class HTML {
         public static final Tag LINK = new Tag("link");
 
         /**
+         * Tag &lt;main&gt;
+         */
+        public static final Tag MAIN = new Tag("main");
+
+        /**
          * Tag &lt;map&gt;
          */
         public static final Tag MAP = new Tag("map");
@@ -544,7 +549,7 @@ public class HTML {
             BLOCKQUOTE, BODY, BR, CAPTION, CENTER, CITE, CODE,
             DD, DFN, DIR, DIV, DL, DT, EM, FONT, FORM, FRAME,
             FRAMESET, H1, H2, H3, H4, H5, H6, HEAD, HR, HTML,
-            I, IMG, INPUT, ISINDEX, KBD, LI, LINK, MAP, MENU,
+            I, IMG, INPUT, ISINDEX, KBD, LI, LINK, MAIN, MAP, MENU,
             META, NOBR, NOFRAMES, OBJECT, OL, OPTION, P, PARAM,
             PRE, SAMP, SCRIPT, SELECT, SMALL, SPAN, STRIKE, S,
             STRONG, STYLE, SUB, SUP, TABLE, TD, TEXTAREA,

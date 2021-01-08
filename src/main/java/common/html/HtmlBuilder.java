@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import static common.html.HTML.Attribute.STYLE;
 import static common.html.HTML.Tag.*;
 import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Attribute;
@@ -43,11 +44,13 @@ public class HtmlBuilder {
 				.open(HTML)
 					.insertBuilder(defaultHead())
 					.open(BODY)
-						.open(ASIDE).close(ASIDE)
-						.open(ASIDE).close(ASIDE)
-						.open(ARTICLE)
-							.insertRaw(articleContent)
-						.close(ARTICLE)
+						.open(MAIN)
+							.open(ASIDE, Map.of(ID,  "left-aside")).close(ASIDE)
+							.open(ASIDE, Map.of(ID, "right-aside")).close(ASIDE)
+							.open(ARTICLE)
+								.insertRaw(articleContent)
+							.close(ARTICLE)
+						.close(MAIN)
 					.close(BODY)
 				.close(HTML)
 				.toString();

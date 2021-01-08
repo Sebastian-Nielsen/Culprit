@@ -10,12 +10,8 @@ import org.jsoup.parser.Parser;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.function.BiConsumer;
 
-import static common.html.HtmlBuilder.buildDefaultPageHtmlFrom;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
@@ -49,9 +45,7 @@ public class CompilerFacade {
 	public void compile() throws Exception {
 		prepare();
 
-//		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachFile();
-
-		Map<File, String> fileToMd   = precompiler.compileAllFiles(extractFOContainerFromEachFile());
+		Map<File, String> fileToMd   = precompiler.compileAllFiles(extractFOContainerFromEachContentFile());
 
 		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
 
@@ -61,36 +55,15 @@ public class CompilerFacade {
 		writeStringToAssociatedFile(fileToHtml);
 	}
 
+
+	/* === PRIVATE METHODS */
+
 	private void prettifyHtml(Map<File, String> fileToHtml) {
 		for (File file : fileToHtml.keySet()) {
 			Document doc = Jsoup.parse(fileToHtml.get(file), "", Parser.xmlParser());
 			fileToHtml.put(file, doc.toString());
 		}
 	}
-
-	private Map<File, String> buildHtmlTagForEachFile(Map<File, String> fileToHtmlBody,
-	                                Map<File, FileOptionContainer> fileToFOContainer) {
-
-		Map<File, String> fileToHtml = new HashMap<>();
-
-		Set<File> files = fileToHtmlBody.keySet();
-		for (File file : files) {
-
-//			FileOptionContainer foContainer = fileToFOContainer.get(file);
-			String htmlBody = fileToHtmlBody   .get(file);
-			String htmlTag  = buildDefaultPageHtmlFrom(htmlBody);
-
-			fileToHtml.put(
-					file,
-					htmlTag
-			);
-
-		}
-		return fileToHtml;
-	}
-
-
-	/* === PRIVATE METHODS */
 
 	private void prepare() throws Exception {
 		deployer.deploy();
@@ -103,7 +76,7 @@ public class CompilerFacade {
 
 	}
 
-	private Map<File, FileOptionContainer> extractFOContainerFromEachFile() throws Exception {
+	private Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
 
 		return FileOptionExtractorImpl.getInstance()
 				.extractFOContainerFromEachFileIn(contentRootFolder);
@@ -144,6 +117,10 @@ public class CompilerFacade {
 		 */
 		private boolean addIdToContentFilesWithoutOne = true;
 		/**
+		 * Single {@code File} to compile
+		 */
+		private File compileSingleFile = null;
+		/**
 		 * Whether to prettify html or simply output the semi-prettified html
 		 */
 		private boolean prettifyHtml = false;
@@ -159,13 +136,17 @@ public class CompilerFacade {
 			this.addDefaultIndexes = shouldAddDefaultIndexes;
 			return this;
 		}
-		public CompilerFacade build() {
-			return new CompilerFacade(this);
+		public Builder setCompileSingleFile(File file) {
+			this.compileSingleFile = file;
+			return this;
 		}
-
 		public Builder setPrettifyHtml(boolean bool) {
 			this.prettifyHtml = bool;
 			return this;
+		}
+
+		public CompilerFacade build() {
+			return new CompilerFacade(this);
 		}
 	}
 }

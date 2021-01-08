@@ -30,7 +30,7 @@ class BuilderTagTest {
 		System.out.println();
 	}
 
-	public static String formatHTML(String html) throws Exception {
+	public static String formatHTML(String html) {
 		Document doc = Jsoup.parse(html, "", Parser.xmlParser());
 		return doc.toString();
 	}

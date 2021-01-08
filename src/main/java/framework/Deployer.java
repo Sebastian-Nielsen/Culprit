@@ -10,14 +10,17 @@ import java.io.IOException;
  *
  * Responsibilities:
  * (1) Copy the file-hiearachy from *content* to *deployment*; that is:
+ * <pre>
  *      +--------------- For all files in *content*, do: --------------+
  *      | Given e.g.                                                   |
  *      |       File("C:/.../content/{relativePath}/test.md")          |
  *      | Then create                                                  |
  *      |       File("C:/.../deployment/{relativePath}/test.html")     |
  *      +--------------------------------------------------------------+
+ * </pre>
  * (2) Prepare the files in *content* by e.g.
- *      (1) Adding ID-fileoption to files without one
+ *      (1) Adding ID-fileoption to files without one  {@link #addIdToContentFilesWithoutOne()}
+ * (3) Create default index.html files in *deployment* {@link #addDefaultIndexes()}
  */
 public interface Deployer {
 
@@ -28,6 +31,14 @@ public interface Deployer {
 
 	/**
 	 * Returns the deploy-file equivalent of the content-file
+	 * <pre>
+	 * +------------------------------------------------------------+
+	 * | E.g. the delpoy-file equivalent of the content file        |
+	 * |        File("C:/.../content/{relativePath}/test.md")       |
+	 * | is                                                         |
+	 * |        File("C:/.../deployment/{relativePath}/test.html")  |
+	 * +------------------------------------------------------------+
+	 * </pre>
 	 */
 	File getDeployEquivalentOf(File contentFile);
 

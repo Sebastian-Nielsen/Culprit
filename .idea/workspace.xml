@@ -10,18 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOptionContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Builder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/Builder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Tag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/common/html/BuilderTagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/common/html/BuilderTagTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +85,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/framework/Main.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1lkvKXuAXNfs6NcOWXyrIYJblOB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -116,7 +112,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -150,6 +146,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
+      <option name="PROGRAM_PARAMETERS" value="--single true --prettifyHtml true" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="framework.*" />
@@ -243,20 +240,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.BuilderTagTest.testingHtmlBuilder" />
+      <item itemvalue="Gradle.BuilderTagTest.testing" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Shell Script.gradlew" />
-      <item itemvalue="Gradle.BuilderTagTest.testing" />
-      <item itemvalue="Gradle.BuilderTagTest.testingHtmlBuilder" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Gradle.BuilderTagTest.testingHtmlBuilder" />
-        <item itemvalue="Gradle.BuilderTagTest.testing" />
         <item itemvalue="Shell Script.gradlew" />
+        <item itemvalue="Gradle.BuilderTagTest.testing" />
+        <item itemvalue="Gradle.BuilderTagTest.testingHtmlBuilder" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

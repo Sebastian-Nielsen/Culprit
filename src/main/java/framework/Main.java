@@ -4,6 +4,7 @@ import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
+import common.CompilerImpl;
 import common.compilerSettingsFactories.ProductionCompilerDependencyFactory;
 import common.html.HTML;
 import framework.singleClasses.CompilerFacade;
@@ -26,36 +27,52 @@ import static org.apache.commons.io.FileUtils.deleteDirectory;
 
 public class Main {
 
+	private static final Map<String, Boolean> argToVal = new HashMap<>();
+
+	private static void handleArgs(String[] args) {
+		assert args.length % 2 == 0;
+
+		if (args.length == 0)
+			return;
+
+		String arg = null;
+		boolean value;
+		for (int i = 0; i < args.length; i++) {
+			if (i % 2 == 0)
+				arg = args[i];
+			else
+				argToVal.put(arg, Boolean.valueOf(args[i]));
+		}
+	}
+
 	public static void main(String[] args) throws Exception {
+		System.out.println("length of args " + args.length);
+		handleArgs(args);
+
+		System.out.println("----------");
+		for (String arg : argToVal.keySet()) {
+			System.out.println(arg);
+			System.out.println(argToVal.get(arg));
+			System.out.println();
+		}
+
+		boolean shouldPrettifyHtml = argToVal.get("--prettifyHtml");
+		File singleFileToCompile   = argToVal.get("--single");
 
 		CompilerFacade compiler =
 			new CompilerFacade
 				.Builder(new ProductionCompilerDependencyFactory())
 				.setAddDefaultIndexes(true)
 				.setAddIdToContentFilesWithoutOne(true)
-				.setPrettifyHtml(true)
+				.setPrettifyHtml(shouldPrettifyHtml)
+				.setCompileSingleFile()
 				.build();
 
 		System.out.println(new File("").getAbsoluteFile().getName());
 		System.out.println(System.getProperty("user.dir"));
 
-		cleanDeployDir();
+//		cleanDeployDir();
 
-		compiler.compile();
-
-	}
-
-	public static String compile(String markdown)  {
-        MutableDataSet options = new MutableDataSet();
-
-        Parser parser = Parser.builder(options).build();
-        HtmlRenderer renderer = HtmlRenderer.builder(options).build();
-
-        // You can re-use parser and renderer instances
-        Node document = parser.parse(markdown);
-        String html = renderer.render(document);
-
-        return html;
 	}
 
 	/**
@@ -76,8 +93,6 @@ public class Main {
 					deleteDirectory(file);
 
 		}
-
-//		cleanDirectory(new File("deployment"));
 	}
 
 }
