@@ -836,6 +836,11 @@ public class HTML {
         public static final Attribute CLASS = new Attribute("class");
 
         /**
+         * Attribute "class"
+         */
+        public static final Attribute CROSSORIGIN = new Attribute("crossorigin");
+
+        /**
          * Attribute "style"
          */
         public static final Attribute STYLE = new Attribute("style");
@@ -1057,6 +1062,7 @@ public class HTML {
         static final Attribute MEDIA = new Attribute("media");
 
         static final Attribute[] allAttributes = {
+            CROSSORIGIN,
             FACE,
             COMMENT,
             SIZE,

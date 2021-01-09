@@ -52,9 +52,11 @@ public class CompilerFacade {
 	public void compile() throws Exception {
 		prepare();
 
-		Map<File, String> fileToMd   = precompiler.compileAllFiles(extractFOContainerFromEachContentFile());
+		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachContentFile();
 
-		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);
+		Map<File, String> fileToMd   = precompiler.compileAllFiles(fileToFOContainer);
+
+		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);   // TODO: this method should also take in {@code fileToFOContainer}
 
 		if (prettifyHtml)
 			prettifyHtml(fileToHtml);

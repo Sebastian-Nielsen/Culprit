@@ -15,7 +15,8 @@ public interface Compiler {
 	 */
 	public enum HtmlTemplate {
 		NONE,
-		DEFAULT_PAGE
+		DEFAULT_PAGE,
+		DEFAULT_MATH_PAGE
 	}
 
 	/**

@@ -36,7 +36,8 @@ public class CompilerImpl implements Compiler {
         String html = renderer.render(document);
 
 		return switch (template) {
-			case DEFAULT_PAGE -> buildDefaultPageHtmlFrom(html);
+			case DEFAULT_PAGE      -> buildDefaultPageHtmlFrom(html);
+			case DEFAULT_MATH_PAGE -> buildDefaultPageHtmlFrom(html, KATEX);
 			case NONE -> html;
 			default -> throw new RuntimeException("We shouldn't get here");
 		};
