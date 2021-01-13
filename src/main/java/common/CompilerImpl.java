@@ -4,6 +4,9 @@ import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
+import common.html.ArticleTag;
+import common.html.HtmlTemplateStrategy;
+import common.html.concreteHtmlTemplates.DefaultPageHtmlTemplate;
 import framework.Compiler;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,8 +14,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
-import static common.html.HtmlBuilder.buildDefaultPageHtmlFrom;
 
 public class CompilerImpl implements Compiler {
 
@@ -25,7 +26,7 @@ public class CompilerImpl implements Compiler {
 	}
 
 	@Override
-	public String compile(String markdown, HtmlTemplate template)  {
+	public ArticleTag compile(String markdown)  {
         MutableDataSet options = new MutableDataSet();
 
         Parser parser = Parser.builder(options).build();
@@ -35,28 +36,29 @@ public class CompilerImpl implements Compiler {
         Node document = parser.parse(markdown);
         String html = renderer.render(document);
 
-		return switch (template) {
-			case DEFAULT_PAGE      -> buildDefaultPageHtmlFrom(html);
-			case DEFAULT_MATH_PAGE -> buildDefaultPageHtmlFrom(html, KATEX);
-			case NONE -> html;
-		};
-
+        return new ArticleTag(html);
 	}
 
 	@Override
-	public Map<File, String> compileAllFiles(Map<File, String> fileToMd) {
+	public Map<File, String> compileAllFiles(Map<File, String> fileToMd) throws Exception {
 		Map<File, String> fileToHtml = new HashMap<>();
 
 		Set<File> files = fileToMd.keySet();
 		for (File file : files) {
 
-			String md      = fileToMd.get(file);
-			String htmlTag = compile(md, HtmlTemplate.DEFAULT_PAGE);
+			String     md   = fileToMd.get(file);
+			ArticleTag tag  = compile(md);
+			String     html = tag.insertInto(new DefaultPageHtmlTemplate());
 
-			fileToHtml.put(file, htmlTag);
+			fileToHtml.put(file, html);
 		}
 
 		return fileToHtml;
+	}
+
+	private String compileAndInsertInto(String markdown, HtmlTemplateStrategy htmlTemplate) throws Exception {
+		ArticleTag tag = compile(markdown);
+		return     tag.insertInto(htmlTemplate);
 	}
 
 }

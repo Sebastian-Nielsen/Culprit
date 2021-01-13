@@ -2,7 +2,7 @@ package common.compilerSettingsFactories;
 
 import common.CompilerImpl;
 import common.PrecompilerImpl;
-import common.DeployerImpl;
+import common.PreparatorImpl;
 import framework.*;
 import framework.Compiler;
 
@@ -23,8 +23,8 @@ public class CustomCompilerDependencyFactory implements CompilerDependencyFactor
 	}
 	 
 	@Override
-	public Deployer createDeployer() {
-		return new DeployerImpl(contentRootFolder, deployRootFolder);
+	public Preparator createPreparator() {
+		return new PreparatorImpl(contentRootFolder, deployRootFolder);
 	}
 
 	@Override

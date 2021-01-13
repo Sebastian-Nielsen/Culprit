@@ -1,7 +1,11 @@
 package framework;
 
+import common.html.ArticleTag;
+
 import java.io.File;
 import java.util.Map;
+
+import common.html.HtmlTemplateStrategy;
 
 /**
  * Markdown to HTML Compiler
@@ -10,27 +14,18 @@ import java.util.Map;
 public interface Compiler {
 
 	/**
-	 * An enum for each html-template that it's possible
-	 * to insert the html (from the compiled .md) into.
-	 */
-	public enum HtmlTemplate {
-		NONE,
-		DEFAULT_PAGE,
-		DEFAULT_MATH_PAGE
-	}
-
-	/**
+	 * Compile the specified {@code markdown} to html and return it the result but inserted into {@code HtmlTemplate}
 	 * @param markdown markdown to compile
-	 * @param template see {@link HtmlTemplate}
+	 * @param template see {@link HtmlTemplateStrategy}
 	 * @return the compiled html of the {@code markdown} contained within the specified html-{@code template}
 	 */
-	public String compile(String markdown, HtmlTemplate template);
+	ArticleTag compile(String markdown);
 
 	/**
 	 * Compiles from .md to .html for all {@code File}s in the supplied map.
 	 * @param fileToContent a map from {@code File}s to their associated content
 	 * @return a map from {@code File}s to their associated compiled content
 	 */
-	public Map<File, String> compileAllFiles(Map<File, String> fileToContent);
+	Map<File, String> compileAllFiles(Map<File, String> fileToContent) throws Exception;
 
 }

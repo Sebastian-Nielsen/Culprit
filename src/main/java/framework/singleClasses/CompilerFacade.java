@@ -3,13 +3,13 @@ package framework.singleClasses;
 import common.FileHandlerImpl;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
+import common.html.ArticleTag;
+import common.html.concreteHtmlTemplates.DefaultPageHtmlTemplate;
 import framework.Compiler;
 import framework.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
-
-import static framework.Compiler.HtmlTemplate;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class CompilerFacade {
 
 	private static final Validator validator = ValidatorImpl.getInstance();
 
-	private final Deployer deployer;
+	private final Preparator preparator;
 	private final Precompiler precompiler;
 	private final Compiler compiler;
 
@@ -35,7 +35,7 @@ public class CompilerFacade {
 	public CompilerFacade(Builder builder) {
 
 		CompilerDependencyFactory compilerDepedencyFac = builder.compilerDependencyFac;
-		this.deployer          = compilerDepedencyFac.createDeployer();
+		this.preparator = compilerDepedencyFac.createPreparator();
 		this.precompiler       = compilerDepedencyFac.createPrecompiler();
 		this.compiler          = compilerDepedencyFac.createCompiler();
 		this.contentRootFolder = compilerDepedencyFac.getContentRootFolder();
@@ -67,13 +67,14 @@ public class CompilerFacade {
 	/**
 	 * Compile the specified file only
 	 */
-	public void compile(File contentFile) throws IOException {
-		String md      = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
-		String htmlTag = compiler   .compile(md, HtmlTemplate.DEFAULT_PAGE);
+	public void compile(File contentFile) throws Exception {
+		String     md   = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
+		ArticleTag tag  =    compiler.compile(md);
+		String     html = tag.insertInto(new DefaultPageHtmlTemplate());
 
-		File deployFile = deployer.getDeployEquivalentOf(contentFile);
+		File deployFile = preparator.getDeployEquivalentOf(contentFile);
 
-		writeStringTo(deployFile, htmlTag);
+		writeStringTo(deployFile, html);
 	}
 
 
@@ -94,13 +95,13 @@ public class CompilerFacade {
 	}
 
 	private void prepare() throws Exception {
-		deployer.deploy();
+		preparator.deploy();
 
 		if (addDefaultIndexes)
-			deployer.addDefaultIndexes();
+			preparator.addDefaultIndexes();
 
 		if (addIdToContentFilesWithoutOne)
-			deployer.addIdToContentFilesWithoutOne();
+			preparator.addIdToContentFilesWithoutOne();
 
 	}
 
@@ -115,7 +116,7 @@ public class CompilerFacade {
 
 		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
 
-			File deployFile = deployer.getDeployEquivalentOf(contentFile);
+			File deployFile = preparator.getDeployEquivalentOf(contentFile);
 
 			String content = fileToContent.get(contentFile);
 
@@ -125,7 +126,7 @@ public class CompilerFacade {
 	}
 
 
-	/* === Builder Pattern */
+	/* === HtmlBuilder Pattern */
 
 	public static class Builder {
 		// === Required parameters

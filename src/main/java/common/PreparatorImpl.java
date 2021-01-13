@@ -2,8 +2,9 @@ package common;
 
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionInserter;
-import common.html.HtmlBuilder;
-import framework.Deployer;
+import common.html.HtmlTemplateStrategy;
+import common.html.concreteHtmlTemplates.DefaultIndexHtmlTemplate;
+import framework.Preparator;
 import common.fileOption.FileOptionContainer;
 
 import java.io.File;
@@ -21,7 +22,7 @@ import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 import static java.util.function.Predicate.isEqual;
 
-public class DeployerImpl implements Deployer {
+public class PreparatorImpl implements Preparator {
 
 	private final File contentRootFolder;
 	private final File deployRootFolder;
@@ -31,19 +32,19 @@ public class DeployerImpl implements Deployer {
 	 * @param relativeContentPath Relative path to the content root folder; e.g. "src/content"
 	 * @param relativeDeployPath  Relative path to the deploy  root folder; e.g  "src/ioFiles.deployment"
 	 */
-	public DeployerImpl(String relativeContentPath, String relativeDeployPath, FileOptionInserter fileOptionInserter) {
+	public PreparatorImpl(String relativeContentPath, String relativeDeployPath, FileOptionInserter fileOptionInserter) {
 		this.contentRootFolder = new File(CWD + '/' + relativeContentPath);
 		this.deployRootFolder  = new File(CWD + '/' + relativeDeployPath);
 		this.fileOptionInserter = fileOptionInserter;
 	}
 
-	public DeployerImpl(File contentRootFolder, File deployRootFolder, FileOptionInserter fileOptionInserter) {
+	public PreparatorImpl(File contentRootFolder, File deployRootFolder, FileOptionInserter fileOptionInserter) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
 		this.fileOptionInserter = fileOptionInserter;
 	}
 
-	public DeployerImpl(File contentRootFolder, File deployRootFolder) {
+	public PreparatorImpl(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
 		this.fileOptionInserter = new FileOptionInserter();
@@ -128,8 +129,9 @@ public class DeployerImpl implements Deployer {
 	 * Creates a default-index.html and writes the default-index.html content to it.
 	 * @param folder folder in which to create the default-index
 	 */
-	private void createDefaultIndexIn(File folder) throws IOException {
-		String defaultIndexHtml = HtmlBuilder.buildDefaultIndexHtml(folder);
+	private void createDefaultIndexIn(File folder) throws Exception {
+		HtmlTemplateStrategy template = new DefaultIndexHtmlTemplate(folder);
+		String defaultIndexHtml = template.build();
 
 		File indexFile = new File(folder + "/index.html");
 

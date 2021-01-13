@@ -82,7 +82,7 @@ public class Main {
 		}
 	}
 
-	private static void compileSingleFile(CompilerFacade compiler, String[] args) throws IOException {
+	private static void compileSingleFile(CompilerFacade compiler, String[] args) throws Exception {
 		assert args[0] == "--single";
 		assert args.length == 2;
 

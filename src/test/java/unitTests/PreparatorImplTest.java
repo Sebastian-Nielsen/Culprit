@@ -1,8 +1,8 @@
 package unitTests;
 
-import common.DeployerImpl;
+import common.PreparatorImpl;
 import common.fileOption.FileOptionInserter;
-import framework.Deployer;
+import framework.Preparator;
 import framework.UUIDGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,9 +10,7 @@ import org.junit.jupiter.api.io.TempDir;
 import stubs.UUIDGeneratorStub;
 
 import java.io.File;
-import java.io.IOException;
 
-import static framework.utils.FileUtils.*;
 import static framework.utils.FileUtils.Lister.getRelativePathsFrom;
 import static framework.utils.FileUtils.Lister.listContentOfFilesFrom;
 import static org.junit.Assert.assertThat;
@@ -24,7 +22,7 @@ import static testHelper.TestHelper.getResourceFile;
  * - A call to deploy() copies the file-hierarchy as expected.
  * -
  */
-public class DeployerImplTest {
+public class PreparatorImplTest {
 
 	private File DEPLOY_ROOT_DIR;
 
@@ -38,9 +36,9 @@ public class DeployerImplTest {
 		// Fixture
 		final String CONTENT_ROOT_DIRNAME  = "basicFileHierarchy/root";
 		final File   CONTENT_ROOT_DIR      = getResourceFile(CONTENT_ROOT_DIRNAME);
-		Deployer deployer = new DeployerImpl(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR);
+		Preparator preparator = new PreparatorImpl(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR);
 		// Exercise
-		deployer.deploy();
+		preparator.deploy();
 		// Verify post-exercise state
 		String[] expectedHierarchy = getRelativePathsFrom(CONTENT_ROOT_DIR);
 		String[]   actualHierarchy = getRelativePathsFrom(DEPLOY_ROOT_DIR);
@@ -55,10 +53,10 @@ public class DeployerImplTest {
 
 		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/input");
 
-		final Deployer deployer = newDeployer(CONTENT_DIR, new UUIDGeneratorStub());
+		final Preparator preparator = newPreparator(CONTENT_DIR, new UUIDGeneratorStub());
 
 		// Exercise
-		deployer.addIdToContentFilesWithoutOne();
+		preparator.addIdToContentFilesWithoutOne();
 
 		// Verify post-exercise state
 		final File EXPECTED_DIR = getTestDir(methodSpecificTestDirname + "/expected");
@@ -77,10 +75,10 @@ public class DeployerImplTest {
 		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/content");
 		final File  DEPLOY_DIR = getTestDir(methodSpecificTestDirname + "/deploy");
 
-		final Deployer deployer = new DeployerImpl(CONTENT_DIR, DEPLOY_DIR);
+		final Preparator preparator = new PreparatorImpl(CONTENT_DIR, DEPLOY_DIR);
 
 		// Exercise
-		deployer.addDefaultIndexes();
+		preparator.addDefaultIndexes();
 
 		// Verify
 		final File EXPECTED_DIR = getTestDir(methodSpecificTestDirname + "/expectedDeploy");
@@ -105,17 +103,15 @@ public class DeployerImplTest {
 	/* === PRIVATE METHODS */
 
 	private File getTestDir(String dirname) {
-		return getResourceFile(
-				"DeployerTest_testFiles/" + dirname
-		);
+		return getResourceFile("PreparatorTest_testFiles/" + dirname);
 	}
 
-	private Deployer newDeployer(File contentRootDir, UUIDGenerator uuidGenerator) {
+	private Preparator newPreparator(File contentRootDir, UUIDGenerator uuidGenerator) {
 
 		File dummyDeployFile = new File("");
 		FileOptionInserter foInserter = new FileOptionInserter(uuidGenerator);
 
-		return new DeployerImpl(contentRootDir, dummyDeployFile, foInserter);
+		return new PreparatorImpl(contentRootDir, dummyDeployFile, foInserter);
 
 	}
 

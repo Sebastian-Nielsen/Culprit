@@ -22,7 +22,7 @@ import java.io.IOException;
  *      (1) Adding ID-fileoption to files without one  {@link #addIdToContentFilesWithoutOne()}
  * (3) Create default index.html files in *deployment* {@link #addDefaultIndexes()}
  */
-public interface Deployer {
+public interface Preparator {
 
 	/**
 	 *  Copy the file-hiearchy from *content* to *deployment*
