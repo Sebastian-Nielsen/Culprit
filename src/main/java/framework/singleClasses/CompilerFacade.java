@@ -32,9 +32,8 @@ public class CompilerFacade {
 	private final boolean prettifyHtml;
 
 	public CompilerFacade(Builder builder) {
-
 		CompilerDependencyFactory compilerDepedencyFac = builder.compilerDependencyFac;
-		this.preparator = compilerDepedencyFac.createPreparator();
+		this.preparator        = compilerDepedencyFac.createPreparator(builder);
 		this.precompiler       = compilerDepedencyFac.createPrecompiler();
 		this.compiler          = compilerDepedencyFac.createCompiler();
 		this.contentRootFolder = compilerDepedencyFac.getContentRootFolder();
@@ -48,19 +47,17 @@ public class CompilerFacade {
 	 * Compile all files in {@code contentRootfolder}
 	 * output result to {@code deployRootFolder}
 	 */
-	public void compile() throws Exception {
-		prepare();
-
-		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachContentFile();
+	public Map<File, String> compile() throws Exception {
+		Map<File, FileOptionContainer> fileToFOContainer = preparator.extractFOContainerFromEachContentFile();
 
 		Map<File, String> fileToMd   = precompiler.compileAllFiles(fileToFOContainer);
 
 		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);   // TODO: this method should also take in {@code fileToFOContainer}
 
-		if (prettifyHtml)
+		if (prettifyHtml)  // TODO: this should be put over into {@code PostEffects}
 			prettifyHtml(fileToHtml);
 
-		writeStringToAssociatedFile(fileToHtml);
+		return fileToHtml;
 	}
 
 	/**
@@ -93,24 +90,6 @@ public class CompilerFacade {
 		}
 	}
 
-	private void prepare() throws Exception {
-		preparator.deploy();
-
-		if (addDefaultIndexes)
-			preparator.addDefaultIndexes();
-
-		if (addIdToContentFilesWithoutOne)
-			preparator.addIdToContentFilesWithoutOne();
-
-	}
-
-	private Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
-
-		return FileOptionExtractorImpl.getInstance()
-				.extractFOContainerFromEachFileIn(contentRootFolder);
-
-	}
-
 	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
 
 		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
@@ -124,57 +103,4 @@ public class CompilerFacade {
 
 	}
 
-
-	/* === HtmlBuilder Pattern */
-
-	public static class Builder {
-		// === Required parameters
-		/**
-1		 * Factory that contains all necessary dependencies for {@link CompilerFacade}
-		 */
-		private final CompilerDependencyFactory compilerDependencyFac;
-
-		// === Optional parameters
-		/**
-		 * Whether to add default index.html files to all
-		 * directories that doesn't already have one
-		 */
-		private boolean addDefaultIndexes = true;
-		/**
-		 * Whether to add an ID FileOption to files that doesn't have one
-		 */
-		private boolean addIdToContentFilesWithoutOne = true;
-		/**
-		 * Single {@code File} to compile
-		 */
-		private File compileSingleFile = null;    // CURRENTLY NOT USED, WE JUST CALL .compile(File file);
-		/**
-		 * Whether to prettify html or simply output the semi-prettified html
-		 */
-		private boolean prettifyHtml = false;
-
-		public Builder(CompilerDependencyFactory factory) {
-			this.compilerDependencyFac = factory;
-		}
-		public Builder setAddIdToContentFilesWithoutOne(boolean addIdToContentFilesWithoutOne) {
-			this.addIdToContentFilesWithoutOne = addIdToContentFilesWithoutOne;
-			return this;
-		}
-		public Builder setAddDefaultIndexes(boolean shouldAddDefaultIndexes) {
-			this.addDefaultIndexes = shouldAddDefaultIndexes;
-			return this;
-		}
-		public Builder setCompileSingleFile(File file) {
-			this.compileSingleFile = file;
-			return this;
-		}
-		public Builder setPrettifyHtml(boolean bool) {
-			this.prettifyHtml = bool;
-			return this;
-		}
-
-		public CompilerFacade build() {
-			return new CompilerFacade(this);
-		}
-	}
 }

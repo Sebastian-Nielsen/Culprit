@@ -6,16 +6,12 @@ import common.fileOption.FileOptionInserter;
 import common.html.preparatorClasses.DefaultIndexPreparator;
 import common.html.preparatorClasses.Deployer;
 import common.html.preparatorClasses.FileOptionPreparator;
-import common.other.UUIDGeneratorImpl;
 import framework.PreparatorFacade;
+import framework.singleClasses.CompilerFacade;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
-import java.util.Set;
-
-import static common.fileOption.FileOption.KEY.ID;
-import static framework.Constants.Constants.CWD;
 
 public class Preparator implements PreparatorFacade {
 
@@ -36,17 +32,27 @@ public class Preparator implements PreparatorFacade {
 //		this.fileOptionPreparator = new FileOptionPreparator(contentRootFolder, fileOptionInserter);
 //		this.deployer = new Deployer(contentRootFolder, deployRootFolder);
 //	}
-	public Preparator(File contentRootFolder, File deployRootFolder, FileOptionInserter fileOptionInserter) {
+	public Preparator(File contentRootFolder, File deployRootFolder, FileOptionInserter fileOptionInserter, CompilerFacade.Builder builder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
-		this.fileOptionPreparator = new FileOptionPreparator(contentRootFolder, fileOptionInserter);
+		this.fileOptionPreparator = new FileOptionPreparator(contentRootFolder, fileOptionInserter, this);
 		this.deployer = new Deployer(contentRootFolder, deployRootFolder);
 	}
-	public Preparator(File contentRootFolder, File deployRootFolder) {
-		this.contentRootFolder = contentRootFolder;
-		this.deployRootFolder  = deployRootFolder;
-		this.fileOptionPreparator = new FileOptionPreparator(contentRootFolder);
-		this.deployer = new Deployer(contentRootFolder, deployRootFolder);
+	public Preparator(File contentRootFolder, File deployRootFolder, CompilerFacade.Builder builder) {
+		this(contentRootFolder, deployRootFolder, new FileOptionInserter(), builder);
+	}
+
+	/* ============================================= */
+
+	@Override
+	public void prepare() throws Exception {
+		deploy();
+
+		if (addDefaultIndexes)
+			addDefaultIndexes();
+
+		if (addIdToContentFilesWithoutOne)
+			addIdToContentFilesWithoutOne();
 	}
 
 	/* ============================================= */
@@ -71,8 +77,23 @@ public class Preparator implements PreparatorFacade {
 	/* ============================================= */
 
 	@Override
+	public void addRequiredFileOptionsToFilesWithoutOne() throws Exception {
+		addIdToContentFilesWithoutOne();
+	}
+
+	@Override
 	public void addIdToContentFilesWithoutOne() throws Exception {
 		fileOptionPreparator.addIdToContentFilesWithoutOne();
+	}
+
+	/* ============================================= */
+
+	@Override
+	public Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
+
+		return FileOptionExtractorImpl.getInstance()
+				.extractFOContainerFromEachFileIn(contentRootFolder);
+
 	}
 
 }

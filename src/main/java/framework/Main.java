@@ -5,6 +5,8 @@ import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
 import common.CompilerImpl;
+import common.Culprit;
+import common.Preparator;
 import common.compilerSettingsFactories.ProductionCompilerDependencyFactory;
 import common.html.HTML;
 import framework.singleClasses.CompilerFacade;
@@ -59,8 +61,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		System.out.println("length of args: " + args.length);
 
-		CompilerFacade compiler =
-			new CompilerFacade
+		Culprit culpritCompiler = new Culprit
 				.Builder(new ProductionCompilerDependencyFactory())
 				.setAddDefaultIndexes(true)
 				.setAddIdToContentFilesWithoutOne(true)
@@ -68,7 +69,7 @@ public class Main {
 				.build();
 
 		if (args.length > 0) {
-			compileSingleFile(compiler, args);
+			compileSingleFile(culpritCompiler, args);
 //			Process process = Runtime.getRuntime().exec("cmd /c browser-sync reload");  // Reload browser to display updated .html
 		} else {
 			System.out.println("+--------DEBUG---------------+");
@@ -77,12 +78,12 @@ public class Main {
 
 			cleanDeployDir();
 
-			compiler.compile();
+			culpritCompiler.compile();
 
 		}
 	}
 
-	private static void compileSingleFile(CompilerFacade compiler, String[] args) throws Exception {
+	private static void compileSingleFile(Culprit compiler, String[] args) throws Exception {
 		assert args[0] == "--single";
 		assert args.length == 2;
 

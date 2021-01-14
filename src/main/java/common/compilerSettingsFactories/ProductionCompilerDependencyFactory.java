@@ -5,6 +5,7 @@ import common.PrecompilerImpl;
 import common.Preparator;
 import framework.*;
 import framework.Compiler;
+import framework.singleClasses.CompilerFacade;
 
 import java.io.File;
 
@@ -17,8 +18,8 @@ public class ProductionCompilerDependencyFactory implements CompilerDependencyFa
 	private final File deployRootFolder  = new File(CWD + "/" + "deployment");
 
 	@Override
-	public PreparatorFacade createPreparator() {
-		return new Preparator(contentRootFolder, deployRootFolder);
+	public PreparatorFacade createPreparator(CompilerFacade.Builder builder) {
+		return new Preparator(contentRootFolder, deployRootFolder, builder);
 	}
 
 	@Override

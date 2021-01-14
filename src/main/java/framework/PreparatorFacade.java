@@ -1,7 +1,10 @@
 package framework;
 
+import common.fileOption.FileOptionContainer;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * Abstract:
@@ -23,6 +26,8 @@ import java.io.IOException;
  * (3) Create default index.html files in *deployment* {@link #addDefaultIndexes()}
  */
 public interface PreparatorFacade {
+
+	void prepare() throws Exception;
 
 	/**
 	 *  Copy the file-hiearchy from *content* to *deployment*
@@ -47,8 +52,16 @@ public interface PreparatorFacade {
 	 */
 	void addDefaultIndexes() throws Exception;
 
+	void addRequiredFileOptionsToFilesWithoutOne() throws Exception;
+
 	/**
 	 * Adds an ID fileoption (`[ID]:<> ({{uuid}})`) to files in *content* without one.
 	 */
 	void addIdToContentFilesWithoutOne() throws Exception;
+
+	/**
+	 * For all content files, extracts all fileoptions in the given content-file and encapsulate them in a {@code FileOptionContainer}.
+	 * @return a mapping of each file to their respective {@code FileOptionContainer}
+	 */
+	Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception;
 }

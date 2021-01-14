@@ -10,24 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PreparatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Preparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerDependencyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Preparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/ArticleTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/TemplateParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/TemplateParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultPageHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/preparatorClasses/FileOptionPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/preparatorClasses/FileOptionPreparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +113,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Code With Me" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
