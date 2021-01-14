@@ -25,15 +25,9 @@ public class CompilerFacade {
 	private final Precompiler precompiler;
 	private final Compiler compiler;
 
-	private final Deployer deployer;
-
-	private final File contentRootFolder;
-
 	public CompilerFacade(CompilerFactory factory) {
-		this.contentRootFolder = factory.getContentRootFolder();
 		this.precompiler       = factory.createPrecompiler();
 		this.compiler          = factory.createCompiler();
-		this.deployer = new Deployer(contentRootFolder, factory.getDeployRootFolder());
 	}
 
 	/**
@@ -53,8 +47,9 @@ public class CompilerFacade {
 	/**
 	 * Compile the specified file only
 	 */
-	public String compile(File contentFile) throws Exception {
-		String md         = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
+	public String compile(File contentFile, FileOptionContainer foContainer) throws Exception {
+
+		String md         = precompiler.compileSingleFile(contentFile, foContainer);
 		String articleTag = compiler.compile(md);
 		String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag);
 
@@ -64,24 +59,5 @@ public class CompilerFacade {
 
 	/* === PRIVATE METHODS */
 
-	private FileOptionContainer extractFoContainerFrom(File file) throws IOException {
-
-		FileOptionExtractor foExtractor = FileOptionExtractorImpl.getInstance();
-		return foExtractor.extractFOContainer(  new FileHandlerImpl(file)  );
-
-	}
-
-	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
-
-		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
-
-			File deployFile = deployer.getDeployEquivalentOf(contentFile);
-
-			String content = fileToContent.get(contentFile);
-
-			writeStringTo(deployFile, content);
-		}
-
-	}
 
 }

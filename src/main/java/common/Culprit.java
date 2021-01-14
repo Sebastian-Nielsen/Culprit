@@ -31,9 +31,12 @@ public class Culprit {
 	}
 
 	public void compile(File contentFile) throws Exception {
-		String html = compiler.compile(contentFile);
 
-//		postEffects.effectsFor(html);
+		FileOptionContainer foContainer = preparator.extractFoContainerFrom(contentFile);
+
+		String html = compiler.compile(contentFile, foContainer);
+
+		postEffects.effectsFor(contentFile, html);
 	}
 
 //	/* === Builder Pattern */

@@ -10,19 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Culprit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Culprit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Preparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/compilerFactory/CustomCompilerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/compilerFactory/DefaultCompilerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/preparatorClasses/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/DefaultIndexPreparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/preparatorClasses/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/Deployer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/preparatorClasses/FileOptionPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/FileOptionPreparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/CompilerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/Deployer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,51 +1,77 @@
 package common;
 
 import common.culpritFactory.DefaultPostEffectFactory;
+import common.preparatorClasses.Deployer;
+import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 
 public class PostEffectFacade {
 
 
 	private final boolean shouldPrettifyHtml;
+	private final File contentRootFolder;
+	private final File deployRootFolder;
 
 	public PostEffectFacade(DefaultPostEffectFactory factory) {
 		this.shouldPrettifyHtml = factory.shouldPrettifyHtml();
+
+		this.contentRootFolder = factory.getContentRootFolder();
+		this.deployRootFolder  = factory.getDeployRootFolder();
 	}
 
-	public void effectsFor(Map<File, String> contentFileToHtml) {
+	public void effectsFor(Map<File, String> contentFileToHtml) throws IOException {
 
 		Set<File> files = contentFileToHtml.keySet();
 		for (File contentFile : files) {
 
-			String html = contentFileToHtml.get(contentFile);
-			effectsFor(contentFile, html);
+			String htmlOfContentFile = contentFileToHtml.get(contentFile);
+			effectsFor(contentFile, htmlOfContentFile);
 		}
 
+	}
+
+	public void effectsFor(File contentFile, String htmlOfContentFile) throws IOException {
+
 		if (shouldPrettifyHtml)
-			prettifyHtml(contentFileToHtml);
+			htmlOfContentFile = prettifyHtml(htmlOfContentFile);
 
+		writeStringTo(getDeployEquivalentOf(contentFile), htmlOfContentFile);
 	}
 
-	public void effectsFor(File contentFile, String html) {
-//		File deployFile = deployer.getDeployEquivalentOf(contentFile);
-
-//		writeStringTo(deployFile, html);
-	}
 
 	/* === PRIVATE METHODS */
 
-	private void prettifyHtml(Map<File, String> fileToHtml) {
-		for (File file : fileToHtml.keySet()) {
-			Document doc = Jsoup.parse(fileToHtml.get(file), "", Parser.xmlParser());
-			fileToHtml.put(file, doc.toString());
+	private String prettifyHtml(String html) {
+		Document doc = Jsoup.parse(html, "", Parser.xmlParser());
+		return doc.toString();
+	}
+
+	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
+
+		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
+
+			File deployFile = getDeployEquivalentOf(contentFile);
+
+			String content = fileToContent.get(contentFile);
+
+			writeStringTo(deployFile, content);
 		}
+
+	}
+
+	@NotNull
+	private File getDeployEquivalentOf(File contentFile) {
+		return Deployer.getDeployEquivalentOf(contentFile, contentRootFolder, deployRootFolder);
 	}
 }

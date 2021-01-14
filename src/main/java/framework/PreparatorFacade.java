@@ -1,6 +1,8 @@
 package framework;
 
+import common.FileHandlerImpl;
 import common.fileOption.FileOptionContainer;
+import common.fileOption.FileOptionExtractorImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,18 +36,7 @@ public interface PreparatorFacade {
 	 */
 	void deploy() throws IOException;
 
-	/**
-	 * Returns the deploy-file equivalent of the content-file
-	 * <pre>
-	 * +------------------------------------------------------------+
-	 * | E.g. the delpoy-file equivalent of the content file        |
-	 * |        File("C:/.../content/{relativePath}/test.md")       |
-	 * | is                                                         |
-	 * |        File("C:/.../deployment/{relativePath}/test.html")  |
-	 * +------------------------------------------------------------+
-	 * </pre>
-	 */
-	File getDeployEquivalentOf(File contentFile);
+
 
 	/**
 	 * Creates an `index.html` file for each folder in *deployment* that doesn't already have one.
@@ -64,4 +55,9 @@ public interface PreparatorFacade {
 	 * @return a mapping of each file to their respective {@code FileOptionContainer}
 	 */
 	Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception;
+
+	/**
+	 * Extract a {@code FileOptionContainer} from the specified {@code contentFile}
+	 */
+	FileOptionContainer extractFoContainerFrom(File contentFile) throws IOException;
 }

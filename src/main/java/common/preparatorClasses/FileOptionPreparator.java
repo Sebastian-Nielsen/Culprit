@@ -32,11 +32,10 @@ public class FileOptionPreparator {
 	/* ============================================= */
 
 	public FileOptionPreparator(File contentRootFolder, PreparatorFacade preparator) {
-		this.preparator = preparator;
-		fileOptionInserter = new FileOptionInserter();
-		this.contentRootFolder = contentRootFolder;
+		this(contentRootFolder, preparator, new FileOptionInserter());
 	}
-	public FileOptionPreparator(File contentRootFolder, FileOptionInserter fileOptionInserter, PreparatorFacade preparator) {
+
+	public FileOptionPreparator(File contentRootFolder, PreparatorFacade preparator, FileOptionInserter fileOptionInserter) {
 		this.preparator = preparator;
 		this.fileOptionInserter = fileOptionInserter;
 		this.contentRootFolder  = contentRootFolder;

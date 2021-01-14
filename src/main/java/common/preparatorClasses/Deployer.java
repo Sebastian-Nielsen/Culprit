@@ -37,16 +37,29 @@ public class Deployer {
 
 	}
 
-	public File getDeployEquivalentOf(File contentFile) {
-		return new File(getAbsDeployPath(contentFile));
+	/**
+	 * Returns the deploy-file equivalent of the content-file
+	 * <pre>
+	 * +------------------------------------------------------------+
+	 * | E.g. the delpoy-file equivalent of the content file        |
+	 * |        File("C:/.../content/{relativePath}/test.md")       |
+	 * | is                                                         |
+	 * |        File("C:/.../deployment/{relativePath}/test.html")  |
+	 * +------------------------------------------------------------+
+	 * </pre>
+	 */
+	public static File getDeployEquivalentOf(File contentFile, File contentRootFolder, File deployRootFolder) {
+		return new File(getAbsDeployPath(contentFile, contentRootFolder, deployRootFolder));
 	}
+
+
 
 
 	/* === PRIVATE METHODS */
 
 	private void createDeployFileFrom(File contentFile) throws IOException {
 
-		File deployFile = getDeployEquivalentOf(contentFile);
+		File deployFile = getDeployEquivalentOf(contentFile, contentRootFolder, deployRootFolder);
 
 		if (contentFile.isFile())
 			deployFile.createNewFile();
@@ -55,11 +68,11 @@ public class Deployer {
 
 	}
 
-	private String getAbsDeployPath(File contentFile) {
-		return deployRootFolder + "/" + getRelativeDeployPath(contentFile);
+	private static String getAbsDeployPath(File contentFile, File contentRootFolder, File deployRootFolder) {
+		return deployRootFolder + "/" + getRelativeDeployPath(contentFile, contentRootFolder);
 	}
 
-	private String getRelativeDeployPath(File contentFile) {
+	private static String getRelativeDeployPath(File contentFile, File contentRootFolder) {
 
 		String relativePath = getRelativePath(contentFile, contentRootFolder.toURI());
 

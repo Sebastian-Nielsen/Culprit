@@ -1,7 +1,9 @@
 package unitTests;
 
 import common.Preparator;
+import common.culpritFactory.DefaultPreparatorFactory;
 import common.fileOption.FileOptionInserter;
+import framework.CulpritFactory.PreparatorFactory;
 import framework.PreparatorFacade;
 import framework.UUIDGenerator;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,7 +38,7 @@ public class PreparatorTest {
 		// Fixture
 		final String CONTENT_ROOT_DIRNAME  = "basicFileHierarchy/root";
 		final File   CONTENT_ROOT_DIR      = getResourceFile(CONTENT_ROOT_DIRNAME);
-		PreparatorFacade preparator = new Preparator(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR);
+		PreparatorFacade preparator = new Preparator(new DefaultPreparatorFactory(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR));
 		// Exercise
 		preparator.deploy();
 		// Verify post-exercise state
@@ -75,7 +77,7 @@ public class PreparatorTest {
 		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/content");
 		final File  DEPLOY_DIR = getTestDir(methodSpecificTestDirname + "/deploy");
 
-		final PreparatorFacade preparator = new Preparator(CONTENT_DIR, DEPLOY_DIR);
+		final PreparatorFacade preparator = new Preparator(new DefaultPreparatorFactory(CONTENT_DIR, DEPLOY_DIR));
 
 		// Exercise
 		preparator.addDefaultIndexes();
@@ -108,10 +110,12 @@ public class PreparatorTest {
 
 	private PreparatorFacade newPreparator(File contentRootDir, UUIDGenerator uuidGenerator) {
 
-		File dummyDeployFile = new File("");
+		File dummyDeployFolder = new File("");
 		FileOptionInserter foInserter = new FileOptionInserter(uuidGenerator);
 
-		return new Preparator(contentRootDir, dummyDeployFile, foInserter);
+		return new Preparator(
+				new DefaultPreparatorFactory(contentRootDir, dummyDeployFolder, foInserter)
+		);
 
 	}
 

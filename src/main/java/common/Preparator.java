@@ -6,6 +6,7 @@ import common.preparatorClasses.DefaultIndexPreparator;
 import common.preparatorClasses.Deployer;
 import common.preparatorClasses.FileOptionPreparator;
 import framework.CulpritFactory.PreparatorFactory;
+import framework.FileOptionExtractor;
 import framework.PreparatorFacade;
 
 import java.io.File;
@@ -52,11 +53,6 @@ public class Preparator implements PreparatorFacade {
 		deployer.deploy();
 	}
 
-	@Override
-	public File getDeployEquivalentOf(File contentFile) {
-		return deployer.getDeployEquivalentOf(contentFile);
-	}
-
 	/* ============================================= */
 
 	@Override
@@ -83,6 +79,13 @@ public class Preparator implements PreparatorFacade {
 
 		return FileOptionExtractorImpl.getInstance()
 				.extractFOContainerFromEachFileIn(contentRootFolder);
+
+	}
+
+	public FileOptionContainer extractFoContainerFrom(File contentFile) throws IOException {
+
+		FileOptionExtractor foExtractor = FileOptionExtractorImpl.getInstance();
+		return foExtractor.extractFOContainer(  new FileHandlerImpl(contentFile)  );
 
 	}
 
