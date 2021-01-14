@@ -6,6 +6,7 @@ import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
 import common.html.ArticleTag;
 import common.html.HtmlTemplateStrategy;
+import common.html.TemplateParameters;
 import common.html.concreteHtmlTemplates.DefaultPageHtmlTemplate;
 import framework.Compiler;
 import org.jetbrains.annotations.NotNull;
@@ -48,7 +49,13 @@ public class CompilerImpl implements Compiler {
 
 			String     md   = fileToMd.get(file);
 			ArticleTag tag  = compile(md);
-			String     html = tag.insertInto(new DefaultPageHtmlTemplate());
+
+
+			TemplateParameters parameters = new TemplateParameters(file, tag);
+			HtmlTemplateStrategy template = new DefaultPageHtmlTemplate();
+			template.buildUsing(parameters);
+
+			String html = template.buildUsing(parameters);
 
 			fileToHtml.put(file, html);
 		}

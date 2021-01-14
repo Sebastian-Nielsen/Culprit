@@ -10,45 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DeployerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PreparatorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/CustomCompilerDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerSettingsFactories/ProductionCompilerDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/Builder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CompilerDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Preparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/common/html/BuilderTagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/common/html/HtmlBuilderTagTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/integrationTests/customerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DeployerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/content/A.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/content/A.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/content/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/content/B.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/content/nested/x2Nested/C.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/content/nested/x2Nested/C.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/A.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/deploy/A.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/B.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/deploy/B.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/deploy/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/C.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/deploy/nested/x2Nested/C.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/A.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/expectedDeploy/A.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/B.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/expectedDeploy/B.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/expectedDeploy/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/expectedDeploy/nested/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/C.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/C.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addDefaultIndexes/expectedDeploy/nested/x2Nested/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/A.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/A.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/B.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/C.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/nested/C.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/D.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/E.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/expected/nested/x2Nested/E.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/A.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/input/A.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/B.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/input/B.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/C.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/input/nested/C.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/D.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/D.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DeployerTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/E.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/PreparatorTest_testFiles/addIdsToFilesWithoutOne/input/nested/x2Nested/E.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PreparatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PreparatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +103,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javaBrowserExercise" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pastebin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />

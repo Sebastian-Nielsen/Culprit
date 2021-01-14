@@ -3,6 +3,7 @@ package common;
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionInserter;
 import common.html.HtmlTemplateStrategy;
+import common.html.TemplateParameters;
 import common.html.concreteHtmlTemplates.DefaultIndexHtmlTemplate;
 import framework.Preparator;
 import common.fileOption.FileOptionContainer;
@@ -130,8 +131,8 @@ public class PreparatorImpl implements Preparator {
 	 * @param folder folder in which to create the default-index
 	 */
 	private void createDefaultIndexIn(File folder) throws Exception {
-		HtmlTemplateStrategy template = new DefaultIndexHtmlTemplate(folder);
-		String defaultIndexHtml = template.build();
+		HtmlTemplateStrategy template = new DefaultIndexHtmlTemplate();
+		String defaultIndexHtml = template.buildUsing(new TemplateParameters(folder));
 
 		File indexFile = new File(folder + "/index.html");
 

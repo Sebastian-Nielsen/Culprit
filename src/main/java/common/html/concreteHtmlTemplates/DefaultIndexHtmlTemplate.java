@@ -2,6 +2,7 @@ package common.html.concreteHtmlTemplates;
 
 import common.html.HtmlBuilder;
 import common.html.HtmlTemplateStrategy;
+import common.html.TemplateParameters;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,14 +17,6 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class DefaultIndexHtmlTemplate implements HtmlTemplateStrategy {
 
-	private final File folder;
-
-	/**
-	 * @param folder the folder that the generation of the dynamic html is based on
-	 */
-	public DefaultIndexHtmlTemplate(File folder) {
-		this.folder = folder;
-	}
 
 	/**
 	 * The default html of an index file is dynamic:
@@ -32,17 +25,16 @@ public class DefaultIndexHtmlTemplate implements HtmlTemplateStrategy {
 	 * @return {@code toString} of {@code ArticleTag}
 	 */
 	@Override
-	public String build() throws Exception {
+	public String buildUsing(TemplateParameters parameters) throws Exception {
 		return new HtmlBuilder()
 				.open(HTML)
 					.insertBuilder(defaultHead)
 					.open(BODY)
-						.insertBuilder(generateOlTagListingOfFilesIn(folder))
+						.insertBuilder(generateOlTagListingOfFilesIn(parameters.folder))
 					.close(BODY)
 				.close(HTML)
 				.toString();
 	}
-
 
 	/* === PRIVATE METHODS */
 
