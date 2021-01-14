@@ -9,7 +9,7 @@ import java.io.File;
  */
 public interface CompilerDependencyFactory {
 
-	Preparator createPreparator();
+	PreparatorFacade createPreparator();
 
 	Precompiler createPrecompiler();
 

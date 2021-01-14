@@ -4,7 +4,6 @@ import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
-import common.html.ArticleTag;
 import common.html.HtmlTemplateStrategy;
 import common.html.TemplateParameters;
 import common.html.concreteHtmlTemplates.DefaultPageHtmlTemplate;
@@ -15,6 +14,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static common.html.concreteHtmlTemplates.Helper.buildDefaultPageHtmlTemplateUsing;
 
 public class CompilerImpl implements Compiler {
 
@@ -27,7 +28,7 @@ public class CompilerImpl implements Compiler {
 	}
 
 	@Override
-	public ArticleTag compile(String markdown)  {
+	public String compile(String markdown)  {
         MutableDataSet options = new MutableDataSet();
 
         Parser parser = Parser.builder(options).build();
@@ -37,7 +38,7 @@ public class CompilerImpl implements Compiler {
         Node document = parser.parse(markdown);
         String html = renderer.render(document);
 
-        return new ArticleTag(html);
+        return html;
 	}
 
 	@Override
@@ -47,25 +48,16 @@ public class CompilerImpl implements Compiler {
 		Set<File> files = fileToMd.keySet();
 		for (File file : files) {
 
-			String     md   = fileToMd.get(file);
-			ArticleTag tag  = compile(md);
+			String md         = fileToMd.get(file);
+			String articleTag = compile(md);
+			String htmlTag    = buildDefaultPageHtmlTemplateUsing(file, articleTag);
 
-
-			TemplateParameters parameters = new TemplateParameters(file, tag);
-			HtmlTemplateStrategy template = new DefaultPageHtmlTemplate();
-			template.buildUsing(parameters);
-
-			String html = template.buildUsing(parameters);
-
-			fileToHtml.put(file, html);
+			fileToHtml.put(file, htmlTag);
 		}
 
 		return fileToHtml;
 	}
 
-	private String compileAndInsertInto(String markdown, HtmlTemplateStrategy htmlTemplate) throws Exception {
-		ArticleTag tag = compile(markdown);
-		return     tag.insertInto(htmlTemplate);
-	}
+
 
 }

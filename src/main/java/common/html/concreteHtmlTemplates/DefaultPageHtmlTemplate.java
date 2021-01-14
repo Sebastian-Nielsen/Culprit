@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static common.html.HTML.Attribute.ID;
 import static common.html.HTML.Tag.*;
-import static common.html.concreteHtmlTemplates.Constants.defaultHead;
+import static common.html.concreteHtmlTemplates.Helper.defaultHead;
 
 public class DefaultPageHtmlTemplate implements HtmlTemplateStrategy {
 

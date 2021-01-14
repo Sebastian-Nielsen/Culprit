@@ -9,10 +9,10 @@ import java.io.File;
  */
 public class TemplateParameters {
 
-	public final ArticleTag articleTag;
+	public final String articleTag;
 	public final File folder;
 
-	public TemplateParameters(File folder, ArticleTag articleTag) {
+	public TemplateParameters(File folder, String articleTag) {
 		this.articleTag = articleTag;
 		this.folder = folder;
 	}

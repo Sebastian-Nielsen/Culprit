@@ -1,8 +1,8 @@
 package unitTests;
 
-import common.PreparatorImpl;
+import common.Preparator;
 import common.fileOption.FileOptionInserter;
-import framework.Preparator;
+import framework.PreparatorFacade;
 import framework.UUIDGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static testHelper.TestHelper.getResourceFile;
  * - A call to deploy() copies the file-hierarchy as expected.
  * -
  */
-public class PreparatorImplTest {
+public class PreparatorTest {
 
 	private File DEPLOY_ROOT_DIR;
 
@@ -36,7 +36,7 @@ public class PreparatorImplTest {
 		// Fixture
 		final String CONTENT_ROOT_DIRNAME  = "basicFileHierarchy/root";
 		final File   CONTENT_ROOT_DIR      = getResourceFile(CONTENT_ROOT_DIRNAME);
-		Preparator preparator = new PreparatorImpl(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR);
+		PreparatorFacade preparator = new Preparator(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR);
 		// Exercise
 		preparator.deploy();
 		// Verify post-exercise state
@@ -53,7 +53,7 @@ public class PreparatorImplTest {
 
 		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/input");
 
-		final Preparator preparator = newPreparator(CONTENT_DIR, new UUIDGeneratorStub());
+		final PreparatorFacade preparator = newPreparator(CONTENT_DIR, new UUIDGeneratorStub());
 
 		// Exercise
 		preparator.addIdToContentFilesWithoutOne();
@@ -75,7 +75,7 @@ public class PreparatorImplTest {
 		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/content");
 		final File  DEPLOY_DIR = getTestDir(methodSpecificTestDirname + "/deploy");
 
-		final Preparator preparator = new PreparatorImpl(CONTENT_DIR, DEPLOY_DIR);
+		final PreparatorFacade preparator = new Preparator(CONTENT_DIR, DEPLOY_DIR);
 
 		// Exercise
 		preparator.addDefaultIndexes();
@@ -106,12 +106,12 @@ public class PreparatorImplTest {
 		return getResourceFile("PreparatorTest_testFiles/" + dirname);
 	}
 
-	private Preparator newPreparator(File contentRootDir, UUIDGenerator uuidGenerator) {
+	private PreparatorFacade newPreparator(File contentRootDir, UUIDGenerator uuidGenerator) {
 
 		File dummyDeployFile = new File("");
 		FileOptionInserter foInserter = new FileOptionInserter(uuidGenerator);
 
-		return new PreparatorImpl(contentRootDir, dummyDeployFile, foInserter);
+		return new Preparator(contentRootDir, dummyDeployFile, foInserter);
 
 	}
 

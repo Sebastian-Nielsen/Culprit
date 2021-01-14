@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
-import static common.html.concreteHtmlTemplates.Constants.defaultHead;
+import static common.html.concreteHtmlTemplates.Helper.defaultHead;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static framework.utils.FileUtils.Lister.listDirsFrom;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;

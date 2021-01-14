@@ -50,7 +50,7 @@ public class PrecompilerImpl implements Precompiler {
 	}
 
 	@Override
-	public String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException {
+	public String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) {
 		String     ID_val = foContainer.get(KEY.ID); // Required FileOption
 		String DLINKS_val = foContainer.getOrDefault(KEY.D_LINKS, "false");
 

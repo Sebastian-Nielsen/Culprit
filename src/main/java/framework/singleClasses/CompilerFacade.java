@@ -3,8 +3,6 @@ package framework.singleClasses;
 import common.FileHandlerImpl;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import common.html.ArticleTag;
-import common.html.concreteHtmlTemplates.DefaultPageHtmlTemplate;
 import framework.Compiler;
 import framework.*;
 import org.jsoup.Jsoup;
@@ -15,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import static common.html.concreteHtmlTemplates.Helper.buildDefaultPageHtmlTemplateUsing;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
@@ -23,7 +22,7 @@ public class CompilerFacade {
 
 	private static final Validator validator = ValidatorImpl.getInstance();
 
-	private final Preparator preparator;
+	private final PreparatorFacade preparator;
 	private final Precompiler precompiler;
 	private final Compiler compiler;
 
@@ -68,13 +67,13 @@ public class CompilerFacade {
 	 * Compile the specified file only
 	 */
 	public void compile(File contentFile) throws Exception {
-		String     md   = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
-		ArticleTag tag  =    compiler.compile(md);
-		String     html = tag.insertInto(new DefaultPageHtmlTemplate());
+		String md         = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
+		String articleTag = compiler.compile(md);
+		String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag);
 
 		File deployFile = preparator.getDeployEquivalentOf(contentFile);
 
-		writeStringTo(deployFile, html);
+		writeStringTo(deployFile, htmlTag);
 	}
 
 

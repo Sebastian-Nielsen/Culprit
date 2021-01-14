@@ -2,7 +2,7 @@ package integrationTests;
 
 import common.CompilerImpl;
 import common.PrecompilerImpl;
-import common.PreparatorImpl;
+import common.Preparator;
 import common.compilerSettingsFactories.CustomCompilerDependencyFactory;
 import framework.*;
 import framework.Compiler;
@@ -23,7 +23,7 @@ public class customerTest {
 	private FileOptionExtractor extractor;
 	private File CONTENT_ROOT_FOLDER;
 	private Validator validator;
-	private Preparator preparator;
+	private PreparatorFacade preparator;
 	private File DEPLOY_ROOT_FOLDER;
 	private File DEPLOY_ROOT_FOLDER_2;
 	private Compiler mdToHtmlCompiler;
@@ -36,7 +36,7 @@ public class customerTest {
 
 		DEPLOY_ROOT_FOLDER_2 = new File("src/test/java/tempOutput");
 
-		preparator = new PreparatorImpl(   CONTENT_ROOT_FOLDER, DEPLOY_ROOT_FOLDER_2);
+		preparator = new Preparator(   CONTENT_ROOT_FOLDER, DEPLOY_ROOT_FOLDER_2);
 		precompiler = new PrecompilerImpl(CONTENT_ROOT_FOLDER);
 		validator        = ValidatorImpl.getInstance();
 		mdToHtmlCompiler = CompilerImpl.getInstance();

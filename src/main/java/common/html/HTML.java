@@ -7,7 +7,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 
 /**
- * Constants used in the <code>HTMLDocument</code>.  These
+ * Helper used in the <code>HTMLDocument</code>.  These
  * are basically tag and attribute definitions.
  *
  * @author  Timothy Prinzing

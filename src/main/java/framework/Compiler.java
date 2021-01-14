@@ -1,7 +1,5 @@
 package framework;
 
-import common.html.ArticleTag;
-
 import java.io.File;
 import java.util.Map;
 
@@ -19,7 +17,7 @@ public interface Compiler {
 	 * @param template see {@link HtmlTemplateStrategy}
 	 * @return the compiled html of the {@code markdown} contained within the specified html-{@code template}
 	 */
-	ArticleTag compile(String markdown);
+	String compile(String markdown);
 
 	/**
 	 * Compiles from .md to .html for all {@code File}s in the supplied map.
