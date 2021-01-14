@@ -1,30 +1,25 @@
-package common.compilerSettingsFactories;
+package common.culpritFactory.compilerFactory;
 
 import common.CompilerImpl;
 import common.PrecompilerImpl;
-import common.Preparator;
 import framework.*;
 import framework.Compiler;
+import framework.CulpritFactory.CompilerFactory;
 
 import java.io.File;
 
-public class CustomCompilerDependencyFactory implements CompilerDependencyFactory {
+public class CustomCompilerFactory implements CompilerFactory {
 
 	private final File contentRootFolder;
 	private final File deployRootFolder;
 
-	public CustomCompilerDependencyFactory(String contentRootPath, String deployRootPath) {
+	public CustomCompilerFactory(String contentRootPath, String deployRootPath) {
 		this.contentRootFolder = new File(contentRootPath);
 		this.deployRootFolder  = new File(deployRootPath);
 	}
-	public CustomCompilerDependencyFactory(File contentRootFolder, File deployRootFolder) {
+	public CustomCompilerFactory(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
-	}
-	 
-	@Override
-	public PreparatorFacade createPreparator() {
-		return new Preparator(contentRootFolder, deployRootFolder);
 	}
 
 	@Override
@@ -42,4 +37,8 @@ public class CustomCompilerDependencyFactory implements CompilerDependencyFactor
 		return contentRootFolder;
 	}
 
+	@Override
+	public File getDeployRootFolder() {
+		return deployRootFolder;
+	}
 }

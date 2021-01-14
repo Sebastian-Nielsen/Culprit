@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
 
     implementation 'org.jetbrains:annotations:20.1.0'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'

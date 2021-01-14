@@ -3,8 +3,10 @@ package framework.singleClasses;
 import common.FileHandlerImpl;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
+import common.preparatorClasses.Deployer;
 import framework.Compiler;
 import framework.*;
+import framework.CulpritFactory.CompilerFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
@@ -20,57 +22,43 @@ import static framework.utils.FileUtils.Modifier.writeStringTo;
 
 public class CompilerFacade {
 
-	private static final Validator validator = ValidatorImpl.getInstance();
-
-	private final PreparatorFacade preparator;
 	private final Precompiler precompiler;
 	private final Compiler compiler;
 
+	private final Deployer deployer;
+
 	private final File contentRootFolder;
-	private final boolean addIdToContentFilesWithoutOne;
-	private final boolean addDefaultIndexes;
-	private final boolean prettifyHtml;
 
-	public CompilerFacade(Builder builder) {
-		CompilerDependencyFactory compilerDepedencyFac = builder.compilerDependencyFac;
-		this.preparator        = compilerDepedencyFac.createPreparator(builder);
-		this.precompiler       = compilerDepedencyFac.createPrecompiler();
-		this.compiler          = compilerDepedencyFac.createCompiler();
-		this.contentRootFolder = compilerDepedencyFac.getContentRootFolder();
-
-		this.addIdToContentFilesWithoutOne = builder.addIdToContentFilesWithoutOne;
-		this.addDefaultIndexes             = builder.addDefaultIndexes;
-		this.prettifyHtml                  = builder.prettifyHtml;
+	public CompilerFacade(CompilerFactory factory) {
+		this.contentRootFolder = factory.getContentRootFolder();
+		this.precompiler       = factory.createPrecompiler();
+		this.compiler          = factory.createCompiler();
+		this.deployer = new Deployer(contentRootFolder, factory.getDeployRootFolder());
 	}
 
 	/**
 	 * Compile all files in {@code contentRootfolder}
-	 * output result to {@code deployRootFolder}
+	 * @return a map of each content-file pointing to its html (=compiled markdown)
 	 */
-	public Map<File, String> compile() throws Exception {
-		Map<File, FileOptionContainer> fileToFOContainer = preparator.extractFOContainerFromEachContentFile();
+	public Map<File, String> compile(Map<File, FileOptionContainer> fileToFOContainer) throws Exception {
 
-		Map<File, String> fileToMd   = precompiler.compileAllFiles(fileToFOContainer);
+		Map<File, String> contentFileToMd   = precompiler.compileAllFiles(fileToFOContainer);
 
-		Map<File, String> fileToHtml = compiler   .compileAllFiles(fileToMd);   // TODO: this method should also take in {@code fileToFOContainer}
+		Map<File, String> contentFileToHtml =    compiler.compileAllFiles(contentFileToMd);
+		// TODO: this method should also take in {@code fileToFOContainer} ^^
 
-		if (prettifyHtml)  // TODO: this should be put over into {@code PostEffects}
-			prettifyHtml(fileToHtml);
-
-		return fileToHtml;
+		return contentFileToHtml;
 	}
 
 	/**
 	 * Compile the specified file only
 	 */
-	public void compile(File contentFile) throws Exception {
+	public String compile(File contentFile) throws Exception {
 		String md         = precompiler.compileSingleFile(contentFile, extractFoContainerFrom(contentFile));
 		String articleTag = compiler.compile(md);
 		String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag);
 
-		File deployFile = preparator.getDeployEquivalentOf(contentFile);
-
-		writeStringTo(deployFile, htmlTag);
+		return htmlTag;
 	}
 
 
@@ -83,18 +71,11 @@ public class CompilerFacade {
 
 	}
 
-	private void prettifyHtml(Map<File, String> fileToHtml) {
-		for (File file : fileToHtml.keySet()) {
-			Document doc = Jsoup.parse(fileToHtml.get(file), "", Parser.xmlParser());
-			fileToHtml.put(file, doc.toString());
-		}
-	}
-
 	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
 
 		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
 
-			File deployFile = preparator.getDeployEquivalentOf(contentFile);
+			File deployFile = deployer.getDeployEquivalentOf(contentFile);
 
 			String content = fileToContent.get(contentFile);
 

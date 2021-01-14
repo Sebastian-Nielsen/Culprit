@@ -1,4 +1,4 @@
-package common.html.preparatorClasses;
+package common.preparatorClasses;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;

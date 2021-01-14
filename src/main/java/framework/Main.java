@@ -1,96 +1,58 @@
 package framework;
 
-import com.vladsch.flexmark.html.HtmlRenderer;
-import com.vladsch.flexmark.parser.Parser;
-import com.vladsch.flexmark.util.ast.Node;
-import com.vladsch.flexmark.util.data.MutableDataSet;
-import common.CompilerImpl;
+import com.ibm.icu.impl.number.Parse;
 import common.Culprit;
-import common.Preparator;
-import common.compilerSettingsFactories.ProductionCompilerDependencyFactory;
-import common.html.HTML;
-import framework.singleClasses.CompilerFacade;
+import common.culpritFactory.compilerFactory.DefaultCompilerFactory;
+import common.culpritFactory.compilerFactory.DefaultCulpritFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static common.html.HTML.Attribute.HREF;
 import static framework.Constants.Constants.CWD;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
-import static org.apache.commons.io.FileUtils.cleanDirectory;
 import static org.apache.commons.io.FileUtils.deleteDirectory;
+
 
 
 public class Main {
 
 	private static final Map<String, Boolean> argToVal = new HashMap<>();
-
-	private static void pasreArgs(String[] args) {
-//		assert args.length % 2 == 0;
-		System.out.println("new version");
-		if (args.length == 0)
-			return;
-
-		String arg = null;
-		boolean value;
-		for (int i = 0; i < args.length; i++) {
-			if (i % 2 == 0)
-				arg = args[i];
-			else
-				argToVal.put(arg, Boolean.valueOf(args[i]));
-		}
-	}
-
-	public static void printResults(Process process) throws IOException {
-	    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-	    String line = "";
-	    while ((line = reader.readLine()) != null) {
-	        System.out.println(line);
-	    }
-	}
+	private static CLIParser parser;
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("length of args: " + args.length);
+		parser = new CLIParser();
 
-		Culprit culpritCompiler = new Culprit
-				.Builder(new ProductionCompilerDependencyFactory())
-				.setAddDefaultIndexes(true)
-				.setAddIdToContentFilesWithoutOne(true)
-				.setPrettifyHtml(true)
-				.build();
+		parser.parse(args);
 
-		if (args.length > 0) {
+		Culprit culpritCompiler = new Culprit(new DefaultCulpritFactory());
+
+		if (parser.getBoolValOf("--single"))
 			compileSingleFile(culpritCompiler, args);
-//			Process process = Runtime.getRuntime().exec("cmd /c browser-sync reload");  // Reload browser to display updated .html
-		} else {
-			System.out.println("+--------DEBUG---------------+");
-			System.out.println("|CWD: " + CWD);
-			System.out.println("+----------------------------+");
+		else
+			compileAllFiles(culpritCompiler);
+	}
 
-			cleanDeployDir();
+	private static void compileAllFiles(Culprit culpritCompiler) throws Exception {
+		System.out.println("+--------DEBUG---------------+");
+		System.out.println("|CWD: " + CWD);
+		System.out.println("+----------------------------+");
 
-			culpritCompiler.compile();
+		cleanDeployDir();
 
-		}
+		culpritCompiler.compile();
 	}
 
 	private static void compileSingleFile(Culprit compiler, String[] args) throws Exception {
-		assert args[0] == "--single";
-		assert args.length == 2;
-
-		File fileToCompile = new File(args[1]);
+		File fileToCompile = new File(parser.getStringValOf("file"));
 
 		System.out.println("+-----------------------+");
 		System.out.println("| compiling single file |");
+		System.out.println("| File: '" + fileToCompile + "'");
 		System.out.println("+-----------------------+");
 
 		compiler.compile(fileToCompile);

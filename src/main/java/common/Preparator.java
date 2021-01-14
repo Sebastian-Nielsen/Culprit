@@ -2,12 +2,11 @@ package common;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import common.fileOption.FileOptionInserter;
-import common.html.preparatorClasses.DefaultIndexPreparator;
-import common.html.preparatorClasses.Deployer;
-import common.html.preparatorClasses.FileOptionPreparator;
+import common.preparatorClasses.DefaultIndexPreparator;
+import common.preparatorClasses.Deployer;
+import common.preparatorClasses.FileOptionPreparator;
+import framework.CulpritFactory.PreparatorFactory;
 import framework.PreparatorFacade;
-import framework.singleClasses.CompilerFacade;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,27 +18,18 @@ public class Preparator implements PreparatorFacade {
 	private final File deployRootFolder;
 	private final FileOptionPreparator fileOptionPreparator;
 	private final Deployer deployer;
+	private final boolean shouldAddDefaultIndexes;
+	private final boolean shouldAddIdToContentFilesWithoutOne;
 
 	/* ============================================= */
 
-//	/**
-//	 * @param relativeContentPath Relative path to the content root folder; e.g. "src/content"
-//	 * @param relativeDeployPath  Relative path to the deploy  root folder; e.g  "src/ioFiles.deployment"
-//	 */
-//	public Preparator(String relativeContentPath, String relativeDeployPath, FileOptionInserter fileOptionInserter) {
-//		this.contentRootFolder = new File(CWD + '/' + relativeContentPath);
-//		this.deployRootFolder  = new File(CWD + '/' + relativeDeployPath);
-//		this.fileOptionPreparator = new FileOptionPreparator(contentRootFolder, fileOptionInserter);
-//		this.deployer = new Deployer(contentRootFolder, deployRootFolder);
-//	}
-	public Preparator(File contentRootFolder, File deployRootFolder, FileOptionInserter fileOptionInserter, CompilerFacade.Builder builder) {
-		this.contentRootFolder = contentRootFolder;
-		this.deployRootFolder  = deployRootFolder;
-		this.fileOptionPreparator = new FileOptionPreparator(contentRootFolder, fileOptionInserter, this);
+	public Preparator(PreparatorFactory factory) {
+		this.contentRootFolder = factory.getContentRootFolder();
+		this.deployRootFolder  = factory.getDeployRootFolder();
+		this.shouldAddDefaultIndexes = factory.addDefaultIndexes();  // TODO extract into object with (¤)
+		this.shouldAddIdToContentFilesWithoutOne = factory.addIdToContentFilesWithoutOne(); // TODO extract into object with (¤)
+		this.fileOptionPreparator = factory.createFileOptionPreparator(this);
 		this.deployer = new Deployer(contentRootFolder, deployRootFolder);
-	}
-	public Preparator(File contentRootFolder, File deployRootFolder, CompilerFacade.Builder builder) {
-		this(contentRootFolder, deployRootFolder, new FileOptionInserter(), builder);
 	}
 
 	/* ============================================= */
@@ -48,10 +38,10 @@ public class Preparator implements PreparatorFacade {
 	public void prepare() throws Exception {
 		deploy();
 
-		if (addDefaultIndexes)
+		if (shouldAddDefaultIndexes)
 			addDefaultIndexes();
 
-		if (addIdToContentFilesWithoutOne)
+		if (shouldAddIdToContentFilesWithoutOne)
 			addIdToContentFilesWithoutOne();
 	}
 

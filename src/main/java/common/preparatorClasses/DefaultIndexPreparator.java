@@ -1,4 +1,4 @@
-package common.html.preparatorClasses;
+package common.preparatorClasses;
 
 import common.html.HtmlTemplateStrategy;
 import common.html.TemplateParameters;

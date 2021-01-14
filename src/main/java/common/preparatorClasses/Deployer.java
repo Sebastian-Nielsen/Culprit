@@ -1,4 +1,4 @@
-package common.html.preparatorClasses;
+package common.preparatorClasses;
 
 import java.io.File;
 import java.io.IOException;
