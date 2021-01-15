@@ -75,32 +75,4 @@ public class Preparator implements PreparatorFacade {
 		fileOptionPreparator.addIdToContentFilesWithoutOne();
 	}
 
-	@Override
-	public Map<String, File> extractIdToDeployFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
-
-		File htmlFile = new File(changeFileExt("" + file, "html"));
-
-		FileOptionContainer foContainer = fileToFOContainer.get(file);
-		String id         = foContainer.get(ID);
-
-		idToDeployFile.put(id, htmlFile);
-	}
-
-	/* ============================================= */
-
-	@Override
-	public Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
-
-		return FileOptionExtractorImpl.getInstance()
-				.extractFOContainerFromEachFileIn(contentRootFolder);
-
-	}
-
-	public FileOptionContainer extractFoContainerFrom(File contentFile) throws IOException {
-
-		FileOptionExtractor foExtractor = FileOptionExtractorImpl.getInstance();
-		return foExtractor.extractFOContainer(  new FileHandlerImpl(contentFile)  );
-
-	}
-
 }

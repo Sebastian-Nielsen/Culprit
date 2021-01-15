@@ -12,11 +12,6 @@ public abstract class Factory {
 		this.deployRootFolder  = deployRootFolder;
 	}
 
-//	public Factory() {
-//		this.contentRootFolder = contentRootFolder;
-//		this.deployRootFolder  = deployRootFolder;
-//	}
-
 	public File getContentRootFolder() {
 		return contentRootFolder;
 	}

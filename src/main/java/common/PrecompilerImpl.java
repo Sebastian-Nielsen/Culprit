@@ -3,7 +3,6 @@ package common;
 import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import framework.Precompiler;
-import framework.utils.FileUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -23,7 +22,6 @@ import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Filename.normalize;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
-import static framework.utils.FileUtils.Lister.listNonDirsRecursivelyFrom;
 import static framework.utils.FileUtils.Retriever.contentOf;
 
 public class PrecompilerImpl implements Precompiler {
@@ -43,21 +41,25 @@ public class PrecompilerImpl implements Precompiler {
 
 			fileToCompiledContent.put(
 					file,
-					compileSingleFile(file, fileToFOContainer.get(file))
+					compile(file, fileToFOContainer.get(file))
 			);
 
 		return fileToCompiledContent;
 	}
 
 	@Override
-	public String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) {
+	public String compile(File file, @NotNull FileOptionContainer foContainer) {
+		// First, retrieve the fileoption values from the foContainer
 		String     ID_val = foContainer.get(KEY.ID); // Required FileOption
 		String DLINKS_val = foContainer.getOrDefault(KEY.D_LINKS, "false");
 
-		String content = contentOf(fileToCompile);
+		// Second, retrieve the content of the fileToCompile
+		String content = contentOf(file);
 
-		content = handleDLINKS(DLINKS_val, content, fileToCompile);
+		// Third, handle all the fileoptions; apply them on the retrieved content
+		content = handleDLINKS(DLINKS_val, content, file);
 
+		// return the content
 		return content;
 	}
 
@@ -119,16 +121,17 @@ public class PrecompilerImpl implements Precompiler {
 	 *  E.g.    `[link text](2d424a8f-6fe8-455d-81de-6be20691cf32)`
 	 *              ->
 	 *          `[link text](../folder/Z.md)`
-	 * @param value the value of the D_LINKS-key.
+	 * @param shouldHandleDLINKS the value of the D_LINKS-key.
 	 */
-	private String handleDLINKS(String value, String contentOfFileToCompile, File fileToCompile) {
-		if (value.equals("false"))
+	private String handleDLINKS(String shouldHandleDLINKS, String contentOfFileToCompile, File fileToCompile) {
+		if (shouldHandleDLINKS.equals("false"))
 			return contentOfFileToCompile;
 
 		String markdownLinkRegex = "\\[(.*?)]\\((%s)\\)".formatted(REGEXES.UUID);
 		Matcher matcher = Pattern.compile(markdownLinkRegex).matcher(contentOfFileToCompile);
 
-		if (!matcher.find())
+		boolean isDLinksInFileToCompile = matcher.find();
+		if (!isDLinksInFileToCompile)
 			return contentOfFileToCompile;
 
 		return replaceAllIDsWithFilePaths(matcher, fileToCompile);
@@ -168,6 +171,17 @@ public class PrecompilerImpl implements Precompiler {
 	private String relativeFilePathBetween(File baseFile, File toFile) {
 		Path baseFilePath = Paths.get("" + baseFile);
 		Path   toFilePath = Paths.get(normalize("" + toFile));
+
+		String relativePath = baseFilePath.relativize(toFilePath).toString();
+
+		relativePath = relativePath.replaceAll("\\\\", "/");
+		relativePath = removeLeadingDot(relativePath);
+
+		return relativePath;
+	}
+	private String relativeFilePathBetween(String baseFile, String toFile) {
+		Path baseFilePath = Paths.get(baseFile);
+		Path   toFilePath = Paths.get(toFile);
 
 		String relativePath = baseFilePath.relativize(toFilePath).toString();
 

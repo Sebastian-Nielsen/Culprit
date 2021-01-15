@@ -9,23 +9,28 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Abstract:
- * Prepares *content* files and creates the *deploy* hierarchy/skeleton with
- * empty .html files based on the *content* files-hierarchy.
- *
- * Responsibilities:
- * (1) Copy the file-hiearachy from *content* to *deployment*; that is:
- * <pre>
- *      +--------------- For all files in *content*, do: --------------+
- *      | Given e.g.                                                   |
- *      |       File("C:/.../content/{relativePath}/test.md")          |
- *      | Then create                                                  |
- *      |       File("C:/.../deployment/{relativePath}/test.html")     |
- *      +--------------------------------------------------------------+
- * </pre>
- * (2) Prepare the files in *content* by e.g.
- *      (1) Adding ID-fileoption to files without one  {@link #addIdToContentFilesWithoutOne()}
- * (3) Create default index.html files in *deployment* {@link #addDefaultIndexes()}
+ * Facade for every class related to the preparation phase. <br><br>
+ * <p>
+ * The <u>preparation phase</u> includes:
+ *<ul>
+ * <li> Assert (and optionally fix) validity of *content* files
+ * <ul><li> Example of validity assertion: `each file got all required {@code FileOption}s`
+ *      <li> Example of fixing an invalid file: `adding required ID-{@code FileOption}s to files missing it`
+ *              ({@link #addIdToContentFilesWithoutOne()})
+ * </ul>
+ * <li> Create the *deploy* hierarchy/skeleton matching that of *content*; that is,
+ *      <pre>
+ *          +--------------- For all files in *content*, do: --------------+
+ *          | Given e.g.                                                   |
+ *          |       File("C:/.../content/{relativePath}/test.md")          |
+ *          | Then create                                                  |
+ *          |       File("C:/.../deployment/{relativePath}/test.html")     |
+ *          +--------------------------------------------------------------+
+ *      </pre>
+ * <li> Optionally add/delete files from either *content* or *deploy*
+ * <ul><li> Example: `create index.html files in *deploy*` (see {@link #addDefaultIndexes()})
+ * </ul>
+ *</ul>
  */
 public interface PreparatorFacade {
 
@@ -50,16 +55,4 @@ public interface PreparatorFacade {
 	 */
 	void addIdToContentFilesWithoutOne() throws Exception;
 
-	Map<String, File> extractIdToDeployFile();
-
-	/**
-	 * For all content files, extracts all fileoptions in the given content-file and encapsulate them in a {@code FileOptionContainer}.
-	 * @return a mapping of each file to their respective {@code FileOptionContainer}
-	 */
-	Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception;
-
-	/**
-	 * Extract a {@code FileOptionContainer} from the specified {@code contentFile}
-	 */
-	FileOptionContainer extractFoContainerFrom(File contentFile) throws IOException;
 }

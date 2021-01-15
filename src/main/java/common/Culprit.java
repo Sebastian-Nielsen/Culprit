@@ -4,94 +4,54 @@ import common.fileOption.FileOptionContainer;
 import framework.CulpritFactory.CulpritFactory;
 import framework.PreparatorFacade;
 import framework.singleClasses.CompilerFacade;
+import framework.utils.FileUtils;
 
 import java.io.File;
 import java.util.Map;
+
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class Culprit {
 
 	private final CompilerFacade compiler;
 	private final PreparatorFacade preparator;
 	private final PostEffectFacade postEffects;
+	private final File contentRootFolder;
+	private final DataExtractor dataExtractor;
 
 	public Culprit(CulpritFactory fac) {
-		this.preparator  = new Preparator(fac.createPreparatorFactory());
-		this.compiler    = new CompilerFacade(fac.createCompileFactory());
-		this.postEffects = new PostEffectFacade(fac.createPostEffectFactory());
+		super();
+		this.preparator    = new Preparator(fac.createPreparatorFactory());
+		this.dataExtractor = fac.createDataExtractor();
+		this.compiler      = new CompilerFacade(fac.createCompileFactory());
+		this.postEffects   = new PostEffectFacade(fac.createPostEffectFactory());
+		this.contentRootFolder = fac.getContentRootFolder();
 	}
 
-	public void compile() throws Exception {
+	public void execute() throws Exception {
 		preparator.prepare();
 
-		Map<File, FileOptionContainer> fileToFOContainer = preparator.extractFOContainerFromEachContentFile();
+		dataExtractor.getIdToDeployFile();
 
-		Map<File, String> contentFileToHtml = compiler.compile(fileToFOContainer);
+		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
 
-		postEffects.effectsFor(contentFileToHtml);
+			FileOptionContainer foContainer = dataExtractor.extractFoContainerFrom(contentFile);
+
+			String html = compiler.compile(contentFile, foContainer);
+
+			postEffects.effectsFor(contentFile, html);
+		}
+
 	}
 
 	public void compile(File contentFile) throws Exception {
 
-		FileOptionContainer foContainer = preparator.extractFoContainerFrom(contentFile);
+		FileOptionContainer foContainer = dataExtractor.extractFoContainerFrom(contentFile);
 
 		String html = compiler.compile(contentFile, foContainer);
 
 		postEffects.effectsFor(contentFile, html);
 	}
-
-//	/* === Builder Pattern */
-//
-//	public static class Builder {
-//		// === Required parameers
-//		/**
-// 		 * Factory that contains all necessary dependencies for {@link CompilerFacade}
-//		 */
-//		private final CompilerFactory compilerDependencyFac;
-//
-//		private CompilerBuilder
-//
-//		// === Optional parameters
-//		/**
-//		 * Whether to add default index.html files to all
-//		 * directories that doesn't already have one
-//		 */
-//		private boolean addDefaultIndexes = true;
-//		/**
-//		 * Whether to add an ID FileOption to files that doesn't have one
-//		 */
-//		private boolean addIdToContentFilesWithoutOne = true;
-//		/**
-//		 * Single {@code File} to compile
-//		 */
-//		private File compileSingleFile = null;    // CURRENTLY NOT USED, WE JUST CALL .compile(File file);
-//		/**
-//		 * Whether to prettify html or simply output the semi-prettified html
-//		 */
-//		private boolean prettifyHtml = false;
-//
-//		public Builder(CompilerFactory factory) {
-//			this.compilerDependencyFac = factory;
-//		}
-//		public Builder setAddIdToContentFilesWithoutOne(boolean addIdToContentFilesWithoutOne) {
-//			this.addIdToContentFilesWithoutOne = addIdToContentFilesWithoutOne;
-//			return this;
-//		}
-//		public Builder setAddDefaultIndexes(boolean shouldAddDefaultIndexes) {
-//			this.addDefaultIndexes = shouldAddDefaultIndexes;
-//			return this;
-//		}
-//		public Builder setCompileSingleFile(File file) {
-//			this.compileSingleFile = file;
-//			return this;
-//		}
-//		public Builder setPrettifyHtml(boolean bool) {
-//			this.prettifyHtml = bool;
-//			return this;
-//		}
-//
-//		public Culprit build() {
-//			return new Culprit(this);
-//		}
-//	}
 
 }

@@ -1,14 +1,10 @@
 package framework;
 
-import com.ibm.icu.impl.number.Parse;
 import common.Culprit;
-import common.culpritFactory.compilerFactory.DefaultCompilerFactory;
-import common.culpritFactory.compilerFactory.DefaultCulpritFactory;
+import common.culpritFactory.DefaultCulpritFactory;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +41,7 @@ public class Main {
 
 		cleanDeployDir();
 
-		culpritCompiler.compile();
+		culpritCompiler.execute();
 	}
 
 	private static void compileSingleFile(Culprit compiler, String[] args) throws Exception {

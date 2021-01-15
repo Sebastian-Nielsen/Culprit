@@ -30,16 +30,16 @@ public class PostEffectFacade {
 		this.deployRootFolder  = factory.getDeployRootFolder();
 	}
 
-	public void effectsFor(Map<File, String> contentFileToHtml) throws IOException {
-
-		Set<File> files = contentFileToHtml.keySet();
-		for (File contentFile : files) {
-
-			String htmlOfContentFile = contentFileToHtml.get(contentFile);
-			effectsFor(contentFile, htmlOfContentFile);
-		}
-
-	}
+//	public void effectsFor(Map<File, String> contentFileToHtml) throws IOException {
+//
+//		Set<File> files = contentFileToHtml.keySet();
+//		for (File contentFile : files) {
+//
+//			String htmlOfContentFile = contentFileToHtml.get(contentFile);
+//			effectsFor(contentFile, htmlOfContentFile);
+//		}
+//
+//	}
 
 	public void effectsFor(File contentFile, String htmlOfContentFile) throws IOException {
 
@@ -53,22 +53,21 @@ public class PostEffectFacade {
 	/* === PRIVATE METHODS */
 
 	private String prettifyHtml(String html) {
-		Document doc = Jsoup.parse(html, "", Parser.xmlParser());
-		return doc.toString();
+		return Jsoup.parse(html).toString();
 	}
-
-	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
-
-		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
-
-			File deployFile = getDeployEquivalentOf(contentFile);
-
-			String content = fileToContent.get(contentFile);
-
-			writeStringTo(deployFile, content);
-		}
-
-	}
+//
+//	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
+//
+//		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
+//
+//			File deployFile = getDeployEquivalentOf(contentFile);
+//
+//			String content = fileToContent.get(contentFile);
+//
+//			writeStringTo(deployFile, content);
+//		}
+//
+//	}
 
 	@NotNull
 	private File getDeployEquivalentOf(File contentFile) {

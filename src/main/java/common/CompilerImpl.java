@@ -41,23 +41,23 @@ public class CompilerImpl implements Compiler {
         return html;
 	}
 
-	@Override
-	public Map<File, String> compileAllFiles(Map<File, String> fileToMd) throws Exception {
-
-		Map<File, String> contentFileToHtml = new HashMap<>();
-
-		Set<File> contentFiles = fileToMd.keySet();
-		for (File contentFile : contentFiles) {
-
-			String md         = fileToMd.get(contentFile);
-			String articleTag = compile(md);
-			String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag);
-
-			contentFileToHtml.put(contentFile, htmlTag);
-		}
-
-		return contentFileToHtml;
-	}
+//	@Override
+//	public Map<File, String> compileAllFiles(Map<File, String> fileToMd) throws Exception {
+//
+//		Map<File, String> contentFileToHtml = new HashMap<>();
+//
+//		Set<File> contentFiles = fileToMd.keySet();
+//		for (File contentFile : contentFiles) {
+//
+//			String md         = fileToMd.get(contentFile);
+//			String articleTag = compile(md);
+//			String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag);
+//
+//			contentFileToHtml.put(contentFile, htmlTag);
+//		}
+//
+//		return contentFileToHtml;
+//	}
 
 
 

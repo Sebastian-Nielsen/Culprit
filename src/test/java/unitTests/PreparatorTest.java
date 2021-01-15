@@ -55,6 +55,8 @@ public class PreparatorTest {
 
 		final File CONTENT_DIR = getTestDir(methodSpecificTestDirname + "/input");
 
+
+
 		final PreparatorFacade preparator = newPreparator(CONTENT_DIR, new UUIDGeneratorStub());
 
 		// Exercise

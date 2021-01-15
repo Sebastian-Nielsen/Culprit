@@ -4,6 +4,7 @@ import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionInserter;
 import framework.PreparatorFacade;
+import framework.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.util.Set;
 import static common.fileOption.FileOption.KEY.ID;
 import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Filename.changeFileExtOfFilesIn;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 
@@ -44,25 +46,6 @@ public class FileOptionPreparator {
 
 	/* ============================================= */
 
-
-	public Map<String, File> getIdToDeployFile() throws Exception {
-		Map<String, File> idToDeployFile = new HashMap<>();
-
-		Map<File, FileOptionContainer> fileToFOContainer = preparator.extractFOContainerFromEachContentFile();
-
-		File[] contentFiles = changeFileExtOfFilesIn(fileToFOContainer.keySet(), "html");
-
-		for (File contentFile : contentFiles) {
-
-			String id = fileToFOContainer
-					.get(contentFile) // Gives us: foContainer of contentFile
-					.get(ID);         // Gives us: id-value    of contentFile
-
-			idToDeployFile.put(id, contentFile);
-		}
-
-		return idToDeployFile;
-	}
 
 	public void addIdToContentFilesWithoutOne() throws Exception {
 

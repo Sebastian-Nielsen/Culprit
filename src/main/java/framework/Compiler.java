@@ -25,6 +25,6 @@ public interface Compiler {
 	 * @param fileToContent a map from {@code File}s to their associated content
 	 * @return a map from {@code File}s to their associated compiled content
 	 */
-	Map<File, String> compileAllFiles(Map<File, String> fileToContent, Map<File, FileOptionContainer> fileToFOContainer) throws Exception;
+//	Map<File, String> compileAllFiles(Map<File, String> fileToContent, Map<File, FileOptionContainer> fileToFOContainer) throws Exception;
 
 }

@@ -297,7 +297,7 @@ public class FileUtils {
 
 		public static File[] changeFileExtOfFilesIn(Set<File> files, String toExt) {
 			return files.stream()
-					.map(file -> new File(changeFileExt("" + file, toExt)))
+					.map(file -> new File(changeFileExt(file.toString(), toExt)))
 					.toArray(File[]::new);
 		}
 

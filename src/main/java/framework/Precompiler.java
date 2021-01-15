@@ -17,5 +17,5 @@ public interface Precompiler {
 	 */
 	Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException;
 
-	String compileSingleFile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException;
+	String compile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException;
 }

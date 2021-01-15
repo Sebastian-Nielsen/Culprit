@@ -10,15 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/content/asdf/æøå_test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/asdf/twix.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Culprit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Culprit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Preparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/DefaultIndexPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/FileOptionPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/FileOptionPreparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CLIParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CLIParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/CulpritFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/CulpritFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/Factory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
@@ -119,7 +122,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -149,7 +152,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
