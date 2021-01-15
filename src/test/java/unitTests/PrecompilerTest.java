@@ -90,7 +90,7 @@ public class PrecompilerTest {
 		);
 
 		return new CompilerDataContainer(
-				dataExtractor.extractIdToRelativeDeployPath(),
+				dataExtractor.extractIdToFile(),
 				fileToFOContainer
 		);
 	}

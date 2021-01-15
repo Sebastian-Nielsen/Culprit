@@ -3,11 +3,9 @@ package common;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import one.util.streamex.EntryStream;
-import one.util.streamex.StreamEx;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.AbstractMap.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +21,7 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
  * More specifically:
  *<ol>
  * <li> Extracting {@link FileOptionContainer}s
- * <li> Extracting IDs to their relative deploy path (see {@link #extractIdToRelativeDeployPath})
+ * <li> Extracting IDs to their relative deploy path (see {@link #extractIdToContentFile})
  *</ol>
  */
 public class DataExtractor {
@@ -58,10 +56,10 @@ public class DataExtractor {
 	 * @return a {@code CompilerDataContainer}
 	 */
 	public CompilerDataContainer buildDataContainerForCompiler() throws Exception {
-		Map<String, String> idToRelativeDeployPath = extractIdToRelativeDeployPath();
+		Map<String, File> idToFile = extractIdToFile();
 		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachContentFile();
 
-		return new CompilerDataContainer(idToRelativeDeployPath, fileToFOContainer);
+		return new CompilerDataContainer(idToFile, fileToFOContainer);
 	}
 
 
@@ -69,23 +67,18 @@ public class DataExtractor {
 
 	/**
 	 * <pre>
-	 * +--------------- For all files in *content*, do: --------------+
-	 * | Given e.g. the ID-value of this file:                        | WRONG fixme
-	 * |       File("C:/.../content/{relativePath}/test.md")          |
-	 * | Then the resulting map contains:                             |
-	 * |       ID-value -> "{relativePath}/test.html"                 |
-	 * +--------------------------------------------------------------+
+	 * +--------------- For all files in *content*, do: ----------+
+	 * | Given an ID-value, e.g.:                                 |
+	 * |       "11111111-1111-1111-1111-111111111111"             |
+	 * | Then the resulting map contains the ID-value             |
+	 * | pointing to the file with the given ID-value:            |
+	 * |       "11111111-1111-1111-1111-111111111111"             |
+	 * |            ->                                            |
+	 * |        new File("C:/.../content/{relativePath}/test.md") |
+	 * +----------------------------------------------------------+
 	 * </pre>
 	 */
-	public Map<String, String> extractIdToRelativeDeployPath() throws Exception {
-
-		return EntryStream.of(extractIdToFile())
-				.mapValues(contentFile -> relativeFilePathBetween(contentFile, contentFile))
-				.mapValues(relFilePath -> changeFileExt(relFilePath, "html"))
-				.toMap();
-	}
-
-	private Map<String, File> extractIdToFile() throws IOException {
+	public Map<String, File> extractIdToFile() throws IOException {
 		Map<String, File> idToFile = new HashMap<>();
 
 		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
@@ -98,6 +91,15 @@ public class DataExtractor {
 
 		return idToFile;
 	}
+	//	public Map<String, File> extractIdToContentFile() throws Exception {
+//
+//		return EntryStream.of(extractIdToFile())
+//				.mapValues(contentFile -> relativeFilePathBetween(contentRootFolder, contentFile))
+//				.mapValues(relFilePath -> new File(changeFileExt(relFilePath, "html")))
+//				.toMap();
+//	}
+
+
 
 
 }

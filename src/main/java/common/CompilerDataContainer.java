@@ -5,7 +5,7 @@ import framework.Compiler;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.io.File;
-import java.util.Collections;
+import java.nio.file.Paths;
 import java.util.Map;
 
 /**
@@ -14,12 +14,13 @@ import java.util.Map;
  */
 public class CompilerDataContainer {
 
-	private final @Unmodifiable Map<String, String> idToRelativeDeployPath;
+	private final @Unmodifiable Map<String, File> idToContentFileWithHtmlExt;
 	private final @Unmodifiable Map<File, FileOptionContainer> fileToFOContainer;
 
-	public CompilerDataContainer(Map<String, String> idToRelativeDeployPath, Map<File, FileOptionContainer> fileToFOContainer) {
-		this.idToRelativeDeployPath = idToRelativeDeployPath;
-		this.fileToFOContainer      = fileToFOContainer;
+	public CompilerDataContainer(Map<String, File> idToContentFileWithHtmlExt,
+	                             Map<File, FileOptionContainer> fileToFOContainer) {
+		this.idToContentFileWithHtmlExt = idToContentFileWithHtmlExt;
+		this.fileToFOContainer = fileToFOContainer;
 	}
 
 
@@ -29,8 +30,14 @@ public class CompilerDataContainer {
 		return fileToFOContainer.get(file);
 	}
 
-	public String getRelativeDeployPathBy(String id) {
-		return idToRelativeDeployPath.get(id);
+//	public String getRelativeDeployPathBy(String id, File fromFile) {
+//		File toFile = new File(idToContentFileWithHtmlExt.get(id));
+//
+//		return Paths.get("" + fromFile).relativize(Paths.get("" + toFile)).toString();
+//	}
+
+	public File getFileOfId(String id) {
+		return idToContentFileWithHtmlExt.get(id);
 	}
 
 }

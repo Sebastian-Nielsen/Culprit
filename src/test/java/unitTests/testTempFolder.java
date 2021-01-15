@@ -1,5 +1,7 @@
 package unitTests;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,7 +18,7 @@ public class testTempFolder {
 		File baseFile = getResourceFile(INPUT_ROOT_PATH + "/nested/x2Nested/D.extIsIgnored");
 		File relFile  = getResourceFile(INPUT_ROOT_PATH + "/nested/C.extIsIgnored");
 
-		Path base = baseFile.toPath();
+		Path base = Paths.get("" + baseFile);
 		Path inRelationTo = Paths.get(normalize("" + relFile));
 		String result = base.relativize(inRelationTo).toString();
 

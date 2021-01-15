@@ -2,9 +2,6 @@ package unitTests;
 
 import common.CompilerDataContainer;
 import common.DataExtractor;
-import common.fileOption.FileOption;
-import common.fileOption.FileOptionContainer;
-import org.hamcrest.Matcher;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 
@@ -45,14 +42,14 @@ public class DataExtractorTest {
 		DataExtractor dataExtractor = newDataExtractor(INPUT_ROOT_PATH, EXPECTED_ROOT_PATH);
 
 		// Exercise
-		Map<String, String> idToRelativeDeployPath = dataExtractor.extractIdToRelativeDeployPath();
+		Map<String, File> idToRelativeDeployPath = dataExtractor.extractIdToFile();
 
 		// Verify
-		assertThat(idToRelativeDeployPath, hasEntry("11111111-1111-1111-1111-111111111111", "A.html"));
-		assertThat(idToRelativeDeployPath, hasEntry("22222222-2222-2222-2222-222222222222", "B.html"));
-		assertThat(idToRelativeDeployPath, hasEntry("33333333-3333-3333-3333-333333333333", "nested/C.html"));
-		assertThat(idToRelativeDeployPath, hasEntry("44444444-4444-4444-4444-444444444444", "nested/x2nested/D.html"));
-		assertThat(idToRelativeDeployPath, hasEntry("55555555-5555-5555-5555-555555555555", "nested_v2/E.html"));
+		assertThat(idToRelativeDeployPath, hasEntry("11111111-1111-1111-1111-111111111111", INPUT_FILE_A));
+		assertThat(idToRelativeDeployPath, hasEntry("22222222-2222-2222-2222-222222222222", INPUT_FILE_B));
+		assertThat(idToRelativeDeployPath, hasEntry("33333333-3333-3333-3333-333333333333", INPUT_FILE_C));
+		assertThat(idToRelativeDeployPath, hasEntry("44444444-4444-4444-4444-444444444444", INPUT_FILE_D));
+		assertThat(idToRelativeDeployPath, hasEntry("55555555-5555-5555-5555-555555555555", INPUT_FILE_E));
 
 		// DEBUG
 //		int i = 1;
@@ -74,11 +71,11 @@ public class DataExtractorTest {
 		CompilerDataContainer dataContainer = dataExtractor.buildDataContainerForCompiler();
 
 		// Verify
-		assertThat(dataContainer.getRelativeDeployPathBy("11111111-1111-1111-1111-111111111111"), is("A.html"));
-		assertThat(dataContainer.getRelativeDeployPathBy("22222222-2222-2222-2222-222222222222"), is("B.html"));
-		assertThat(dataContainer.getRelativeDeployPathBy("33333333-3333-3333-3333-333333333333"), is("nested/C.html"));
-		assertThat(dataContainer.getRelativeDeployPathBy("44444444-4444-4444-4444-444444444444"), is("nested/x2nested/D.html"));
-		assertThat(dataContainer.getRelativeDeployPathBy("55555555-5555-5555-5555-555555555555"), is("nested_v2/E.html"));
+		assertThat(dataContainer.getFileOfId("11111111-1111-1111-1111-111111111111"), is(INPUT_FILE_A));
+		assertThat(dataContainer.getFileOfId("22222222-2222-2222-2222-222222222222"), is(INPUT_FILE_B));
+		assertThat(dataContainer.getFileOfId("33333333-3333-3333-3333-333333333333"), is(INPUT_FILE_C));
+		assertThat(dataContainer.getFileOfId("44444444-4444-4444-4444-444444444444"), is(INPUT_FILE_D));
+		assertThat(dataContainer.getFileOfId("55555555-5555-5555-5555-555555555555"), is(INPUT_FILE_E));
 
 		assertThat(dataContainer.getFOContainerOf(INPUT_FILE_A).get(ID), is("11111111-1111-1111-1111-111111111111"));
 		assertThat(dataContainer.getFOContainerOf(INPUT_FILE_B).get(ID), is("22222222-2222-2222-2222-222222222222"));

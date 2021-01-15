@@ -19,8 +19,7 @@ import static common.DataExtractor.extractFoContainerFrom;
 import static common.fileOption.FileOption.KEY;
 import static common.fileOption.FileOption.KEY.ID;
 import static framework.singleClasses.ValidatorImpl.REGEXES;
-import static framework.utils.FileUtils.Filename.changeFileExt;
-import static framework.utils.FileUtils.Filename.normalize;
+import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Retriever.contentOf;
@@ -62,7 +61,7 @@ public class PrecompilerImpl implements Precompiler {
 		String content = contentOf(contentFile);
 
 		// Third, handle all the fileoptions; apply them on the retrieved content
-		content = handleDLINKS(DLINKS_val, content);
+		content = handleDLINKS(DLINKS_val, content, contentFile);
 
 		// return the content
 		return content;
@@ -74,13 +73,13 @@ public class PrecompilerImpl implements Precompiler {
 	/**
 	 * For each dynamic-link in {@code fileToCompileContent}, replace
 	 * the ID with the relative path of the file associated with the ID,
-	 * relativized in relation to {@code fileToCompile}.
+	 * relativized in relation to {@code contentFile}.
 	 *  E.g.    `[link text](2d424a8f-6fe8-455d-81de-6be20691cf32)`
 	 *              ->
 	 *          `[link text](../folder/Z.md)`
 	 * @param shouldHandleDLINKS the value of the D_LINKS-key.
 	 */
-	private String handleDLINKS(String shouldHandleDLINKS, String contentOfFileToCompile) {
+	private String handleDLINKS(String shouldHandleDLINKS, String contentOfFileToCompile, File contentFile) {
 		if (shouldHandleDLINKS.equals("false"))
 			return contentOfFileToCompile;
 
@@ -91,16 +90,17 @@ public class PrecompilerImpl implements Precompiler {
 		if (!isDLinksInFileToCompile)
 			return contentOfFileToCompile;
 
-		return replaceAllIDsWithFilePaths(matcher);
+		return replaceAllIDsWithFilePaths(matcher, contentFile);
 	}
 
-	private String replaceAllIDsWithFilePaths(Matcher matcher) {
+	private String replaceAllIDsWithFilePaths(Matcher matcher, File contentFile) {
 		StringBuffer buffer = new StringBuffer();
 		do {
 			String linkText = matcher.group(1);
 			String id       = matcher.group(2);
-			String relDeployPath = dataContainer.getRelativeDeployPathBy(id);
-			String replacement = "[" + linkText + "](" + relDeployPath + ")";
+			File   fileOfId = dataContainer.getFileOfId(id);
+			String relDeployPath = relativeFilePathBetween(contentFile, fileOfId);
+			String replacement = "[" + linkText + "](" + changeFileExt(relDeployPath, "html") + ")";
 
 			matcher.appendReplacement(buffer, replacement);
 		} while (matcher.find());
