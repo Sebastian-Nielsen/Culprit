@@ -42,7 +42,7 @@ public class DataExtractorTest {
 		DataExtractor dataExtractor = newDataExtractor(INPUT_ROOT_PATH, EXPECTED_ROOT_PATH);
 
 		// Exercise
-		Map<String, File> idToRelativeDeployPath = dataExtractor.extractIdToFile();
+		Map<String, File> idToRelativeDeployPath = dataExtractor.extractIdToContentFile();
 
 		// Verify
 		assertThat(idToRelativeDeployPath, hasEntry("11111111-1111-1111-1111-111111111111", INPUT_FILE_A));

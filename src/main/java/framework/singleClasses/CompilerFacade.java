@@ -21,23 +21,8 @@ public class CompilerFacade {
 		this.compiler      = factory.createCompiler();
 	}
 
-//	/**
-//	 * Compile all files in {@code contentRootfolder}
-//	 * @return a map of each content-file pointing to its html (=compiled markdown)
-//	 */
-//	public Map<File, String> compile(Map<File, FileOptionContainer> fileToFOContainer) throws Exception {
-//
-//		Map<File, String> contentFileToMd   = precompiler.compileAllFiles(fileToFOContainer);
-//
-//		Map<File, String> contentFileToHtml =    compiler.compileAllFiles(contentFileToMd, fileToFOContainer);
-//		// TODO: this method should also take in {@code fileToFOContainer} ^^
-//
-//		return contentFileToHtml;
-//	}
-
 	/**
-	 * Compile the specified file only
-	 * @param foContainer {@code FileOptionContainer} of the specified {@code contentFile}
+	 * Compile the specified {@code contentFile} only
 	 */
 	public String compile(File contentFile) throws Exception {
 

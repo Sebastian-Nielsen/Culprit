@@ -10,12 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerDataContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerDataContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Culprit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Culprit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PrecompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/testTempFolder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,20 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PrecompilerTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="framework.Main" />
+      <module name="culprit_2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="framework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DataExtractorTest.shouldBuildCompilerDataContainer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -170,27 +183,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;unitTests.PrecompilerTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PrecompilerTest.shouldCompileDLinksInFileA" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.PrecompilerTest.shouldCompileDLinksInFileA&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -256,19 +248,19 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.DataExtractorTest.shouldBuildCompilerDataContainer" />
-      <item itemvalue="Gradle.PrecompilerTest.shouldCompileDLinksInFileA" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Gradle.testTempFolder.tefst" />
       <item itemvalue="Gradle.PrecompilerTest" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Gradle.PrecompilerTest" />
         <item itemvalue="Gradle.DataExtractorTest.shouldBuildCompilerDataContainer" />
         <item itemvalue="Gradle.testTempFolder.tefst" />
-        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Gradle.PrecompilerTest.shouldCompileDLinksInFileA" />
       </list>
     </recent_temporary>
   </component>

@@ -46,6 +46,9 @@ public class Culprit {
 
 	}
 
+
+	/* === PRIVATE METHODS */
+
 	private CompilerFacade newCompiler(CompilerDataContainer compilerDataContainer) {
 		return new CompilerFacade(compilerFacadeFactory, compilerDataContainer);
 	}

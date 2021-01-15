@@ -1,53 +1,25 @@
 package common;
 
-import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import framework.Precompiler;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static common.DataExtractor.extractFoContainerFrom;
 import static common.fileOption.FileOption.KEY;
-import static common.fileOption.FileOption.KEY.ID;
 import static framework.singleClasses.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.Filename.*;
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Retriever.contentOf;
 
 public class PrecompilerImpl implements Precompiler {
 	private final CompilerDataContainer dataContainer;
 
-	public PrecompilerImpl() {
-		this(null); // TODO: it shouldn't be null here but a stub for testing?
-	}
 	public PrecompilerImpl(CompilerDataContainer dataContainer) {
 		this.dataContainer = dataContainer;
 	}
-
-//	public Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException {
-//		preprocess(fileToFOContainer);
-//
-//		Map<File, String> fileToCompiledContent = new HashMap<>();
-//
-//		for (File file : listNonDirsFrom(contentRootFolder, RECURSIVE))
-//
-//			fileToCompiledContent.put(
-//					file,
-//					compile(file, fileToFOContainer.get(file))
-//			);
-//
-//		return fileToCompiledContent;
-//	}
 
 	@Override
 	public String compile(File contentFile) throws IOException {

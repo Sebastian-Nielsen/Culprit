@@ -2,7 +2,6 @@ package common;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import one.util.streamex.EntryStream;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,14 +55,11 @@ public class DataExtractor {
 	 * @return a {@code CompilerDataContainer}
 	 */
 	public CompilerDataContainer buildDataContainerForCompiler() throws Exception {
-		Map<String, File> idToFile = extractIdToFile();
+		Map<String, File> idToFile = extractIdToContentFile();
 		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachContentFile();
 
 		return new CompilerDataContainer(idToFile, fileToFOContainer);
 	}
-
-
-	/* === PRIVATE METHODS */
 
 	/**
 	 * <pre>
@@ -78,7 +74,7 @@ public class DataExtractor {
 	 * +----------------------------------------------------------+
 	 * </pre>
 	 */
-	public Map<String, File> extractIdToFile() throws IOException {
+	public Map<String, File> extractIdToContentFile() throws IOException {
 		Map<String, File> idToFile = new HashMap<>();
 
 		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
@@ -91,15 +87,6 @@ public class DataExtractor {
 
 		return idToFile;
 	}
-	//	public Map<String, File> extractIdToContentFile() throws Exception {
-//
-//		return EntryStream.of(extractIdToFile())
-//				.mapValues(contentFile -> relativeFilePathBetween(contentRootFolder, contentFile))
-//				.mapValues(relFilePath -> new File(changeFileExt(relFilePath, "html")))
-//				.toMap();
-//	}
-
-
 
 
 }

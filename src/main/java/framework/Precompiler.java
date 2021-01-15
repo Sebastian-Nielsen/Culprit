@@ -10,14 +10,11 @@ import java.util.Map;
 public interface Precompiler {
 
 	/**
-	 * Compiles all files in *deployment*.
-	 * Precondition: {@code fileToFOContainer} must've been preprocessed prior.
-	 * @return a map of each {@code File} in *deployment* to their
-	 * respective compiled content.
+	 * Precompile the markdown (extracted from {@code contentFile}) into some other markdown.
+	 * How? By basically applying the macros as defined by the {@code FileOption}s in the original markdown.
+	 * @param contentFile file to extract and compile the markdown of
+	 * @return the compiled markdown
 	 */
-//	Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException;
-
-//	String compile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException;
-
 	String compile(File contentFile) throws IOException;
+
 }
