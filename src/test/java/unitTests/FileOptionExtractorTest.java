@@ -26,6 +26,7 @@ public class FileOptionExtractorTest {
 
 	private KEY    EXPECTED_KEY1;
 	private String EXPECTED_VAL1;
+
 	private KEY    EXPECTED_KEY2;
 	private String EXPECTED_VAL2;
 

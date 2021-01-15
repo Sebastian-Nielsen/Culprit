@@ -1,30 +1,31 @@
 package common.culpritFactory.compilerFactory;
 
+import common.CompilerDataContainer;
 import common.CompilerImpl;
 import common.PrecompilerImpl;
 import framework.*;
 import framework.Compiler;
-import framework.CulpritFactory.CompilerFactory;
+import framework.CulpritFactory.CompilerFacadeFactory;
 
 import java.io.File;
 
-public class CustomCompilerFactory implements CompilerFactory {
+public class CustomCompilerFacadeFactory implements CompilerFacadeFactory {
 
 	private final File contentRootFolder;
 	private final File deployRootFolder;
 
-	public CustomCompilerFactory(String contentRootPath, String deployRootPath) {
+	public CustomCompilerFacadeFactory(String contentRootPath, String deployRootPath) {
 		this.contentRootFolder = new File(contentRootPath);
 		this.deployRootFolder  = new File(deployRootPath);
 	}
-	public CustomCompilerFactory(File contentRootFolder, File deployRootFolder) {
+	public CustomCompilerFacadeFactory(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
 	}
 
 	@Override
-	public Precompiler createPrecompiler() {
-		return new PrecompilerImpl(contentRootFolder);
+	public Precompiler createPrecompiler(CompilerDataContainer compilerDataContainer) {
+		return new PrecompilerImpl(compilerDataContainer);
 	}
 
 	@Override

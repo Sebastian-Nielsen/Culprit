@@ -41,7 +41,7 @@ public class Main {
 
 		cleanDeployDir();
 
-		culpritCompiler.execute();
+		culpritCompiler.compileAllFiles();
 	}
 
 	private static void compileSingleFile(Culprit compiler, String[] args) throws Exception {
@@ -52,7 +52,9 @@ public class Main {
 		System.out.println("| File: '" + fileToCompile + "'");
 		System.out.println("+-----------------------+");
 
-		compiler.compile(fileToCompile);
+		compiler.compile(new File[]{
+				fileToCompile
+		});
 
 		System.exit(0);
 	}

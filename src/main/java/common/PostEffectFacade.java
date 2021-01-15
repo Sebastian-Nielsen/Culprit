@@ -41,6 +41,13 @@ public class PostEffectFacade {
 //
 //	}
 
+	/**
+	 * Effects are applied in the following order:
+	 *<ol>
+	 * <li> [Optional] prettify html
+	 * <li> write <em>html of content file</em> to its equivalent deploy file
+	 *</ol>
+	 */
 	public void effectsFor(File contentFile, String htmlOfContentFile) throws IOException {
 
 		if (shouldPrettifyHtml)

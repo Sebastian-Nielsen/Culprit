@@ -1,29 +1,29 @@
 package common.culpritFactory.compilerFactory;
 
+import common.CompilerDataContainer;
 import common.CompilerImpl;
+import common.DataExtractor;
 import common.PrecompilerImpl;
-import common.Preparator;
 import framework.*;
 import framework.Compiler;
-import framework.CulpritFactory.CompilerFactory;
-import framework.singleClasses.CompilerFacade;
+import framework.CulpritFactory.CompilerFacadeFactory;
 
 import java.io.File;
 
 
-public class DefaultCompilerFactory implements CompilerFactory {
+public class DefaultCompilerFacadeFactory implements CompilerFacadeFactory {
 
 	private final File contentRootFolder;  // new File(CWD + "/" + "content");
 	private final File deployRootFolder;   // new File(CWD + "/" + "deployment");
 
-	public DefaultCompilerFactory(File contentRootFolder, File deployRootFolder) {
+	public DefaultCompilerFacadeFactory(File contentRootFolder, File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
 	}
 
 	@Override
-	public Precompiler createPrecompiler() {
-		return new PrecompilerImpl(contentRootFolder);
+	public Precompiler createPrecompiler(CompilerDataContainer dataContainer) {
+		return new PrecompilerImpl(dataContainer);
 	}
 
 	@Override

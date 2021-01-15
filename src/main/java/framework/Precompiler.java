@@ -15,7 +15,9 @@ public interface Precompiler {
 	 * @return a map of each {@code File} in *deployment* to their
 	 * respective compiled content.
 	 */
-	Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException;
+//	Map<File, String> compileAllFiles(Map<File, FileOptionContainer> fileToFOContainer) throws IOException;
 
-	String compile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException;
+//	String compile(File fileToCompile, @NotNull FileOptionContainer foContainer) throws IOException;
+
+	String compile(File contentFile) throws IOException;
 }

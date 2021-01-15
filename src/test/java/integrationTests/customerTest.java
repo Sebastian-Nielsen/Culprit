@@ -1,23 +1,14 @@
 package integrationTests;
 
-import common.CompilerImpl;
-import common.culpritFactory.compilerFactory.CustomCompilerFactory;
-import common.PrecompilerImpl;
-import common.Preparator;
 import framework.*;
 import framework.Compiler;
-import framework.CulpritFactory.CompilerFactory;
 import framework.Precompiler;
-import framework.singleClasses.CompilerFacade;
-import framework.singleClasses.ValidatorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
-
-import static testHelper.TestHelper.getResourceFile;
 
 public class customerTest {
 	private Precompiler precompiler;
@@ -45,8 +36,8 @@ public class customerTest {
 
 	@Test
 	public void test_1() throws Exception {
-//		CompilerFactory factory =
-//				new CustomCompilerFactory(
+//		CompilerFacadeFactory factory =
+//				new CustomCompilerFacadeFactory(
 //						CONTENT_ROOT_FOLDER,
 //						DEPLOY_ROOT_FOLDER
 //				);

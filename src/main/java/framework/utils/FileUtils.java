@@ -7,6 +7,7 @@ import java.net.URI;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -294,9 +295,12 @@ public class FileUtils {
 		public static String changeFileExt(String filename, String newExt) {
 			return filename.substring(0, filename.lastIndexOf(".")) + "." + newExt;
 		}
+		public static String changeFileExt(File file, String newExt) {
+			return changeFileExt(file.toString(), newExt);
+		}
 
-		public static File[] changeFileExtOfFilesIn(Set<File> files, String toExt) {
-			return files.stream()
+		public static File[] changeFileExtOfFilesIn(File[] files, String toExt) {
+			return Arrays.stream(files)
 					.map(file -> new File(changeFileExt(file.toString(), toExt)))
 					.toArray(File[]::new);
 		}
@@ -307,6 +311,52 @@ public class FileUtils {
 		 */
 		public static String getRelativePath(File file, URI basePath) {
 			return basePath.relativize(file.toURI()).getPath();
+		}
+
+
+		/**
+		 * Calculates the relative file path; E.g.
+		 * <pre>
+		 * +-------------------------------------------------------------------------+
+		 * |baseFile: "resources/compilerTest_testFiles/D_LINKS/expected/nested/C.md"|
+		 * |  toFile: "resources/compilerTest_testFiles/D_LINKS/expected/A.md"       |
+		 * |                ->                                                       |
+		 * | @return    "./../A.md"                                                  |
+		 * +-------------------------------------------------------------------------+
+		 * </pre>
+		 *
+		 * @param baseFile file from which to start  the relative path from
+		 * @param toFile   file to   which to end up the relative path to
+		 * @return relative filePath, e.g. "./../B.md"
+		 */
+		public static String relativeFilePathBetween(File baseFile, File toFile) {
+			Path baseFilePath = Paths.get("" + baseFile);
+			Path toFilePath = Paths.get(normalize("" + toFile));
+
+			String relativePath = baseFilePath.relativize(toFilePath).toString();
+
+			relativePath = relativePath.replaceAll("\\\\", "/");
+			relativePath = removeLeadingDot(relativePath);
+
+			return relativePath;
+		}
+
+		public static String relativeFilePathBetween(String baseFile, String toFile) {
+			Path baseFilePath = Paths.get(baseFile);
+			Path toFilePath = Paths.get(toFile);
+
+			String relativePath = baseFilePath.relativize(toFilePath).toString();
+
+			relativePath = relativePath.replaceAll("\\\\", "/");
+			relativePath = removeLeadingDot(relativePath);
+
+			return relativePath;
+		}
+
+		private static String removeLeadingDot(String relativePath) {
+			if (relativePath.startsWith("."))
+				return relativePath.substring(1);
+			return relativePath;
 		}
 
 	}

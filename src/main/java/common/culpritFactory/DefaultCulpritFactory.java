@@ -1,15 +1,12 @@
 package common.culpritFactory;
 
 import common.DataExtractor;
-import common.culpritFactory.DefaultPreparatorFactory;
-import common.culpritFactory.DefaultPostEffectFactory;
-import common.culpritFactory.compilerFactory.DefaultCompilerFactory;
-import framework.CulpritFactory.CompilerFactory;
+import common.culpritFactory.compilerFactory.DefaultCompilerFacadeFactory;
+import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.CulpritFactory.CulpritFactory;
 import framework.CulpritFactory.Factory;
 import framework.CulpritFactory.PreparatorFactory;
 
-import javax.xml.crypto.Data;
 import java.io.File;
 
 import static framework.Constants.Constants.CWD;
@@ -35,8 +32,8 @@ public class DefaultCulpritFactory extends Factory implements CulpritFactory{
 	}
 
 	@Override
-	public CompilerFactory createCompileFactory() {
-		return new DefaultCompilerFactory(contentRootFolder, deployRootFolder);
+	public CompilerFacadeFactory createCompileFacadeFactory() {
+		return new DefaultCompilerFacadeFactory(contentRootFolder, deployRootFolder);
 	}
 
 	@Override

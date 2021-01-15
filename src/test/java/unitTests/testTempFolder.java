@@ -11,7 +11,7 @@ public class testTempFolder {
 
 //	@Test
 	public void tefst() {
-		final String INPUT_ROOT_PATH = "compilerTest_testFiles/D_LINKS/input";
+		final String INPUT_ROOT_PATH = "precompilerTest_testFiles/D_LINKS/input";
 
 		File baseFile = getResourceFile(INPUT_ROOT_PATH + "/nested/x2Nested/D.extIsIgnored");
 		File relFile  = getResourceFile(INPUT_ROOT_PATH + "/nested/C.extIsIgnored");

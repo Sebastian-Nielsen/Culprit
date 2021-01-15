@@ -11,7 +11,7 @@ public interface CulpritFactory {
 
 	abstract DataExtractor createDataExtractor();
 
-	abstract CompilerFactory createCompileFactory();
+	abstract CompilerFacadeFactory createCompileFacadeFactory();
 
 	abstract DefaultPostEffectFactory createPostEffectFactory();
 

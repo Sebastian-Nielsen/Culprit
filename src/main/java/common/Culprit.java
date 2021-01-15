@@ -1,57 +1,64 @@
 package common;
 
-import common.fileOption.FileOptionContainer;
+import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.CulpritFactory.CulpritFactory;
 import framework.PreparatorFacade;
 import framework.singleClasses.CompilerFacade;
-import framework.utils.FileUtils;
 
 import java.io.File;
-import java.util.Map;
 
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class Culprit {
 
-	private final CompilerFacade compiler;
 	private final PreparatorFacade preparator;
 	private final PostEffectFacade postEffects;
 	private final File contentRootFolder;
 	private final DataExtractor dataExtractor;
+	private final CompilerFacadeFactory compilerFacadeFactory;
 
 	public Culprit(CulpritFactory fac) {
 		super();
-		this.preparator    = new Preparator(fac.createPreparatorFactory());
 		this.dataExtractor = fac.createDataExtractor();
-		this.compiler      = new CompilerFacade(fac.createCompileFactory());
+		this.preparator    = new Preparator(fac.createPreparatorFactory());
 		this.postEffects   = new PostEffectFacade(fac.createPostEffectFactory());
 		this.contentRootFolder = fac.getContentRootFolder();
+		this.compilerFacadeFactory = fac.createCompileFacadeFactory();
 	}
 
-	public void execute() throws Exception {
+
+	public void compileAllFiles() throws Exception {
+		compile(listNonDirsFrom(contentRootFolder, RECURSIVE));
+	}
+
+	public void compile(File[] files) throws Exception {
 		preparator.prepare();
 
-		dataExtractor.getIdToDeployFile();
+		CompilerFacade compiler = newCompiler(dataExtractor.buildDataContainerForCompiler());
 
-		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
+		for (File contentFile : files) {
 
-			FileOptionContainer foContainer = dataExtractor.extractFoContainerFrom(contentFile);
-
-			String html = compiler.compile(contentFile, foContainer);
+			String html = compiler.compile(contentFile);
 
 			postEffects.effectsFor(contentFile, html);
 		}
 
 	}
 
-	public void compile(File contentFile) throws Exception {
-
-		FileOptionContainer foContainer = dataExtractor.extractFoContainerFrom(contentFile);
-
-		String html = compiler.compile(contentFile, foContainer);
-
-		postEffects.effectsFor(contentFile, html);
+	private CompilerFacade newCompiler(CompilerDataContainer compilerDataContainer) {
+		return new CompilerFacade(compilerFacadeFactory, compilerDataContainer);
 	}
 
+//	}
+//	public void compileAllFiles() throws Exception {
+//		preparator.prepare();
+//
+//		compiler = newCompilerFacade(dataExtractor.extractDataFromAllFiles());
+//
+//		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE))
+//
+//			compile(contentFile);
+//
+//	}
 }
