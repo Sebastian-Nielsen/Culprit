@@ -13,6 +13,7 @@ import java.util.Set;
 
 import static common.fileOption.FileOption.KEY.ID;
 import static framework.utils.FileUtils.Filename.changeFileExt;
+import static framework.utils.FileUtils.Filename.changeFileExtOfFilesIn;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 
@@ -44,29 +45,23 @@ public class FileOptionPreparator {
 	/* ============================================= */
 
 
-	public Map<String, File> getIDToDeployFile() throws Exception {
-		Map<String, File> result = new HashMap<>();
+	public Map<String, File> getIdToDeployFile() throws Exception {
+		Map<String, File> idToDeployFile = new HashMap<>();
 
 		Map<File, FileOptionContainer> fileToFOContainer = preparator.extractFOContainerFromEachContentFile();
 
-		File[] deployFiles = changeFileExtOfFilesIn(fileToFOContainer.keySet());
+		File[] contentFiles = changeFileExtOfFilesIn(fileToFOContainer.keySet(), "html");
 
-		for (File deployFile : deployFiles) {
+		for (File contentFile : contentFiles) {
 
 			String id = fileToFOContainer
-					.get(deployFile) // Gives us: foContainer of deployFile
-					.get(ID);        // Gives us: id-value    of deployFile
+					.get(contentFile) // Gives us: foContainer of contentFile
+					.get(ID);         // Gives us: id-value    of contentFile
 
-			idToDeployFile.put(id, deployFile);
+			idToDeployFile.put(id, contentFile);
 		}
 
-		return result;
-	}
-
-	private File[] changeFileExtOfFilesIn(Set<File> files) {
-		return files.stream()
-				.map(file -> new File(changeFileExt("" + file, "html")))
-				.toArray(File[]::new);
+		return idToDeployFile;
 	}
 
 	public void addIdToContentFilesWithoutOne() throws Exception {
@@ -91,7 +86,6 @@ public class FileOptionPreparator {
 	}
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder) throws Exception {
-
 		return FileOptionExtractorImpl.getInstance()
 				.extractFOContainerFromEachFileIn(folder);
 	}

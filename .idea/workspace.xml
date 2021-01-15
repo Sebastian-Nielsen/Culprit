@@ -10,12 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Culprit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Culprit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/asdf/æøå_test.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/asdf/twix.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/CompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Preparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/Deployer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/DefaultIndexPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/FileOptionPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorClasses/FileOptionPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CLIParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CLIParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +94,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/framework/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/content/math/mathTest_1.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1lkvKXuAXNfs6NcOWXyrIYJblOB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -111,7 +119,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Code With Me" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -141,11 +149,10 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainWithArguments">
-    <configuration name="MainWithArguments" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
-      <option name="PROGRAM_PARAMETERS" value="file=$PROJECT_DIR$/../../../../hello" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="framework.PreparatorFacade" />
@@ -239,7 +246,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.MainWithArguments" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.BuilderTagTest.testing" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="Gradle.Tests in 'unitTests'" />
@@ -249,7 +256,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Application.MainWithArguments" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'unitTests'" />
         <item itemvalue="Shell Script.gradlew" />
         <item itemvalue="Gradle.BuilderTagTest.testing" />
@@ -282,6 +289,10 @@
         <watch expression="buffer.toStringCache" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/culprit_2$Tests_in__unitTests_.ic" NAME="Tests in 'unitTests' Coverage Results" MODIFIED="1608334259112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

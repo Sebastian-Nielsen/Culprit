@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static framework.utils.FileUtils.Filename.getRelativePath;
@@ -254,7 +255,7 @@ public class FileUtils {
 		public static String contentOf(File file) {
 			String content;
 			try {
-				content = readFileToString(file, "ISO-8859-1");
+				content = readFileToString(file, "iso-8859-1");
 
 //				if (file.getName().endsWith("twix.md")) {
 //					System.out.println("(((((((((((((((((((((");
@@ -292,6 +293,12 @@ public class FileUtils {
 		 */
 		public static String changeFileExt(String filename, String newExt) {
 			return filename.substring(0, filename.lastIndexOf(".")) + "." + newExt;
+		}
+
+		public static File[] changeFileExtOfFilesIn(Set<File> files, String toExt) {
+			return files.stream()
+					.map(file -> new File(changeFileExt("" + file, toExt)))
+					.toArray(File[]::new);
 		}
 
 		/**

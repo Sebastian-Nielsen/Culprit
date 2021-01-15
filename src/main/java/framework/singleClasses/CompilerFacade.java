@@ -38,7 +38,7 @@ public class CompilerFacade {
 
 		Map<File, String> contentFileToMd   = precompiler.compileAllFiles(fileToFOContainer);
 
-		Map<File, String> contentFileToHtml =    compiler.compileAllFiles(contentFileToMd);
+		Map<File, String> contentFileToHtml =    compiler.compileAllFiles(contentFileToMd, fileToFOContainer);
 		// TODO: this method should also take in {@code fileToFOContainer} ^^
 
 		return contentFileToHtml;

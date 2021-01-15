@@ -98,7 +98,7 @@ public class PreparatorTest {
 
 	@Test
 	public void shouldAddDefaultIndexContentToDefaultCreatedIndexFiles() {
-		//TODO
+		//TODO: this is hard to test, not sure if I should test this.
 	}
 
 

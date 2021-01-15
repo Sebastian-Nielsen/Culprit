@@ -43,19 +43,20 @@ public class CompilerImpl implements Compiler {
 
 	@Override
 	public Map<File, String> compileAllFiles(Map<File, String> fileToMd) throws Exception {
-		Map<File, String> fileToHtml = new HashMap<>();
 
-		Set<File> files = fileToMd.keySet();
-		for (File file : files) {
+		Map<File, String> contentFileToHtml = new HashMap<>();
 
-			String md         = fileToMd.get(file);
+		Set<File> contentFiles = fileToMd.keySet();
+		for (File contentFile : contentFiles) {
+
+			String md         = fileToMd.get(contentFile);
 			String articleTag = compile(md);
-			String htmlTag    = buildDefaultPageHtmlTemplateUsing(file, articleTag);
+			String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag);
 
-			fileToHtml.put(file, htmlTag);
+			contentFileToHtml.put(contentFile, htmlTag);
 		}
 
-		return fileToHtml;
+		return contentFileToHtml;
 	}
 
 

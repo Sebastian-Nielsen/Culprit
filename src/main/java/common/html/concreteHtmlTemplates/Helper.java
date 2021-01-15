@@ -21,8 +21,7 @@ public class Helper {
 
 
 	public static String buildDefaultPageHtmlTemplateUsing(File file, String articleTag) throws Exception {
-		HtmlTemplateStrategy template = new DefaultPageHtmlTemplate();
-		return template.buildUsing(new TemplateParameters(file, articleTag));
+		return new DefaultPageHtmlTemplate().buildUsing(new TemplateParameters(file, articleTag));
 	}
 
 	public static HtmlBuilder defaultHead = 

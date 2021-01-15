@@ -13,6 +13,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import static common.fileOption.FileOption.KEY.ID;
+import static framework.utils.FileUtils.Filename.changeFileExt;
+
 public class Preparator implements PreparatorFacade {
 
 	private final File contentRootFolder;
@@ -70,6 +73,17 @@ public class Preparator implements PreparatorFacade {
 	@Override
 	public void addIdToContentFilesWithoutOne() throws Exception {
 		fileOptionPreparator.addIdToContentFilesWithoutOne();
+	}
+
+	@Override
+	public Map<String, File> extractIdToDeployFile(File file, Map<File, FileOptionContainer> fileToFOContainer) {
+
+		File htmlFile = new File(changeFileExt("" + file, "html"));
+
+		FileOptionContainer foContainer = fileToFOContainer.get(file);
+		String id         = foContainer.get(ID);
+
+		idToDeployFile.put(id, htmlFile);
 	}
 
 	/* ============================================= */

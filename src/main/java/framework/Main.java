@@ -28,6 +28,7 @@ public class Main {
 		parser = new CLIParser();
 
 		parser.parse(args);
+		parser.printAllArguments();
 
 		Culprit culpritCompiler = new Culprit(new DefaultCulpritFactory());
 

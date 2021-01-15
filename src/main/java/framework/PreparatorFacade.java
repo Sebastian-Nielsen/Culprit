@@ -50,6 +50,8 @@ public interface PreparatorFacade {
 	 */
 	void addIdToContentFilesWithoutOne() throws Exception;
 
+	Map<String, File> extractIdToDeployFile();
+
 	/**
 	 * For all content files, extracts all fileoptions in the given content-file and encapsulate them in a {@code FileOptionContainer}.
 	 * @return a mapping of each file to their respective {@code FileOptionContainer}

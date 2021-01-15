@@ -74,6 +74,14 @@ public class CLIParser {
 			parsedArguments.add(new Argument(arg, "true"));
 	}
 
+	public void printAllArguments() {
+		System.out.println("+---Arguments:-----");
+		for (Argument arg : parsedArguments) {
+			System.out.println("| " + arg.key + " " + arg.val);
+		}
+		System.out.println("+------------------");
+	}
+
 
 	private class Argument {
 		public String key;

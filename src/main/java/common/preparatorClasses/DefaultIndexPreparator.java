@@ -47,8 +47,7 @@ public class DefaultIndexPreparator {
 	 * @param folder folder in which to create the default-index
 	 */
 	private static void createDefaultIndexIn(File folder) throws Exception {
-		HtmlTemplateStrategy template = new DefaultIndexHtmlTemplate();
-		String defaultIndexHtml = template.buildUsing(new TemplateParameters(folder));
+		String defaultIndexHtml = new DefaultIndexHtmlTemplate().buildUsing(new TemplateParameters(folder));
 
 		File indexFile = new File(folder + "/index.html");
 
