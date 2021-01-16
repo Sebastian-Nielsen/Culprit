@@ -70,8 +70,22 @@ public class DefaultPageHtmlTemplate {
 					).close(SCRIPT)
 					.open(STYLE, Map.of(REL, "stylesheet"))
 						.insertRaw(".katex { font-size: 1em !important; }")
-					.close(STYLE);
+					.close(STYLE)
+					.open(SCRIPT)
+						.insertRaw("""
+								    document.addEventListener("DOMContentLoaded", function() {
+								        renderMathInElement(document.body, {
+								            delimiters: [
+								                  {left: "$$", right: "$$", display: true},
+								                  {left: "$", right: "$", display: false},
+								              ],
+								          macros: {
+								              "\\\\RR": "\\\\mathbb{R}"
+								          }
+								        });
+								    });
+								""")
+					.close(SCRIPT); //TODO: you should be able to define macros using FileOptions, not hard-coded like here
 	}
-
 
 }
