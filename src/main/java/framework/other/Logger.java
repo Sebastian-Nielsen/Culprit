@@ -32,7 +32,7 @@ public class Logger {
 		if (!LOG_FILE_TO_COMPILE) return;
 
 		System.out.println();
-		System.out.println("+-[CULPRIT]-Files-to-compile------[START]-+");
+		System.out.println("+-----------Files-to-compile------[CULPRIT]-+");
 		System.out.println("|");
 		int i = 1;
 		for (File file : filesToCompile) {
@@ -40,7 +40,7 @@ public class Logger {
 			i++;
 		}
 		System.out.println("|");
-		System.out.println("+-[CULPRIT]-Files-to-compile------[END]---+");
+		System.out.println("+-----------Files-to-compile------[CULPRIT]-+");
 		System.out.println();
 	}
 
@@ -48,11 +48,11 @@ public class Logger {
 		if (!LOG_SYSTEM_INFO) return;
 
 		System.out.println();
-		System.out.println("+-[MAIN]----System-info-----------[START]-+");
+		System.out.println("+-----------System-info-----------[MAIN]--+");
 		System.out.println("|");
 		System.out.println("| CWD: " + CWD);
 		System.out.println("|");
-		System.out.println("+-[MAIN]----System-info-----------[END]---+");
+		System.out.println("+-----------System-info-----------[MAIN]--+");
 		System.out.println();
 	}
 
@@ -60,7 +60,7 @@ public class Logger {
 		if (!LOG_UNPARSED_ARGUMENTS) return;
 
 		System.out.println();
-		System.out.println("+-[MAIN]----CLI-Arguments---------[START]-+");
+		System.out.println("+-----------CLI-Arguments---------[MAIN]--+");
 		System.out.println("|");
 		int i = 1;
 		for (String arg : args) {
@@ -68,7 +68,7 @@ public class Logger {
 			i++;
 		}
 		System.out.println("|");
-		System.out.println("+-[MAIN]----CLI-Arguments---------[END]---+");
+		System.out.println("+-----------CLI-Arguments---------[MAIN]--+");
 		System.out.println();
 	}
 
@@ -76,7 +76,7 @@ public class Logger {
 		 if (!LOG_PARSED_ARGUMENTS) return;
 
 		System.out.println();
-		System.out.println("+-[MAIN]----CLI-ParsedArguments---[START]-+");
+		System.out.println("+-----------CLI-ParsedArguments---[MAIN]--+");
 		System.out.println("|");
 		int i = 1;
 		for (CLIParser.Argument arg : parser.getArguments()) {
@@ -84,7 +84,7 @@ public class Logger {
 			i++;
 		}
 		System.out.println("|");
-		System.out.println("+-[MAIN]----CLI-ParsedArguments---[END]---+");
+		System.out.println("+-----------CLI-ParsedArguments---[MAIN]--+");
 		System.out.println();
 	}
 
@@ -101,7 +101,7 @@ public class Logger {
 		if (!LOG_COMPILER_DATA_CONTAINER) return;
 
 		System.out.println();
-		System.out.println("+-[DataExtractor]-CompilerDataContainer-[START]-+");
+		System.out.println("+-----------CompilerDataContainer-[DataExtractor]-+");
 		System.out.println("|");
 		System.out.println("| file to foContainer:");
 		System.out.println("| ===================");
@@ -113,7 +113,7 @@ public class Logger {
 			System.out.println("| ===================");
 		}
 		System.out.println("|");
-		System.out.println("+-[DataExtractor]-CompilerDataContainer-[END]---+");
+		System.out.println("+-----------CompilerDataContainer-[DataExtractor]-+");
 		System.out.println();
 	}
 

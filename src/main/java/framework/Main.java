@@ -72,12 +72,15 @@ public class Main {
 
 		for (File file : listFilesAndDirsFrom(deployDir, NONRECURSIVE)) {
 
-			if (file.isFile())
-					file.delete();
-			else
-				if (!file.getName().equals("resources"))
+			if (file.isFile()) {
+				file.delete();
+			} else { // It's a dir
+
+				boolean isDirNamedResources = file.getName().equals("resources");
+				if (!isDirNamedResources)
 					deleteDirectory(file);
 
+			}
 		}
 	}
 

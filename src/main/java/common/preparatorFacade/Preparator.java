@@ -70,4 +70,9 @@ public class Preparator implements PreparatorFacade {
 		fileOptionPreparator.addIdToContentFilesWithoutOne();
 	}
 
+	@Override
+	public void cleanDeployDir(File folder) {
+
+	}
+
 }

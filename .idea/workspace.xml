@@ -10,12 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultPageHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilder/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilder/HtmlBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/FileOptionPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/FileOptionPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Preparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,14 +339,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/common/Culprit.java</url>
-          <line>33</line>
-          <properties class="common.Culprit" method="compileAllFiles">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java</url>
           <line>24</line>

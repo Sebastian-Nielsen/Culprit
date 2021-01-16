@@ -13,7 +13,7 @@ import static java.util.function.Predicate.isEqual;
 /**
  * Adds default indexes (`index.html`) to *deployment* in the folders without one.
  */
-public class DefaultIndexPreparator {
+public class DefaultIndexPreparator {  // TODO: this should be owned by deployer? Deployer should be responsible for deleting and creating files in deploy
 
 	public static void addDefaultIndexesRecursivelyTo(File folder) throws Exception {
 
@@ -22,7 +22,6 @@ public class DefaultIndexPreparator {
 			addDefaultIndexesRecursivelyTo(dir);
 
 		addDefaultIndexTo(folder);
-
 	}
 
 

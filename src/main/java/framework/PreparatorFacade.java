@@ -1,5 +1,6 @@
 package framework;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -49,4 +50,8 @@ public interface PreparatorFacade {
 	 */
 	void addIdToContentFilesWithoutOne() throws Exception;
 
+	/**
+	 * Delete recursively all folders and files except for the {@code folder} specified
+	 */
+	void cleanDeployDir(File folder);
 }

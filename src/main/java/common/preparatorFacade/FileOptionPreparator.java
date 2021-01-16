@@ -1,5 +1,6 @@
 package common.preparatorFacade;
 
+import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionInserter;
@@ -18,8 +19,8 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 /**
  * Responsibilities:
- * (1) add id to content files without one
- * (2) return a map of the fileoption-IDs pointing to the deploy-file of the given ID
+ * (1) add an ID-{@link FileOption} to content files without one
+ * (2) return a map of the {@link FileOption}-IDs pointing to the deploy-file of the given ID
  */
 public class FileOptionPreparator {
 
