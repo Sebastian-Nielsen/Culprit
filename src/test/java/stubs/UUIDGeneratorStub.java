@@ -1,6 +1,6 @@
 package stubs;
 
-import framework.UUIDGenerator;
+import framework.other.UUIDGenerator;
 
 import java.util.Iterator;
 import java.util.List;

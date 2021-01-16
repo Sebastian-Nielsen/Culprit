@@ -1,7 +1,7 @@
 package unitTests;
 
-import framework.Validator;
-import framework.singleClasses.ValidatorImpl;
+import framework.other.Validator;
+import common.other.ValidatorImpl;
 import org.junit.jupiter.api.Test;
 
 import static constants.Constants.*;

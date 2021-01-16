@@ -1,8 +1,11 @@
-package common.html;
+package common.html.htmlBuilder;
+
+import common.html.HTML;
+import common.html.HtmlBuilderStrategy;
 
 import java.util.*;
 
-public class HtmlBuilder {
+public class HtmlBuilder implements HtmlBuilderStrategy {
 
 	private static final String INDENT_CHAR = "  ";
 
@@ -11,9 +14,12 @@ public class HtmlBuilder {
 
 	@Override
 	public String toString() {
-		return stringBuilder.toString();
+		return stringBuilder  // TODO This shouldn't have sideeffect!
+				.insert(0, "<!DOCTYPE html>\n".toString())
+				.toString();
 	}
 
+	@Override
 	public HtmlBuilder open(HTML.Tag tag) {
 		stringBuilder
 				.append(getIndent())
@@ -22,6 +28,7 @@ public class HtmlBuilder {
 		return this;
 	}
 
+	@Override
 	public HtmlBuilder setText(String text) {
 		stringBuilder
 				.append(INDENT_CHAR.repeat(openedTags.size()))
@@ -33,31 +40,39 @@ public class HtmlBuilder {
 	/**
 	 * Precondition: the html has to be valid string format
 	 */
+	@Override
 	public HtmlBuilder insertRaw(String html) {
 		stringBuilder.append(html);
 		return this;
 	}
 
+	@Override
 	public HtmlBuilder openSingle(HTML.Tag tag, Map<HTML.Attribute, String> attrToVal) {
-
+		// TODO: 16-01-2021 - this method -- heck this class -- is not that analyzable!
 		stringBuilder
 				.append(getIndent())
 				.append("<")
 				.append(tag);
 
 		for (Map.Entry<HTML.Attribute, String> attrValEntry : attrToVal.entrySet())
-			stringBuilder
-					.append(" ")
-					.append(attrValEntry.getKey())
-					.append("=\"")
-					.append(attrValEntry.getValue())
-					.append('"');
+			if (attrValEntry.getValue().isEmpty())
+				stringBuilder
+						.append(attrValEntry.getKey())
+						.append(" ");
+			else
+				stringBuilder
+						.append(" ")
+						.append(attrValEntry.getKey())
+						.append("=\"")
+						.append(attrValEntry.getValue())
+						.append('"');
 
 		stringBuilder.append(">\n");
 
 		return this;
 	}
 
+	@Override
 	public HtmlBuilder open(HTML.Tag tag, Map<HTML.Attribute, String> attrToValue) {
 
 		stringBuilder
@@ -80,6 +95,7 @@ public class HtmlBuilder {
 		return this;
 	}
 
+	@Override
 	public HtmlBuilder close(HTML.Tag tag) {
 		if (!openedTags.pop().equals(tag))
 			throw new RuntimeException("18492");
@@ -87,7 +103,8 @@ public class HtmlBuilder {
 		return this;
 	}
 
-	public HtmlBuilder insertBuilder(HtmlBuilder builder) {
+	@Override
+	public HtmlBuilder insertBuilder(HtmlBuilderStrategy builder) {
 		stringBuilder.append(builder.toString());
 		return this;
 	}

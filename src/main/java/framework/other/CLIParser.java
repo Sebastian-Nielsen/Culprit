@@ -1,4 +1,4 @@
-package framework;
+package framework.other;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 public class CLIParser {
 
 	private final List<Argument> parsedArguments = new ArrayList<>();
+
+	public static final String KEY_VAL_ARGUMENT_SEPERATOR = " ";
 
 	/**
 	 * Here are default values of args sat
@@ -32,7 +34,7 @@ public class CLIParser {
 	}
 
 	private void addKeyValArgument(String arg) {
-		String[] keyAndVal = arg.split("=");
+		String[] keyAndVal = arg.split(KEY_VAL_ARGUMENT_SEPERATOR);
 		parsedArguments.add(
 				new Argument(keyAndVal[0], keyAndVal[1])
 		);
@@ -74,16 +76,11 @@ public class CLIParser {
 			parsedArguments.add(new Argument(arg, "true"));
 	}
 
-	public void printAllArguments() {
-		System.out.println("+---Arguments:-----");
-		for (Argument arg : parsedArguments) {
-			System.out.println("| " + arg.key + " " + arg.val);
-		}
-		System.out.println("+------------------");
+	public List<Argument> getArguments() {
+		return new ArrayList<>(parsedArguments);
 	}
 
-
-	private class Argument {
+	static class Argument {
 		public String key;
 		public String val;
 

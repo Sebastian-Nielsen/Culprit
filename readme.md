@@ -1,4 +1,13 @@
 
+## How to set up WebStorm 
+
+### Set up 'File Watcher'
+
+Set the arguments to: `$ContentRoot$ --single $FilePath$`
+
+
+
+
 ## How to run
 
 Somehow this works

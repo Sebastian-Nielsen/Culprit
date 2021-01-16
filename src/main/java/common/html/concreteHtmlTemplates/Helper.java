@@ -1,10 +1,7 @@
 package common.html.concreteHtmlTemplates;
 
-import common.html.HTML;
-import common.html.HtmlBuilder;
-import common.html.HtmlTemplateStrategy;
-import common.html.TemplateParameters;
-import org.jetbrains.annotations.Contract;
+import common.compilerFacade.CompilerDataContainer;
+import common.html.htmlBuilder.HtmlBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -20,23 +17,26 @@ import static framework.Constants.Constants.CWD_NAME;
 public class Helper {
 
 
-	public static String buildDefaultPageHtmlTemplateUsing(File file, String articleTag) throws Exception {
-		return new DefaultPageHtmlTemplate().buildUsing(new TemplateParameters(file, articleTag));
+	public static String buildDefaultPageHtmlTemplateUsing(File contentFile, String articleTag,
+	                                                       CompilerDataContainer dataContainer) {
+		return new DefaultPageHtmlTemplate()
+				.buildUsing(contentFile, articleTag, dataContainer.getFOContainerOf(contentFile));
 	}
 
-	public static HtmlBuilder defaultHead = 
+	public static HtmlBuilder defaultHeadTags =
 			new HtmlBuilder()
-				.open(HEAD)
 					.open(TITLE).setText("index").close(TITLE)
-					.openSingle(META, Map.of(CHARSET,"utf-8"))
-					.openSingle(LINK, defaultCssAttributes("global.css"))
-				.close(HEAD);
-	
+					.openSingle(META, Map.of(CHARSET, "utf-8"))
+					.openSingle(LINK, defaultCssAttributes("global.css"));
+
+
+
 	public static @NotNull Map<common.html.HTML.Attribute, String> defaultCssAttributes(String hrefVal) {
 		return Map.of(
 				HREF, "/%s/%s".formatted(CWD_NAME, hrefVal),
 				REL,  "stylesheet"
 		);
 	}
+
 
 }

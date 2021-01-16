@@ -1,14 +1,13 @@
 package common.fileOption;
 
-import common.FileHandlerImpl;
-import framework.FileHandler;
-import framework.FileOptionExtractor;
-import framework.Validator;
-import framework.singleClasses.ValidatorImpl;
+import common.other.FileHandlerImpl;
+import framework.other.FileHandler;
+import framework.other.FileOptionExtractor;
+import framework.other.Validator;
+import common.other.ValidatorImpl;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,8 +36,8 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 
 			if (validator.isFileOption(line))
 				foContainer.put(
-						FileOption.getKeyOf(line),
-						FileOption.getValOf(line)
+						FileOption.parseKeyOf(line),
+						FileOption.parseValOf(line)
 				);
 			else
 				break;

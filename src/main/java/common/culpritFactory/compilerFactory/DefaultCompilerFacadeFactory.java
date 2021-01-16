@@ -1,12 +1,11 @@
 package common.culpritFactory.compilerFactory;
 
-import common.CompilerDataContainer;
-import common.CompilerImpl;
-import common.DataExtractor;
-import common.PrecompilerImpl;
-import framework.*;
-import framework.Compiler;
+import common.compilerFacade.CompilerDataContainer;
+import common.compilerFacade.CompilerImpl;
+import common.compilerFacade.PrecompilerImpl;
+import framework.compilerFacade.Compiler;
 import framework.CulpritFactory.CompilerFacadeFactory;
+import framework.compilerFacade.Precompiler;
 
 import java.io.File;
 

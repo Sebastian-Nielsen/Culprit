@@ -684,6 +684,10 @@ public class HTML {
          * Attribute "text"
          */
         public static final Attribute TEXT = new Attribute("text");
+        /**
+         * Attribute "defer"
+         */
+        public static final Attribute DEFER = new Attribute("defer");
 
         /**
          * Attribute "link"
@@ -954,6 +958,10 @@ public class HTML {
          * Attribute "cols"
          */
         public static final Attribute COLS = new Attribute("cols");
+        /**
+         * Attribute "onload"
+         */
+        public static final Attribute ONLOAD = new Attribute("onload");
 
         /**
          * Attribute "dummy"
@@ -1068,10 +1076,12 @@ public class HTML {
             SIZE,
 			CHARSET,
             COLOR,
+            ONLOAD,
             CLEAR,
             BACKGROUND,
             BGCOLOR,
             TEXT,
+            DEFER,
             LINK,
             VLINK,
             ALINK,

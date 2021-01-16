@@ -1,9 +1,6 @@
 package stubs;
 
-import framework.FileHandler;
-
-import java.io.File;
-import java.io.IOException;
+import framework.other.FileHandler;
 
 
 public class FileHandlerStub implements FileHandler {

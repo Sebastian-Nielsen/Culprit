@@ -1,18 +1,13 @@
 package common;
 
 import common.culpritFactory.DefaultPostEffectFactory;
-import common.preparatorClasses.Deployer;
+import common.preparatorFacade.Deployer;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.parser.Parser;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
 
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 

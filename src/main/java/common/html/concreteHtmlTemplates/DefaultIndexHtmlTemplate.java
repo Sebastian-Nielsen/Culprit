@@ -1,8 +1,6 @@
 package common.html.concreteHtmlTemplates;
 
-import common.html.HtmlBuilder;
-import common.html.HtmlTemplateStrategy;
-import common.html.TemplateParameters;
+import common.html.htmlBuilder.HtmlBuilder;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,12 +8,12 @@ import java.util.Map;
 
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
-import static common.html.concreteHtmlTemplates.Helper.defaultHead;
+import static common.html.concreteHtmlTemplates.Helper.defaultHeadTags;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static framework.utils.FileUtils.Lister.listDirsFrom;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
-public class DefaultIndexHtmlTemplate implements HtmlTemplateStrategy {
+public class DefaultIndexHtmlTemplate {
 
 
 	/**
@@ -24,13 +22,14 @@ public class DefaultIndexHtmlTemplate implements HtmlTemplateStrategy {
 	 * insert a {@code li} element pointing to that file.
 	 * @return {@code toString} of {@code ArticleTag}
 	 */
-	@Override
-	public String buildUsing(TemplateParameters parameters) throws Exception {
+	public String buildUsing(File folder) throws Exception {
 		return new HtmlBuilder()
 				.open(HTML)
-					.insertBuilder(defaultHead)
+					.open(HEAD)
+						.insertBuilder(defaultHeadTags)
+					.close(HEAD)
 					.open(BODY)
-						.insertBuilder(generateOlTagListingOfFilesIn(parameters.folder))
+						.insertBuilder(generateOlTagListingOfFilesIn(folder))
 					.close(BODY)
 				.close(HTML)
 				.toString();
@@ -83,18 +82,6 @@ public class DefaultIndexHtmlTemplate implements HtmlTemplateStrategy {
 
 
 
-
-
-		/**
-		 *     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-		 *
-		 *     <!-- The loading of KaTeX is deferred to speed up page rendering -->
-		 *     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-		 *
-		 *     <!-- To automatically render math in text elements, include the auto-render extension: -->
-		 *     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-		 *         onload="renderMathInElement(document.body);"></script>
-		 */
 
 
 	/* === Default Tags */

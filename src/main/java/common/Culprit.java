@@ -1,9 +1,12 @@
 package common;
 
+import common.compilerFacade.CompilerDataContainer;
+import common.compilerFacade.CompilerFacade;
+import common.preparatorFacade.Preparator;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.CulpritFactory.CulpritFactory;
 import framework.PreparatorFacade;
-import framework.singleClasses.CompilerFacade;
+import framework.other.Logger;
 
 import java.io.File;
 

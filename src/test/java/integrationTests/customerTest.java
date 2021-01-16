@@ -1,8 +1,10 @@
 package integrationTests;
 
 import framework.*;
-import framework.Compiler;
-import framework.Precompiler;
+import framework.compilerFacade.Compiler;
+import framework.compilerFacade.Precompiler;
+import framework.other.FileOptionExtractor;
+import framework.other.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

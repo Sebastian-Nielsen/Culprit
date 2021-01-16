@@ -1,6 +1,4 @@
-package framework;
-
-import java.util.UUID;
+package framework.other;
 
 public interface UUIDGenerator {
 

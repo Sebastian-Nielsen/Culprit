@@ -1,15 +1,17 @@
-package common;
+package common.compilerFacade;
 
 import common.fileOption.FileOptionContainer;
-import framework.Precompiler;
+import framework.compilerFacade.Precompiler;
+import framework.other.Logger;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static common.fileOption.FileOption.KEY;
-import static framework.singleClasses.ValidatorImpl.REGEXES;
+import static common.fileOption.FileOption.KEY.D_LINKS;
+import static common.fileOption.FileOption.KEY.ID;
+import static common.other.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Retriever.contentOf;
@@ -25,17 +27,13 @@ public class PrecompilerImpl implements Precompiler {
 	public String compile(File contentFile) throws IOException {
 		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
 
-		// First, retrieve the fileoption values from the foContainer
-		String     ID_val = foContainer.get(KEY.ID); // Required FileOption
-		String DLINKS_val = foContainer.getOrDefault(KEY.D_LINKS, "false");
-
-		// Second, retrieve the content of the fileToCompile
 		String content = contentOf(contentFile);
 
-		// Third, handle all the fileoptions; apply them on the retrieved content
-		content = handleDLINKS(DLINKS_val, content, contentFile);
+		// === Third, handle all the fileoptions; apply them on the retrieved content
+		content = compileDLinks(foContainer, content, contentFile);
+		content = compileBackslashes(content);
+		// ===
 
-		// return the content
 		return content;
 	}
 
@@ -43,16 +41,32 @@ public class PrecompilerImpl implements Precompiler {
 	/* === PRIVATE METHODS */
 
 	/**
-	 * For each dynamic-link in {@code fileToCompileContent}, replace
-	 * the ID with the relative path of the file associated with the ID,
-	 * relativized in relation to {@code contentFile}.
-	 *  E.g.    `[link text](2d424a8f-6fe8-455d-81de-6be20691cf32)`
-	 *              ->
-	 *          `[link text](../folder/Z.md)`
-	 * @param shouldHandleDLINKS the value of the D_LINKS-key.
+	 * `\\\\` (in an .md) file will compile into `\\` (in a .html file).
+	 * This method ensures `\\\\` (.md) compiles to `\\\\` (.html)
+	 * by precompiling all `\\\\` (.md) into `\\\\\\\\` (.md).
 	 */
-	private String handleDLINKS(String shouldHandleDLINKS, String contentOfFileToCompile, File contentFile) {
-		if (shouldHandleDLINKS.equals("false"))
+	private String compileBackslashes(String content) {
+		return content.replace("\\", "\\\\");
+	}
+
+	/**
+	 * For each dynamic-link in {@code fileToCompileContent}, replace
+	 * the ID in the dynamic-link with <u>the relative path
+	 * from the current <em>contentFile</em>
+	 * to   the <em>file assocated with the ID</em></u>.
+	 * <p>
+	 * E.g.
+	 * <pre>
+	 *      `[link text](2d424a8f-6fe8-455d-81de-6be20691cf32)`
+	 *          ->
+	 *      `[link text](./../folder/Z.md)`
+	 * </pre>
+	 * @param foContainer the value of the D_LINKS-key.
+	 */
+	private String compileDLinks(FileOptionContainer foContainer, String contentOfFileToCompile, File contentFile) {
+		String DLINKS_val = foContainer.getOrDefault(D_LINKS, D_LINKS.defaultVal);
+
+		if (DLINKS_val.equals("false"))
 			return contentOfFileToCompile;
 
 		String markdownLinkRegex = "\\[(.*?)]\\((%s)\\)".formatted(REGEXES.UUID);

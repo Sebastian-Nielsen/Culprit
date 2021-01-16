@@ -1,4 +1,4 @@
-package framework;
+package framework.other;
 
 public interface Validator {
 

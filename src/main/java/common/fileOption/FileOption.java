@@ -5,9 +5,9 @@ import java.util.EnumSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static common.fileOption.FileOption.KEY.ID;
+import static common.fileOption.FileOption.KEY.*;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
-import static framework.singleClasses.ValidatorImpl.REGEXES;
+import static common.other.ValidatorImpl.REGEXES;
 
 /**
  * === Representation of a FileOption
@@ -20,8 +20,8 @@ import static framework.singleClasses.ValidatorImpl.REGEXES;
  *
  * === Responsibilities of FileOption class
  * (1) Store the enum of all valid FileOption-keys.
- * (2) Given a line from a .md file, create a FileOption instance from it.
- *      (if the line doesn't contain a valid FileOption, then throw an exception.
+ * (2) Given a line containing a "markdown comment" from a .md file, parse and return its key/value.
+ *      (if the line doesn't contain a valid "markdown comment", throw an exception).
  */
 public class FileOption {
 	/**
@@ -29,8 +29,12 @@ public class FileOption {
 	 */
 	public enum KEY {
 		 ID(REGEXES.UUID, null),
+
 		// Whether the file contains dynamic links
-		D_LINKS("(true|false)", "false");
+		D_LINKS("(true|false)", "false"),
+
+		// Whether to inject KATEX into the html page
+		KATEX("(true|false)", "false");
 
 		private final Pattern validValuesPattern;
 		public final String defaultVal;
@@ -55,20 +59,22 @@ public class FileOption {
 		public boolean isValidValue(String value) {
 			Matcher matcher = validValuesPattern.matcher(value);
 			return matcher.find();
-
 		}
+
 	}
+
+
 	public static final EnumSet<KEY> REQUIRED_KEYS = EnumSet.of(ID);
+	public static final EnumSet<KEY> BOOLEAN_KEYS = EnumSet.of(D_LINKS, KATEX);
 
 
-
-	public static KEY getKeyOf(String comment) {
+	public static KEY parseKeyOf(String comment) {
 		Matcher matcher = Pattern.compile("^\s*\\[(.*?)]").matcher(comment);
 		matcher.find();
 		return KEY.valueOf( matcher.group(1) );
 	}
 
-	public static String getValOf(String comment) {
+	public static String parseValOf(String comment) {
 		Matcher matcher = Pattern.compile("^.*?].*?\\((.*?)\\)").matcher(comment);
 		matcher.find();
 		return matcher.group(1);

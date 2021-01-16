@@ -1,6 +1,6 @@
 package unitTests;
 
-import common.CompilerDataContainer;
+import common.compilerFacade.CompilerDataContainer;
 import common.DataExtractor;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;

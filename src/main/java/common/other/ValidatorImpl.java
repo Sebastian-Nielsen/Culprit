@@ -1,10 +1,11 @@
-package framework.singleClasses;
+package common.other;
 
 import common.fileOption.FileOption;
-import framework.Validator;
+import framework.other.Validator;
 
-import static common.fileOption.FileOption.getKeyOf;
-import static common.fileOption.FileOption.getValOf;
+import static common.fileOption.FileOption.parseKeyOf;
+import static common.fileOption.FileOption.parseValOf;
+
 
 public class ValidatorImpl implements Validator {
 	private static final Validator instance = new ValidatorImpl();
@@ -30,11 +31,11 @@ public class ValidatorImpl implements Validator {
 		if (!isValidMdCommentFormat)
 			return false;
 
-		boolean hasValidKey = FileOption.KEY.contains("" + getKeyOf(line));
+		boolean hasValidKey = FileOption.KEY.contains("" + parseKeyOf(line));
 		if (!hasValidKey)
 			return false;
 
-		boolean hasValidValue = getKeyOf(line).isValidValue(getValOf(line));
+		boolean hasValidValue = parseKeyOf(line).isValidValue(parseValOf(line));
 		if (!hasValidValue)
 			return false;
 

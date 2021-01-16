@@ -1,10 +1,9 @@
 package framework.CulpritFactory;
 
-import common.CompilerDataContainer;
-import framework.Compiler;
-import framework.Precompiler;
-import framework.PreparatorFacade;
-import framework.singleClasses.CompilerFacade;
+import common.compilerFacade.CompilerDataContainer;
+import common.compilerFacade.CompilerFacade;
+import framework.compilerFacade.Compiler;
+import framework.compilerFacade.Precompiler;
 
 import java.io.File;
 

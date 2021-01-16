@@ -1,7 +1,5 @@
-package common.preparatorClasses;
+package common.preparatorFacade;
 
-import common.html.HtmlTemplateStrategy;
-import common.html.TemplateParameters;
 import common.html.concreteHtmlTemplates.DefaultIndexHtmlTemplate;
 
 import java.io.File;
@@ -47,7 +45,7 @@ public class DefaultIndexPreparator {
 	 * @param folder folder in which to create the default-index
 	 */
 	private static void createDefaultIndexIn(File folder) throws Exception {
-		String defaultIndexHtml = new DefaultIndexHtmlTemplate().buildUsing(new TemplateParameters(folder));
+		String defaultIndexHtml = new DefaultIndexHtmlTemplate().buildUsing(folder);
 
 		File indexFile = new File(folder + "/index.html");
 

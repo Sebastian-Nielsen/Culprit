@@ -1,11 +1,15 @@
 package common.fileOption;
 
+import org.jetbrains.annotations.Unmodifiable;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import static common.fileOption.FileOption.KEY;
+import static common.fileOption.FileOption.REQUIRED_KEYS;
+
 /**
  * Basically a list of FileOptions, though augmented to also
  * be able to access a FileOption value simply by calling a getter
@@ -39,8 +43,19 @@ public class FileOptionContainer {
 		return keyToVal.keySet();
 	}
 
+	public Set<Entry<KEY, String>> entrySet() { return keyToVal.entrySet(); }
+
 	public boolean containsKey(KEY key) {
 		return keyToVal.containsKey(key);
+	}
+
+	/* === PRIVATE METHODS */
+
+	private boolean isRequired(KEY key) {
+		return FileOption.REQUIRED_KEYS.contains(key);
+	}
+	private boolean isBool(KEY key) {
+		return FileOption.BOOLEAN_KEYS.contains(key);
 	}
 
 	/* GETTERS */
@@ -53,7 +68,20 @@ public class FileOptionContainer {
 	 * Retrieve the associated value of {@code key}
 	 */
 	public String get(KEY key) {
-		return keyToVal.get(key);
+		if (isRequired(key))
+			return keyToVal.get(key);
+
+		return keyToVal.getOrDefault(key, key.defaultVal);
+	}
+
+	/**
+	 * Retrieve the associated value of {@code key}
+	 */
+	public boolean getBoolVal(KEY key) {
+		if (isBool(key))
+			return Boolean.parseBoolean(keyToVal.getOrDefault(key, key.defaultVal));
+
+		throw new RuntimeException(key + " is not a bool, don't use this method!");
 	}
 
 }

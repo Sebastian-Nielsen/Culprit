@@ -1,12 +1,8 @@
-package common;
+package common.other;
 
-import framework.FileHandler;
-import org.apache.pdfbox.util.filetypedetector.FileType;
+import framework.other.FileHandler;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class FileHandlerImpl implements FileHandler, AutoCloseable {
 

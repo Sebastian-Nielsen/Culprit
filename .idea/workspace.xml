@@ -10,12 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Culprit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Culprit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Precompiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/singleClasses/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +49,24 @@
                 <item name="culprit_2" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="culprit_2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="culprit_2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="culprit_2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -107,26 +120,26 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pastebin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/content/math" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Settings.Markdown" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="common" />
       <recent name="common.html" />
+      <recent name="common" />
       <recent name="framework" />
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\content\math" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\addDefaultIndexes\expected\nested\x2Nested" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\addDefaultIndexes\expected" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\addDefaultIndexes\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\expected" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\input" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DataExtractorTest_testFiles" />
@@ -142,40 +155,19 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.culprit_2 [show]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="framework.*" />
+          <option name="PATTERN" value="framework.compilerFacade.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="DataExtractorTest.shouldBuildCompilerDataContainer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.DataExtractorTest.shouldBuildCompilerDataContainer&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="PrecompilerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -219,23 +211,44 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="testTempFolder.tefst" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="culprit_2 [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.testTempFolder.tefst&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="compileJava" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="culprit_2 [show]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="show" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -246,21 +259,68 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Gradle.DataExtractorTest.shouldBuildCompilerDataContainer" />
-      <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-      <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="Gradle.testTempFolder.tefst" />
-      <item itemvalue="Gradle.PrecompilerTest" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+      <item itemvalue="Gradle.PrecompilerTest" />
+      <item itemvalue="Gradle.culprit_2 [compileJava]" />
+      <item itemvalue="Gradle.culprit_2 [show]" />
+      <item itemvalue="JAR Application.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.culprit_2 [show]" />
+        <item itemvalue="Gradle.culprit_2 [compileJava]" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.PrecompilerTest" />
-        <item itemvalue="Gradle.DataExtractorTest.shouldBuildCompilerDataContainer" />
-        <item itemvalue="Gradle.testTempFolder.tefst" />
       </list>
     </recent_temporary>
   </component>
@@ -279,6 +339,18 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/common/Culprit.java</url>
+          <line>33</line>
+          <properties class="common.Culprit" method="compileAllFiles">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="common.CompilerDataContainer" memberName="idToRelativeDeployPath" />

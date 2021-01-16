@@ -1,7 +1,7 @@
 package unitTests;
 
-import framework.FileHandler;
-import common.FileHandlerImpl;
+import framework.other.FileHandler;
+import common.other.FileHandlerImpl;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

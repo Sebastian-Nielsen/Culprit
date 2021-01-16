@@ -1,19 +1,14 @@
-package common;
+package common.preparatorFacade;
 
-import common.fileOption.FileOptionContainer;
-import common.fileOption.FileOptionExtractorImpl;
-import common.preparatorClasses.DefaultIndexPreparator;
-import common.preparatorClasses.Deployer;
-import common.preparatorClasses.FileOptionPreparator;
+import common.preparatorFacade.DefaultIndexPreparator;
+import common.preparatorFacade.Deployer;
+import common.preparatorFacade.FileOptionPreparator;
 import framework.CulpritFactory.PreparatorFactory;
-import framework.FileOptionExtractor;
 import framework.PreparatorFacade;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
-import static common.fileOption.FileOption.KEY.ID;
 import static framework.utils.FileUtils.Filename.changeFileExt;
 
 public class Preparator implements PreparatorFacade {

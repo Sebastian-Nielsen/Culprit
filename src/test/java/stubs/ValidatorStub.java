@@ -1,6 +1,6 @@
 package stubs;
 
-import framework.Validator;
+import framework.other.Validator;
 
 public class ValidatorStub implements Validator {
 

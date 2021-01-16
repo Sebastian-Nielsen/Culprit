@@ -59,3 +59,14 @@ jar {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+
+// === Tasks
+
+task show(type: JavaExec) {
+    group 'Culprit Main'
+    description 'Run the application'
+
+    classpath sourceSets.main.runtimeClasspath
+    main = 'framework.Main'
+    args "--single", "file C:\\Users\\sebas\\IdeaProjects\\culprit_2\\content\\math\\mathTest_1.md"
+}

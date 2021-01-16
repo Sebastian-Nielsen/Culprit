@@ -1,7 +1,7 @@
 package common.fileOption;
 
 import common.other.UUIDGeneratorImpl;
-import framework.UUIDGenerator;
+import framework.other.UUIDGenerator;
 
 import java.io.File;
 import java.io.IOException;

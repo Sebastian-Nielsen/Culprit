@@ -1,9 +1,10 @@
-package framework;
+package framework.other;
 
 import common.fileOption.FileOptionContainer;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Map;
 
 public interface FileOptionExtractor {

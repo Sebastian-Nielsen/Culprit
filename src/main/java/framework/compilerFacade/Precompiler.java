@@ -1,11 +1,7 @@
-package framework;
-
-import common.fileOption.FileOptionContainer;
-import org.jetbrains.annotations.NotNull;
+package framework.compilerFacade;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 public interface Precompiler {
 

@@ -1,7 +1,7 @@
 package common.culpritFactory;
 
 import common.fileOption.FileOptionInserter;
-import common.preparatorClasses.FileOptionPreparator;
+import common.preparatorFacade.FileOptionPreparator;
 import framework.CulpritFactory.Factory;
 import framework.CulpritFactory.PreparatorFactory;
 import framework.PreparatorFacade;

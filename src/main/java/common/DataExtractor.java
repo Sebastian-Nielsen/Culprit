@@ -1,10 +1,15 @@
 package common;
 
+import common.compilerFacade.CompilerDataContainer;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
+import common.other.FileHandlerImpl;
+import framework.other.Logger;
+import one.util.streamex.EntryStream;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +47,12 @@ public class DataExtractor {
 				.extractFOContainerFromEachFileIn(contentRootFolder);
 	}
 
+	private Map<String, FileOptionContainer> extractPathToFOContainer() throws Exception {
+		return EntryStream.of(extractFOContainerFromEachContentFile())
+				.mapKeys(File::toString)
+				.toMap();
+	}
+
 	/**
 	 * Extract a {@code FileOptionContainer} from the specified {@code contentFile}
 	 */
@@ -56,9 +67,11 @@ public class DataExtractor {
 	 */
 	public CompilerDataContainer buildDataContainerForCompiler() throws Exception {
 		Map<String, File> idToFile = extractIdToContentFile();
-		Map<File, FileOptionContainer> fileToFOContainer = extractFOContainerFromEachContentFile();
+		Map<String, FileOptionContainer> pathToFoContainer = extractPathToFOContainer();
 
-		return new CompilerDataContainer(idToFile, fileToFOContainer);
+		Logger.log(pathToFoContainer);
+
+		return new CompilerDataContainer(idToFile, pathToFoContainer);
 	}
 
 	/**

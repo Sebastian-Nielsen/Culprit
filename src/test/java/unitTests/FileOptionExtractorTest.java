@@ -1,9 +1,10 @@
 package unitTests;
 
-import framework.*;
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionContainer;
-import framework.singleClasses.ValidatorImpl;
+import common.other.ValidatorImpl;
+import framework.other.FileOptionExtractor;
+import framework.other.Validator;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

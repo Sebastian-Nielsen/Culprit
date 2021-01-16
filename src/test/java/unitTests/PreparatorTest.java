@@ -1,11 +1,10 @@
 package unitTests;
 
-import common.Preparator;
+import common.preparatorFacade.Preparator;
 import common.culpritFactory.DefaultPreparatorFactory;
 import common.fileOption.FileOptionInserter;
-import framework.CulpritFactory.PreparatorFactory;
 import framework.PreparatorFacade;
-import framework.UUIDGenerator;
+import framework.other.UUIDGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

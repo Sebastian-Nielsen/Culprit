@@ -1,6 +1,6 @@
 package framework.CulpritFactory;
 
-import common.preparatorClasses.FileOptionPreparator;
+import common.preparatorFacade.FileOptionPreparator;
 import framework.PreparatorFacade;
 
 import java.io.File;

@@ -1,8 +1,6 @@
 package common.other;
 
-import framework.UUIDGenerator;
-
-import java.util.UUID;
+import framework.other.UUIDGenerator;
 
 public class UUIDGeneratorImpl implements UUIDGenerator {
 	private static final UUIDGenerator instance = new UUIDGeneratorImpl();

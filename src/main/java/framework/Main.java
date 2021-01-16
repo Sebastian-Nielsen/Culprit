@@ -2,6 +2,8 @@ package framework;
 
 import common.Culprit;
 import common.culpritFactory.DefaultCulpritFactory;
+import framework.other.CLIParser;
+import framework.other.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +26,8 @@ public class Main {
 		parser = new CLIParser();
 
 		parser.parse(args);
-		parser.printAllArguments();
+
+		Logger.log(args, parser);
 
 		Culprit culpritCompiler = new Culprit(new DefaultCulpritFactory());
 
@@ -35,9 +38,10 @@ public class Main {
 	}
 
 	private static void compileAllFiles(Culprit culpritCompiler) throws Exception {
-		System.out.println("+--------DEBUG---------------+");
-		System.out.println("|CWD: " + CWD);
-		System.out.println("+----------------------------+");
+
+		System.out.println();
+		System.out.println(" > Compiling MULTIPLE Files");
+		System.out.println();
 
 		cleanDeployDir();
 
@@ -47,12 +51,12 @@ public class Main {
 	private static void compileSingleFile(Culprit compiler, String[] args) throws Exception {
 		File fileToCompile = new File(parser.getStringValOf("file"));
 
-		System.out.println("+-----------------------+");
-		System.out.println("| compiling single file |");
-		System.out.println("| File: '" + fileToCompile + "'");
-		System.out.println("+-----------------------+");
+		System.out.println();
+		System.out.println(" > Compiling SINGLE File");
+		System.out.println();
 
-		compiler.compile(new File[]{
+		compiler.
+				compile(new File[]{
 				fileToCompile
 		});
 
@@ -67,8 +71,6 @@ public class Main {
 		File deployDir = new File("deployment");
 
 		for (File file : listFilesAndDirsFrom(deployDir, NONRECURSIVE)) {
-
-			System.out.println(file);
 
 			if (file.isFile())
 					file.delete();

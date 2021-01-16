@@ -1,10 +1,9 @@
-package common.preparatorClasses;
+package common.preparatorFacade;
 
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import common.fileOption.FileOptionInserter;
 import framework.PreparatorFacade;
-import framework.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +13,6 @@ import java.util.Set;
 
 import static common.fileOption.FileOption.KEY.ID;
 import static framework.utils.FileUtils.Filename.changeFileExt;
-import static framework.utils.FileUtils.Filename.changeFileExtOfFilesIn;
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 

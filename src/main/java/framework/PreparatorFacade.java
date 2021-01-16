@@ -1,12 +1,6 @@
 package framework;
 
-import common.FileHandlerImpl;
-import common.fileOption.FileOptionContainer;
-import common.fileOption.FileOptionExtractorImpl;
-
-import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 /**
  * Facade for every class related to the preparation phase. <br><br>

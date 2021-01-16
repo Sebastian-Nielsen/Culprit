@@ -1,15 +1,17 @@
 package unitTests;
 
-import common.CompilerDataContainer;
+import common.compilerFacade.CompilerDataContainer;
 import common.DataExtractor;
-import common.PrecompilerImpl;
+import common.compilerFacade.PrecompilerImpl;
 import common.fileOption.FileOptionContainer;
-import framework.Precompiler;
+import framework.compilerFacade.Precompiler;
+import one.util.streamex.EntryStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Map;
 
 import static common.fileOption.FileOption.KEY;
@@ -89,9 +91,11 @@ public class PrecompilerTest {
 				getResourceFile(EXPECTED_ROOT_PATH)
 		);
 
+		Map<Path, FileOptionContainer> pathToFOContainer = EntryStream.of(fileToFOContainer).mapKeys(File::toPath).toMap();
+
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
-				fileToFOContainer
+				pathToFOContainer
 		);
 	}
 
