@@ -14,9 +14,7 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 
 	@Override
 	public String toString() {
-		return stringBuilder  // TODO This shouldn't have sideeffect!
-				.insert(0, "<!DOCTYPE html>\n".toString())
-				.toString();
+		return stringBuilder.toString();
 	}
 
 	@Override

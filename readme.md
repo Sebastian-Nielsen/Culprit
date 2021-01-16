@@ -1,5 +1,10 @@
 
-## How to set up WebStorm 
+## To generate jar file
+
+1. run the `shadowJar` gradle task
+2. Find the generated .jar in `build/libs/culprit_2-all.jar`
+
+
 
 ### Set up 'File Watcher'
 
@@ -47,4 +52,6 @@ java -jar culprit_2.jar
    
     mid: main content
    
-    right: uddybninger af main content. 
+    right: uddybninger af main content.
+   
+3. Support multiple spaces in .md 

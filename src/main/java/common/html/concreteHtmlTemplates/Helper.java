@@ -33,7 +33,8 @@ public class Helper {
 
 	public static @NotNull Map<common.html.HTML.Attribute, String> defaultCssAttributes(String hrefVal) {
 		return Map.of(
-				HREF, "/%s/%s".formatted(CWD_NAME, hrefVal),
+				HREF, "/" + hrefVal,
+//				HREF, "/%s/%s".formatted(CWD_NAME, hrefVal),
 				REL,  "stylesheet"
 		);
 	}

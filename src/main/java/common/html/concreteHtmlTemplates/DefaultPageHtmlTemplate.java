@@ -12,6 +12,7 @@ import static common.fileOption.FileOption.KEY.KATEX;
 import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
+import static common.html.HTML.Tag.STYLE;
 import static common.html.concreteHtmlTemplates.Helper.defaultHeadTags;
 
 public class DefaultPageHtmlTemplate {
@@ -19,6 +20,7 @@ public class DefaultPageHtmlTemplate {
 	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) {
 
 		return new HtmlBuilder()
+				.insertRaw("<!DOCTYPE html>\n")
 				.open(HTML)
 					.open(HEAD)
 						.insertBuilder(defaultHeadTags)
@@ -65,7 +67,10 @@ public class DefaultPageHtmlTemplate {
 									CROSSORIGIN, "anonymous",
 									ONLOAD, "renderMathInElement(document.body);"
 							)
-					).close(SCRIPT);
+					).close(SCRIPT)
+					.open(STYLE, Map.of(REL, "stylesheet"))
+						.insertRaw(".katex { font-size: 1em !important; }")
+					.close(STYLE);
 	}
 
 

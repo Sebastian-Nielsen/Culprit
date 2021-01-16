@@ -24,6 +24,7 @@ public class DefaultIndexHtmlTemplate {
 	 */
 	public String buildUsing(File folder) throws Exception {
 		return new HtmlBuilder()
+				.insertRaw("<!DOCTYPE html>\n")
 				.open(HTML)
 					.open(HEAD)
 						.insertBuilder(defaultHeadTags)

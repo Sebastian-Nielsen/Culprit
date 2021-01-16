@@ -32,6 +32,7 @@ public class Culprit {
 
 
 	public void compileAllFiles() throws Exception {
+
 		compile(listNonDirsFrom(contentRootFolder, RECURSIVE));
 	}
 

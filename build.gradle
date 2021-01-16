@@ -5,7 +5,8 @@
  */
 
 plugins {
-    id 'java'
+  id 'com.github.johnrengelman.shadow' version '6.1.0'
+  id 'java'
 }
 
 repositories {
@@ -13,6 +14,7 @@ repositories {
 }
 
 dependencies {
+
     compile group: 'one.util', name: 'streamex', version: '0.7.3'
 
     implementation 'org.jetbrains:annotations:20.1.0'
