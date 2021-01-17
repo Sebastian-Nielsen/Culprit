@@ -2,6 +2,7 @@ package common.html;
 
 import common.fileOption.FileOptionContainer;
 import common.html.HtmlBuilder;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,9 +14,9 @@ import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.HTML.Tag.STYLE;
 import static framework.utils.FileUtils.Filename.changeFileExt;
+import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
-import static framework.utils.FileUtils.Lister.listDirsFrom;
-import static framework.utils.FileUtils.Lister.listNonDirsFrom;
+import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 public class HtmlFactory {
 
@@ -26,6 +27,34 @@ public class HtmlFactory {
 	 * @param folder folder from which to list the files from.
 	 * @return an ol {@code Tag}
 	 */
+	public String test(File folder) throws Exception {
+		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
+
+		builder.open(OL, Map.of(CLASS, "folders"));
+		recursive(builder, folder);
+		builder.close(OL);
+
+		return builder.toString();
+	}
+
+	private HtmlBuilder recursive(HtmlBuilder builder, File folder) throws Exception {
+		for (File file : listFilesAndDirsFrom(folder, NONRECURSIVE)) {
+			if (file.isFile()) {
+				builder .open(LI)
+							.open(A, Map.of(HREF, "./" + file.getName()))
+								.setText(removeExtension(file.getName()))
+							.close(A)
+						.close(LI);
+			} else {
+				builder.open(OL);
+				recursive(builder, file);
+				builder.close(OL);
+			}
+		}
+		return builder;
+	}
+
+
 	public String createNavigationHtml(File folder) throws IOException {
 		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
 
@@ -86,10 +115,10 @@ public class HtmlFactory {
 							)
 					).close(SCRIPT)
 					.open(STYLE, Map.of(REL, "stylesheet"))
-						.insert(".katex { font-size: 1em !important; }")
+					.insert(".katex { font-size: 1em !important; }")
 					.close(STYLE)
 					.open(SCRIPT)
-						.insert("""
+					.insert("""
 								    document.addEventListener("DOMContentLoaded", function() {
 								        renderMathInElement(document.body, {
 								            delimiters: [
@@ -103,7 +132,7 @@ public class HtmlFactory {
 								    });
 								""")
 					.close(SCRIPT)
-			.toString();
+					.toString();
 	}
 
 

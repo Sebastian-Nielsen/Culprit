@@ -91,7 +91,7 @@ public class PrecompilerTest {
 				getResourceFile(EXPECTED_ROOT_PATH)
 		);
 
-		Map<Path, FileOptionContainer> pathToFOContainer = EntryStream.of(fileToFOContainer).mapKeys(File::toPath).toMap();
+		Map<String, FileOptionContainer> pathToFOContainer = EntryStream.of(fileToFOContainer).mapKeys(File::toString).toMap();
 
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),

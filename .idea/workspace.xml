@@ -10,17 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilderStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/concreteStrategy/NavHtmlBuilderStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/concreteStrategy/NullHtmlBuilderStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/HtmlTemplateStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/HtmlTemplateStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +81,10 @@
       <list>
         <option value="Enum" />
         <option value="package-info" />
-        <option value="HTML File" />
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -146,11 +144,11 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\expected" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DataExtractorTest_testFiles" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DataExtractorTest_testFiles\expected - Copy" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\compilerFacadeTest" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\build\resources" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\main\java" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -159,7 +157,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.NavigationHtmlTest.shouldGenerateNavigationHtml">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -173,23 +171,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="culprit_2 [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NavigationHtmlTest.shouldGenerateNavigationHtml" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.NavigationHtmlTest.shouldGenerateNavigationHtml&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="compileJava" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -312,19 +310,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.culprit_2 [compileJava]" />
       <item itemvalue="Gradle.culprit_2 [show]" />
       <item itemvalue="Gradle.culprit_2 [knows]" />
       <item itemvalue="Gradle.culprit_2 [shadowJar]" />
+      <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateNavigationHtml" />
       <item itemvalue="JAR Application.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateNavigationHtml" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.culprit_2 [shadowJar]" />
         <item itemvalue="Gradle.culprit_2 [knows]" />
         <item itemvalue="Gradle.culprit_2 [show]" />
-        <item itemvalue="Gradle.culprit_2 [compileJava]" />
       </list>
     </recent_temporary>
   </component>
@@ -343,9 +341,19 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="common.CompilerDataContainer" memberName="idToRelativeDeployPath" />
+        <PinnedItemInfo parentTag="common.html.HtmlBuilder" memberName="openedTags" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
         <PinnedItemInfo parentTag="java.util.regex.Matcher" memberName="text" />
       </pinned-members>

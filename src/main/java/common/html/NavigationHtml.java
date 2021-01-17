@@ -40,6 +40,7 @@ public class NavigationHtml {
 
 	private void generateNavHtmlForDir(File dir, HtmlBuilder builder, int dirLevel) throws Exception {
 		builder.open(OL);
+		HtmlBuilder builderSnapshot = builder.clone();
 
 		for (File file : listFilesAndDirsFrom(dir, NONRECURSIVE)) {
 
@@ -48,14 +49,14 @@ public class NavigationHtml {
 			if (file.isFile())
 				generateNavHtmlForNonDir(file, builder);
 
-			else {
+			else
 				generateNavHtmlForDir(file, builder, dirLevel+1);
-			}
+
 		}
 
-		builder.close(OL);
+		builderSnapshot.close(OL);
 
-		dirLevelToNavigationHtml.put(dirLevel, builder.toString());
+		dirLevelToNavigationHtml.put(dirLevel, builderSnapshot.toString());
 	}
 
 	private HtmlBuilder generateNavHtmlForNonDir(File file, HtmlBuilder builder) {

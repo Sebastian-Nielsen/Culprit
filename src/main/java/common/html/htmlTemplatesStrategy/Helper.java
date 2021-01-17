@@ -1,30 +1,19 @@
 package common.html.htmlTemplatesStrategy;
 
-import common.compilerFacade.CompilerDataContainer;
 import common.html.HTML;
 import common.html.HtmlBuilder;
-import common.html.HtmlFactory;
-import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultPageHtmlTemplate;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import static common.html.HTML.Attribute.*;
-import static common.html.HTML.Attribute;
-import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.HTML.Tag.TITLE;
+import static common.html.HTML.Tag.*;
 import static framework.Constants.Constants.CWD_NAME;
-import static framework.utils.FileUtils.Filename.changeFileExt;
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
-import static framework.utils.FileUtils.Lister.listDirsFrom;
-import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
-
+@SuppressWarnings("unchecked")
 public class Helper {
 
 
@@ -50,13 +39,11 @@ public class Helper {
 	}
 	public static @NotNull Map<HTML.Attribute, String> defaultScriptAttributes(String srcVal,
 	                                                                           Map<HTML.Attribute, String> attrs) {
-		return combineMaps(attrs,
-				Map.of(
+		HashMap<HTML.Attribute, String> temp = new HashMap<>();
 //						SRC, "/" + srcVal,
-						SRC, "/%s/%s".formatted(CWD_NAME, srcVal),
-						REL, "stylesheet"
-				)
-		);
+		temp.put(SRC, "/%s/%s".formatted(CWD_NAME, srcVal));
+
+		return combineMaps(attrs, temp);
 	}
 
 	private static Map<HTML.Attribute, String> combineMaps(Map<HTML.Attribute, String> map1,

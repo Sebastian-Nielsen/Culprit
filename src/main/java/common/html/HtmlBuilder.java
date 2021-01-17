@@ -6,11 +6,32 @@ public class HtmlBuilder {
 
 	private static final String INDENT_CHAR = " ".repeat(2);
 
-	private final StringBuilder stringBuilder = new StringBuilder();
-	private final Deque<HTML.Tag> openedTags  = new ArrayDeque<>();
+	private final StringBuilder stringBuilder;
+	private final Deque<HTML.Tag> openedTags;
 
 	public String toString() {
 		return stringBuilder.toString();
+	}
+
+	public HtmlBuilder() {
+		stringBuilder = new StringBuilder();
+		openedTags = new ArrayDeque<>();
+	}
+
+	private HtmlBuilder(StringBuilder stringBuilder, Deque<HTML.Tag> openedTags) {
+		this.stringBuilder = stringBuilder;
+		this.openedTags = openedTags;
+	}
+
+	/**
+	 * Clones this instance; that is, create a new HtmlBuilder
+	 * @return a clone of this instance
+	 */
+	public HtmlBuilder clone() {
+		return new HtmlBuilder(
+				new StringBuilder(stringBuilder),
+				new ArrayDeque<>(openedTags)
+		);
 	}
 
 	public HtmlBuilder open(HTML.Tag tag) {
