@@ -10,18 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/content/math/mathTest_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/math/mathTest_1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilderStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilderStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HtmlTemplateStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/HtmlTemplateStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/concreteHtmlTemplates/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilder/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilder/NullHtmlBuilderStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/NullHtmlBuilderStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/compilerFacade/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/compilerFacade/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

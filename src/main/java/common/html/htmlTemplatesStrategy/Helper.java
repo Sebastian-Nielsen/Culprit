@@ -1,5 +1,6 @@
 package common.html.htmlTemplatesStrategy;
 
+import com.ibm.icu.impl.locale.XCldrStub;
 import common.compilerFacade.CompilerDataContainer;
 import common.html.HTML;
 import common.html.htmlBuilderStrategy.HtmlBuilder;
@@ -7,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import static common.html.HTML.Attribute.*;
@@ -14,6 +16,7 @@ import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.HTML.Tag.TITLE;
 import static framework.Constants.Constants.CWD_NAME;
+import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static framework.utils.FileUtils.Lister.listDirsFrom;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
@@ -29,7 +32,7 @@ public class Helper {
 	}
 
 
-		/**
+	/**
 	 * For each {@code File} (both dirs and files) in the specified folder,
 	 * create a li {@code Tag} and add it to the ol {@code Tag} to return.
 	 * @param folder folder from which to list the files from.
@@ -46,18 +49,16 @@ public class Helper {
 							.setText(dir.getName())
 						.close(A)
 					.close(LI);
-
 		builder.close(OL);
 
 		// Generate OL with LI tags for each {@code File} (nonDir) in folder
 		builder.open(OL);
 		for (File nonDir : listNonDirsFrom(folder, NONRECURSIVE))
 			builder .open(LI)
-						.open(A, Map.of(HREF, "./" + nonDir.getName()))
+						.open(A, Map.of(HREF, "./" + changeFileExt(nonDir.getName(), "html")))
 							.setText(nonDir.getName())
 						.close(A)
 					.close(LI);
-
 		builder.close(OL);
 
 		return builder;
@@ -91,10 +92,12 @@ public class Helper {
 		);
 	}
 
-	private static Map<HTML.Attribute, String> combineMaps(Map<HTML.Attribute, String> mapA,
-	                                                       Map<HTML.Attribute, String> mapB) {
-		mapA.putAll(mapB);
-		return mapA;
+	private static Map<HTML.Attribute, String> combineMaps(Map<HTML.Attribute, String> map1,
+	                                                       Map<HTML.Attribute, String> map2) {
+		Map<HTML.Attribute, String> map3 = new HashMap<>();
+		map3.putAll(map1);
+		map3.putAll(map2);
+		return map3;
 	}
 
 }
