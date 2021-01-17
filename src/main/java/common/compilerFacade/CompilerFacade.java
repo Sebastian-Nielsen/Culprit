@@ -1,14 +1,12 @@
 package common.compilerFacade;
 
-import common.fileOption.FileOptionContainer;
 import framework.compilerFacade.Compiler;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.compilerFacade.Precompiler;
-import framework.other.Logger;
 
 import java.io.File;
 
-import static common.html.concreteHtmlTemplates.Helper.buildDefaultPageHtmlTemplateUsing;
+import static common.html.htmlTemplatesStrategy.Helper.buildDefaultPageHtmlTemplateUsing;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class CompilerFacade {

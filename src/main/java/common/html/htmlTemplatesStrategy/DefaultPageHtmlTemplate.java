@@ -1,11 +1,12 @@
-package common.html.concreteHtmlTemplates;
+package common.html.htmlTemplatesStrategy;
 
 import common.fileOption.FileOptionContainer;
-import common.html.HtmlBuilderStrategy;
-import common.html.htmlBuilder.HtmlBuilder;
-import common.html.htmlBuilder.NullHtmlBuilderStrategy;
+import common.html.htmlBuilderStrategy.HtmlBuilderStrategy;
+import common.html.htmlBuilderStrategy.HtmlBuilder;
+import common.html.htmlBuilderStrategy.NullHtmlBuilderStrategy;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import static common.fileOption.FileOption.KEY.KATEX;
@@ -13,37 +14,49 @@ import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.HTML.Tag.STYLE;
-import static common.html.concreteHtmlTemplates.Helper.defaultHeadTags;
+import static common.html.htmlTemplatesStrategy.Helper.*;
 
 public class DefaultPageHtmlTemplate {
 
-	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) {
+	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) throws Exception {
+
+		File dirOfContentFile = contentFile.getParentFile();
 
 		return new HtmlBuilder()
 				.insertRaw("<!DOCTYPE html>\n")
 				.open(HTML)
 					.open(HEAD)
 						.insertBuilder(defaultHeadTags)
+						.openSingle(LINK, defaultCssAttributes("css/defaultPage.css"))
 						.insertBuilder(getKatexHtmlBuilderStrategy(foContainer))
+						.open(SCRIPT, defaultScriptAttributes("css/defaultPage.js", Map.of(DEFER, ""))).close(SCRIPT)
 					.close(HEAD)
 					.open(BODY)
 						.open(MAIN)
 							.open(ASIDE, Map.of(ID,  "left-aside")).close(ASIDE)
-							.open(ASIDE, Map.of(ID, "right-aside")).close(ASIDE)
+//							.open(ASIDE, Map.of(ID, "right-aside")).close(ASIDE)
 							.open(ARTICLE)
 								.insertRaw(articleTag)
 							.close(ARTICLE)
 						.close(MAIN)
+						.open(NAV)
+							.insertBuilder(generateOlTagListingOfFilesIn(dirOfContentFile))
+						.close(NAV)
 					.close(BODY)
 				.close(HTML)
 				.toString();
 	}
 
+
+	/* === PRIVATE METHODS */
+
 	private HtmlBuilderStrategy getKatexHtmlBuilderStrategy(FileOptionContainer foContainer) {
+
 		boolean shouldUseKatexBuilder = foContainer.getOrDefault(KATEX, KATEX.defaultVal).equals("true");
 
 		if (!shouldUseKatexBuilder)
 			return new NullHtmlBuilderStrategy();
+
 		else
 			return new HtmlBuilder()
 					.openSingle(LINK,

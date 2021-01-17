@@ -1,7 +1,5 @@
 package framework.compilerFacade;
 
-import common.html.HtmlTemplateStrategy;
-
 /**
  * Markdown to HTML Compiler
  * Adapter for commonmark

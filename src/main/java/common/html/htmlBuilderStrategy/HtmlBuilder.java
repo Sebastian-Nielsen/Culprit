@@ -1,7 +1,6 @@
-package common.html.htmlBuilder;
+package common.html.htmlBuilderStrategy;
 
 import common.html.HTML;
-import common.html.HtmlBuilderStrategy;
 
 import java.util.*;
 

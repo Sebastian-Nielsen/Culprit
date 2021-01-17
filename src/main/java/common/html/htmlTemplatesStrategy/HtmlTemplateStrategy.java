@@ -1,4 +1,4 @@
-package common.html;
+package common.html.htmlTemplatesStrategy;
 
 import common.fileOption.FileOptionContainer;
 

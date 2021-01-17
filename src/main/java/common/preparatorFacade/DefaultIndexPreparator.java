@@ -1,6 +1,6 @@
 package common.preparatorFacade;
 
-import common.html.concreteHtmlTemplates.DefaultIndexHtmlTemplate;
+import common.html.htmlTemplatesStrategy.DefaultIndexHtmlTemplate;
 
 import java.io.File;
 
