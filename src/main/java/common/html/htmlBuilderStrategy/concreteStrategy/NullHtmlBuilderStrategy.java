@@ -1,6 +1,8 @@
-package common.html.htmlBuilderStrategy;
+package common.html.htmlBuilderStrategy.concreteStrategy;
 
 import common.html.HTML;
+import common.html.htmlBuilderStrategy.HtmlBuilder;
+import common.html.htmlBuilderStrategy.HtmlBuilderStrategy;
 
 import java.util.Map;
 

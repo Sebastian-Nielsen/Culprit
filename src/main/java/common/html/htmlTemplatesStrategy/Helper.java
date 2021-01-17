@@ -1,9 +1,9 @@
 package common.html.htmlTemplatesStrategy;
 
-import com.ibm.icu.impl.locale.XCldrStub;
 import common.compilerFacade.CompilerDataContainer;
 import common.html.HTML;
 import common.html.htmlBuilderStrategy.HtmlBuilder;
+import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultPageHtmlTemplate;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -38,7 +38,8 @@ public class Helper {
 	 * @param folder folder from which to list the files from.
 	 * @return an ol {@code Tag}
 	 */
-	public static HtmlBuilder generateOlTagListingOfFilesIn(File folder) throws IOException {
+	public static HtmlBuilder navHtmlBuilderStrategy(File folder) throws IOException {
+//	public static HtmlBuilder generateOlTagListingOfFilesIn(File folder) throws IOException {
 		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
 
 		// Generate OL with LI tags for each {@code dir} in folder

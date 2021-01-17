@@ -1,4 +1,4 @@
-package common.html.htmlTemplatesStrategy;
+package common.html.htmlTemplatesStrategy.concreteStrategy;
 
 import common.html.htmlBuilderStrategy.HtmlBuilder;
 
@@ -8,8 +8,7 @@ import java.util.Map;
 
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
-import static common.html.htmlTemplatesStrategy.Helper.defaultHeadTags;
-import static common.html.htmlTemplatesStrategy.Helper.generateOlTagListingOfFilesIn;
+import static common.html.htmlTemplatesStrategy.Helper.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static framework.utils.FileUtils.Lister.listDirsFrom;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
@@ -29,7 +28,7 @@ public class DefaultIndexHtmlTemplate {
 						.insertBuilder(defaultHeadTags)
 					.close(HEAD)
 					.open(BODY)
-						.insertBuilder(generateOlTagListingOfFilesIn(folder))
+						.insertBuilder(navHtmlBuilderStrategy(folder))
 					.close(BODY)
 				.close(HTML)
 				.toString();

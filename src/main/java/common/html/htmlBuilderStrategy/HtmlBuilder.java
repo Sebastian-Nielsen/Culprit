@@ -35,7 +35,8 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 	}
 
 	/**
-	 * Precondition: the html has to be valid string format
+	 * Insert html in the form of a raw String.
+	 * Precondition: the html is valid (e.g. all tags that are opened are also closed)
 	 */
 	@Override
 	public HtmlBuilder insertRaw(String html) {

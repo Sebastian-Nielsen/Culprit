@@ -1,9 +1,9 @@
-package common.html.htmlTemplatesStrategy;
+package common.html.htmlTemplatesStrategy.concreteStrategy;
 
 import common.fileOption.FileOptionContainer;
 import common.html.htmlBuilderStrategy.HtmlBuilderStrategy;
 import common.html.htmlBuilderStrategy.HtmlBuilder;
-import common.html.htmlBuilderStrategy.NullHtmlBuilderStrategy;
+import common.html.htmlBuilderStrategy.concreteStrategy.NullHtmlBuilderStrategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import static common.html.htmlTemplatesStrategy.Helper.*;
 
 public class DefaultPageHtmlTemplate {
 
-	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) throws Exception {
+	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) throws IOException {
 
 		File dirOfContentFile = contentFile.getParentFile();
 
@@ -28,7 +28,7 @@ public class DefaultPageHtmlTemplate {
 					.open(HEAD)
 						.insertBuilder(defaultHeadTags)
 						.openSingle(LINK, defaultCssAttributes("css/defaultPage.css"))
-						.insertBuilder(getKatexHtmlBuilderStrategy(foContainer))
+						.insertBuilder(createKatexHtmlBuilder_factoryMethod(foContainer))
 						.open(SCRIPT, defaultScriptAttributes("css/defaultPage.js", Map.of(DEFER, ""))).close(SCRIPT)
 					.close(HEAD)
 					.open(BODY)
@@ -40,7 +40,7 @@ public class DefaultPageHtmlTemplate {
 							.close(ARTICLE)
 						.close(MAIN)
 						.open(NAV)
-							.insertBuilder(generateOlTagListingOfFilesIn(dirOfContentFile))
+							.insertBuilder(navHtmlBuilderStrategy(dirOfContentFile))
 						.close(NAV)
 					.close(BODY)
 				.close(HTML)
@@ -50,7 +50,7 @@ public class DefaultPageHtmlTemplate {
 
 	/* === PRIVATE METHODS */
 
-	private HtmlBuilderStrategy getKatexHtmlBuilderStrategy(FileOptionContainer foContainer) {
+	private HtmlBuilderStrategy createKatexHtmlBuilder_factoryMethod(FileOptionContainer foContainer) {
 
 		boolean shouldUseKatexBuilder = foContainer.getOrDefault(KATEX, KATEX.defaultVal).equals("true");
 
