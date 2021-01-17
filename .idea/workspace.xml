@@ -10,12 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/content/math/mathTest_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/math/mathTest_1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/NullHtmlBuilderStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/concreteStrategy/NullHtmlBuilderStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HtmlBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/HtmlBuilderStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/concreteStrategy/NavHtmlBuilderStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlBuilderStrategy/concreteStrategy/NullHtmlBuilderStrategy.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/HtmlTemplateStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/HtmlTemplateStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +132,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="common.html.htmlTemplatesStrategy.concreteStrategy" />
       <recent name="common.html" />
       <recent name="common" />
       <recent name="framework" />

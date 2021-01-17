@@ -1,22 +1,18 @@
-package common.html.htmlBuilderStrategy;
-
-import common.html.HTML;
+package common.html;
 
 import java.util.*;
 
-public class HtmlBuilder implements HtmlBuilderStrategy {
+public class HtmlBuilder {
 
-	private static final String INDENT_CHAR = "  ";
+	private static final String INDENT_CHAR = " ".repeat(2);
 
 	private final StringBuilder stringBuilder = new StringBuilder();
 	private final Deque<HTML.Tag> openedTags  = new ArrayDeque<>();
 
-	@Override
 	public String toString() {
 		return stringBuilder.toString();
 	}
 
-	@Override
 	public HtmlBuilder open(HTML.Tag tag) {
 		stringBuilder
 				.append(getIndent())
@@ -25,7 +21,6 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 		return this;
 	}
 
-	@Override
 	public HtmlBuilder setText(String text) {
 		stringBuilder
 				.append(INDENT_CHAR.repeat(openedTags.size()))
@@ -38,13 +33,11 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 	 * Insert html in the form of a raw String.
 	 * Precondition: the html is valid (e.g. all tags that are opened are also closed)
 	 */
-	@Override
-	public HtmlBuilder insertRaw(String html) {
+	public HtmlBuilder insert(String html) {
 		stringBuilder.append(html);
 		return this;
 	}
 
-	@Override
 	public HtmlBuilder openSingle(HTML.Tag tag, Map<HTML.Attribute, String> attrToVal) {
 		// TODO: 16-01-2021 - this method -- heck this class -- is not that analyzable!
 		stringBuilder
@@ -70,7 +63,6 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 		return this;
 	}
 
-	@Override
 	public HtmlBuilder open(HTML.Tag tag, Map<HTML.Attribute, String> attrToValue) {
 
 		stringBuilder
@@ -93,7 +85,6 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 		return this;
 	}
 
-	@Override
 	public HtmlBuilder close(HTML.Tag tag) {
 		if (!openedTags.pop().equals(tag))
 			throw new RuntimeException("18492");
@@ -101,11 +92,10 @@ public class HtmlBuilder implements HtmlBuilderStrategy {
 		return this;
 	}
 
-	@Override
-	public HtmlBuilder insertBuilder(HtmlBuilderStrategy builder) {
-		stringBuilder.append(builder.toString());
-		return this;
-	}
+//	public HtmlBuilder insertBuilder(HtmlBuilderStrategy builder) {
+//		stringBuilder.append(builder.toString());
+//		return this;
+//	}
 
 
 	/* === PRIVATE METHODS */

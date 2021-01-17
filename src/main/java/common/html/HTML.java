@@ -9,10 +9,6 @@ import javax.swing.text.StyleContext;
 /**
  * Helper used in the <code>HTMLDocument</code>.  These
  * are basically tag and attribute definitions.
- *
- * @author  Timothy Prinzing
- * @author  Sunita Mani
- *
  */
 public class HTML {
 

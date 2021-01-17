@@ -1,12 +1,11 @@
 package common.html.htmlTemplatesStrategy.concreteStrategy;
 
 import common.fileOption.FileOptionContainer;
-import common.html.htmlBuilderStrategy.HtmlBuilderStrategy;
-import common.html.htmlBuilderStrategy.HtmlBuilder;
-import common.html.htmlBuilderStrategy.concreteStrategy.NullHtmlBuilderStrategy;
+import common.html.HtmlBuilder;
+import common.html.HtmlFactory;
+import common.html.htmlTemplatesStrategy.HtmlTemplateStrategy;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
 import static common.fileOption.FileOption.KEY.KATEX;
@@ -18,87 +17,41 @@ import static common.html.htmlTemplatesStrategy.Helper.*;
 
 public class DefaultPageHtmlTemplate {
 
-	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) throws IOException {
+	private final HtmlFactory htmlFactory;
+
+	public DefaultPageHtmlTemplate(HtmlFactory htmlFactory) {
+		this.htmlFactory = htmlFactory;
+	}
+
+
+	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) throws Exception {
 
 		File dirOfContentFile = contentFile.getParentFile();
 
 		return new HtmlBuilder()
-				.insertRaw("<!DOCTYPE html>\n")
+				.insert("<!DOCTYPE html>\n")
 				.open(HTML)
 					.open(HEAD)
-						.insertBuilder(defaultHeadTags)
+						.insert(defaultHeadTags)
 						.openSingle(LINK, defaultCssAttributes("css/defaultPage.css"))
-						.insertBuilder(createKatexHtmlBuilder_factoryMethod(foContainer))
-						.open(SCRIPT, defaultScriptAttributes("css/defaultPage.js", Map.of(DEFER, ""))).close(SCRIPT)
+						.insert(htmlFactory.createKatexHtml(foContainer))
+						.open(SCRIPT, defaultScriptAttributes("css/defaultPage.js")).close(SCRIPT)
 					.close(HEAD)
 					.open(BODY)
 						.open(MAIN)
 							.open(ASIDE, Map.of(ID,  "left-aside")).close(ASIDE)
 //							.open(ASIDE, Map.of(ID, "right-aside")).close(ASIDE)
 							.open(ARTICLE)
-								.insertRaw(articleTag)
+								.insert(articleTag)
 							.close(ARTICLE)
 						.close(MAIN)
 						.open(NAV)
-							.insertBuilder(navHtmlBuilderStrategy(dirOfContentFile))
+							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
 						.close(NAV)
 					.close(BODY)
 				.close(HTML)
 				.toString();
 	}
 
-
-	/* === PRIVATE METHODS */
-
-	private HtmlBuilderStrategy createKatexHtmlBuilder_factoryMethod(FileOptionContainer foContainer) {
-
-		boolean shouldUseKatexBuilder = foContainer.getOrDefault(KATEX, KATEX.defaultVal).equals("true");
-
-		if (!shouldUseKatexBuilder)
-			return new NullHtmlBuilderStrategy();
-
-		else
-			return new HtmlBuilder()
-					.openSingle(LINK,
-							Map.of(
-									HREF, "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
-									REL, "stylesheet",
-									CROSSORIGIN, "anonymous"
-							)
-					)
-					.open(SCRIPT,
-							Map.of(
-									DEFER, "",
-									SRC, "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js",
-									CROSSORIGIN, "anonymous"
-							)
-					).close(SCRIPT)
-					.open(SCRIPT,
-							Map.of(
-									DEFER, "",
-									SRC, "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js",
-									CROSSORIGIN, "anonymous",
-									ONLOAD, "renderMathInElement(document.body);"
-							)
-					).close(SCRIPT)
-					.open(STYLE, Map.of(REL, "stylesheet"))
-						.insertRaw(".katex { font-size: 1em !important; }")
-					.close(STYLE)
-					.open(SCRIPT)
-						.insertRaw("""
-								    document.addEventListener("DOMContentLoaded", function() {
-								        renderMathInElement(document.body, {
-								            delimiters: [
-								                  {left: "$$", right: "$$", display: true},
-								                  {left: "$", right: "$", display: false},
-								              ],
-								          macros: {
-								              "\\\\RR": "\\\\mathbb{R}"
-								          }
-								        });
-								    });
-								""")
-					.close(SCRIPT); //TODO: you should be able to define macros using FileOptions, not hard-coded like here
-	}
 
 }

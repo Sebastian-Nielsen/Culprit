@@ -1,13 +1,12 @@
 package common.compilerFacade;
 
+import common.html.HtmlFactory;
+import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultPageHtmlTemplate;
 import framework.compilerFacade.Compiler;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.compilerFacade.Precompiler;
 
 import java.io.File;
-
-import static common.html.htmlTemplatesStrategy.Helper.buildDefaultPageHtmlTemplateUsing;
-import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class CompilerFacade {
 
@@ -22,7 +21,7 @@ public class CompilerFacade {
 	}
 
 	/**
-	 * Compile the specified {@code contentFile} only
+	 * Compile the specified {@code contentFile}
 	 */
 	public String compile(File contentFile) throws Exception {
 
@@ -32,5 +31,17 @@ public class CompilerFacade {
 
 		return htmlTag;
 	}
+
+
+
+	/* === PRIVATE METHODS */
+
+	private String buildDefaultPageHtmlTemplateUsing(File contentFile,
+	                                                 String articleTag,
+	                                                 CompilerDataContainer dataContainer) throws Exception {
+		return new DefaultPageHtmlTemplate(new HtmlFactory())
+				.buildUsing(contentFile, articleTag, dataContainer.getFOContainerOf(contentFile));
+	}
+
 
 }
