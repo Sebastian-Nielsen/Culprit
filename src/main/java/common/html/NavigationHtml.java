@@ -38,6 +38,9 @@ public class NavigationHtml {
 		generateNavHtmlForDir(deployRootFolder, new HtmlBuilder(), 1);
 	}
 
+	/**
+	 *
+	 */
 	private void generateNavHtmlForDir(File dir, HtmlBuilder builder, int dirLevel) throws Exception {
 		builder.open(OL);
 		HtmlBuilder builderSnapshot = builder.clone();
