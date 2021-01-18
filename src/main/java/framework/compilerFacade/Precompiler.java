@@ -11,6 +11,6 @@ public interface Precompiler {
 	 * @param contentFile file to extract and compile the markdown of
 	 * @return the compiled markdown
 	 */
-	String compile(File contentFile) throws IOException;
+	String compile(File contentFile) throws Exception;
 
 }

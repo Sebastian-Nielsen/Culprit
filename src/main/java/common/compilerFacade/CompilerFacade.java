@@ -40,7 +40,7 @@ public class CompilerFacade {
 	                                                 String articleTag,
 	                                                 CompilerDataContainer dataContainer) throws Exception {
 		return new DefaultPageHtmlTemplate(new HtmlFactory())
-				.buildUsing(contentFile, articleTag, dataContainer.getFOContainerOf(contentFile));
+				.buildUsing(contentFile, articleTag, dataContainer);
 	}
 
 

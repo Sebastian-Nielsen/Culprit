@@ -3,13 +3,14 @@ package common;
 import common.compilerFacade.CompilerDataContainer;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
+import common.html.NavigationHtml;
 import common.other.FileHandlerImpl;
 import framework.other.Logger;
 import one.util.streamex.EntryStream;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,10 +31,10 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
  */
 public class DataExtractor {
 
-	private final File contentRootFolder;
-	private final File deployRootFolder;
+	private @NotNull final File contentRootFolder;
+	private @NotNull final File deployRootFolder;
 
-	public DataExtractor(File contentRootFolder, File deployRootFolder) {
+	public DataExtractor(@NotNull File contentRootFolder, @NotNull File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
 		this.deployRootFolder  = deployRootFolder;
 	}
@@ -66,8 +67,11 @@ public class DataExtractor {
 	 * @return a {@code CompilerDataContainer}
 	 */
 	public CompilerDataContainer buildDataContainerForCompiler() throws Exception {
-		Map<String, File> idToFile = extractIdToContentFile();
+
+		Map<String, File>                idToFile          = extractIdToContentFile();
 		Map<String, FileOptionContainer> pathToFoContainer = extractPathToFOContainer();
+
+		NavigationHtml.getInstance().generateNavHtmlForAllDirsIn(contentRootFolder);
 
 		Logger.log(pathToFoContainer);
 

@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +150,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.NavigationHtmlTest.shouldGenerateNavigationHtml">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -310,8 +311,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateNavigationHtml" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateNavigationHtml" />
         <item itemvalue="Gradle.culprit_2 [shadowJar]" />
         <item itemvalue="Gradle.culprit_2 [knows]" />
         <item itemvalue="Gradle.culprit_2 [show]" />
@@ -335,16 +336,38 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
+          <line>48</line>
+          <properties class="common.html.NavigationHtml" method="getNavHtmlOf">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
+          <line>40</line>
+          <properties class="common.html.NavigationHtml" method="generateNavHtmlForAllDirsIn">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="21" />
+          <line>92</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="common.CompilerDataContainer" memberName="idToRelativeDeployPath" />
+        <PinnedItemInfo parentTag="java.util.HashMap" memberName="table" />
         <PinnedItemInfo parentTag="common.html.HtmlBuilder" memberName="openedTags" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
         <PinnedItemInfo parentTag="java.util.regex.Matcher" memberName="text" />
@@ -352,7 +375,7 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="GradleRunConfiguration">
-        <watch expression="buffer.toStringCache" />
+        <watch expression="builder.toString()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -362,5 +385,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/culprit_2$Tests_in__unitTests_.ic" NAME="Tests in 'unitTests' Coverage Results" MODIFIED="1608334259112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/culprit_2$Main.ic" NAME="Main Coverage Results" MODIFIED="1610972664083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>framework.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,8 +1,10 @@
 package common.compilerFacade;
 
 import common.fileOption.FileOptionContainer;
+import common.html.NavigationHtml;
 import framework.compilerFacade.Precompiler;
 import framework.other.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,14 +19,17 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Retriever.contentOf;
 
 public class PrecompilerImpl implements Precompiler {
-	private final CompilerDataContainer dataContainer;
 
-	public PrecompilerImpl(CompilerDataContainer dataContainer) {
+	private @NotNull static final NavigationHtml navigationHtml = NavigationHtml.getInstance();
+	private @NotNull final CompilerDataContainer dataContainer;
+
+	public PrecompilerImpl(@NotNull CompilerDataContainer dataContainer) {
 		this.dataContainer = dataContainer;
 	}
 
 	@Override
-	public String compile(File contentFile) throws IOException {
+	public String compile(File contentFile) throws Exception {
+
 		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
 
 		String content = contentOf(contentFile);

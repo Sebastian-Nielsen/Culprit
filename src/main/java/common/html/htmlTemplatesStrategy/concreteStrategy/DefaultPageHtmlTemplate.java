@@ -1,18 +1,16 @@
 package common.html.htmlTemplatesStrategy.concreteStrategy;
 
+import common.compilerFacade.CompilerDataContainer;
 import common.fileOption.FileOptionContainer;
 import common.html.HtmlBuilder;
 import common.html.HtmlFactory;
-import common.html.htmlTemplatesStrategy.HtmlTemplateStrategy;
 
 import java.io.File;
 import java.util.Map;
 
-import static common.fileOption.FileOption.KEY.KATEX;
 import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
-import static common.html.HTML.Tag.STYLE;
 import static common.html.htmlTemplatesStrategy.Helper.*;
 
 public class DefaultPageHtmlTemplate {
@@ -24,9 +22,9 @@ public class DefaultPageHtmlTemplate {
 	}
 
 
-	public String buildUsing(File contentFile, String articleTag, FileOptionContainer foContainer) throws Exception {
+	public String buildUsing(File contentFile, String articleTag, CompilerDataContainer dataContainer) throws Exception {
 
-		File dirOfContentFile = contentFile.getParentFile();
+		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
 
 		return new HtmlBuilder()
 				.insert("<!DOCTYPE html>\n")
@@ -39,7 +37,8 @@ public class DefaultPageHtmlTemplate {
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
-							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
+							.insert(dataContainer.getNavigationHtmlOf(contentFile))
+//							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
 						.close(NAV)
 						.open(SCRIPT, defaultScriptAttributes("css/navOverlay.js")).close(SCRIPT) // should be loaded after NAV
 						.open(MAIN)

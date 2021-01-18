@@ -1,13 +1,11 @@
 package common.compilerFacade;
 
 import common.fileOption.FileOptionContainer;
-import one.util.streamex.EntryStream;
-import one.util.streamex.StreamEx;
+import common.html.NavigationHtml;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,11 +14,13 @@ import java.util.Map;
  */
 public class CompilerDataContainer {
 
-	private final @Unmodifiable Map<String, File> idToContentFile;
-	private @Unmodifiable Map<String, FileOptionContainer> pathToFOContainer;
+	private @Unmodifiable @NotNull final Map<String, File>                idToContentFile;
+	private @Unmodifiable @NotNull final Map<String, FileOptionContainer> pathToFOContainer;
+	private @NotNull final NavigationHtml navigationHtml = NavigationHtml.getInstance();
 
-	public CompilerDataContainer(Map<String, File> idToContentFile, Map<String, FileOptionContainer> pathToFOContainer) {
-		this.idToContentFile = idToContentFile;
+	public CompilerDataContainer(@NotNull Map<String, File> idToContentFile,
+	                             @NotNull Map<String, FileOptionContainer> pathToFOContainer) {
+		this.idToContentFile   = idToContentFile;
 		this.pathToFOContainer = pathToFOContainer;
 	}
 
@@ -33,6 +33,10 @@ public class CompilerDataContainer {
 
 	public File getFileOfId(String id) {
 		return idToContentFile.get(id);
+	}
+
+	public String getNavigationHtmlOf(File file) {
+		return navigationHtml.getNavHtmlOf(file);
 	}
 
 }
