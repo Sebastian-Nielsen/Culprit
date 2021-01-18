@@ -6,6 +6,7 @@ import common.html.HtmlFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import static common.html.HTML.Tag.*;
 import static common.html.htmlTemplatesStrategy.Helper.*;
@@ -32,13 +33,12 @@ public class DefaultIndexHtmlTemplate {
 				.open(HTML)
 					.open(HEAD)
 						.insert(defaultHeadTags)
-						.openSingle(LINK, defaultCssAttributes("css/navOverlay.css"))
+						.openSingle(LINK, defaultCssAttributes("css/defaultIndexFacade/INDEX.css"))
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
 							.insert(dataContainer.getNavigationHtmlOf(indexFile))
 						.close(NAV)
-						.open(SCRIPT, defaultScriptAttributes("css/navOverlay.js")).close(SCRIPT) // should be loaded after NAV
 					.close(BODY)
 				.close(HTML)
 				.toString();

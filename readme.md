@@ -55,3 +55,5 @@ java -jar culprit_2.jar
     right: uddybninger af main content.
    
 3. Support multiple spaces in .md 
+
+4. Should support image paste

@@ -1,6 +1,5 @@
 package common.html;
 
-import one.util.streamex.StreamEx;
 import org.apache.commons.io.comparator.NameFileComparator;
 
 import java.io.File;
@@ -13,7 +12,6 @@ import java.util.Map;
 import static common.html.HTML.Attribute.CLASS;
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
-import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.*;
@@ -54,30 +52,9 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	public String getNavHtmlOf(File deployFile) {
 
 		File parent = deployFile.getParentFile();
+
 		String parentPath = relativePath(parent, deployRootFolder);
 
-//		System.out.println();
-//		System.out.println();
-//		System.out.println(":!:");
-//		System.out.println(deployRootFolder.toURI().relativize(parent.toURI()).getPath());
-//		System.out.println();
-//		System.out.println(parent.toURI().relativize(deployRootFolder.toURI()).getPath());
-//		System.out.println();
-//		System.out.println();
-//		System.out.println("contentRootFolder");
-//		System.out.println(deployRootFolder.toString());
-//		System.out.println();
-//		System.out.println("parent:");
-//		System.out.println(parent.toString());
-//		System.out.println();
-//		System.out.println("parentPath:");
-//		System.out.println(parentPath);
-//		for (String file : DirPathToNavHtmlOfFilesInTheDir.keySet())
-//			System.out.println(file);
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
 		return DirPathToNavHtmlOfFilesInTheDir.get(parentPath);
 	}
 
@@ -109,7 +86,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 			// Base case, there is no more parents to include, so just generate for this rootDir
 			builder = new HtmlBuilder();
 		}
-		buildOlTagOn(builder, rootDir, dirToMark, originalDir);
+		buildOlTag(builder, rootDir, dirToMark, originalDir);
 
 		return builder;
 	}
@@ -119,7 +96,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 		return files;
 	}
 
-	private void buildOlTagOn(HtmlBuilder builder, File rootDir, File dirToMark, File originalDir) throws IOException {
+	private void buildOlTag(HtmlBuilder builder, File rootDir, File dirToMark, File originalDir) throws IOException {
 		builder.open(OL);
 
 		buildLiTagsForDirs(builder, rootDir, originalDir, dirToMark);
@@ -147,7 +124,14 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 
 		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVE));
 		for (File file : nonDirs)
-			buildLiTagFor(builder, file, originalDir, List.of("file"));
+
+			if (!isIndexFile(file))
+				buildLiTagFor(builder, file, originalDir, List.of("file"));
+
+	}
+
+	private boolean isIndexFile(File file) {
+		return file.toString().endsWith("index.html");
 	}
 
 	private boolean isEqual(File fileA, File fileB) {
@@ -157,18 +141,18 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	private void buildLiTagFor(HtmlBuilder builder, File file, File originalDir, List<String> listOfClassValues) {
 
 		String classValues = String.join(" ", listOfClassValues);
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("original");
-		System.out.println(originalDir);
-		System.out.println();
-		System.out.println("file");
-		System.out.println(file);
-		System.out.println();
-		System.out.println(relativeFilePathBetween(originalDir, file));
-		System.out.println();
-		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println("original");
+//		System.out.println(originalDir);
+//		System.out.println();
+//		System.out.println("file");
+//		System.out.println(file);
+//		System.out.println();
+//		System.out.println(relativeFilePathBetween(originalDir, file));
+//		System.out.println();
+//		System.out.println();
 		builder	.open(LI, Map.of(CLASS, classValues))
 					.open(A, Map.of(HREF, relativeFilePathBetween(originalDir, file)))
 						.setText(removeExtension(file.getName()))
@@ -178,8 +162,6 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 
 	private void storeDirToNavHtml(File rootDir, String navHtml) {
 		assert rootDir.isDirectory(); // TODO remove when tested
-
-		// TODO shouldn't include if (rootDir.getFileName() == 'index.html')
 
 		String dirPath = relativePath(rootDir, deployRootFolder);
 		DirPathToNavHtmlOfFilesInTheDir.put(dirPath, navHtml);

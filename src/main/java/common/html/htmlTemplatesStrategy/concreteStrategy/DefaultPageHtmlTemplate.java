@@ -35,9 +35,9 @@ public class DefaultPageHtmlTemplate {
 				.open(HTML)
 					.open(HEAD)
 						.insert(defaultHeadTags)
-						.openSingle(LINK, defaultCssAttributes("css/defaultPage.css"))
-						.openSingle(LINK, defaultCssAttributes("css/navOverlay.css"))
-						.open(SCRIPT, defaultScriptAttributes("css/defaultPage.js", Map.of(DEFER, ""))).close(SCRIPT)
+						.openSingle(LINK, defaultCssAttributes("css/defaultPageFacade/INDEX.css"))
+						.open(SCRIPT, defaultScriptAttributes( "js/defaultPageFacade/globalConstVariables.js")).close(SCRIPT)
+						.open(SCRIPT, defaultScriptAttributes( "js/defaultPageFacade/INDEX_1/navOverlay_colorCurrentlySelected.js", Map.of(DEFER, ""))).close(SCRIPT)
 						.insert(htmlFactory.createKatexHtml(foContainer))
 					.close(HEAD)
 					.open(BODY)
@@ -45,7 +45,7 @@ public class DefaultPageHtmlTemplate {
 							.insert(dataContainer.getNavigationHtmlOf(deployEquivOfContentFile))
 //							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
 						.close(NAV)
-						.open(SCRIPT, defaultScriptAttributes("css/navOverlay.js")).close(SCRIPT) // should be loaded after NAV
+						.open(SCRIPT, defaultScriptAttributes("js/defaultPageFacade/INDEX_2/navOverlay_hotKeyToggle.js")).close(SCRIPT) // should be loaded after NAV
 						.open(MAIN)
 							.open(ASIDE, Map.of(ID,  "left-aside")).close(ASIDE)
 //							.open(ASIDE, Map.of(ID, "right-aside")).close(ASIDE)

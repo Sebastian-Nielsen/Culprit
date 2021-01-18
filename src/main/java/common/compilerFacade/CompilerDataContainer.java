@@ -47,7 +47,7 @@ public class CompilerDataContainer {
 	}
 
 	public String getNavigationHtmlOf(File deployFile) {
-		return navHtmlGenerator.getNavHtmlOf(deployFile);
+		return navHtmlGenerator.getNavHtmlOf(deployFile);   //TODO does it really have to be a deploy file? (make it more general)
 	}
 
 	public @NotNull File getContentRootFolder() {
