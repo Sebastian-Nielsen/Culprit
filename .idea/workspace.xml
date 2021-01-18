@@ -353,13 +353,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>104</line>
+          <line>106</line>
           <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

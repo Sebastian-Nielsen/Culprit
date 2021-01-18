@@ -14,6 +14,7 @@ import static common.html.HTML.Attribute.CLASS;
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
+import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
@@ -38,7 +39,7 @@ public class NavigationHtml {
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
 	 */
 	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
-		generateNavHtmlFor(deployRootFolder);
+		generateNavHtmlFor(deployRootFolder, deployRootFolder);
 	}
 
 
@@ -84,29 +85,29 @@ public class NavigationHtml {
 
 	/* === PRIVATE METHODS */
 
-	private void generateNavHtmlFor(File rootDir) throws Exception {
+	private void generateNavHtmlFor(File rootDir, File originalDir) throws Exception {
 
 		File dirToMark = rootDir;
 
-		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
+		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
 		for (File subDir : listDirsFrom(rootDir, NONRECURSIVE))
-			generateNavHtmlFor(subDir);
+			generateNavHtmlFor(subDir, originalDir);
 
 	}
 
-	private HtmlBuilder generateNavHtmlForAllFilesInDeploy(File rootDir, File dirToMark, int numOfParentsToInclude) throws Exception {
+	private HtmlBuilder generateNavHtmlForAllFilesInDeploy(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
 		HtmlBuilder builder;
 
 		if (numOfParentsToInclude > 0) {
 			// Ask for the solution to the parent of rootDir
-			builder = generateNavHtmlForAllFilesInDeploy(rootDir.getParentFile(), rootDir, numOfParentsToInclude-1);
+			builder = generateNavHtmlForAllFilesInDeploy(rootDir.getParentFile(), rootDir, originalDir, numOfParentsToInclude-1);
 		} else {
 			// Base case, there is no more parents to include, so just generate for this rootDir
 			builder = new HtmlBuilder();
 		}
-		buildOlTagOn(builder, rootDir, dirToMark);
+		buildOlTagOn(builder, rootDir, dirToMark, originalDir);
 
 		return builder;
 	}
@@ -116,44 +117,49 @@ public class NavigationHtml {
 		return files;
 	}
 
-	private void buildOlTagOn(HtmlBuilder builder, File rootDir, File dirToMark) throws IOException {
+	private void buildOlTagOn(HtmlBuilder builder, File rootDir, File dirToMark, File originalDir) throws IOException {
 		builder.open(OL);
 
-		File[] dirs = sortByFileName(listDirsFrom(rootDir, NONRECURSIVE));
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
-//		System.out.println(rootDir);
-//		System.out.println();
-//		System.out.println();
-		for (File file : dirs) {
-//			System.out.println(file);
-//			System.out.println();
+		buildLiTagsForDirs(builder, rootDir, originalDir, dirToMark);
 
-			if (file.toString().equals(dirToMark.toString()))
-				buildLiTagFor(builder, file, List.of("dir", "marked"));
-
-			buildLiTagFor(builder, file, List.of("dir"));
-		}
-
-		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVE));
-		for (File file : nonDirs)
-			buildLiTagFor(builder, file, List.of("file"));
+		buildLiTagsForNonDirs(builder, rootDir, originalDir);
 
 		builder.close(OL);
 	}
 
-	private void buildLiTagFor(HtmlBuilder builder, File file, List<String> listOfClassValues) {
+	private void buildLiTagsForDirs(HtmlBuilder builder, File rootDir, File originalDir, File dirToMark) throws IOException {
+		File[] dirs = sortByFileName(listDirsFrom(rootDir, NONRECURSIVE));
+		for (File file : dirs) {
 
-		String liClassValue = file.isFile() ? "file" : "folder";
-		String classValues  = String.join(" ", listOfClassValues);
+			List<String> classValues;
+			if (isEqual(file, dirToMark))
+				classValues = List.of("dir", "marked");
+			else
+				classValues = List.of("dir");
 
-		builder
-				.open(LI, Map.of(CLASS, classValues))
-				.open(A, Map.of(HREF, "./" + file.getName()))
-				.setText(removeExtension(file.getName()))
-				.close(A)
+			buildLiTagFor(builder, file, originalDir, classValues);
+		}
+	}
+
+	private void buildLiTagsForNonDirs(HtmlBuilder builder, File rootDir, File originalDir) throws IOException {
+
+		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVE));
+		for (File file : nonDirs)
+			buildLiTagFor(builder, file, originalDir, List.of("file"));
+	}
+
+	private boolean isEqual(File fileA, File fileB) {
+		return fileA.toString().equals(fileB.toString());
+	}
+
+	private void buildLiTagFor(HtmlBuilder builder, File file, File originalDir, List<String> listOfClassValues) {
+
+		String classValues = String.join(" ", listOfClassValues);
+
+		builder	.open(LI, Map.of(CLASS, classValues))
+					.open(A, Map.of(HREF, relativeFilePathBetween(originalDir, file)))
+						.setText(removeExtension(file.getName()))
+					.close(A)
 				.close(LI);
 	}
 
