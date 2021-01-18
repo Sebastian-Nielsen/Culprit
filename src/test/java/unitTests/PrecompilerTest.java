@@ -4,6 +4,7 @@ import common.compilerFacade.CompilerDataContainer;
 import common.DataExtractor;
 import common.compilerFacade.PrecompilerImpl;
 import common.fileOption.FileOptionContainer;
+import common.html.NavigationHtml;
 import framework.compilerFacade.Precompiler;
 import one.util.streamex.EntryStream;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,8 +36,11 @@ public class PrecompilerTest {
 	
 	private Precompiler precompiler;
 	
-	private final String EXPECTED_ROOT_PATH = "precompilerTest_testFiles/D_LINKS/expected";;
-	private final String    INPUT_ROOT_PATH = "precompilerTest_testFiles/D_LINKS/input";
+	private final String EXPECTED_ROOT_PATH = "precompilerTest_testFiles/D_LINKS/expected";
+	private final String    INPUT_ROOT_PATH = "precompilerTest_testFiles/D_LINKS/input";	
+	
+	private final File EXPECTED_ROOT_FILE = getResourceFile(EXPECTED_ROOT_PATH);
+	private final File    INPUT_ROOT_FILE = getResourceFile(   INPUT_ROOT_PATH);
 
 	private final String A = "/A";
 	private final String B = "/B";
@@ -86,48 +90,49 @@ public class PrecompilerTest {
 
 	private CompilerDataContainer newCompilerDataContainer(Map<File, FileOptionContainer> fileToFOContainer) throws Exception {
 		DataExtractor dataExtractor = new DataExtractor(
-				getResourceFile(INPUT_ROOT_PATH),
-				getResourceFile(EXPECTED_ROOT_PATH)
+				INPUT_ROOT_FILE,
+				EXPECTED_ROOT_FILE
 		);
 
 		Map<String, FileOptionContainer> pathToFOContainer = EntryStream.of(fileToFOContainer).mapKeys(File::toString).toMap();
 
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
-				pathToFOContainer
+				pathToFOContainer,
+				new NavigationHtml(INPUT_ROOT_FILE, EXPECTED_ROOT_FILE)
 		);
 	}
 
 	@Test
-	public void shouldCompileDLinksInFileA() throws IOException {
+	public void shouldCompileDLinksInFileA() throws Exception {
 		// Exercise
 		String actualCompiledContent = precompiler.compile(INPUT_FILE_A);
 		// Verify
 		assertThat(actualCompiledContent, is(contentOf(EXPECTED_FILE_A)));
 	}
 	@Test
-	public void shouldCompileDLinksInFileB() throws IOException {
+	public void shouldCompileDLinksInFileB() throws Exception {
 		// Exercise 
 		String actualCompiledContent = precompiler.compile(INPUT_FILE_B);
 		// Verify
 		assertThat(actualCompiledContent, is(contentOf(EXPECTED_FILE_B)));
 	}
 	@Test
-	public void shouldCompileDLinksInFileC() throws IOException {
+	public void shouldCompileDLinksInFileC() throws Exception {
 		// Exercise 
 		String actualCompiledContent = precompiler.compile(INPUT_FILE_C);
 		// Verify
 		assertThat(actualCompiledContent, is(contentOf(EXPECTED_FILE_C)));
 	}
 	@Test
-	public void shouldCompileDLinksInFileD() throws IOException {
+	public void shouldCompileDLinksInFileD() throws Exception {
 		// Exercise 
 		String actualCompiledContent = precompiler.compile(INPUT_FILE_D);
 		// Verify
 		assertThat(actualCompiledContent, is(contentOf(EXPECTED_FILE_D)));
 	}
 	@Test
-	public void shouldCompileDLinksInFileE() throws IOException {
+	public void shouldCompileDLinksInFileE() throws Exception {
 		// Exercise 
 		String actualCompiledContent = precompiler.compile(INPUT_FILE_E);
 		// Verify

@@ -12,7 +12,7 @@ import static common.html.HTML.Attribute.CLASS;
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
-import static framework.utils.FileUtils.Filename.changeFileExt;
+import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
@@ -21,14 +21,14 @@ import static org.apache.commons.io.FilenameUtils.removeExtension;
  * Responsible for efficiently storing NavigationHtml
  */
 public class NavigationHtml {
-	private static final Map<String, String> contentDirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
+	private static final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
 	private static final int NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML = 3;
-	private final File contentRootFollder;
-	private final File delpoyRootFolder;
+	private final File contentRootFolder;
+	private final File deployRootFolder;
 
-	public NavigationHtml(File contentRootFollder, File delpoyRootFolder) {
-		this.contentRootFollder = contentRootFollder;
-		this.delpoyRootFolder = delpoyRootFolder;
+	public NavigationHtml(File contentRootFolder, File deployRootFolder) {
+		this.contentRootFolder = contentRootFolder;
+		this.deployRootFolder = deployRootFolder;
 	}
 
 
@@ -36,7 +36,7 @@ public class NavigationHtml {
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
 	 */
 	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
-		generateNavHtmlFor(delpoyRootFolder);
+		generateNavHtmlFor(deployRootFolder);
 	}
 
 
@@ -47,9 +47,34 @@ public class NavigationHtml {
 	 * @return Navigation html of the specified {@code File}
 	 */
 	public String getNavHtmlOf(File contentFile) {
-		File delpoyFile = getDeployEquivalentOf(contentRootFollder, delpoyRootFolder, contentFile);
-		File parent = delpoyFile.getParentFile();
-		return contentDirPathToNavHtmlOfFilesInTheDir.get(parent.toString());
+		File deployFile = getDeployEquivalentOf(contentFile, contentRootFolder, deployRootFolder);
+
+		File parent = deployFile.getParentFile();
+		String parentPath = relativePath(parent, deployRootFolder);
+
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(":!:");
+//		System.out.println(deployRootFolder.toURI().relativize(parent.toURI()).getPath());
+//		System.out.println();
+//		System.out.println(parent.toURI().relativize(deployRootFolder.toURI()).getPath());
+//		System.out.println();
+//		System.out.println();
+//		System.out.println("contentRootFolder");
+//		System.out.println(deployRootFolder.toString());
+//		System.out.println();
+//		System.out.println("parent:");
+//		System.out.println(parent.toString());
+//		System.out.println();
+//		System.out.println("parentPath:");
+//		System.out.println(parentPath);
+//		for (String file : DirPathToNavHtmlOfFilesInTheDir.keySet())
+//			System.out.println(file);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+		return DirPathToNavHtmlOfFilesInTheDir.get(parentPath);
 	}
 
 
@@ -102,7 +127,11 @@ public class NavigationHtml {
 
 	private void storeDirToNavHtml(File rootDir, String navHtml) {
 		assert rootDir.isDirectory(); // TODO remove when tested
-		contentDirPathToNavHtmlOfFilesInTheDir.put(rootDir.toString(), navHtml);
+
+		// TODO shouldn't include if (rootDir.getFileName() == 'index.html')
+
+		String dirPath = relativePath(rootDir, deployRootFolder);
+		DirPathToNavHtmlOfFilesInTheDir.put(dirPath, navHtml);
 	}
 
 

@@ -1,26 +1,21 @@
 package common.compilerFacade;
 
 import common.fileOption.FileOptionContainer;
-import common.html.NavigationHtml;
 import framework.compilerFacade.Precompiler;
-import framework.other.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static common.fileOption.FileOption.KEY.D_LINKS;
-import static common.fileOption.FileOption.KEY.ID;
 import static common.other.ValidatorImpl.REGEXES;
-import static framework.utils.FileUtils.Filename.*;
-import static framework.utils.FileUtils.Lister.listNonDirsFrom;
+import static framework.utils.FileUtils.Filename.changeFileExt;
+import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
 import static framework.utils.FileUtils.Retriever.contentOf;
 
 public class PrecompilerImpl implements Precompiler {
 
-	private @NotNull static final NavigationHtml navigationHtml = NavigationHtml.getInstance();
 	private @NotNull final CompilerDataContainer dataContainer;
 
 	public PrecompilerImpl(@NotNull CompilerDataContainer dataContainer) {

@@ -62,7 +62,7 @@ public class PreparatorTest {
 		preparator.addIdToContentFilesWithoutOne();
 
 		// Verify post-exercise state
-		final File EXPECTED_DIR = getTestDir(methodSpecificTestDirname + "/NavigationHtmlTest_testFiles/expected");
+		final File EXPECTED_DIR = getTestDir(methodSpecificTestDirname + "/expected");
 
 		String[] expectedFileContents = listContentOfFilesFrom(EXPECTED_DIR);
 		String[]   actualFileContents = listContentOfFilesFrom( CONTENT_DIR);

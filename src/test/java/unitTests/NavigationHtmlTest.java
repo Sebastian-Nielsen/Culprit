@@ -28,8 +28,8 @@ public class NavigationHtmlTest {
 
 	@Test
 	public void shouldGenerateNavigationHtml() throws Exception {
-		NavigationHtml navHtml = NavigationHtml.getInstance();
-		navHtml.generateNavHtmlForAllFilesInDeploy();
+//		NavigationHtml navHtml = NavigationHtml.getInstance();
+//		navHtml.generateNavHtmlForAllFilesInDeploy();
 
 //		String A_NavHtml = navHtml.getNavHtmlOf(FILE_A);
 //		System.out.println(A_NavHtml);
@@ -37,8 +37,8 @@ public class NavigationHtmlTest {
 		System.out.println("-----------------------");
 		System.out.println("-----------------------");
 
-		String c2_NavHtml = navHtml.getNavHtmlOf(FILE_D);
-		System.out.println(c2_NavHtml);
+//		String c2_NavHtml = navHtml.getNavHtmlOf(FILE_D);
+//		System.out.println(c2_NavHtml);
 	}
 
 }

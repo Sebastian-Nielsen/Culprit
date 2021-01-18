@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static framework.utils.FileUtils.Filename.getRelativePath;
+import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Retriever.contentOf;
@@ -210,11 +210,8 @@ public class FileUtils {
 		 * @return A list of all files in {@code folder}
 		 */
 		public static String[] getRelativePathsFrom(File folder) throws IOException {
-			String basePath = "" + folder;
-			URI uri = new File(basePath).toURI();
-
 			return Arrays.stream(listFilesAndDirsFrom(folder, RECURSIVE))
-					.map(file -> getRelativePath(file, uri))
+					.map(file -> relativePath(file, folder))
 					.toArray(String[]::new);
 		}
 
@@ -310,8 +307,8 @@ public class FileUtils {
 		 * Get the path of each file in the inputFolders.content dir RELATIVE to the base inputFolders.content dir
 		 * E.g. instead of 'C:/.../culprit/inputFolders.content/aa/test.md' then 'aa/test.md'
 		 */
-		public static String getRelativePath(File file, URI basePath) {
-			return basePath.relativize(file.toURI()).getPath();
+		public static String relativePath(File file, File basePath) {
+			return basePath.toURI().relativize(file.toURI()).getPath();
 		}
 
 
@@ -342,6 +339,9 @@ public class FileUtils {
 			return relativePath;
 		}
 
+		/**
+		 * Same doc as {@link #relativeFilePathBetween}
+		 */
 		public static String relativeFilePathBetween(String baseFile, String toFile) {
 			Path baseFilePath = Paths.get(baseFile);
 			Path toFilePath = Paths.get(toFile);

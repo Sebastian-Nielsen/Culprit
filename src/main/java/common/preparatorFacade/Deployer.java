@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static framework.utils.FileUtils.Filename.changeFileExt;
-import static framework.utils.FileUtils.Filename.getRelativePath;
+import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 
@@ -77,7 +77,7 @@ public class Deployer {
 
 	private static String getRelativeDeployPath(File contentFile, File contentRootFolder) {
 
-		String relativePath = getRelativePath(contentFile, contentRootFolder.toURI());
+		String relativePath = relativePath(contentFile, contentRootFolder);
 
 		if (relativePath.endsWith(".md"))
 			relativePath = changeFileExt(relativePath, "html");
