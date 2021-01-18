@@ -5,16 +5,19 @@ import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultPageHtmlTemplat
 import framework.compilerFacade.Compiler;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.compilerFacade.Precompiler;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
 public class CompilerFacade {
 
-	private final Precompiler precompiler;
-	private final Compiler compiler;
-	private final CompilerDataContainer dataContainer;
+	private @NotNull final Precompiler precompiler;
+	private @NotNull final Compiler compiler;
+	private @NotNull final CompilerDataContainer dataContainer;
 
-	public CompilerFacade(CompilerFacadeFactory factory, CompilerDataContainer dataContainer) {
+	public CompilerFacade(@NotNull CompilerFacadeFactory factory,
+	                      @NotNull CompilerDataContainer dataContainer) {
+
 		this.precompiler   = factory.createPrecompiler(dataContainer);
 		this.compiler      = factory.createCompiler();
 		this.dataContainer = dataContainer;
@@ -27,7 +30,7 @@ public class CompilerFacade {
 
 		String md         = precompiler.compile(contentFile);
 		String articleTag = compiler.compile(md);
-		String htmlTag    = buildDefaultPageHtmlTemplateUsing(contentFile, articleTag, dataContainer);
+		String htmlTag    = buildDefaultPageUsing(contentFile, articleTag, dataContainer);
 
 		return htmlTag;
 	}
@@ -36,9 +39,9 @@ public class CompilerFacade {
 
 	/* === PRIVATE METHODS */
 
-	private String buildDefaultPageHtmlTemplateUsing(File contentFile,
-	                                                 String articleTag,
-	                                                 CompilerDataContainer dataContainer) throws Exception {
+	private String buildDefaultPageUsing(File contentFile,
+	                                     String articleTag,
+	                                     CompilerDataContainer dataContainer) throws Exception {
 		return new DefaultPageHtmlTemplate(new HtmlFactory())
 				.buildUsing(contentFile, articleTag, dataContainer);
 	}

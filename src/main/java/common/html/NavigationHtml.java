@@ -23,7 +23,7 @@ import static org.apache.commons.io.FilenameUtils.removeExtension;
 /**
  * Responsible for efficiently storing NavigationHtml
  */
-public class NavigationHtml {
+public class NavigationHtml implements NavigationHtmlGenerator {
 	private static final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
 	private static final int NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML = 3;
 	private final File contentRootFolder;
@@ -38,6 +38,7 @@ public class NavigationHtml {
 	/**
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
 	 */
+	@Override
 	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
 		generateNavHtmlFor(deployRootFolder);
 	}
@@ -46,11 +47,11 @@ public class NavigationHtml {
 	/* === GETTERS */
 
 	/**
-	 * @param contentFile file or folder
+	 * @param deployFile file or folder
 	 * @return Navigation html of the specified {@code File}
 	 */
-	public String getNavHtmlOf(File contentFile) {
-		File deployFile = getDeployEquivalentOf(contentFile, contentRootFolder, deployRootFolder);
+	@Override
+	public String getNavHtmlOf(File deployFile) {
 
 		File parent = deployFile.getParentFile();
 		String parentPath = relativePath(parent, deployRootFolder);

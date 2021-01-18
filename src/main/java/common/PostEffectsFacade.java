@@ -16,31 +16,25 @@ import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 
-public class PostEffectFacade {
+public class PostEffectsFacade {
 
 	private final boolean shouldPrettifyHtml;
 
-	private final File contentRootFolder;
-	private final File deployRootFolder;
+	private @NotNull final File contentRootFolder;
+	private @NotNull final File deployRootFolder;
+	private @NotNull final PostEffectDataContainer dataContainer;
 
-	public PostEffectFacade(DefaultPostEffectFactory factory) {
+	public PostEffectsFacade(@NotNull DefaultPostEffectFactory factory,
+	                         @NotNull PostEffectDataContainer dataContainer) {
+
 		this.shouldPrettifyHtml = factory.shouldPrettifyHtml();
+
+		this.dataContainer = dataContainer;
 
 		this.contentRootFolder = factory.getContentRootFolder();
 		this.deployRootFolder  = factory.getDeployRootFolder();
 	}
 
-//	public void effectsFor(Map<File, String> contentFileToHtml) throws IOException {
-//
-//		Set<File> files = contentFileToHtml.keySet();
-//		for (File contentFile : files) {
-//
-//			String htmlOfContentFile = contentFileToHtml.get(contentFile);
-//			effectsFor(contentFile, htmlOfContentFile);
-//		}
-//
-
-//	}
 	/**
 	 * Effects are applied in the following order:
 	 *<ol>
@@ -62,16 +56,23 @@ public class PostEffectFacade {
 	}
 
 
+
 	/* === PRIVATE METHODS */
 
 	private void writeHtmlToIndexFiles() throws Exception {
 
 		for (File indexFile : listIndexFiles()) {
 
-			String indexHtml = new DefaultIndexHtmlTemplate(new HtmlFactory()).buildUsing(folder);
+			String indexHtml = buildIndexHtmlUsing(indexFile);
+
 			writeStringTo(indexFile, indexHtml);
 		}
 
+	}
+
+	private String buildIndexHtmlUsing(File indexFile) {
+		return new DefaultIndexHtmlTemplate(new HtmlFactory())
+					.buildUsing(indexFile, dataContainer);
 	}
 
 	/**
@@ -86,20 +87,6 @@ public class PostEffectFacade {
 	private String prettifyHtml(String html) {
 		return Jsoup.parse(html).toString();
 	}
-//
-//	private void writeStringToAssociatedFile(Map<File, String> fileToContent) throws IOException {
-//
-//		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
-//
-//			File deployFile = getDeployEquivalentOf(contentFile);
-//
-//			String content = fileToContent.get(contentFile);
-//
-//			writeStringTo(deployFile, content);
-//		}
-//
-
-//	}
 
 	@NotNull
 	private File getDeployEquivalentOf(File contentFile) {

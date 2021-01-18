@@ -2,6 +2,7 @@ package common.compilerFacade;
 
 import common.fileOption.FileOptionContainer;
 import common.html.NavigationHtml;
+import common.html.NavigationHtmlGenerator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -16,15 +17,22 @@ public class CompilerDataContainer {
 
 	private @Unmodifiable @NotNull final Map<String, File>                idToContentFile;
 	private @Unmodifiable @NotNull final Map<String, FileOptionContainer> pathToFOContainer;
-	private               @NotNull final NavigationHtml                   navigationHtml;
+	private               @NotNull final NavigationHtmlGenerator          navHtmlGenerator;
+	private @NotNull final File contentRootFolder;
+	private @NotNull final File deployRootFolder;
 
 	public CompilerDataContainer(@NotNull Map<String, File>                idToContentFile,
 	                             @NotNull Map<String, FileOptionContainer> pathToFOContainer,
-								 @NotNull NavigationHtml                   navigationHtml) {
+	                             @NotNull NavigationHtmlGenerator navHtmlGenerator,
+	                             @NotNull File contentRootFolder,
+	                             @NotNull File deployRootFolder) {
 
 		this.idToContentFile   = idToContentFile;
 		this.pathToFOContainer = pathToFOContainer;
-		this.navigationHtml    = navigationHtml;
+		this.navHtmlGenerator  = navHtmlGenerator;
+
+		this.contentRootFolder = contentRootFolder;
+		this.deployRootFolder  = deployRootFolder;
 	}
 
 
@@ -38,8 +46,17 @@ public class CompilerDataContainer {
 		return idToContentFile.get(id);
 	}
 
-	public String getNavigationHtmlOf(File file) {
-		return navigationHtml.getNavHtmlOf(file);
+	public String getNavigationHtmlOf(File deployFile) {
+		return navHtmlGenerator.getNavHtmlOf(deployFile);
 	}
+
+	public @NotNull File getContentRootFolder() {
+		return contentRootFolder;
+	}
+
+	public @NotNull File getDeployRootFolder() {
+		return deployRootFolder;
+	}
+
 
 }

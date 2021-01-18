@@ -1,13 +1,16 @@
 package common;
 
 import common.compilerFacade.CompilerDataContainer;
+import common.culpritFactory.DefaultPostEffectFactory;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import common.html.NavigationHtml;
+import common.html.NavigationHtmlGenerator;
 import common.other.FileHandlerImpl;
 import framework.other.Logger;
 import one.util.streamex.EntryStream;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,6 +34,9 @@ public class DataExtractor {
 
 	private @NotNull final File contentRootFolder;
 	private @NotNull final File deployRootFolder;
+
+	private CompilerDataContainer   compilerDataContainer;
+	private PostEffectDataContainer postEffectDataContainer;
 
 	public DataExtractor(@NotNull File contentRootFolder, @NotNull File deployRootFolder) {
 		this.contentRootFolder = contentRootFolder;
@@ -64,17 +70,35 @@ public class DataExtractor {
 	 * Extracts all necessary data for {@code CompilerDataContainer} and then builds it.
 	 * @return a {@code CompilerDataContainer}
 	 */
-	public CompilerDataContainer buildDataContainerForCompiler() throws Exception {
+	public CompilerDataContainer buildDataContainerForCompiler(NavigationHtmlGenerator navHtmlGenerator) throws Exception {
 
 		Map<String, File>                idToFile          = extractIdToContentFile();
 		Map<String, FileOptionContainer> pathToFoContainer = extractPathToFOContainer();
 
-		NavigationHtml navigationHtml = new NavigationHtml(contentRootFolder, deployRootFolder);
-		navigationHtml.generateNavHtmlForAllFilesInDeploy();
-
 		Logger.log(pathToFoContainer);
 
-		return new CompilerDataContainer(idToFile, pathToFoContainer, navigationHtml);
+		return new CompilerDataContainer(idToFile, pathToFoContainer, navHtmlGenerator,
+										 contentRootFolder, deployRootFolder);
+	}
+
+
+	public PostEffectDataContainer buildDataContainerForPostEffects(NavigationHtmlGenerator navigationHtml) {
+		return new PostEffectDataContainer(
+			navigationHtml
+		);
+	}
+
+	/**
+	 * Builds data containers. The build data containers can be retrieved by using the appropriate getter-method.
+	 */
+	public void buildDataContainers() throws Exception {
+
+		NavigationHtml navigationHtml;
+		navigationHtml = new NavigationHtml(contentRootFolder, deployRootFolder);
+		navigationHtml.generateNavHtmlForAllFilesInDeploy();
+
+		this.compilerDataContainer   = buildDataContainerForCompiler(   navigationHtml);
+		this.postEffectDataContainer = buildDataContainerForPostEffects(navigationHtml);
 	}
 
 	/**
@@ -104,5 +128,15 @@ public class DataExtractor {
 		return idToFile;
 	}
 
+
+	/* === GETTERS */
+
+	public @NotNull CompilerDataContainer getCompilerDataContainer() {
+		return compilerDataContainer;
+	}
+
+	public @NotNull PostEffectDataContainer getPostEffectDataContainer() {
+		return postEffectDataContainer;
+	}
 
 }

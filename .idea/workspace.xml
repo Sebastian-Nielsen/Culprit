@@ -10,9 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectDataContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtmlGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stubs/NavigationHtmlStub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Culprit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Culprit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerDataContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerDataContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/PrecompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/PreparatorFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +90,9 @@
         <option value="Enum" />
         <option value="package-info" />
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -124,9 +138,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="common" />
       <recent name="common.html.htmlTemplatesStrategy.concreteStrategy" />
       <recent name="common.html" />
-      <recent name="common" />
       <recent name="framework" />
       <recent name="" />
     </key>
@@ -338,25 +352,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>51</line>
-          <properties class="common.html.NavigationHtml" method="getNavHtmlOf">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java</url>
+          <line>28</line>
+          <properties class="common.html.htmlTemplatesStrategy.concreteStrategy.DefaultIndexHtmlTemplate" method="buildUsing">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>40</line>
-          <properties class="common.html.NavigationHtml" method="generateNavHtmlForAllFilesInDeploy">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="28" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

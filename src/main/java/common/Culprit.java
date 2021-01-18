@@ -1,14 +1,14 @@
 package common;
 
-import common.compilerFacade.CompilerDataContainer;
 import common.compilerFacade.CompilerFacade;
+import common.culpritFactory.DefaultPostEffectFactory;
 import common.preparatorFacade.Preparator;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.CulpritFactory.CulpritFactory;
 import framework.PreparatorFacade;
-import framework.other.Logger;
 
 import java.io.File;
+import java.io.IOException;
 
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
@@ -16,18 +16,21 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 public class Culprit {
 
 	private final PreparatorFacade preparator;
-	private final PostEffectFacade postEffects;
 	private final File contentRootFolder;
 	private final DataExtractor dataExtractor;
 	private final CompilerFacadeFactory compilerFacadeFactory;
+	private final DefaultPostEffectFactory postEffectFactory;
 
 	public Culprit(CulpritFactory fac) {
 		super();
-		this.dataExtractor = fac.createDataExtractor();
+
 		this.preparator    = new Preparator(fac.createPreparatorFactory());
-		this.postEffects   = new PostEffectFacade(fac.createPostEffectFactory());
+		this.dataExtractor = fac.createDataExtractor();
+
 		this.contentRootFolder = fac.getContentRootFolder();
+
 		this.compilerFacadeFactory = fac.createCompileFacadeFactory();
+		this.postEffectFactory     = fac.createPostEffectFactory();
 	}
 
 
@@ -37,35 +40,47 @@ public class Culprit {
 	}
 
 	public void compile(File[] files) throws Exception {
+		prepare();
+
+		CompilerFacade    compiler    = newCompiler();
+		PostEffectsFacade postEffects = newPostEffects();
+
+		compileAndApplyEffectsFor(files, compiler, postEffects);
+
+		postEffects.afterEffects();
+
+	}
+
+	private void prepare() throws Exception {
 		preparator.prepare();
+		dataExtractor.buildDataContainers();
+	}
 
-		CompilerFacade compiler = newCompiler(dataExtractor.buildDataContainerForCompiler());
 
+
+	/* === PRIVATE METHODS */
+
+	private PostEffectsFacade newPostEffects() {
+		return new PostEffectsFacade(
+				postEffectFactory,
+				dataExtractor.getPostEffectDataContainer()
+		);
+	}
+
+	private CompilerFacade newCompiler() {
+		return new CompilerFacade(
+				compilerFacadeFactory,
+				dataExtractor.getCompilerDataContainer()
+		);
+	}
+
+	private void compileAndApplyEffectsFor(File[] files, CompilerFacade compiler, PostEffectsFacade postEffects) throws Exception {
 		for (File contentFile : files) {
 
 			String html = compiler.compile(contentFile);
 
 			postEffects.effectsFor(contentFile, html);
 		}
-
 	}
 
-
-	/* === PRIVATE METHODS */
-
-	private CompilerFacade newCompiler(CompilerDataContainer compilerDataContainer) {
-		return new CompilerFacade(compilerFacadeFactory, compilerDataContainer);
-	}
-
-//	}
-//	public void compileAllFiles() throws Exception {
-//		preparator.prepare();
-//
-//		compiler = newCompilerFacade(dataExtractor.extractDataFromAllFiles());
-//
-//		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE))
-//
-//			compile(contentFile);
-//
-//	}
 }

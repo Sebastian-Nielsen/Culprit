@@ -99,7 +99,8 @@ public class PrecompilerTest {
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
 				pathToFOContainer,
-				new NavigationHtml(INPUT_ROOT_FILE, EXPECTED_ROOT_FILE)
+				new NavigationHtml(INPUT_ROOT_FILE, EXPECTED_ROOT_FILE),
+				INPUT_ROOT_FILE, EXPECTED_ROOT_FILE
 		);
 	}
 

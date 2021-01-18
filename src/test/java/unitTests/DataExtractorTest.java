@@ -4,6 +4,7 @@ import common.compilerFacade.CompilerDataContainer;
 import common.DataExtractor;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
+import stubs.NavigationHtmlStub;
 
 import java.io.File;
 import java.util.Map;
@@ -68,7 +69,7 @@ public class DataExtractorTest {
 		DataExtractor dataExtractor = newDataExtractor(INPUT_ROOT_PATH, EXPECTED_ROOT_PATH);
 
 		// Exercise
-		CompilerDataContainer dataContainer = dataExtractor.buildDataContainerForCompiler();
+		CompilerDataContainer dataContainer = dataExtractor.buildDataContainerForCompiler(new NavigationHtmlStub());
 
 		// Verify
 		assertThat(dataContainer.getFileOfId("11111111-1111-1111-1111-111111111111"), is(INPUT_FILE_A));

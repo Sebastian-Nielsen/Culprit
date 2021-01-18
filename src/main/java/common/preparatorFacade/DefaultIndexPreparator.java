@@ -37,25 +37,18 @@ public class DefaultIndexPreparator {  // TODO: this should be owned by deployer
 		boolean doesIndexFileExist = streamNonDirsFrom(folder, NONRECURSIVE).anyMatch(isEqual("index.html"));
 		if (!doesIndexFileExist)
 			createDefaultIndexIn(folder);
-
 	}
 
 	/**
-	 * Creates a default-index.html and writes the default-index.html content to it.
+	 * Creates an empty `index.html`
 	 * @param folder folder in which to create the default-index
 	 */
 	private static void createDefaultIndexIn(File folder) throws Exception {
-		String defaultIndexHtml = createDefaultIndexHtml(folder);
 
 		File indexFile = new File(folder + "/index.html");
 
 		indexFile.createNewFile();
-
-		writeStringTo(indexFile, defaultIndexHtml);
 	}
 
-	private static String createDefaultIndexHtml(File folder) throws Exception {
-		return new DefaultIndexHtmlTemplate(new HtmlFactory()).buildUsing(folder);
-	}
 
 }

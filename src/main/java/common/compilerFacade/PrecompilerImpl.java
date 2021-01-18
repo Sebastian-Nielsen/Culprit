@@ -84,7 +84,7 @@ public class PrecompilerImpl implements Precompiler {
 			String linkText = matcher.group(1);
 			String id       = matcher.group(2);
 			File   fileOfId = dataContainer.getFileOfId(id);
-			String relDeployPath = removeLeadingDot(relativeFilePathBetween(contentFile, fileOfId));
+			String relDeployPath = relativeFilePathBetween(contentFile, fileOfId);
 			String replacement = "[" + linkText + "](" + changeFileExt(relDeployPath, "html") + ")";
 
 			matcher.appendReplacement(buffer, replacement);

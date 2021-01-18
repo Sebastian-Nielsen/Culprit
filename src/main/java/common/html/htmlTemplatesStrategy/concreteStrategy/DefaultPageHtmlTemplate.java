@@ -1,5 +1,7 @@
 package common.html.htmlTemplatesStrategy.concreteStrategy;
 
+import common.PostEffectDataContainer;
+import common.PostEffectsFacade;
 import common.compilerFacade.CompilerDataContainer;
 import common.fileOption.FileOptionContainer;
 import common.html.HtmlBuilder;
@@ -12,6 +14,7 @@ import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.htmlTemplatesStrategy.Helper.*;
+import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 
 public class DefaultPageHtmlTemplate {
 
@@ -25,6 +28,7 @@ public class DefaultPageHtmlTemplate {
 	public String buildUsing(File contentFile, String articleTag, CompilerDataContainer dataContainer) throws Exception {
 
 		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
+		File deployEquivOfContentFile = deployEquivalentOf(contentFile, dataContainer);
 
 		return new HtmlBuilder()
 				.insert("<!DOCTYPE html>\n")
@@ -32,12 +36,13 @@ public class DefaultPageHtmlTemplate {
 					.open(HEAD)
 						.insert(defaultHeadTags)
 						.openSingle(LINK, defaultCssAttributes("css/defaultPage.css"))
+						.openSingle(LINK, defaultCssAttributes("css/navOverlay.css"))
 						.open(SCRIPT, defaultScriptAttributes("css/defaultPage.js", Map.of(DEFER, ""))).close(SCRIPT)
 						.insert(htmlFactory.createKatexHtml(foContainer))
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
-							.insert(dataContainer.getNavigationHtmlOf(contentFile))
+							.insert(dataContainer.getNavigationHtmlOf(deployEquivOfContentFile))
 //							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
 						.close(NAV)
 						.open(SCRIPT, defaultScriptAttributes("css/navOverlay.js")).close(SCRIPT) // should be loaded after NAV
@@ -53,5 +58,14 @@ public class DefaultPageHtmlTemplate {
 				.toString();
 	}
 
+
+
+	private File deployEquivalentOf(File indexFile, CompilerDataContainer dataContainer) {
+		return getDeployEquivalentOf(
+				indexFile,
+				dataContainer.getContentRootFolder(),
+				dataContainer.getDeployRootFolder()
+		);
+	}
 
 }

@@ -350,21 +350,6 @@ public class FileUtils {
 			return Paths.get( normalize( fromFile.toString() ) );
 		}
 
-		/**
-		 * Same doc as {@link #relativeFilePathBetween}
-		 */
-		public static String relativeFilePathBetween(String baseFile, String toFile) {
-			Path baseFilePath = Paths.get(baseFile);
-			Path   toFilePath = Paths.get(  toFile);
-
-			String         relativePath = baseFilePath.relativize(toFilePath).toString();
-
-			relativePath = relativePath.replaceAll("\\\\", "/");
-//			relativePath = removeLeadingDot(relativePath);
-
-			return relativePath;
-		}
-
 		public static String removeLeadingDot(String relativePath) {
 			if (relativePath.startsWith("."))
 				return relativePath.substring(1);
