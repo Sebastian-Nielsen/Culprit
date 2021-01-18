@@ -11,6 +11,7 @@ import java.util.Map;
 import static common.html.HTML.Attribute.CLASS;
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
+import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
@@ -20,38 +21,36 @@ import static org.apache.commons.io.FilenameUtils.removeExtension;
  * Responsible for efficiently storing NavigationHtml
  */
 public class NavigationHtml {
-	private static final NavigationHtml instance = new NavigationHtml();
-
 	private static final Map<String, String> contentDirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
 	private static final int NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML = 3;
+	private final File contentRootFollder;
+	private final File delpoyRootFolder;
+
+	public NavigationHtml(File contentRootFollder, File delpoyRootFolder) {
+		this.contentRootFollder = contentRootFollder;
+		this.delpoyRootFolder = delpoyRootFolder;
+	}
 
 
 	/**
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
-	 * @param contentRootFolder folder to extract {@code File}s from
 	 */
-	public void generateNavHtmlForAllDirsIn(File contentRootFolder) throws Exception {
-		generateNavHtmlFor(contentRootFolder);
+	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
+		generateNavHtmlFor(delpoyRootFolder);
 	}
-
 
 
 	/* === GETTERS */
 
 	/**
-	 * @param file file or folder
+	 * @param contentFile file or folder
 	 * @return Navigation html of the specified {@code File}
 	 */
-	public String getNavHtmlOf(File file) {
-		File parent = file.getParentFile();
+	public String getNavHtmlOf(File contentFile) {
+		File delpoyFile = getDeployEquivalentOf(contentRootFollder, delpoyRootFolder, contentFile);
+		File parent = delpoyFile.getParentFile();
 		return contentDirPathToNavHtmlOfFilesInTheDir.get(parent.toString());
 	}
-
-	public static NavigationHtml getInstance() {
-		return instance;
-	}
-
-	private NavigationHtml() {}
 
 
 
@@ -63,7 +62,7 @@ public class NavigationHtml {
 	 */
 	private void generateNavHtmlFor(File rootDir) throws Exception {
 
-		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllDirsIn( rootDir, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
+		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
 		for (File subDir : listDirsFrom(rootDir, NONRECURSIVE))
@@ -107,12 +106,12 @@ public class NavigationHtml {
 	}
 
 
-	private HtmlBuilder generateNavHtmlForAllDirsIn(File rootDir, int numOfParentsToInclude) throws Exception {
+	private HtmlBuilder generateNavHtmlForAllFilesInDeploy(File rootDir, int numOfParentsToInclude) throws Exception {
 		HtmlBuilder builder;
 
 		if (numOfParentsToInclude > 0) {
 			// Ask for the solution to the parent of rootDir
-			builder = generateNavHtmlForAllDirsIn(rootDir.getParentFile(), numOfParentsToInclude-1);
+			builder = generateNavHtmlForAllFilesInDeploy(rootDir.getParentFile(), numOfParentsToInclude-1);
 		} else {
 			// Base case, there is no more parents to include, so just generate for this rootDir
 			builder = new HtmlBuilder();

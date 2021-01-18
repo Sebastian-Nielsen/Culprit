@@ -16,12 +16,15 @@ public class CompilerDataContainer {
 
 	private @Unmodifiable @NotNull final Map<String, File>                idToContentFile;
 	private @Unmodifiable @NotNull final Map<String, FileOptionContainer> pathToFOContainer;
-	private @NotNull final NavigationHtml navigationHtml = NavigationHtml.getInstance();
+	private               @NotNull final NavigationHtml                   navigationHtml;
 
-	public CompilerDataContainer(@NotNull Map<String, File> idToContentFile,
-	                             @NotNull Map<String, FileOptionContainer> pathToFOContainer) {
+	public CompilerDataContainer(@NotNull Map<String, File>                idToContentFile,
+	                             @NotNull Map<String, FileOptionContainer> pathToFOContainer,
+								 @NotNull NavigationHtml                   navigationHtml) {
+
 		this.idToContentFile   = idToContentFile;
 		this.pathToFOContainer = pathToFOContainer;
+		this.navigationHtml    = navigationHtml;
 	}
 
 

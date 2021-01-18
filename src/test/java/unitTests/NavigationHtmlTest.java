@@ -29,7 +29,7 @@ public class NavigationHtmlTest {
 	@Test
 	public void shouldGenerateNavigationHtml() throws Exception {
 		NavigationHtml navHtml = NavigationHtml.getInstance();
-		navHtml.generateNavHtmlForAllDirsIn(ROOT_DIR);
+		navHtml.generateNavHtmlForAllFilesInDeploy();
 
 //		String A_NavHtml = navHtml.getNavHtmlOf(FILE_A);
 //		System.out.println(A_NavHtml);

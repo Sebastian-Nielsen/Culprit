@@ -71,11 +71,12 @@ public class DataExtractor {
 		Map<String, File>                idToFile          = extractIdToContentFile();
 		Map<String, FileOptionContainer> pathToFoContainer = extractPathToFOContainer();
 
-		NavigationHtml.getInstance().generateNavHtmlForAllDirsIn(contentRootFolder);
+		NavigationHtml navigationHtml = new NavigationHtml(contentRootFolder, deployRootFolder);
+		navigationHtml.generateNavHtmlForAllFilesInDeploy();
 
 		Logger.log(pathToFoContainer);
 
-		return new CompilerDataContainer(idToFile, pathToFoContainer);
+		return new CompilerDataContainer(idToFile, pathToFoContainer, navigationHtml);
 	}
 
 	/**
