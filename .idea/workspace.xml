@@ -10,13 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/PrecompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/PrecompilerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -343,7 +337,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>48</line>
+          <line>50</line>
           <properties class="common.html.NavigationHtml" method="getNavHtmlOf">
             <option name="EMULATED" value="true" />
           </properties>
@@ -351,7 +345,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>37</line>
+          <line>39</line>
           <properties class="common.html.NavigationHtml" method="generateNavHtmlForAllFilesInDeploy">
             <option name="EMULATED" value="true" />
           </properties>
@@ -359,12 +353,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>145</line>
+          <line>104</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
-          <line>114</line>
+          <line>141</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>

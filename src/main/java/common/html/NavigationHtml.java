@@ -1,11 +1,13 @@
 package common.html;
 
+import one.util.streamex.StreamEx;
 import org.apache.commons.io.comparator.NameFileComparator;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static common.html.HTML.Attribute.CLASS;
@@ -82,12 +84,11 @@ public class NavigationHtml {
 
 	/* === PRIVATE METHODS */
 
-	/**
-	 *
-	 */
 	private void generateNavHtmlFor(File rootDir) throws Exception {
 
-		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
+		File dirToMark = rootDir;
+
+		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
 		for (File subDir : listDirsFrom(rootDir, NONRECURSIVE))
@@ -95,33 +96,64 @@ public class NavigationHtml {
 
 	}
 
+	private HtmlBuilder generateNavHtmlForAllFilesInDeploy(File rootDir, File dirToMark, int numOfParentsToInclude) throws Exception {
+		HtmlBuilder builder;
+
+		if (numOfParentsToInclude > 0) {
+			// Ask for the solution to the parent of rootDir
+			builder = generateNavHtmlForAllFilesInDeploy(rootDir.getParentFile(), rootDir, numOfParentsToInclude-1);
+		} else {
+			// Base case, there is no more parents to include, so just generate for this rootDir
+			builder = new HtmlBuilder();
+		}
+		buildOlTagOn(builder, rootDir, dirToMark);
+
+		return builder;
+	}
 
 	private File[] sortByFileName(File[] files) {
 		Arrays.sort(files, NameFileComparator.NAME_COMPARATOR);
 		return files;
 	}
 
-	private void buildOlTagOn(HtmlBuilder builder, File rootDir) throws IOException {
+	private void buildOlTagOn(HtmlBuilder builder, File rootDir, File dirToMark) throws IOException {
 		builder.open(OL);
 
 		File[] dirs = sortByFileName(listDirsFrom(rootDir, NONRECURSIVE));
-		for (File file : dirs)
-			buildLiTagFor(builder, file);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(rootDir);
+//		System.out.println();
+//		System.out.println();
+		for (File file : dirs) {
+//			System.out.println(file);
+//			System.out.println();
+
+			if (file.toString().equals(dirToMark.toString()))
+				buildLiTagFor(builder, file, List.of("dir", "marked"));
+
+			buildLiTagFor(builder, file, List.of("dir"));
+		}
 
 		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVE));
 		for (File file : nonDirs)
-			buildLiTagFor(builder, file);
+			buildLiTagFor(builder, file, List.of("file"));
 
 		builder.close(OL);
 	}
 
-	private void buildLiTagFor(HtmlBuilder builder, File file) {
+	private void buildLiTagFor(HtmlBuilder builder, File file, List<String> listOfClassValues) {
+
 		String liClassValue = file.isFile() ? "file" : "folder";
+		String classValues  = String.join(" ", listOfClassValues);
+
 		builder
-				.open(LI, Map.of(CLASS, liClassValue))
-					.open(A, Map.of(HREF, "./" + file.getName()))
-						.setText(removeExtension(file.getName()))
-					.close(A)
+				.open(LI, Map.of(CLASS, classValues))
+				.open(A, Map.of(HREF, "./" + file.getName()))
+				.setText(removeExtension(file.getName()))
+				.close(A)
 				.close(LI);
 	}
 
@@ -132,22 +164,6 @@ public class NavigationHtml {
 
 		String dirPath = relativePath(rootDir, deployRootFolder);
 		DirPathToNavHtmlOfFilesInTheDir.put(dirPath, navHtml);
-	}
-
-
-	private HtmlBuilder generateNavHtmlForAllFilesInDeploy(File rootDir, int numOfParentsToInclude) throws Exception {
-		HtmlBuilder builder;
-
-		if (numOfParentsToInclude > 0) {
-			// Ask for the solution to the parent of rootDir
-			builder = generateNavHtmlForAllFilesInDeploy(rootDir.getParentFile(), numOfParentsToInclude-1);
-		} else {
-			// Base case, there is no more parents to include, so just generate for this rootDir
-			builder = new HtmlBuilder();
-		}
-		buildOlTagOn(builder, rootDir);
-
-		return builder;
 	}
 
 
