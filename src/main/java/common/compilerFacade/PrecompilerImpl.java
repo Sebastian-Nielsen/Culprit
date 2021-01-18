@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 
 import static common.fileOption.FileOption.KEY.D_LINKS;
 import static common.other.ValidatorImpl.REGEXES;
-import static framework.utils.FileUtils.Filename.changeFileExt;
-import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
+import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Retriever.contentOf;
 
 public class PrecompilerImpl implements Precompiler {
@@ -85,7 +84,7 @@ public class PrecompilerImpl implements Precompiler {
 			String linkText = matcher.group(1);
 			String id       = matcher.group(2);
 			File   fileOfId = dataContainer.getFileOfId(id);
-			String relDeployPath = relativeFilePathBetween(contentFile, fileOfId);
+			String relDeployPath = removeLeadingDot(relativeFilePathBetween(contentFile, fileOfId));
 			String replacement = "[" + linkText + "](" + changeFileExt(relDeployPath, "html") + ")";
 
 			matcher.appendReplacement(buffer, replacement);

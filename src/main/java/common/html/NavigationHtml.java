@@ -39,7 +39,7 @@ public class NavigationHtml {
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
 	 */
 	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
-		generateNavHtmlFor(deployRootFolder, deployRootFolder);
+		generateNavHtmlFor(deployRootFolder);
 	}
 
 
@@ -85,15 +85,16 @@ public class NavigationHtml {
 
 	/* === PRIVATE METHODS */
 
-	private void generateNavHtmlFor(File rootDir, File originalDir) throws Exception {
+	private void generateNavHtmlFor(File rootDir) throws Exception {
 
-		File dirToMark = rootDir;
+		File dirToMark   = rootDir;
+		File originalDir = rootDir;
 
 		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
 		for (File subDir : listDirsFrom(rootDir, NONRECURSIVE))
-			generateNavHtmlFor(subDir, originalDir);
+			generateNavHtmlFor(subDir);
 
 	}
 
@@ -155,7 +156,18 @@ public class NavigationHtml {
 	private void buildLiTagFor(HtmlBuilder builder, File file, File originalDir, List<String> listOfClassValues) {
 
 		String classValues = String.join(" ", listOfClassValues);
-
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("original");
+		System.out.println(originalDir);
+		System.out.println();
+		System.out.println("file");
+		System.out.println(file);
+		System.out.println();
+		System.out.println(relativeFilePathBetween(originalDir, file));
+		System.out.println();
+		System.out.println();
 		builder	.open(LI, Map.of(CLASS, classValues))
 					.open(A, Map.of(HREF, relativeFilePathBetween(originalDir, file)))
 						.setText(removeExtension(file.getName()))

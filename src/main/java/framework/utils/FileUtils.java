@@ -1,6 +1,7 @@
 package framework.utils;
 
 import jdk.jshell.spi.ExecutionControl;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -313,7 +314,7 @@ public class FileUtils {
 
 
 		/**
-		 * Calculates the relative file path; E.g.
+		 * Calculates the relative file path; Examples:
 		 * <pre>
 		 * +-------------------------------------------------------------------------+
 		 * |baseFile: "resources/compilerTest_testFiles/D_LINKS/expected/nested/C.md"|
@@ -321,22 +322,32 @@ public class FileUtils {
 		 * |                ->                                                       |
 		 * | @return    "./../A.md"                                                  |
 		 * +-------------------------------------------------------------------------+
+		 * |baseFile: "resources/compilerTest_testFiles/D_LINKS/expected/nested"     |
+		 * |  toFile: "resources/compilerTest_testFiles/D_LINKS/input"               |
+		 * |                ->                                                       |
+		 * | @return    "../../input"                                                |
+		 * +-------------------------------------------------------------------------+
 		 * </pre>
 		 *
-		 * @param baseFile file from which to start  the relative path from
-		 * @param toFile   file to   which to end up the relative path to
-		 * @return relative filePath, e.g. "./../B.md"
+		 * @param fromFile file from which to start  the relative path from
+		 * @param toFile   file to   which to end up
+		 * @return relative filePath, e.g.  "./../B.md"  or  "../../input"
 		 */
-		public static String relativeFilePathBetween(File baseFile, File toFile) {
-			Path baseFilePath = Paths.get("" + baseFile);
-			Path toFilePath = Paths.get(normalize("" + toFile));
+		public static String relativeFilePathBetween(File fromFile, File toFile) {
+			Path fromFilePath = getNormalizedPath(fromFile);
+			Path   toFilePath = getNormalizedPath(  toFile);
 
-			String relativePath = baseFilePath.relativize(toFilePath).toString();
+			String relativePath = normalize( "" + fromFilePath.relativize(toFilePath) );
 
-			relativePath = relativePath.replaceAll("\\\\", "/");
-			relativePath = removeLeadingDot(relativePath);
+			if (fromFile.isFile())
+				return removeLeadingDot(relativePath);
+			else
+				return relativePath;
+		}
 
-			return relativePath;
+		@NotNull
+		private static Path getNormalizedPath(File fromFile) {
+			return Paths.get( normalize( fromFile.toString() ) );
 		}
 
 		/**
@@ -344,17 +355,17 @@ public class FileUtils {
 		 */
 		public static String relativeFilePathBetween(String baseFile, String toFile) {
 			Path baseFilePath = Paths.get(baseFile);
-			Path toFilePath = Paths.get(toFile);
+			Path   toFilePath = Paths.get(  toFile);
 
-			String relativePath = baseFilePath.relativize(toFilePath).toString();
+			String         relativePath = baseFilePath.relativize(toFilePath).toString();
 
 			relativePath = relativePath.replaceAll("\\\\", "/");
-			relativePath = removeLeadingDot(relativePath);
+//			relativePath = removeLeadingDot(relativePath);
 
 			return relativePath;
 		}
 
-		private static String removeLeadingDot(String relativePath) {
+		public static String removeLeadingDot(String relativePath) {
 			if (relativePath.startsWith("."))
 				return relativePath.substring(1);
 			return relativePath;
