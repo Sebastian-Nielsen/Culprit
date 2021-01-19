@@ -1,6 +1,7 @@
 package common.html;
 
 import org.apache.commons.io.comparator.NameFileComparator;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,17 +20,36 @@ import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 /**
- * Responsible for efficiently storing NavigationHtml
+ * Responsible for generating and storing NavigationHtml for each {@code File}
  */
 public class NavigationHtml implements NavigationHtmlGenerator {
 	private static final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
-	private static final int NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML = 3;
-	private final File contentRootFolder;
-	private final File deployRootFolder;
+	private final int numberOfParentsToInclude;
+	private @NotNull final File deployRootFolder;
 
-	public NavigationHtml(File contentRootFolder, File deployRootFolder) {
-		this.contentRootFolder = contentRootFolder;
+	/**
+	 * @param maxNumberOfParentsToInclude a positive number that for each file/folder in a file-hierarchy specifies
+	 *                                    how many of its parent at max should be included in the generated
+	 *                                    navigation-html for the given file/folder.
+	 *                                    {@code maxNumberOfParentsToInclude}= ...
+	 *                                    <ul>
+	 *                                    <li>{@code 0}: <em>one ol</em> consisting of the files in the current dir</li>
+	 *                                    <li>{@code 1}: <em>two ol</em> one as above, the other consisting of all files and
+	 *                                                   dirs in the parent dir of the current dir</li>
+	 *                                    <li>{@code 2}: <em>three ol</em>, ...</li>
+	 *                                    </ul>
+	 */
+	public NavigationHtml(@NotNull File deployRootFolder, int maxNumberOfParentsToInclude) {
+
+		if (maxNumberOfParentsToInclude <= 0)
+			throw new IllegalArgumentException("Number of parents to include must be greater than 0");
+
+		this.numberOfParentsToInclude = maxNumberOfParentsToInclude;
 		this.deployRootFolder = deployRootFolder;
+	}
+
+	public NavigationHtml(@NotNull File deployRootFolder) {
+		this(deployRootFolder, 3);
 	}
 
 
@@ -68,7 +88,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 		File dirToMark   = rootDir;
 		File originalDir = rootDir;
 
-		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, NUMBER_OF_PARENTS_TO_INCLUDE_IN_NAV_HTML );
+		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, numberOfParentsToInclude);
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
 		for (File subDir : listDirsFrom(rootDir, NONRECURSIVE))
@@ -160,6 +180,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 				.close(LI);
 	}
 
+	// Should take relative filePath as argument (instead of rootDir)
 	private void storeDirToNavHtml(File rootDir, String navHtml) {
 		assert rootDir.isDirectory(); // TODO remove when tested
 

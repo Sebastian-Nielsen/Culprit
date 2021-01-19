@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
 import static common.fileOption.FileOption.KEY;
@@ -99,7 +98,7 @@ public class PrecompilerTest {
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
 				pathToFOContainer,
-				new NavigationHtml(INPUT_ROOT_FILE, EXPECTED_ROOT_FILE),
+				new NavigationHtml(EXPECTED_ROOT_FILE),
 				INPUT_ROOT_FILE, EXPECTED_ROOT_FILE
 		);
 	}

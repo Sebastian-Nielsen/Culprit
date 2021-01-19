@@ -1,7 +1,6 @@
 package common;
 
 import common.compilerFacade.CompilerDataContainer;
-import common.culpritFactory.DefaultPostEffectFactory;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
 import common.html.NavigationHtml;
@@ -10,7 +9,6 @@ import common.other.FileHandlerImpl;
 import framework.other.Logger;
 import one.util.streamex.EntryStream;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Unmodifiable;
 
 import java.io.File;
 import java.io.IOException;
@@ -93,8 +91,9 @@ public class DataExtractor {
 	 */
 	public void buildDataContainers() throws Exception {
 
+		int numberOfParentsToInclude = 3;
 		NavigationHtml navigationHtml;
-		navigationHtml = new NavigationHtml(contentRootFolder, deployRootFolder);
+		navigationHtml = new NavigationHtml(deployRootFolder, numberOfParentsToInclude);
 		navigationHtml.generateNavHtmlForAllFilesInDeploy();
 
 		this.compilerDataContainer   = buildDataContainerForCompiler(   navigationHtml);

@@ -135,7 +135,7 @@ public class FileUtils {
 					.toArray(File[]::new);
 		}
 
-		private static File[] listDirsNonRecursivelyFrom(File folder) throws IOException {
+		private static File[] listDirsNonRecursivelyFrom(File folder) {
 			File[] files = folder.listFiles();
 			if (files == null)
 				return new File[]{};
@@ -305,8 +305,8 @@ public class FileUtils {
 		}
 
 		/**
-		 * Get the path of each file in the inputFolders.content dir RELATIVE to the base inputFolders.content dir
-		 * E.g. instead of 'C:/.../culprit/inputFolders.content/aa/test.md' then 'aa/test.md'
+		 * Get the path of each file in the inputFolders.content dir RELATIVE to the base 'C:/.../culprit/content' dir
+		 * E.g. instead of 'C:/.../culprit/content/aa/test.md' then 'aa/test.md'
 		 */
 		public static String relativePath(File file, File basePath) {
 			return basePath.toURI().relativize(file.toURI()).getPath();
