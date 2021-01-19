@@ -25,7 +25,7 @@ import static testHelper.TestHelper.getResourceFile;
 
 /**
  * Test list
- * - A call to deploy() copies the file-hierarchy as expected.
+ * - A.md call to deploy() copies the file-hierarchy as expected.
  * -
  */
 public class PreparatorTest {
@@ -40,14 +40,16 @@ public class PreparatorTest {
 	@Test
 	public void shouldCopyFileHierarchyToDeployDir() throws Exception {
 		// Fixture
-		final String CONTENT_ROOT_DIRNAME  = "basicFileHierarchy/root";
+		final String CONTENT_ROOT_DIRNAME  = "PreparatorTest_testFiles/deploy/input";
+		final String EXPECTED_ROOT_DIRNAME = "PreparatorTest_testFiles/deploy/expected";
 		final File   CONTENT_ROOT_DIR      = getResourceFile(CONTENT_ROOT_DIRNAME);
+		final File   EXPECTED_ROOT_DIR     = getResourceFile(EXPECTED_ROOT_DIRNAME);
 		PreparatorFacade preparator = new Preparator(newDefaultPreparatorFactory(CONTENT_ROOT_DIR, DEPLOY_ROOT_DIR));
 		// Exercise
 		preparator.deploy();
 		// Verify post-exercise state
-		String[] expectedHierarchy = getRelativePathsFrom(CONTENT_ROOT_DIR);
-		String[]   actualHierarchy = getRelativePathsFrom(DEPLOY_ROOT_DIR);
+		String[] expectedHierarchy = getRelativePathsFrom(EXPECTED_ROOT_DIR);
+		String[]   actualHierarchy = getRelativePathsFrom( DEPLOY_ROOT_DIR);
 
 		assertArrayEquals(expectedHierarchy, actualHierarchy);
 	}

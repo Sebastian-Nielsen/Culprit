@@ -23,13 +23,13 @@ public class FileUtils_getRelativePathsRecursivelyFrom {
 		}
 		// Verify
 		String[] expectedPaths = new String[]{
-			"A",              // 1
+			"A.md",              // 1
 			"lvlB/",          // 2
-			"lvlB/B",         // 3
+			"lvlB/B.md",         // 3
 			"lvlB/lvlC1/",    // 4
-			"lvlB/lvlC1/C1",  // 5
+			"lvlB/lvlC1/C1.md",  // 5
 			"lvlB/lvlC2/",    // 6
-			"lvlB/lvlC2/C2"   // 7
+			"lvlB/lvlC2/C2.md"   // 7
 		};
 
 		assertArrayEquals(actualPaths, expectedPaths);

@@ -43,8 +43,8 @@ public class PrecompilerTest {
 	private final File EXPECTED_ROOT_FILE = getResourceFile(EXPECTED_ROOT_PATH);
 	private final File    INPUT_ROOT_FILE = getResourceFile(   INPUT_ROOT_PATH);
 
-	private final String A = "/A";
-	private final String B = "/B";
+	private final String A = "/A.md";
+	private final String B = "/B.md";
 	private final String C = "/nested/C";
 	private final String D = "/nested/x2nested/D";
 	private final String E = "/nested_v2/E";

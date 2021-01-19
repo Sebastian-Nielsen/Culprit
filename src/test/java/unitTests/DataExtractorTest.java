@@ -22,8 +22,8 @@ public class DataExtractorTest {
 	private final String EXPECTED_ROOT_PATH = "DataExtractorTest_testFiles/expected";;
 	private final String    INPUT_ROOT_PATH = "DataExtractorTest_testFiles/input";
 
-	private final String A = "/A";
-	private final String B = "/B";
+	private final String A = "/A.md";
+	private final String B = "/B.md";
 	private final String C = "/nested/C";
 	private final String D = "/nested/x2nested/D";
 	private final String E = "/nested_v2/E";

@@ -45,6 +45,30 @@ public class FileUtils {
 
 		/* ===================================================== */
 
+		/**
+		 * @param isRecursive whether files and dirs of each folder should be listed too.
+		 */
+		public static Stream<File> streamFilesAndDirsFrom(File folder, RECURSION isRecursive) throws IOException {
+			if (isRecursive.getBool())
+				return streamFilesAndDirsRecursivelyFrom(folder);
+			else
+				return streamFilesAndDirsNonRecursivelyFrom(folder);
+		}
+
+		private static Stream<File> streamFilesAndDirsRecursivelyFrom(File folder) throws IOException {
+			return Files.walk(folder.toPath())
+					.skip(1)  // Don't include the "root" aka. {@code folder}
+					.map(Path::toFile);
+		}
+
+		private static Stream<File> streamFilesAndDirsNonRecursivelyFrom(File folder) {
+			return Arrays.stream(folder.listFiles());
+		}
+
+
+
+		/* ===================================================== */
+
 
 		/**
 		 * @param isRecursive whether files and dirs of each folder should be listed too.
