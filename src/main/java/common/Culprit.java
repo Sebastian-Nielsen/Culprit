@@ -3,20 +3,21 @@ package common;
 import common.compilerFacade.CompilerFacade;
 import common.culpritFactory.DefaultPostEffectFactory;
 import common.preparatorFacade.Preparator;
+import framework.ContentFileHierarchy;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.CulpritFactory.CulpritFactory;
 import framework.PreparatorFacade;
 
 import java.io.File;
-import java.io.IOException;
+import java.nio.file.Files;
 
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class Culprit {
 
 	private final PreparatorFacade preparator;
-	private final File contentRootFolder;
+	private final ContentFileHierarchy contentHierarchy;
 	private final DataExtractor dataExtractor;
 	private final CompilerFacadeFactory compilerFacadeFactory;
 	private final DefaultPostEffectFactory postEffectFactory;
@@ -27,7 +28,7 @@ public class Culprit {
 		this.preparator    = new Preparator(fac.createPreparatorFactory());
 		this.dataExtractor = fac.createDataExtractor();
 
-		this.contentRootFolder = fac.getContentRootFolder();
+		this.contentHierarchy = fac.getContentFileHiearchy();
 
 		this.compilerFacadeFactory = fac.createCompileFacadeFactory();
 		this.postEffectFactory     = fac.createPostEffectFactory();
@@ -35,8 +36,8 @@ public class Culprit {
 
 
 	public void compileAllFiles() throws Exception {
-
-		compile(listNonDirsFrom(contentRootFolder, RECURSIVE));
+		File[]  files = contentHierarchy.listNonDirs(RECURSIVELY);
+		compile(files);
 	}
 
 	public void compile(File[] files) throws Exception {
@@ -48,7 +49,6 @@ public class Culprit {
 		compileAndApplyEffectsFor(files, compiler, postEffects);
 
 		postEffects.afterEffects();
-
 	}
 
 	private void prepare() throws Exception {
@@ -75,6 +75,7 @@ public class Culprit {
 	}
 
 	private void compileAndApplyEffectsFor(File[] files, CompilerFacade compiler, PostEffectsFacade postEffects) throws Exception {
+
 		for (File contentFile : files) {
 
 			String html = compiler.compile(contentFile);

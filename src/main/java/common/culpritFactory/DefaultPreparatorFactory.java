@@ -45,13 +45,13 @@ public class DefaultPreparatorFactory extends Factory implements PreparatorFacto
 	}
 
 	@Override
-	public File getContentRootFolder() {
-		return contentHierarchy.getContentRootDir();
+	public ContentFileHierarchy getContentHierarchy() {
+		return contentHierarchy;
 	}
 
 	@Override
-	public File getDeployRootFolder() {
-		return deployHierarchy.getDeployRootDir();
+	public DeployFileHierarchy getDeployHierarchy() {
+		return deployHierarchy;
 	}
 
 

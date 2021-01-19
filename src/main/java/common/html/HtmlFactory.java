@@ -1,8 +1,6 @@
 package common.html;
 
 import common.fileOption.FileOptionContainer;
-import common.html.HtmlBuilder;
-import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,71 +13,74 @@ import static common.html.HTML.Tag.LINK;
 import static common.html.HTML.Tag.STYLE;
 import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Lister.*;
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
 
+/**
+ * A home for factory methods related to html ??
+ */
 public class HtmlFactory {
 
-
-	/**
-	 * For each {@code File} (both dirs and files) in the specified folder,
-	 * create a li {@code Tag} and add it to the ol {@code Tag} to return.
-	 * @param folder folder from which to list the files from.
-	 * @return an ol {@code Tag}
-	 */
-	public String test(File folder) throws Exception {
-		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
-
-		builder.open(OL, Map.of(CLASS, "folders"));
-		recursive(builder, folder);
-		builder.close(OL);
-
-		return builder.toString();
-	}
-
-	private HtmlBuilder recursive(HtmlBuilder builder, File folder) throws Exception {
-		for (File file : listFilesAndDirsFrom(folder, NONRECURSIVE)) {
-			if (file.isFile()) {
-				builder .open(LI)
-							.open(A, Map.of(HREF, "./" + file.getName()))
-								.setText(removeExtension(file.getName()))
-							.close(A)
-						.close(LI);
-			} else {
-				builder.open(OL);
-				recursive(builder, file);
-				builder.close(OL);
-			}
-		}
-		return builder;
-	}
-
-
-	public String createNavigationHtml(File folder) throws IOException {
-		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
-
-		// Generate OL with LI tags for each {@code dir} in folder
-		builder.open(OL, Map.of(CLASS, "folders"));
-		for (File dir : listDirsFrom(folder, NONRECURSIVE))
-			builder .open(LI)
-						.open(A, Map.of(HREF, "./" + dir.getName()))
-							.setText(dir.getName())
-						.close(A)
-					.close(LI);
-		builder.close(OL);
-
-		// Generate OL with LI tags for each {@code File} (nonDir) in folder
-		builder.open(OL, Map.of(CLASS, "files"));
-		for (File nonDir : listNonDirsFrom(folder, NONRECURSIVE))
-			builder .open(LI)
-						.open(A, Map.of(HREF, "./" + changeFileExt(nonDir.getName(), "html")))
-							.setText(nonDir.getName())
-						.close(A)
-					.close(LI);
-		builder.close(OL);
-
-		return builder.toString();
-	}
+//
+//	/**
+//	 * For each {@code File} (both dirs and files) in the specified folder,
+//	 * create a li {@code Tag} and add it to the ol {@code Tag} to return.
+//	 * @param folder folder from which to list the files from.
+//	 * @return an ol {@code Tag}
+//	 */
+//	public String test(File folder) throws Exception {
+//		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
+//
+//		builder.open(OL, Map.of(CLASS, "folders"));
+//		recursive(builder, folder);
+//		builder.close(OL);
+//
+//		return builder.toString();
+//	}
+//
+//	private HtmlBuilder recursive(HtmlBuilder builder, File folder) throws Exception {
+//		for (File file : listFilesAndDirsFrom(folder, NONRECURSIVELY)) {
+//			if (file.isFile()) {
+//				builder .open(LI)
+//							.open(A, Map.of(HREF, "./" + file.getName()))
+//								.setText(removeExtension(file.getName()))
+//							.close(A)
+//						.close(LI);
+//			} else {
+//				builder.open(OL);
+//				recursive(builder, file);
+//				builder.close(OL);
+//			}
+//		}
+//		return builder;
+//	}
+//
+//
+//	public String createNavigationHtml(File folder) throws IOException {
+//		HtmlBuilder builder = new HtmlBuilder();  // TODO cohesify this method
+//
+//		// Generate OL with LI tags for each {@code dir} in folder
+//		builder.open(OL, Map.of(CLASS, "folders"));
+//		for (File dir : listDirsFrom(folder, NONRECURSIVELY))
+//			builder .open(LI)
+//						.open(A, Map.of(HREF, "./" + dir.getName()))
+//							.setText(dir.getName())
+//						.close(A)
+//					.close(LI);
+//		builder.close(OL);
+//
+//		// Generate OL with LI tags for each {@code File} (nonDir) in folder
+//		builder.open(OL, Map.of(CLASS, "files"));
+//		for (File nonDir : listNonDirsFrom(folder, NONRECURSIVELY))
+//			builder .open(LI)
+//						.open(A, Map.of(HREF, "./" + changeFileExt(nonDir.getName(), "html")))
+//							.setText(nonDir.getName())
+//						.close(A)
+//					.close(LI);
+//		builder.close(OL);
+//
+//		return builder.toString();
+//	}
 
 
 

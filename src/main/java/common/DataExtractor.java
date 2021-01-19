@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static common.fileOption.FileOption.KEY.ID;
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 /**
@@ -119,7 +119,7 @@ public class DataExtractor {
 	public Map<String, File> extractIdToContentFile() throws IOException {
 		Map<String, File> idToFile = new HashMap<>();
 
-		for (File contentFile : contentHiearchy.listNonDirs(RECURSIVE)) {
+		for (File contentFile : contentHiearchy.listNonDirs(RECURSIVELY)) {
 
 			idToFile.put(
 					extractFoContainerFrom(contentFile).get(ID),

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 
 public class  FileOptionExtractorImpl implements FileOptionExtractor {
@@ -56,7 +56,7 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
 		final String mdFilesOnly = "md";
-		for (File file : contentHierarchy.listNonDirs(RECURSIVE, mdFilesOnly))
+		for (File file : contentHierarchy.listNonDirs(RECURSIVELY, mdFilesOnly))
 
 			fileToFOContainer.put(
 					file,

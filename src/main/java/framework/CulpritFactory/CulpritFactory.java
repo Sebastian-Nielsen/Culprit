@@ -2,18 +2,17 @@ package framework.CulpritFactory;
 
 import common.DataExtractor;
 import common.culpritFactory.DefaultPostEffectFactory;
-
-import java.io.File;
+import framework.ContentFileHierarchy;
 
 public interface CulpritFactory {
 
-	abstract PreparatorFactory createPreparatorFactory();
+	PreparatorFactory createPreparatorFactory();
 
-	abstract DataExtractor createDataExtractor();
+	DataExtractor createDataExtractor();
 
-	abstract CompilerFacadeFactory createCompileFacadeFactory();
+	CompilerFacadeFactory createCompileFacadeFactory();
 
-	abstract DefaultPostEffectFactory createPostEffectFactory();
+	DefaultPostEffectFactory createPostEffectFactory();
 
-	abstract File getContentRootFolder();
+	ContentFileHierarchy getContentFileHiearchy();
 }

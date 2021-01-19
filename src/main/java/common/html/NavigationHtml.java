@@ -17,7 +17,7 @@ import static common.html.HTML.Tag.*;
 import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.*;
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 /**
@@ -92,7 +92,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, numberOfParentsToInclude);
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
-		for (File subDir : listDirsFrom(rootDir, NONRECURSIVE))
+		for (File subDir : listDirsFrom(rootDir, NONRECURSIVELY))
 			generateNavHtmlFor(subDir);
 
 	}
@@ -128,7 +128,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	}
 
 	private void buildLiTagsForDirs(HtmlBuilder builder, File rootDir, File originalDir, File dirToMark) throws IOException {
-		File[] dirs = sortByFileName(listDirsFrom(rootDir, NONRECURSIVE));
+		File[] dirs = sortByFileName(listDirsFrom(rootDir, NONRECURSIVELY));
 		for (File file : dirs) {
 
 			List<String> classValues;
@@ -143,7 +143,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 
 	private void buildLiTagsForNonDirs(HtmlBuilder builder, File rootDir, File originalDir) throws IOException {
 
-		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVE));
+		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVELY));
 		for (File file : nonDirs)
 
 			if (!isIndexFile(file))

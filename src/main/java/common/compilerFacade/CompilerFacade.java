@@ -42,8 +42,8 @@ public class CompilerFacade {
 	private String buildDefaultPageUsing(File contentFile,
 	                                     String articleTag,
 	                                     CompilerDataContainer dataContainer) throws Exception {
-		return new DefaultPageHtmlTemplate(new HtmlFactory())
-				.buildUsing(contentFile, articleTag, dataContainer);
+
+		return new DefaultPageHtmlTemplate(new HtmlFactory()).buildUsing(contentFile, articleTag, dataContainer);
 	}
 
 

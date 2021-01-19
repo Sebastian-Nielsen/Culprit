@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 
@@ -78,7 +78,7 @@ public class PostEffectsFacade {
 	 * Extracts all `index.html` files from <em>deployment</em>
 	 */
 	private File[] listIndexFiles() throws Exception {
-		return Arrays.stream(listNonDirsFrom(deployRootFolder, RECURSIVE))
+		return Arrays.stream(listNonDirsFrom(deployRootFolder, RECURSIVELY))
 				.filter(file -> file.getName().equals("index.html"))
 				.toArray(File[]::new);
 	}

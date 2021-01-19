@@ -1,14 +1,10 @@
 package common.preparatorFacade;
 
-import common.html.HtmlFactory;
-import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultIndexHtmlTemplate;
-
 import java.io.File;
 
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static framework.utils.FileUtils.Lister.listDirsFrom;
 import static framework.utils.FileUtils.Lister.streamNonDirsFrom;
-import static framework.utils.FileUtils.Modifier.writeStringTo;
 import static java.util.function.Predicate.isEqual;
 
 /**
@@ -18,7 +14,7 @@ public class DefaultIndexPreparator {  // TODO: this should be owned by deployer
 
 	public static void addDefaultIndexesRecursivelyTo(File folder) throws Exception {
 
-		for (File dir : listDirsFrom(folder, NONRECURSIVE))
+		for (File dir : listDirsFrom(folder, NONRECURSIVELY))
 
 			addDefaultIndexesRecursivelyTo(dir);
 
@@ -34,7 +30,7 @@ public class DefaultIndexPreparator {  // TODO: this should be owned by deployer
 	 */
 	private static void addDefaultIndexTo(File folder) throws Exception {
 
-		boolean doesIndexFileExist = streamNonDirsFrom(folder, NONRECURSIVE).anyMatch(isEqual("index.html"));
+		boolean doesIndexFileExist = streamNonDirsFrom(folder, NONRECURSIVELY).anyMatch(isEqual("index.html"));
 		if (!doesIndexFileExist)
 			createDefaultIndexIn(folder);
 	}

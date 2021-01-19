@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInRelativeOrder;
@@ -25,7 +25,7 @@ public class FileUtils_listAllFilesFrom {
 	@Test
 	public void shouldRetrieveAllFiles() throws IOException {
 		// Exercise
-		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVE);
+		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVELY);
 		// Verify
 		File[] expectedFiles = new File[]{
 			new File(ROOT_ABS_PATH + "/A"),             // 1
@@ -42,7 +42,7 @@ public class FileUtils_listAllFilesFrom {
 	@Test
 	public void shouldRetrieveFilesDepthFirst() throws IOException {
 		// Exercise
-		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVE);
+		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVELY);
 		// Verify
 		File[] expectedRelativeOrderOfFolders = new File[]{
 				new File(ROOT_ABS_PATH + "/lvlB"),

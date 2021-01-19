@@ -18,8 +18,10 @@ public class CompilerDataContainer {
 	private @Unmodifiable @NotNull final Map<String, File>                idToContentFile;
 	private @Unmodifiable @NotNull final Map<String, FileOptionContainer> pathToFOContainer;
 	private               @NotNull final NavigationHtmlGenerator          navHtmlGenerator;
+
 	private @NotNull final File contentRootFolder;
 	private @NotNull final File deployRootFolder;
+
 
 	public CompilerDataContainer(@NotNull Map<String, File>                idToContentFile,
 	                             @NotNull Map<String, FileOptionContainer> pathToFOContainer,
@@ -36,6 +38,7 @@ public class CompilerDataContainer {
 	}
 
 
+
 	/* === Getters */
 
 	public FileOptionContainer getFOContainerOf(File file) {
@@ -49,6 +52,7 @@ public class CompilerDataContainer {
 	public String getNavigationHtmlOf(File deployFile) {
 		return navHtmlGenerator.getNavHtmlOf(deployFile);   //TODO does it really have to be a deploy file? (make it more general)
 	}
+
 
 	public @NotNull File getContentRootFolder() {
 		return contentRootFolder;

@@ -1,9 +1,7 @@
 package common.preparatorFacade;
 
-import common.preparatorFacade.DefaultIndexPreparator;
-import common.preparatorFacade.Deployer;
-import common.preparatorFacade.FileOptionPreparator;
 import framework.CulpritFactory.PreparatorFactory;
+import framework.DeployFileHierarchy;
 import framework.PreparatorFacade;
 
 import java.io.File;
@@ -13,22 +11,22 @@ import static framework.utils.FileUtils.Filename.changeFileExt;
 
 public class Preparator implements PreparatorFacade {
 
-	private final File contentRootFolder;
-	private final File deployRootFolder;
 	private final FileOptionPreparator fileOptionPreparator;
 	private final Deployer deployer;
 	private final boolean shouldAddDefaultIndexes;
 	private final boolean shouldAddIdToContentFilesWithoutOne;
+	private final DeployFileHierarchy deployFileHierchy;
 
 	/* ============================================= */
 
 	public Preparator(PreparatorFactory factory) {
-		this.contentRootFolder = factory.getContentRootFolder();
-		this.deployRootFolder  = factory.getDeployRootFolder();
-		this.shouldAddDefaultIndexes = factory.addDefaultIndexes();  // TODO extract into object with (¤)
+		this.deployFileHierchy = factory.getDeployHierarchy();
+
+		this.shouldAddDefaultIndexes             = factory.addDefaultIndexes();             // TODO extract into object with (¤)
 		this.shouldAddIdToContentFilesWithoutOne = factory.addIdToContentFilesWithoutOne(); // TODO extract into object with (¤)
-		this.fileOptionPreparator = factory.createFileOptionPreparator(this);
-		this.deployer = new Deployer(contentRootFolder, deployRootFolder);
+		this.fileOptionPreparator                = factory.createFileOptionPreparator(this);
+
+		this.deployer = new Deployer(factory.getContentHierarchy(), deployFileHierchy);
 	}
 
 	/* ============================================= */
@@ -55,7 +53,7 @@ public class Preparator implements PreparatorFacade {
 
 	@Override
 	public void addDefaultIndexes() throws Exception {
-		DefaultIndexPreparator.addDefaultIndexesRecursivelyTo(deployRootFolder);
+		DefaultIndexPreparator.addDefaultIndexesRecursivelyTo(deployFileHierchy.getDeployRootDir());
 	}
 
 	/* ============================================= */

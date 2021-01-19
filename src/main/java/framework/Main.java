@@ -10,8 +10,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static framework.Constants.Constants.CWD;
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 import static org.apache.commons.io.FileUtils.deleteDirectory;
 
@@ -72,7 +71,7 @@ public class Main {
 	public static void cleanDeployDir() throws IOException {
 		File deployDir = new File("deployment");
 
-		for (File file : listFilesAndDirsFrom(deployDir, NONRECURSIVE)) {
+		for (File file : listFilesAndDirsFrom(deployDir, NONRECURSIVELY)) {
 
 			if (file.isFile()) {
 				file.delete();

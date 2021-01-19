@@ -1,11 +1,15 @@
 package common.preparatorFacade;
 
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.IOException;
 
 import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Filename.relativePath;
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 
 /**
@@ -22,17 +26,17 @@ import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
  */
 public class Deployer {
 
-	private final File contentRootFolder;
-	private final File deployRootFolder;
+	private @NotNull final ContentFileHierarchy contentHierarchy;
+	private @NotNull final DeployFileHierarchy deployHierarchy;
 
-	public Deployer(File contentRootFolder, File deployRootFolder) {
-		this.contentRootFolder = contentRootFolder;
-		this.deployRootFolder  = deployRootFolder;
+	public Deployer(@NotNull ContentFileHierarchy contentHierarchy, @NotNull DeployFileHierarchy deployHierarchy) {
+		this.contentHierarchy = contentHierarchy;
+		this.deployHierarchy  = deployHierarchy;
 	}
 
 	public void deploy() throws IOException {
 
-		for (File contentFile : listFilesAndDirsFrom(contentRootFolder, RECURSIVE))
+		for (File contentFile : contentHierarchy.listFilesAndDirs(RECURSIVELY))
 			createDeployFileFrom(contentFile);
 
 	}
@@ -62,7 +66,7 @@ public class Deployer {
 
 	private void createDeployFileFrom(File contentFile) throws IOException {
 
-		File deployFile = getDeployEquivalentOf(contentFile, contentRootFolder, deployRootFolder);
+		File deployFile = getDeployEquivalentOf(contentFile, contentHierarchy.getContentRootDir(), deployHierarchy.getDeployRootDir());
 
 		if (contentFile.isFile())
 			deployFile.createNewFile();

@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,8 +16,8 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 import static framework.utils.FileUtils.Filename.relativePath;
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVE;
-import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
+import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
+import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Retriever.contentOf;
 import static org.apache.commons.io.FileUtils.readFileToString;
 
@@ -29,7 +28,7 @@ public class FileUtils {
 	public static class Lister {
 
 		public enum RECURSION {
-			RECURSIVE(true), NONRECURSIVE(false);
+			RECURSIVELY(true), NONRECURSIVELY(false);
 
 			private final boolean isRecursive;
 
@@ -174,7 +173,7 @@ public class FileUtils {
 		}
 
 		private static Stream<File> streamNonDirsNonRecursivelyFrom(File folder) throws IOException {
-			File[] files = listNonDirsFrom(folder, NONRECURSIVE);
+			File[] files = listNonDirsFrom(folder, NONRECURSIVELY);
 
 			if (files == null)
 				return Stream.empty();
@@ -211,7 +210,7 @@ public class FileUtils {
 		 * @return A list of all files in {@code folder}
 		 */
 		public static String[] getRelativePathsFrom(File folder) throws IOException {
-			return Arrays.stream(listFilesAndDirsFrom(folder, RECURSIVE))
+			return Arrays.stream(listFilesAndDirsFrom(folder, RECURSIVELY))
 					.map(file -> relativePath(file, folder))
 					.toArray(String[]::new);
 		}

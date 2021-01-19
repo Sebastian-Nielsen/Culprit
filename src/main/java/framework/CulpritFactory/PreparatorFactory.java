@@ -1,9 +1,9 @@
 package framework.CulpritFactory;
 
 import common.preparatorFacade.FileOptionPreparator;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import framework.PreparatorFacade;
-
-import java.io.File;
 
 public interface PreparatorFactory {
 
@@ -14,8 +14,8 @@ public interface PreparatorFactory {
 	boolean addDefaultIndexes();
 
 
-	File getContentRootFolder();
+	ContentFileHierarchy getContentHierarchy();
 
-	File getDeployRootFolder();
+	DeployFileHierarchy getDeployHierarchy();
 
 }

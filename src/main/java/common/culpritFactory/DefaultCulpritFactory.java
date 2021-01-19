@@ -10,9 +10,6 @@ import framework.CulpritFactory.PreparatorFactory;
 import framework.DeployFileHierarchy;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.text.AbstractDocument;
-import java.io.File;
-
 import static framework.Constants.Constants.CWD;
 
 public class DefaultCulpritFactory extends Factory implements CulpritFactory{
@@ -49,7 +46,7 @@ public class DefaultCulpritFactory extends Factory implements CulpritFactory{
 	}
 
 	@Override
-	public File getContentRootFolder() {
-		return contentHierarchy.getContentRootDir();
+	public ContentFileHierarchy getContentFileHiearchy() {
+		return contentHierarchy;
 	}
 }
