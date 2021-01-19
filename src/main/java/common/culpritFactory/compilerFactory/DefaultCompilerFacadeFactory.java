@@ -3,6 +3,8 @@ package common.culpritFactory.compilerFactory;
 import common.compilerFacade.CompilerDataContainer;
 import common.compilerFacade.CompilerImpl;
 import common.compilerFacade.PrecompilerImpl;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import framework.compilerFacade.Compiler;
 import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.compilerFacade.Precompiler;
@@ -12,12 +14,12 @@ import java.io.File;
 
 public class DefaultCompilerFacadeFactory implements CompilerFacadeFactory {
 
-	private final File contentRootFolder;  // new File(CWD + "/" + "content");
-	private final File deployRootFolder;   // new File(CWD + "/" + "deployment");
+	private final ContentFileHierarchy contentHierarchy;  // new File(CWD + "/" + "content");
+	private final DeployFileHierarchy deployHierarchy;   // new File(CWD + "/" + "deployment");
 
-	public DefaultCompilerFacadeFactory(File contentRootFolder, File deployRootFolder) {
-		this.contentRootFolder = contentRootFolder;
-		this.deployRootFolder  = deployRootFolder;
+	public DefaultCompilerFacadeFactory(ContentFileHierarchy contentHierarchy, DeployFileHierarchy deployHierarchy) {
+		this.contentHierarchy = contentHierarchy;
+		this.deployHierarchy  = deployHierarchy;
 	}
 
 	@Override
@@ -31,12 +33,12 @@ public class DefaultCompilerFacadeFactory implements CompilerFacadeFactory {
 	}
 
 	@Override
-	public File getContentRootFolder() {
-		return contentRootFolder;
+	public ContentFileHierarchy getContentHierarchy() {
+		return contentHierarchy;
 	}
 
 	@Override
-	public File getDeployRootFolder() {
-		return deployRootFolder;
+	public DeployFileHierarchy getDeployHierarchy() {
+		return deployHierarchy;
 	}
 }

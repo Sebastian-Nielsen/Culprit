@@ -6,6 +6,8 @@ import common.fileOption.FileOptionExtractorImpl;
 import common.html.NavigationHtml;
 import common.html.NavigationHtmlGenerator;
 import common.other.FileHandlerImpl;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import framework.other.Logger;
 import one.util.streamex.EntryStream;
 import org.jetbrains.annotations.NotNull;
@@ -30,15 +32,16 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
  */
 public class DataExtractor {
 
-	private @NotNull final File contentRootFolder;
-	private @NotNull final File deployRootFolder;
+	private @NotNull final ContentFileHierarchy contentHiearchy;
+	private @NotNull final DeployFileHierarchy  deployHierarchy;
 
 	private CompilerDataContainer   compilerDataContainer;
 	private PostEffectDataContainer postEffectDataContainer;
 
-	public DataExtractor(@NotNull File contentRootFolder, @NotNull File deployRootFolder) {
-		this.contentRootFolder = contentRootFolder;
-		this.deployRootFolder  = deployRootFolder;
+	public DataExtractor(@NotNull ContentFileHierarchy contentHiearchy,
+	                     @NotNull DeployFileHierarchy deployHierarchy) {
+		this.contentHiearchy = contentHiearchy;
+		this.deployHierarchy = deployHierarchy;
 	}
 
 	/**
@@ -47,7 +50,7 @@ public class DataExtractor {
 	 */
 	public Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
 		return FileOptionExtractorImpl.getInstance()
-				.extractFOContainerFromEachFileIn(contentRootFolder);
+				.extractFOContainerFromEachFileIn(contentHiearchy);
 	}
 
 	private Map<String, FileOptionContainer> extractPathToFOContainer() throws Exception {
@@ -76,7 +79,7 @@ public class DataExtractor {
 		Logger.log(pathToFoContainer);
 
 		return new CompilerDataContainer(idToFile, pathToFoContainer, navHtmlGenerator,
-										 contentRootFolder, deployRootFolder);
+				contentHiearchy.getContentRootDir(), deployHierarchy.getDeployRootDir());
 	}
 
 
@@ -93,7 +96,7 @@ public class DataExtractor {
 
 		int numberOfParentsToInclude = 3;
 		NavigationHtml navigationHtml;
-		navigationHtml = new NavigationHtml(deployRootFolder, numberOfParentsToInclude);
+		navigationHtml = new NavigationHtml(deployHierarchy, numberOfParentsToInclude);
 		navigationHtml.generateNavHtmlForAllFilesInDeploy();
 
 		this.compilerDataContainer   = buildDataContainerForCompiler(   navigationHtml);
@@ -116,7 +119,7 @@ public class DataExtractor {
 	public Map<String, File> extractIdToContentFile() throws IOException {
 		Map<String, File> idToFile = new HashMap<>();
 
-		for (File contentFile : listNonDirsFrom(contentRootFolder, RECURSIVE)) {
+		for (File contentFile : contentHiearchy.listNonDirs(RECURSIVE)) {
 
 			idToFile.put(
 					extractFoContainerFrom(contentFile).get(ID),

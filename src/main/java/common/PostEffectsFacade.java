@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVE;
-import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static framework.utils.FileUtils.Modifier.writeStringTo;
 
@@ -31,8 +30,8 @@ public class PostEffectsFacade {
 
 		this.dataContainer = dataContainer;
 
-		this.contentRootFolder = factory.getContentRootFolder();
-		this.deployRootFolder  = factory.getDeployRootFolder();
+		this.contentRootFolder = factory.getContentHierarchy().getContentRootDir();
+		this.deployRootFolder  = factory.getDeployHierarchy().getDeployRootDir();
 	}
 
 	/**

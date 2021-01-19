@@ -5,6 +5,8 @@ import common.DataExtractor;
 import common.compilerFacade.PrecompilerImpl;
 import common.fileOption.FileOptionContainer;
 import common.html.NavigationHtml;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import framework.compilerFacade.Precompiler;
 import one.util.streamex.EntryStream;
 import org.junit.jupiter.api.BeforeEach;
@@ -89,8 +91,8 @@ public class PrecompilerTest {
 
 	private CompilerDataContainer newCompilerDataContainer(Map<File, FileOptionContainer> fileToFOContainer) throws Exception {
 		DataExtractor dataExtractor = new DataExtractor(
-				INPUT_ROOT_FILE,
-				EXPECTED_ROOT_FILE
+				new ContentFileHierarchy(INPUT_ROOT_FILE),
+				new DeployFileHierarchy(EXPECTED_ROOT_FILE)
 		);
 
 		Map<String, FileOptionContainer> pathToFOContainer = EntryStream.of(fileToFOContainer).mapKeys(File::toString).toMap();
@@ -98,7 +100,7 @@ public class PrecompilerTest {
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
 				pathToFOContainer,
-				new NavigationHtml(EXPECTED_ROOT_FILE),
+				new NavigationHtml(new DeployFileHierarchy(EXPECTED_ROOT_FILE)),
 				INPUT_ROOT_FILE, EXPECTED_ROOT_FILE
 		);
 	}

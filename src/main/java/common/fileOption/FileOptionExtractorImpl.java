@@ -1,6 +1,7 @@
 package common.fileOption;
 
 import common.other.FileHandlerImpl;
+import framework.ContentFileHierarchy;
 import framework.other.FileHandler;
 import framework.other.FileOptionExtractor;
 import framework.other.Validator;
@@ -46,16 +47,16 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 		return foContainer;
 	}
 
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder) throws Exception {
-		return extractFOContainerFromEachFileIn(folder, ValidatorImpl.getInstance());
+	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy) throws Exception {
+		return extractFOContainerFromEachFileIn(contentHierarchy, ValidatorImpl.getInstance());
 	}
 
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder, Validator validator) throws Exception {
+	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy, Validator validator) throws Exception {
 
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 
 		final String mdFilesOnly = "md";
-		for (File file : listNonDirsFrom(folder, RECURSIVE, mdFilesOnly))
+		for (File file : contentHierarchy.listNonDirs(RECURSIVE, mdFilesOnly))
 
 			fileToFOContainer.put(
 					file,

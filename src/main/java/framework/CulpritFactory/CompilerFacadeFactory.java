@@ -2,6 +2,8 @@ package framework.CulpritFactory;
 
 import common.compilerFacade.CompilerDataContainer;
 import common.compilerFacade.CompilerFacade;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import framework.compilerFacade.Compiler;
 import framework.compilerFacade.Precompiler;
 
@@ -16,8 +18,8 @@ public interface CompilerFacadeFactory {
 
 	Compiler createCompiler();
 
-	File getContentRootFolder();
+	ContentFileHierarchy getContentHierarchy();
 
-	File getDeployRootFolder();
+	DeployFileHierarchy getDeployHierarchy();
 
 }

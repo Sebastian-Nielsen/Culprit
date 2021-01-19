@@ -2,6 +2,8 @@ package unitTests;
 
 import common.compilerFacade.CompilerDataContainer;
 import common.DataExtractor;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import stubs.NavigationHtmlStub;
@@ -90,7 +92,10 @@ public class DataExtractorTest {
 
 	@NotNull
 	private DataExtractor newDataExtractor(String INPUT_ROOT_PATH, String EXPECTED_ROOT_PATH) {
-		return new DataExtractor(getResourceFile(INPUT_ROOT_PATH), getResourceFile(EXPECTED_ROOT_PATH));
+		ContentFileHierarchy contentHiearchy = new ContentFileHierarchy(getResourceFile(INPUT_ROOT_PATH)   );
+		DeployFileHierarchy  deployHiearchy  = new DeployFileHierarchy( getResourceFile(EXPECTED_ROOT_PATH));
+		
+		return new DataExtractor(contentHiearchy, deployHiearchy);
 	}
 
 }

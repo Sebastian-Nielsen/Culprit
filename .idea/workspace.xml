@@ -10,8 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/expected/A.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/expectedOutputOfFileF.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultPreparatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultPreparatorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/CulpritFactory/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +79,18 @@
         <option value="Enum" />
         <option value="package-info" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="beabc3c03f89ba39efd6c192a06c5f1c6ae8984e" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -150,55 +159,34 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.NavigationHtmlTest.shouldMarkParentFolders">
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+    <configuration name="FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="NavigationHtmlTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;unitTests.NavigationHtmlTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="NavigationHtmlTest.shouldGenerateAnLiTagForEachDirAndFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.NavigationHtmlTest.shouldGenerateAnLiTagForEachDirAndFile&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="NavigationHtmlTest.shouldGenerateDirAndFileClassValues" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.NavigationHtmlTest.shouldGenerateDirAndFileClassValues&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -241,6 +229,27 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;unitTests.NavigationHtmlTest.shouldMarkParentFolders&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'culprit_2.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests *" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -310,20 +319,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Gradle.NavigationHtmlTest" />
-      <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateAnLiTagForEachDirAndFile" />
-      <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateDirAndFileClassValues" />
       <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateFileClassValues" />
       <item itemvalue="Gradle.NavigationHtmlTest.shouldMarkParentFolders" />
+      <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="Gradle.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" />
+      <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Gradle.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" />
         <item itemvalue="Gradle.NavigationHtmlTest.shouldMarkParentFolders" />
         <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateFileClassValues" />
         <item itemvalue="Gradle.NavigationHtmlTest" />
-        <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateDirAndFileClassValues" />
-        <item itemvalue="Gradle.NavigationHtmlTest.shouldGenerateAnLiTagForEachDirAndFile" />
       </list>
     </recent_temporary>
   </component>
@@ -341,7 +350,32 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="common.CompilerDataContainer" memberName="idToRelativeDeployPath" />

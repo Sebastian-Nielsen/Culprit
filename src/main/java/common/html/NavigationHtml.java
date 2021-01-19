@@ -1,5 +1,6 @@
 package common.html;
 
+import framework.DeployFileHierarchy;
 import org.apache.commons.io.comparator.NameFileComparator;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,17 +40,17 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	 *                                    <li>{@code 2}: <em>three ol</em>, ...</li>
 	 *                                    </ul>
 	 */
-	public NavigationHtml(@NotNull File deployRootFolder, int maxNumberOfParentsToInclude) {
+	public NavigationHtml(@NotNull DeployFileHierarchy deployHiearchy, int maxNumberOfParentsToInclude) {
 
 		if (maxNumberOfParentsToInclude <= 0)
 			throw new IllegalArgumentException("Number of parents to include must be greater than 0");
 
 		this.numberOfParentsToInclude = maxNumberOfParentsToInclude;
-		this.deployRootFolder = deployRootFolder;
+		this.deployRootFolder = deployHiearchy.getDeployRootDir();
 	}
 
-	public NavigationHtml(@NotNull File deployRootFolder) {
-		this(deployRootFolder, 3);
+	public NavigationHtml(@NotNull DeployFileHierarchy deployHiearchy) {
+		this(deployHiearchy, 3);
 	}
 
 

@@ -1,6 +1,7 @@
 package framework.other;
 
 import common.fileOption.FileOptionContainer;
+import framework.ContentFileHierarchy;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,6 @@ public interface FileOptionExtractor {
 	 * @param validator validator that determines what a valid fileOption format is
 	 * @return map of {@code File}s to their respective {@code FileOptionContainer}
 	 */
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder, Validator validator) throws Exception;
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(File folder) throws Exception;
+	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy, Validator validator) throws Exception;
+	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy) throws Exception;
 }

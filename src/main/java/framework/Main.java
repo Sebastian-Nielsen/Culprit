@@ -29,7 +29,9 @@ public class Main {
 
 		Logger.log(args, parser);
 
-		Culprit culpritCompiler = new Culprit(new DefaultCulpritFactory());
+		Culprit culpritCompiler = new Culprit(
+				new DefaultCulpritFactory()
+		);
 
 		if (parser.getBoolValOf("--single"))
 			compileSingleFile(culpritCompiler, args);

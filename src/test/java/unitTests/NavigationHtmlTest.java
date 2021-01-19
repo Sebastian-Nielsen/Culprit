@@ -1,6 +1,7 @@
 package unitTests;
 
 import common.html.NavigationHtml;
+import framework.DeployFileHierarchy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +43,7 @@ public class NavigationHtmlTest {
 	@BeforeEach
 	public void setup() throws Exception {
 		// Fixture phase
-		navHtml = new NavigationHtml(ROOT_INPUT_DIR, MAX_NUM_OF_PARENTS_TO_INCLUDE);
+		navHtml = new NavigationHtml(new DeployFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
 		// Exercise phase
 		navHtml.generateNavHtmlForAllFilesInDeploy();
 		navHtmlOfFileF = navHtml.getNavHtmlOf(FILE_F);
