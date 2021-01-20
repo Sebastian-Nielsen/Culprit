@@ -66,6 +66,32 @@ public class FileUtils {
 		}
 
 
+		/* ===================================================== */
+
+		public static Stream<File> streamNonDirsFrom(File folder, RECURSION isRecursive) throws IOException {
+			if (isRecursive.getBool())
+				return streamNonDirsRecursivelyFrom(folder);
+			else
+				return streamNonDirsNonRecursivelyFrom(folder);
+		}
+
+		/**
+		 * Get all non-dirs recursively in {@code folder} in a depth-first manner.
+		 * @return A list of all files in {@code folder}
+		 */
+		private static Stream<File> streamNonDirsRecursivelyFrom(File folder) throws IOException {
+			return Files.walk(folder.toPath())
+					.skip(1)  // Don't include the "root" aka. {@code folder}
+					.map(Path::toFile)
+					.filter(File::isFile);
+		}
+
+		private static Stream<File> streamNonDirsNonRecursivelyFrom(File folder) {
+			return Arrays.stream(folder.listFiles())
+					.filter(File::isFile);
+		}
+
+
 
 		/* ===================================================== */
 
@@ -189,23 +215,23 @@ public class FileUtils {
 		 * Get all not nested non-folders in {@code folder} that are
 		 * within a folder in {@code folder}.
 		 */
-		public static Stream<File> streamNonDirsFrom(File folder, RECURSION isRecursive) throws ExecutionControl.NotImplementedException, IOException {
-			if (isRecursive.getBool())
-				throw new ExecutionControl.NotImplementedException("not implemented yet");
-			else
-				return streamNonDirsNonRecursivelyFrom(folder);
-		}
+//		public static Stream<File> streamNonDirsFrom(File folder, RECURSION isRecursive) throws ExecutionControl.NotImplementedException, IOException {
+//			if (isRecursive.getBool())
+//				throw new ExecutionControl.NotImplementedException("not implemented yet");
+//			else
+//				return streamNonDirsNonRecursivelyFrom(folder);
+//		}
 
-		private static Stream<File> streamNonDirsNonRecursivelyFrom(File folder) throws IOException {
-			File[] files = listNonDirsFrom(folder, NONRECURSIVELY);
-
-			if (files == null)
-				return Stream.empty();
-			else
-				return Arrays.stream(files)
-						.filter(File::isFile);
-		}
-
+//		private static Stream<File> streamNonDirsNonRecursivelyFrom(File folder) throws IOException {
+//			File[] files = listNonDirsFrom(folder, NONRECURSIVELY);
+//
+//			if (files == null)
+//				return Stream.empty();
+//			else
+//				return Arrays.stream(files)
+//						.filter(File::isFile);
+//		}
+//
 
 		/* ===================================================== */
 
