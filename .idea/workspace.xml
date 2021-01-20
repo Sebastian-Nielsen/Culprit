@@ -9,16 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DataExtractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_getRelativePathsRecursivelyFrom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/FileUtilsSuiteClasses/FileUtils_listAllFilesFrom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PreparatorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,11 +127,11 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\expected" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\PreparatorTest_testFiles\deploy\root\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles\nested_v2" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\content\other\nested" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\content\other\nested_v2" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -305,8 +296,8 @@
       <item itemvalue="Gradle.NavigationHtmlTest.shouldMarkParentFolders" />
       <item itemvalue="Gradle.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-      <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Gradle.PreparatorTest.shouldCopyFileHierarchyToDeployDir" />
+      <item itemvalue="JAR Application.Unnamed" />
     </list>
     <recent_temporary>
       <list>

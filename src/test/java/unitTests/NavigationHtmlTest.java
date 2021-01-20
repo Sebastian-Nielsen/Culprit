@@ -19,8 +19,8 @@ public class NavigationHtmlTest {
 	private final String ROOT_INPUT_DIRNAME = "NavigationHtmlTest_testFiles/input";
 	private final File ROOT_INPUT_DIR = getResourceFile(ROOT_INPUT_DIRNAME);
 
-	private final String A = "/A.md";
-	private final String B = "/B.md";
+	private final String A = "/A";
+	private final String B = "/B";
 	private final String C = "/nested/C";
 	private final String D = "/nested/x2nested_1/D";
 	private final String E = "/nested/x2nested_1/E";
@@ -110,8 +110,8 @@ public class NavigationHtmlTest {
 				new String[]{
 					"href=\"..\"",
 					"href=\"../../nested_v2\"",
-					"href=\"../../A.md.html\"",
-					"href=\"../../B.md.html\"",
+					"href=\"../../A.html\"",
+					"href=\"../../B.html\"",
 					"href=\"../x2nested_1\"",
 					"href=\"\"",
 					"href=\"../C.html\"",

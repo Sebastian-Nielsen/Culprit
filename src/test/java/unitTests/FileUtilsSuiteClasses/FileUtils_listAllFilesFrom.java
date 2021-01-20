@@ -28,13 +28,13 @@ public class FileUtils_listAllFilesFrom {
 		File[] actualFiles = listFilesAndDirsFrom(ROOT_FOLDER, RECURSIVELY);
 		// Verify
 		File[] expectedFiles = new File[]{
-			new File(ROOT_ABS_PATH + "/A.md"),             // 1
+			new File(ROOT_ABS_PATH + "/A"),             // 1
 			new File(ROOT_ABS_PATH + "/lvlB"),          // 2
-			new File(ROOT_ABS_PATH + "/lvlB/B.md"),        // 3
+			new File(ROOT_ABS_PATH + "/lvlB/B"),        // 3
 			new File(ROOT_ABS_PATH + "/lvlB/lvlC1"),    // 4
-			new File(ROOT_ABS_PATH + "/lvlB/lvlC1/C1.md"), // 5
+			new File(ROOT_ABS_PATH + "/lvlB/lvlC1/C1"), // 5
 			new File(ROOT_ABS_PATH + "/lvlB/lvlC2"),    // 6
-			new File(ROOT_ABS_PATH + "/lvlB/lvlC2/C2.md")  // 7
+			new File(ROOT_ABS_PATH + "/lvlB/lvlC2/C2")  // 7
 		};
 		assertArrayEquals(expectedFiles, actualFiles);
 	}
