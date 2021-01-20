@@ -9,54 +9,83 @@ navigation-html for `F.html` should look like.
 
 <ol>
   <li class="dir marked">
-    <a href="..">
+    <a href="../..">
       nested
     </a>
   </li>
 
   <li class="dir">
-    <a href="../../nested_v2">
+    <a href="../../../nested_v2">
       nested_v2
     </a>
   </li>
 
   <li class="file">
-    <a href="../../A.html">
+    <a href="../../../A.html">
       A
     </a>
   </li>
 
   <li class="file">
-    <a href="../../B.html">
+    <a href="../../../B.html">
       B
     </a>
   </li>
 </ol>
 
+
 <ol>
   <li class="dir">
-    <a href="../x2nested_1">
+    <a href="../../x2nested_1">
       x2nested_1
     </a>
   </li>
 
   <li class="dir marked">
-    <a href="">
+    <a href="..">
       x2nested_2
     </a>
   </li>
 
   <li class="file">
-    <a href="../C.html">
+    <a href="../../C.html">
       C
     </a>
   </li>
 </ol>
 
+
+<ol>
+  <li class="dir marked">
+    <a href="">
+      x3nested_1
+    </a>
+  </li>
+
+  <li class="dir">
+    <a href="../x3nested_2">
+      x3nested_2
+    </a>
+  </li>
+
+  <li class="file">
+    <a href="../H.html">
+      H
+    </a>
+  </li>
+</ol>
+
+
 <ol>
   <li class="file">
     <a href="F.html">
-      F
+      F         <!-- File we are generating off of -->
+    </a>
+  </li>
+
+  <li class="file">
+    <a href="G.html">
+      G
     </a>
   </li>
 </ol>

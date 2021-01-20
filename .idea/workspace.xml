@@ -10,7 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/expectedOutputOfFileF.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/expectedOutputOfFileF.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/A.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/nested/x2nested_2/F.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/nested_v2/G.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/nested_v2/J.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,11 +134,11 @@
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\DeployerTest_testFiles\expected" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles\input" />
+      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles\input\nested\x2nested_2\x3nested" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\PreparatorTest_testFiles\deploy\root\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles\input" />
       <recent name="C:\Users\sebas\IdeaProjects\culprit_2\src\test\resources\NavigationHtmlTest_testFiles\nested_v2" />
-      <recent name="C:\Users\sebas\IdeaProjects\culprit_2\content\other\nested" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -143,7 +147,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+  <component name="RunManager" selected="Gradle.navHtmlGeneratorTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -163,27 +167,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -226,6 +209,27 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests *" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="navHtmlGeneratorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.navHtmlGeneratorTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -297,18 +301,18 @@
     <list>
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
       <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
       <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.navHtmlGeneratorTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.navHtmlGeneratorTest" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
         <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
       </list>
     </recent_temporary>
   </component>
@@ -341,23 +345,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java</url>
-          <line>43</line>
-          <properties class="unitTests.navHtmlGeneratorTest" method="setup">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
           <line>440</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -25,8 +25,10 @@ public class navHtmlGeneratorTest {
 	private final String C = "/nested/C";
 	private final String D = "/nested/x2nested_1/D";
 	private final String E = "/nested/x2nested_1/E";
-	private final String F = "/nested/x2nested_2/F";
-	private final String G = "/nested_v2/G";
+	private final String F = "/nested/x2nested_2/x3nested_1/F";
+	private final String G = "/nested/x2nested_2/x3nested_1/G";
+	private final String H = "/nested/x2nested_2/H";
+	private final String J = "/nested_v2/J";
 
 	private final File FILE_B = getResourceFile(ROOT_INPUT_DIRNAME + B + ".html");
 	private final File FILE_A = getResourceFile(ROOT_INPUT_DIRNAME + A + ".html");
@@ -35,6 +37,8 @@ public class navHtmlGeneratorTest {
 	private final File FILE_E = getResourceFile(ROOT_INPUT_DIRNAME + E + ".html");
 	private final File FILE_F = getResourceFile(ROOT_INPUT_DIRNAME + F + ".html");
 	private final File FILE_G = getResourceFile(ROOT_INPUT_DIRNAME + G + ".html");
+	private final File FILE_H = getResourceFile(ROOT_INPUT_DIRNAME + H + ".html");
+	private final File FILE_J = getResourceFile(ROOT_INPUT_DIRNAME + J + ".html");
 
 	private static final int MAX_NUM_OF_PARENTS_TO_INCLUDE = 2;
 
@@ -48,11 +52,19 @@ public class navHtmlGeneratorTest {
 		// Exercise phase
 		navHtml.generateNavHtmlForAllFiles();
 		navHtmlOfFileF = navHtml.getNavHtmlOf(FILE_F);
+//		System.out.println(navHtmlOfFileF);
 	}
 
 	@Test
-	public void souldStopIncludingNavHtmlForParentsWhenParentIsMarkedAsTopicDir() {
+	public void shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir() {
+		// This is the only test method that doesn't use the setup fixture
+		// fixture
+		String navHtmlOfFileJ = navHtml.getNavHtmlOf(FILE_F);
+
 		// Verify
+		int olTagOccurencesCount = countMatches(navHtmlOfFileJ, "</ol>");
+
+		assertEquals(olTagOccurencesCount, 2);
 
 	}
 
@@ -113,16 +125,20 @@ public class navHtmlGeneratorTest {
 		// Verify phase
 		String[] matches = getAllMatchesOfRegexInString(navHtmlOfFileF, "href=\".*?\"");
 
+		for (String match : matches) {
+			System.out.println(match);
+		}
+
 		assertArrayEquals(
 				new String[]{
+					"href=\"../../x2nested_1\"",
 					"href=\"..\"",
-					"href=\"../../nested_v2\"",
-					"href=\"../../A.html\"",
-					"href=\"../../B.html\"",
-					"href=\"../x2nested_1\"",
+					"href=\"../../C.html\"",
 					"href=\"\"",
-					"href=\"../C.html\"",
-					"href=\"F.html\""
+					"href=\"../x3nested_2\"",
+					"href=\"../H.html\"",
+					"href=\"F.html\"",
+					"href=\"G.html\""
 				},
 				matches
 		);
