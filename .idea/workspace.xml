@@ -9,7 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="" />
+    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/content/.fileD_images/17871412.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/.fileD_images/b2bf1626.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/.fileD_images/b906fd27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/other/nested/x2nested/.fileF_images/5277510c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/other/nested/x2nested/.fileF_images/b188bdb0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/other/nested/x2nested/a69739a5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/fileD.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/fileD.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/other/nested/x2nested/fileF.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/nested/x2nested/fileF.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +120,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -141,7 +151,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -293,19 +303,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-      <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
+      <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="Gradle.navHtmlGeneratorTest" />
       <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
+      <item itemvalue="JAR Application.Unnamed" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
         <item itemvalue="Gradle.navHtmlGeneratorTest" />
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -340,26 +350,28 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <condition expression="subDir.toString().endsWith(&quot;nested_v2&quot;)" language="JAVA" />
+          <condition expression="rootDir.toString().endsWith(&quot;input&quot;)" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="25" />
+          <line>141</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java</url>
-          <line>55</line>
-          <properties class="framework.ContentFileHierarchy" method="doesConfigFileExistIn">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
+          <line>81</line>
+          <properties class="common.html.navHtmlGenerator" method="getNavHtmlOf">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java</url>
-          <line>74</line>
-          <properties class="framework.ContentFileHierarchy" method="isConfigFile">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="28" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -55,6 +55,11 @@ public abstract class FileHierarchy {
 				.filter(file -> isEssential(file))
 				.toArray(File[]::new);
 	}
+	public File[] listNonDirsFrom(File folder, RECURSION isRecursive) throws IOException {
+		return streamNonDirsFrom(folder, isRecursive)
+				.filter(file -> isEssential(file))
+				.toArray(File[]::new);
+	}
 
 	public File[] listFilesAndDirs(RECURSION isRecursive) throws IOException {
 		return streamFilesAndDirsFrom(rootDir, isRecursive)

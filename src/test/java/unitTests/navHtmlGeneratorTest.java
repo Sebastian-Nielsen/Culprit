@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
+import static framework.utils.FileUtils.Filename.relativePath;
 import static org.apache.commons.lang3.StringUtils.countMatches;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,15 +31,18 @@ public class navHtmlGeneratorTest {
 	private final String H = "/nested/x2nested_2/H";
 	private final String J = "/nested_v2/J";
 
-	private final File FILE_B = getResourceFile(ROOT_INPUT_DIRNAME + B + ".html");
-	private final File FILE_A = getResourceFile(ROOT_INPUT_DIRNAME + A + ".html");
-	private final File FILE_C = getResourceFile(ROOT_INPUT_DIRNAME + C + ".html");
-	private final File FILE_D = getResourceFile(ROOT_INPUT_DIRNAME + D + ".html");
-	private final File FILE_E = getResourceFile(ROOT_INPUT_DIRNAME + E + ".html");
-	private final File FILE_F = getResourceFile(ROOT_INPUT_DIRNAME + F + ".html");
-	private final File FILE_G = getResourceFile(ROOT_INPUT_DIRNAME + G + ".html");
-	private final File FILE_H = getResourceFile(ROOT_INPUT_DIRNAME + H + ".html");
-	private final File FILE_J = getResourceFile(ROOT_INPUT_DIRNAME + J + ".html");
+	private final File FILE_B = getResourceFile(ROOT_INPUT_DIRNAME + B + ".md");
+	private final File FILE_A = getResourceFile(ROOT_INPUT_DIRNAME + A + ".md");
+	private final File FILE_C = getResourceFile(ROOT_INPUT_DIRNAME + C + ".md");
+	private final File FILE_D = getResourceFile(ROOT_INPUT_DIRNAME + D + ".md");
+	private final File FILE_E = getResourceFile(ROOT_INPUT_DIRNAME + E + ".md");
+	private final File FILE_F = getResourceFile(ROOT_INPUT_DIRNAME + F + ".md");
+	private final File FILE_G = getResourceFile(ROOT_INPUT_DIRNAME + G + ".md");
+	private final File FILE_H = getResourceFile(ROOT_INPUT_DIRNAME + H + ".md");
+	private final File FILE_J = getResourceFile(ROOT_INPUT_DIRNAME + J + ".md");
+
+	private final String REL_PATH_FILE_F = relativePath(ROOT_INPUT_DIR, FILE_F);
+	private final String REL_PATH_FILE_J = relativePath(ROOT_INPUT_DIR, FILE_J);
 
 	private static final int MAX_NUM_OF_PARENTS_TO_INCLUDE = 2;
 
@@ -51,7 +55,7 @@ public class navHtmlGeneratorTest {
 		navHtml = new navHtmlGenerator(new ContentFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
 		// Exercise phase
 		navHtml.generateNavHtmlForAllFiles();
-		navHtmlOfFileF = navHtml.getNavHtmlOf(FILE_F);
+		navHtmlOfFileF = navHtml.getNavHtmlOf(REL_PATH_FILE_F);
 //		System.out.println(navHtmlOfFileF);
 	}
 
@@ -59,7 +63,7 @@ public class navHtmlGeneratorTest {
 	public void shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir() {
 		// This is the only test method that doesn't use the setup fixture
 		// fixture
-		String navHtmlOfFileJ = navHtml.getNavHtmlOf(FILE_J);
+		String navHtmlOfFileJ = navHtml.getNavHtmlOf(REL_PATH_FILE_J);
 		System.out.println(navHtmlOfFileJ);
 
 		// Verify

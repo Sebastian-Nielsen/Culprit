@@ -12,26 +12,11 @@ Set the arguments to: `$ContentRoot$ --single $FilePath$`
 
 
 
-
 ## How to run
-
-Somehow this works
-
-``
-java -cp culprit_2.jar framework.Main
-``
-
-but this doesn't:
 
 ``
 java -jar culprit_2.jar
 ``
-
-## Important notes
-
-1. when pasting markdown images, set the path to be on the same lvl as 
-*content* and *deployment*, so that you avoid having to write the images from *content*
-   over into *delpoyment* (which by the way isn't supported). 
 
 
 ### Feature ideas:

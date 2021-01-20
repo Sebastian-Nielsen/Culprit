@@ -176,10 +176,13 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 	private void buildLiTagsForNonDirs(HtmlBuilder builder, File rootDir, File originalDir) throws IOException {
 
-		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVELY));
-		for (File file : nonDirs)
+		File[] nonDirs = sortByFileName(contentHierarchy.listNonDirsFrom(rootDir, NONRECURSIVELY));
+		for (File contentFile : nonDirs) {
 
-			buildLiTagFor(builder, file, originalDir, List.of("file"));
+			File deployFile = new File(changeFileExt(contentFile, "html"));
+
+			buildLiTagFor(builder, deployFile, originalDir, List.of("file"));
+		}
 
 	}
 

@@ -90,7 +90,7 @@ public class DataExtractor {
 	 */
 	public void buildDataContainers() throws Exception {
 
-		int numberOfParentsToInclude = 3;
+		int numberOfParentsToInclude = 8;
 		navHtmlGenerator navHtmlGenerator;
 		navHtmlGenerator = new navHtmlGenerator(contentHierarchy, numberOfParentsToInclude);
 		navHtmlGenerator.generateNavHtmlForAllFiles();
