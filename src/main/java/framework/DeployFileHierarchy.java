@@ -2,6 +2,7 @@ package framework;
 
 import framework.utils.FileUtils;
 import framework.utils.FileUtils.Lister.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,46 +12,35 @@ import java.util.Set;
 
 import static framework.utils.FileUtils.Lister.streamFilesAndDirsFrom;
 import static framework.utils.FileUtils.Lister.streamNonDirsFrom;
+import static org.apache.commons.io.FilenameUtils.getExtension;
 
-public class DeployFileHierarchy extends FileHierarchy {
+@NotNull public class DeployFileHierarchy extends FileHierarchy {
 
 	/**
 	 * <em>Deploy</em> files are {@code File}s that have one of the file extensions listed in {@code fileExtFilter}
 	 */
-	public Set<String> fileExtFilter;
+	private static final Set<String> fileExtsOfDeployFiles = new HashSet<>(List.of("html"));
 
-	public DeployFileHierarchy(String pathToRootOfHierarchy) {
+	public DeployFileHierarchy(@NotNull String pathToRootOfHierarchy) {
 		super(pathToRootOfHierarchy);
 	}
 
-	public DeployFileHierarchy(File rootOfHierarchy) {
+	public DeployFileHierarchy(@NotNull File rootOfHierarchy) {
 		super(rootOfHierarchy);
 	}
 
 	@Override
-	public Set<String> initFileExtFilter() {
-		return new HashSet<>(List.of("html"));
+	public boolean isEssential(@NotNull File file) {
+
+		boolean hasFileValidFileExt = fileExtsOfDeployFiles.contains(getExtension(file.toString()));
+		boolean isIndexFile         = file.toString().equals("index.html");
+
+		return hasFileValidFileExt && !isIndexFile;
 	}
 
 	/* ===================================================== */
 
 	/* === LISTERS */
-
-//	public File[] listNonDirs(RECURSION isRecursive) throws IOException {
-//		return streamNonDirsFrom(deployRootDir, isRecursive)
-//				.filter(file -> file.isDirectory() || hasValidContentFileExt(file))
-//				.toArray(File[]::new);
-//	}
-//
-//	public File[] listFilesAndDirs(RECURSION isRecursive) throws IOException {
-//		return streamFilesAndDirsFrom(deployRootDir, isRecursive)
-//				.filter(file -> file.isDirectory() || hasValidContentFileExt(file))
-//				.toArray(File[]::new);  // TODO: Implement cache for speedup
-//	}
-//
-//	public File[] listJsonConfigFiles(RECURSION isRecursive) {
-//		return null;
-//	}
 
 	/* ===================================================== */
 

@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static framework.Constants.Constants.CWD;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Retriever.contentOf;
@@ -362,7 +361,7 @@ public class FileUtils {
 		 * Get the path of each file in the inputFolders.content dir RELATIVE to the base 'C:/.../culprit/content' dir
 		 * E.g. instead of 'C:/.../culprit/content/aa/test.md' then 'aa/test.md'
 		 */
-		public static String relativePath(String filename, String basePath) {
+		public static String relativePath(String basePath, String filename) {
 			return relativePath(new File(filename), new File(basePath));
 		}
 

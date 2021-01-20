@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static framework.utils.FileUtils.Filename.fileExtOf;
 import static framework.utils.FileUtils.Lister.*;
 import static org.apache.commons.io.FilenameUtils.getExtension;
 
@@ -17,21 +18,22 @@ public class ContentFileHierarchy extends FileHierarchy {
 	/**
 	 * <em>Content</em> files are {@code File}s that have one of the file extensions listed in {@code fileExtFilter}
 	 */
-	public Set<String> fileExtFilter;
+	private static final Set<String> fileExtsOfContentFiles = new HashSet<>(List.of("md"));
 
 	/* ===================================================== */
 
-	public ContentFileHierarchy(String pathToRootOfHierarchy) {
+	public ContentFileHierarchy(@NotNull String pathToRootOfHierarchy) {
 		super(pathToRootOfHierarchy);
 	}
 
-	public ContentFileHierarchy(File rootOfHierarchy) {
+	public ContentFileHierarchy(@NotNull File rootOfHierarchy) {
 		super(rootOfHierarchy);
 	}
 
 	@Override
-	public Set<String> initFileExtFilter() {
-		return new HashSet<>(List.of("md"));
+	public boolean isEssential(@NotNull File file) {
+//		 fileExtFilter.contains(fileExtOf(file))
+		return fileExtsOfContentFiles.contains(getExtension(file.toString()));
 	}
 
 	/* ===================================================== */

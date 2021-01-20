@@ -1,6 +1,9 @@
 package common.html;
 
+import common.preparatorFacade.Deployer;
+import framework.ContentFileHierarchy;
 import framework.DeployFileHierarchy;
+import framework.FileHierarchy;
 import org.apache.commons.io.comparator.NameFileComparator;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,11 +24,12 @@ import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 /**
- * Responsible for generating and storing navHtmlGenerator for each {@code File}.
- * Takes a {@link DeployFileHierarchy} and
+ * Responsible for generating and storing navigation-html for each <em>content file</em> in {@link ContentFileHierarchy}.
+ * The navigation-html of a <em>content file</em> can be retrieved either using the <em>content file</em> or
+ * the <em>deploy file</em> equivalent of it (see {@link Deployer#getDeployEquivalentOf}).
  */
 public class navHtmlGenerator implements NavigationHtmlGenerator {
-	private final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
+	private final Map<String, String> dirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
 	private final int numberOfParentsToInclude;
 	private @NotNull final File deployRootFolder;
 	private @NotNull final DeployFileHierarchy deployHierarchy;
@@ -42,14 +46,14 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	 *                                    <li>{@code 2}: <em>three ol</em>, ...</li>
 	 *                                    </ul>
 	 */
-	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHiearchy, int maxNumberOfParentsToInclude) {
+	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHierarchy, int maxNumberOfParentsToInclude) {
 
 		if (maxNumberOfParentsToInclude <= 0)
 			throw new IllegalArgumentException("Number of parents to include must be greater than 0");
 
 		this.numberOfParentsToInclude = maxNumberOfParentsToInclude;
-		this.deployHierarchy = deployHiearchy;
-		this.deployRootFolder = deployHiearchy.getRootDir();
+		this.deployHierarchy = deployHierarchy;
+		this.deployRootFolder = deployHierarchy.getRootDir();
 	}
 
 	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHiearchy) {
@@ -79,7 +83,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 		String parentPath = relativePath(parent, deployRootFolder);
 
-		return DirPathToNavHtmlOfFilesInTheDir.get(parentPath);
+		return dirPathToNavHtmlOfFilesInTheDir.get(parentPath);
 	}
 
 
@@ -150,13 +154,8 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 		File[] nonDirs = sortByFileName(listNonDirsFrom(rootDir, NONRECURSIVELY));
 		for (File file : nonDirs)
 
-			if (!isIndexFile(file))
-				buildLiTagFor(builder, file, originalDir, List.of("file"));
+			buildLiTagFor(builder, file, originalDir, List.of("file"));
 
-	}
-
-	private boolean isIndexFile(File file) {
-		return file.toString().endsWith("index.html");
 	}
 
 	private boolean isEqual(File fileA, File fileB) {
@@ -172,8 +171,8 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 //		System.out.println("original");
 //		System.out.println(originalDir);
 //		System.out.println();
-//		System.out.println("file");
-//		System.out.println(file);
+//		System.out.println("file");        relativePathToHiearchyRoot
+//		System.out.println(file);  e.g.    contentHiearchy.relativePathToRoot(contentFile);
 //		System.out.println();
 //		System.out.println(relativeFilePathBetween(originalDir, file));
 //		System.out.println();
@@ -190,7 +189,16 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 		assert rootDir.isDirectory(); // TODO remove when tested
 
 		String dirPath = relativePath(rootDir, deployRootFolder);
-		DirPathToNavHtmlOfFilesInTheDir.put(dirPath, navHtml);
+		dirPathToNavHtmlOfFilesInTheDir.put(dirPath, navHtml);
+	}
+
+	/**
+	 * Precondition: dirPath have a fileExt
+	 */
+	private String stripFileExt(String dirPath) {
+		int indexOfLastDot = dirPath.lastIndexOf(".");
+		assert indexOfLastDot != -1;
+		return dirPath.substring(0, indexOfLastDot);
 	}
 
 

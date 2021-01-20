@@ -10,12 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerDataContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerDataContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileHierarchy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -355,14 +355,14 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
+          <line>440</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
-          <line>441</line>
-          <option name="timeStamp" value="17" />
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

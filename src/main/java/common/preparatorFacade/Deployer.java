@@ -10,7 +10,6 @@ import java.io.IOException;
 import static framework.utils.FileUtils.Filename.changeFileExt;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
-import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 
 /**
  * Creates the *deploy* hierarchy/skeleton with empty .html files

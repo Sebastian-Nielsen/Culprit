@@ -1,38 +1,50 @@
 package framework;
 
+import framework.utils.FileUtils;
 import framework.utils.FileUtils.Lister.*;
 import org.jetbrains.annotations.NotNull;
 
-import static framework.utils.FileUtils.Filename.*;
-import static framework.utils.FileUtils.Lister.*;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
+import static framework.utils.FileUtils.Filename.relativePath;
+import static framework.utils.FileUtils.Lister.*;
+
+/**
+ * Abstraction for an entire File-Hierarchy whose main responsibility is to organize all folders and files
+ * that reside in the given File-Hierarchy.
+ * <p>
+ * Most importantly, it organizes the files into two categories:
+ * essential and non-essential files (see {@link #isEssential(File)} for the difference).
+ * The two categories might be further subcategorized.
+ * <p>
+ * Additionally, it stores everything related to the FileHierarchy in question, like its {@code rootDir}.
+ */
 public abstract class FileHierarchy {
 
 	protected String rootDirPath;
 	protected File   rootDir;
 
-	/**
-	 * Set of files are {@code File}s that have one of the file extensions listed in
-	 */
-	protected @NotNull Set<String> fileExtFilter;
-
 	public FileHierarchy(@NotNull File rootOfHierarchy) {
 		this.rootDirPath = rootOfHierarchy.toString();
 		this.rootDir     = rootOfHierarchy;
-		fileExtFilter = initFileExtFilter();
 	}
 
 	public FileHierarchy(@NotNull String pathToRootOfHierarchy) {
 		this(new File(pathToRootOfHierarchy));
 	}
 
-	protected abstract Set<String> initFileExtFilter();
+	/**
+	 * Contains the boolean logic for whether the given file is an essential file of the hierarchy.<p>
+	 * The boolean answer to whether a file is essential amounts to asking:
+	 * <pre>
+	 * "Is the intend of the <em>concrete File-Hierarchy</em> to structure these sort of files in a hierarchy,
+	 * or is this file more like a helper-/config-file kind of deal."
+	 * </pre>
+	 * Hence, non-essential files could be config files; image files; excel documents; etc.
+	 * @param file a non-dir {@code File}
+	 */
+	protected abstract boolean isEssential(@NotNull File file);
 
 	/* ===================================================== */
 
@@ -40,13 +52,13 @@ public abstract class FileHierarchy {
 
 	public File[] listNonDirs(RECURSION isRecursive) throws IOException {
 		return streamNonDirsFrom(rootDir, isRecursive)
-				.filter(file -> file.isDirectory() || fileExtFilter.contains(fileExtOf(file)))
+				.filter(file -> isEssential(file))
 				.toArray(File[]::new);
 	}
 
 	public File[] listFilesAndDirs(RECURSION isRecursive) throws IOException {
 		return streamFilesAndDirsFrom(rootDir, isRecursive)
-				.filter(file -> file.isDirectory() || fileExtFilter.contains(fileExtOf(file)))
+				.filter(file -> file.isDirectory() || (file.isFile() && isEssential(file)) )
 				.toArray(File[]::new);  // TODO: Implement cache for speedup
 	}
 
@@ -57,8 +69,17 @@ public abstract class FileHierarchy {
 	 */
 	public File[] listDirsFrom(File folder, RECURSION isRecursive) throws IOException {
 		return streamDirsFrom(folder, isRecursive)
-				.filter(file -> file.isDirectory() || fileExtFilter.contains(fileExtOf(file)))
 				.toArray(File[]::new);  // TODO: Implement cache for speedup
+	}
+
+	/* ===================================================== */
+
+	/**
+	 * See {@link FileUtils.Filename#relativePath},
+	 * though where the basePath is {@code rootDirPath} of this FileHierarchy instance
+	 */
+	public String relativePathToRoot(String path) {
+		return relativePath(rootDirPath, path);
 	}
 
 	/* ===================================================== */
