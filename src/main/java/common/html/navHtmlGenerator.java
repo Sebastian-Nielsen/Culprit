@@ -115,7 +115,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	private HtmlBuilder recursivelyBuildHtmlBuilderForDir(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
 		HtmlBuilder builder;
 
-		if (numOfParentsToInclude > 0) {
+		if (numOfParentsToInclude > 0 && !isTopicDir(rootDir)) {
 			// Ask for the solution to the parent of rootDir
 			builder = recursivelyBuildHtmlBuilderForDir(rootDir.getParentFile(), rootDir, originalDir, numOfParentsToInclude-1);
 		} else {
@@ -207,6 +207,10 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	private File[] sortByFileName(File[] files) {
 		Arrays.sort(files, NameFileComparator.NAME_COMPARATOR);
 		return files;
+	}
+
+	private boolean isTopicDir(File dir) throws Exception {
+		return contentHierarchy.isTopicDir(dir);
 	}
 
 }

@@ -10,11 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/expectedOutputOfFileF.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/expectedOutputOfFileF.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/A.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/nested/x2nested_2/F.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/nested_v2/G.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/NavigationHtmlTest_testFiles/input/nested_v2/J.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.navHtmlGeneratorTest">
+  <component name="RunManager" selected="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -160,27 +158,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="FileUtils_areDistinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -230,6 +207,27 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;unitTests.navHtmlGeneratorTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -301,18 +299,18 @@
     <list>
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
       <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.navHtmlGeneratorTest" />
+      <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
         <item itemvalue="Gradle.navHtmlGeneratorTest" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
       </list>
     </recent_temporary>
   </component>
@@ -346,9 +344,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
-          <line>440</line>
-          <option name="timeStamp" value="17" />
+          <condition expression="subDir.toString().endsWith(&quot;nested_v2&quot;)" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

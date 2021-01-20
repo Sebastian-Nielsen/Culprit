@@ -59,12 +59,13 @@ public class navHtmlGeneratorTest {
 	public void shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir() {
 		// This is the only test method that doesn't use the setup fixture
 		// fixture
-		String navHtmlOfFileJ = navHtml.getNavHtmlOf(FILE_F);
+		String navHtmlOfFileJ = navHtml.getNavHtmlOf(FILE_J);
+		System.out.println(navHtmlOfFileJ);
 
 		// Verify
 		int olTagOccurencesCount = countMatches(navHtmlOfFileJ, "</ol>");
 
-		assertEquals(olTagOccurencesCount, 2);
+		assertEquals(2, olTagOccurencesCount);
 
 	}
 
