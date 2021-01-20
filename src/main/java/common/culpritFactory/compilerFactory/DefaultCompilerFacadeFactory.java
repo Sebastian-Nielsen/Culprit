@@ -4,18 +4,16 @@ import common.compilerFacade.CompilerDataContainer;
 import common.compilerFacade.CompilerImpl;
 import common.compilerFacade.PrecompilerImpl;
 import framework.ContentFileHierarchy;
+import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.DeployFileHierarchy;
 import framework.compilerFacade.Compiler;
-import framework.CulpritFactory.CompilerFacadeFactory;
 import framework.compilerFacade.Precompiler;
-
-import java.io.File;
 
 
 public class DefaultCompilerFacadeFactory implements CompilerFacadeFactory {
 
-	private final ContentFileHierarchy contentHierarchy;  // new File(CWD + "/" + "content");
-	private final DeployFileHierarchy deployHierarchy;   // new File(CWD + "/" + "deployment");
+	private final ContentFileHierarchy contentHierarchy;
+	private final DeployFileHierarchy  deployHierarchy;
 
 	public DefaultCompilerFacadeFactory(ContentFileHierarchy contentHierarchy, DeployFileHierarchy deployHierarchy) {
 		this.contentHierarchy = contentHierarchy;

@@ -3,7 +3,7 @@ package common;
 import common.compilerFacade.CompilerDataContainer;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
-import common.html.NavigationHtml;
+import common.html.navHtmlGenerator;
 import common.html.NavigationHtmlGenerator;
 import common.other.FileHandlerImpl;
 import framework.ContentFileHierarchy;
@@ -53,12 +53,6 @@ public class DataExtractor {
 				.extractFOContainerFromEachFileIn(contentHiearchy);
 	}
 
-	private Map<String, FileOptionContainer> extractPathToFOContainer() throws Exception {
-		return EntryStream.of(extractFOContainerFromEachContentFile())
-				.mapKeys(File::toString)
-				.toMap();
-	}
-
 	/**
 	 * Extract a {@code FileOptionContainer} from the specified {@code contentFile}
 	 */
@@ -70,7 +64,7 @@ public class DataExtractor {
 	/**
 	 * Extracts all necessary data for {@code CompilerDataContainer} and then builds it.
 	 * @return a {@code CompilerDataContainer}
-	 */
+	 */  // TODO This method should be private,  you'll have to rewrite your test class of it though!
 	public CompilerDataContainer buildDataContainerForCompiler(NavigationHtmlGenerator navHtmlGenerator) throws Exception {
 
 		Map<String, File>                idToFile          = extractIdToContentFile();
@@ -81,7 +75,6 @@ public class DataExtractor {
 		return new CompilerDataContainer(idToFile, pathToFoContainer, navHtmlGenerator,
 				contentHiearchy.getRootDir(), deployHierarchy.getRootDir());
 	}
-
 
 	public PostEffectDataContainer buildDataContainerForPostEffects(NavigationHtmlGenerator navigationHtml) {
 		return new PostEffectDataContainer(
@@ -95,12 +88,12 @@ public class DataExtractor {
 	public void buildDataContainers() throws Exception {
 
 		int numberOfParentsToInclude = 3;
-		NavigationHtml navigationHtml;
-		navigationHtml = new NavigationHtml(deployHierarchy, numberOfParentsToInclude);
-		navigationHtml.generateNavHtmlForAllFiles();
+		navHtmlGenerator navHtmlGenerator;
+		navHtmlGenerator = new navHtmlGenerator(deployHierarchy, numberOfParentsToInclude);
+		navHtmlGenerator.generateNavHtmlForAllFiles();
 
-		this.compilerDataContainer   = buildDataContainerForCompiler(   navigationHtml);
-		this.postEffectDataContainer = buildDataContainerForPostEffects(navigationHtml);
+		this.compilerDataContainer   = buildDataContainerForCompiler(navHtmlGenerator);
+		this.postEffectDataContainer = buildDataContainerForPostEffects(navHtmlGenerator);
 	}
 
 	/**
@@ -128,6 +121,16 @@ public class DataExtractor {
 		}
 
 		return idToFile;
+	}
+
+
+
+	/* === PRIVATE METHODS */
+
+	private Map<String, FileOptionContainer> extractPathToFOContainer() throws Exception {
+		return EntryStream.of(extractFOContainerFromEachContentFile())
+				.mapKeys(File::toString)
+				.toMap();
 	}
 
 

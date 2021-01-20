@@ -65,6 +65,9 @@ public abstract class FileHierarchy {
 
 	/* === GETTERS */
 
+	public String getRootPath() {
+		return rootDirPath;
+	}
 	public File getRootDir() {
 		return rootDir;
 	}

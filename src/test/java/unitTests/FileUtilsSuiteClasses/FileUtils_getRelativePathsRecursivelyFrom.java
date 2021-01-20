@@ -18,9 +18,7 @@ public class FileUtils_getRelativePathsRecursivelyFrom {
 	public void shouldRetrieveAllRelativePaths() throws Exception {
 		// Exercise
 		String[] actualPaths = getRelativePathsFrom(ROOT_DIR);
-		for (String actualPath : actualPaths) {
-			System.out.println(actualPath);
-		}
+
 		// Verify
 		String[] expectedPaths = new String[]{
 			"A",              // 1

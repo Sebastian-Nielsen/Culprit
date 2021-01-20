@@ -1,6 +1,6 @@
 package unitTests;
 
-import common.html.NavigationHtml;
+import common.html.navHtmlGenerator;
 import framework.DeployFileHierarchy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static testHelper.TestHelper.getResourceFile;
 
-public class NavigationHtmlTest {
+public class navHtmlGeneratorTest {
 
 	private final String ROOT_INPUT_DIRNAME = "NavigationHtmlTest_testFiles/input";
 	private final File ROOT_INPUT_DIR = getResourceFile(ROOT_INPUT_DIRNAME);
@@ -37,16 +37,22 @@ public class NavigationHtmlTest {
 
 	private static final int MAX_NUM_OF_PARENTS_TO_INCLUDE = 2;
 
-	private NavigationHtml navHtml;
+	private navHtmlGenerator navHtml;
 	private String navHtmlOfFileF;
 
 	@BeforeEach
 	public void setup() throws Exception {
 		// Fixture phase
-		navHtml = new NavigationHtml(new DeployFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
+		navHtml = new navHtmlGenerator(new DeployFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
 		// Exercise phase
 		navHtml.generateNavHtmlForAllFiles();
 		navHtmlOfFileF = navHtml.getNavHtmlOf(FILE_F);
+	}
+
+	@Test
+	public void souldStopIncludingNavHtmlForParentsWhenParentIsMarkedAsTopicDir() {
+		// Verify
+
 	}
 
 	@Test
@@ -64,7 +70,7 @@ public class NavigationHtmlTest {
 	}
 
 	@Test
-	public void shouldGenerateFileClassValues() {
+	public void shouldGenerateClassAttributesWithDirAsValue() {
 		// Verify
 		int numberOfDirValues = countMatches(navHtmlOfFileF, "class=\"dir");
 
@@ -72,7 +78,7 @@ public class NavigationHtmlTest {
 	}
 
 	@Test
-	public void shouldGenerateDirClassValues() {
+	public void shouldGenerateClassAttributesWithFileAsValue() {
 		// Verify phase
 		int numberOfFilesValues = countMatches(navHtmlOfFileF, "class=\"file");
 

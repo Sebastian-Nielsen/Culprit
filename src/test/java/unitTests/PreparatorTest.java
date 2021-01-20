@@ -134,7 +134,7 @@ public class PreparatorTest {
 	private PreparatorFacade newPreparator(File contentRootDir, UUIDGenerator uuidGenerator) {
 
 		ContentFileHierarchy contentHierarchy    = new ContentFileHierarchy(contentRootDir);
-		DeployFileHierarchy  dummyDeployHierachy = new DeployFileHierarchy(new File(""));
+		DeployFileHierarchy  dummyDeployHierachy = new DeployFileHierarchy(new File("dummy"));
 
 		FileOptionInserter foInserter = new FileOptionInserter(uuidGenerator);
 

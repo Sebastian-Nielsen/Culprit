@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerDataContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerDataContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/PrecompilerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +116,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -142,7 +148,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.FileUtils_areDistinctFilePaths">
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -198,12 +204,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PreparatorTest.shouldCopyFileHierarchyToDeployDir" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.PreparatorTest.shouldCopyFileHierarchyToDeployDir&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -294,20 +300,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-      <item itemvalue="Gradle.PreparatorTest.shouldCopyFileHierarchyToDeployDir" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
       <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
+      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-        <item itemvalue="Gradle.PreparatorTest.shouldCopyFileHierarchyToDeployDir" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
       </list>
     </recent_temporary>
   </component>
@@ -341,21 +347,21 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java</url>
           <line>43</line>
-          <properties class="unitTests.NavigationHtmlTest" method="setup">
+          <properties class="unitTests.navHtmlGeneratorTest" method="setup">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
           <line>180</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
-          <line>432</line>
+          <line>441</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>

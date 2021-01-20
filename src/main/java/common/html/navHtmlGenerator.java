@@ -21,9 +21,10 @@ import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 /**
- * Responsible for generating and storing NavigationHtml for each {@code File}
+ * Responsible for generating and storing navHtmlGenerator for each {@code File}.
+ * Takes a {@link DeployFileHierarchy} and
  */
-public class NavigationHtml implements NavigationHtmlGenerator {
+public class navHtmlGenerator implements NavigationHtmlGenerator {
 	private final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
 	private final int numberOfParentsToInclude;
 	private @NotNull final File deployRootFolder;
@@ -41,7 +42,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	 *                                    <li>{@code 2}: <em>three ol</em>, ...</li>
 	 *                                    </ul>
 	 */
-	public NavigationHtml(@NotNull DeployFileHierarchy deployHiearchy, int maxNumberOfParentsToInclude) {
+	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHiearchy, int maxNumberOfParentsToInclude) {
 
 		if (maxNumberOfParentsToInclude <= 0)
 			throw new IllegalArgumentException("Number of parents to include must be greater than 0");
@@ -51,7 +52,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 		this.deployRootFolder = deployHiearchy.getRootDir();
 	}
 
-	public NavigationHtml(@NotNull DeployFileHierarchy deployHiearchy) {
+	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHiearchy) {
 		this(deployHiearchy, 3);
 	}
 

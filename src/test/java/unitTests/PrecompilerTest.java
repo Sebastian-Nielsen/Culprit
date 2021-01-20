@@ -4,7 +4,7 @@ import common.compilerFacade.CompilerDataContainer;
 import common.DataExtractor;
 import common.compilerFacade.PrecompilerImpl;
 import common.fileOption.FileOptionContainer;
-import common.html.NavigationHtml;
+import common.html.navHtmlGenerator;
 import framework.ContentFileHierarchy;
 import framework.DeployFileHierarchy;
 import framework.compilerFacade.Precompiler;
@@ -100,7 +100,7 @@ public class PrecompilerTest {
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
 				pathToFOContainer,
-				new NavigationHtml(new DeployFileHierarchy(EXPECTED_ROOT_FILE)),
+				new navHtmlGenerator(new DeployFileHierarchy(EXPECTED_ROOT_FILE)),
 				INPUT_ROOT_FILE, EXPECTED_ROOT_FILE
 		);
 	}

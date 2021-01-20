@@ -71,6 +71,8 @@ public class Main {
 	public static void cleanDeployDir() throws IOException {
 		File deployDir = new File("deployment");
 
+		 // TODO this logic should be inside Culprit
+
 		for (File file : listFilesAndDirsFrom(deployDir, NONRECURSIVELY)) {
 
 			if (file.isFile()) {

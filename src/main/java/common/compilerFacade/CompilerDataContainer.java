@@ -1,7 +1,6 @@
 package common.compilerFacade;
 
 import common.fileOption.FileOptionContainer;
-import common.html.NavigationHtml;
 import common.html.NavigationHtmlGenerator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
@@ -13,7 +12,7 @@ import java.util.Map;
  * Immutable container for all data that the {@link CompilerFacade} needs in
  * order to compile a given .md {@code File}.
  */
-public class CompilerDataContainer {
+public class CompilerDataContainer {   // TODO: this container should contain subcontainers, like "PrecompilerDataContainer"
 
 	private @Unmodifiable @NotNull final Map<String, File>                idToContentFile;
 	private @Unmodifiable @NotNull final Map<String, FileOptionContainer> pathToFOContainer;

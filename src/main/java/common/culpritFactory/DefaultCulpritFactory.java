@@ -11,19 +11,18 @@ import framework.DeployFileHierarchy;
 import org.jetbrains.annotations.NotNull;
 
 import static framework.Constants.Constants.CWD;
+import static framework.utils.FileUtils.Filename.areDistinctFilePaths;
 
 public class DefaultCulpritFactory extends Factory implements CulpritFactory{
 
 	public DefaultCulpritFactory(@NotNull String contentRootFolder,
 	                             @NotNull String deployRootFolder) {
-
 		super(new ContentFileHierarchy(contentRootFolder),
 			  new DeployFileHierarchy(deployRootFolder));
 	}
 
 	public DefaultCulpritFactory() {
-		super(new ContentFileHierarchy(CWD + "/content"),
-			  new DeployFileHierarchy( CWD + "/deployment"));
+		this(CWD + "/content", CWD + "/deployment");
 	}
 
 	@Override
