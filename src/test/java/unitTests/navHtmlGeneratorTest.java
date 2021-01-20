@@ -1,6 +1,7 @@
 package unitTests;
 
 import common.html.navHtmlGenerator;
+import framework.ContentFileHierarchy;
 import framework.DeployFileHierarchy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,7 @@ public class navHtmlGeneratorTest {
 	@BeforeEach
 	public void setup() throws Exception {
 		// Fixture phase
-		navHtml = new navHtmlGenerator(new DeployFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
+		navHtml = new navHtmlGenerator(new ContentFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
 		// Exercise phase
 		navHtml.generateNavHtmlForAllFiles();
 		navHtmlOfFileF = navHtml.getNavHtmlOf(FILE_F);

@@ -32,7 +32,7 @@ import static framework.utils.FileUtils.Lister.listNonDirsFrom;
  */
 public class DataExtractor {
 
-	private @NotNull final ContentFileHierarchy contentHiearchy;
+	private @NotNull final ContentFileHierarchy contentHierarchy;
 	private @NotNull final DeployFileHierarchy  deployHierarchy;
 
 	private CompilerDataContainer   compilerDataContainer;
@@ -40,7 +40,7 @@ public class DataExtractor {
 
 	public DataExtractor(@NotNull ContentFileHierarchy contentHiearchy,
 	                     @NotNull DeployFileHierarchy deployHierarchy) {
-		this.contentHiearchy = contentHiearchy;
+		this.contentHierarchy = contentHiearchy;
 		this.deployHierarchy = deployHierarchy;
 	}
 
@@ -50,7 +50,7 @@ public class DataExtractor {
 	 */
 	public Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
 		return FileOptionExtractorImpl.getInstance()
-				.extractFOContainerFromEachFileIn(contentHiearchy);
+				.extractFOContainerFromEachFileIn(contentHierarchy);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class DataExtractor {
 		Logger.log(pathToFoContainer);
 
 		return new CompilerDataContainer(idToFile, pathToFoContainer, navHtmlGenerator,
-				contentHiearchy.getRootDir(), deployHierarchy.getRootDir());
+				contentHierarchy.getRootDir(), deployHierarchy.getRootDir());
 	}
 
 	public PostEffectDataContainer buildDataContainerForPostEffects(NavigationHtmlGenerator navigationHtml) {
@@ -89,7 +89,7 @@ public class DataExtractor {
 
 		int numberOfParentsToInclude = 3;
 		navHtmlGenerator navHtmlGenerator;
-		navHtmlGenerator = new navHtmlGenerator(deployHierarchy, numberOfParentsToInclude);
+		navHtmlGenerator = new navHtmlGenerator(contentHierarchy, numberOfParentsToInclude);
 		navHtmlGenerator.generateNavHtmlForAllFiles();
 
 		this.compilerDataContainer   = buildDataContainerForCompiler(navHtmlGenerator);
@@ -112,7 +112,7 @@ public class DataExtractor {
 	public Map<String, File> extractIdToContentFile() throws IOException {
 		Map<String, File> idToFile = new HashMap<>();
 
-		for (File contentFile : contentHiearchy.listNonDirs(RECURSIVELY)) {
+		for (File contentFile : contentHierarchy.listNonDirs(RECURSIVELY)) {
 
 			idToFile.put(
 					extractFoContainerFrom(contentFile).get(ID),

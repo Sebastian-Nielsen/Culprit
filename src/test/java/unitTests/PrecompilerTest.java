@@ -100,7 +100,7 @@ public class PrecompilerTest {
 		return new CompilerDataContainer(
 				dataExtractor.extractIdToContentFile(),
 				pathToFOContainer,
-				new navHtmlGenerator(new DeployFileHierarchy(EXPECTED_ROOT_FILE)),
+				new navHtmlGenerator(new ContentFileHierarchy(EXPECTED_ROOT_FILE)),
 				INPUT_ROOT_FILE, EXPECTED_ROOT_FILE
 		);
 	}

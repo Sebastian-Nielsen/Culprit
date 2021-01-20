@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/FileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/FileHierarchy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,7 +356,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>177</line>
+          <line>180</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>

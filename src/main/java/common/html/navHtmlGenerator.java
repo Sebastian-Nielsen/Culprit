@@ -2,8 +2,6 @@ package common.html;
 
 import common.preparatorFacade.Deployer;
 import framework.ContentFileHierarchy;
-import framework.DeployFileHierarchy;
-import framework.FileHierarchy;
 import org.apache.commons.io.comparator.NameFileComparator;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,10 +27,10 @@ import static org.apache.commons.io.FilenameUtils.removeExtension;
  * the <em>deploy file</em> equivalent of it (see {@link Deployer#getDeployEquivalentOf}).
  */
 public class navHtmlGenerator implements NavigationHtmlGenerator {
-	private final Map<String, String> dirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
+	private final Map<String, String> relDirPathToNavHtml = new HashMap<>();
 	private final int numberOfParentsToInclude;
-	private @NotNull final File deployRootFolder;
-	private @NotNull final DeployFileHierarchy deployHierarchy;
+	private @NotNull final File contentRootDir;
+	private @NotNull final ContentFileHierarchy contentHierarchy;
 
 	/**
 	 * @param maxNumberOfParentsToInclude a positive number that for each file/folder in a file-hierarchy specifies
@@ -46,29 +44,32 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	 *                                    <li>{@code 2}: <em>three ol</em>, ...</li>
 	 *                                    </ul>
 	 */
-	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHierarchy, int maxNumberOfParentsToInclude) {
+	public navHtmlGenerator(@NotNull ContentFileHierarchy contentHierarchy, int maxNumberOfParentsToInclude) {
 
 		if (maxNumberOfParentsToInclude <= 0)
 			throw new IllegalArgumentException("Number of parents to include must be greater than 0");
 
 		this.numberOfParentsToInclude = maxNumberOfParentsToInclude;
-		this.deployHierarchy = deployHierarchy;
-		this.deployRootFolder = deployHierarchy.getRootDir();
+		this.contentHierarchy = contentHierarchy;
+		this.contentRootDir   = contentHierarchy.getRootDir();
 	}
 
-	public navHtmlGenerator(@NotNull DeployFileHierarchy deployHiearchy) {
+	public navHtmlGenerator(@NotNull ContentFileHierarchy deployHiearchy) {
 		this(deployHiearchy, 3);
 	}
 
+	/* ===================================================== */
 
 	/**
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
 	 */
 	@Override
 	public void generateNavHtmlForAllFiles() throws Exception {
-		generateNavHtmlFor(deployRootFolder);
+		main(contentRootDir);
 	}
 
+
+	/* ===================================================== */
 
 	/* === GETTERS */
 
@@ -81,35 +82,42 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 		File parent = deployFile.getParentFile();
 
-		String parentPath = relativePath(parent, deployRootFolder);
+		String parentPath = relativePath(parent, contentRootDir);
 
-		return dirPathToNavHtmlOfFilesInTheDir.get(parentPath);
+		return relDirPathToNavHtml.get(parentPath);
 	}
 
 
+	/* ===================================================== */
 
+	/* === PRIVATE METHODS - Main Recursion Logic */
 
-	/* === PRIVATE METHODS */
+	private void main(File dir) throws Exception {
 
-	private void generateNavHtmlFor(File rootDir) throws Exception {
+		File dirToMark   = dir; // Keep track of: Parent files of any content file should be marked with a class attribute
+		File originalDir = dir; // Keep track of: The dir of what content file we generating for; useful for reltiving href paths
 
-		File dirToMark   = rootDir;
-		File originalDir = rootDir;
+		storeDirToNavHtml(
+				dir,
+				generateNavHtmlStringForDir( dir, dirToMark, originalDir, numberOfParentsToInclude )
+		);
 
-		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, numberOfParentsToInclude);
-		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
-
-		for (File subDir : deployHierarchy.listDirsFrom(rootDir, NONRECURSIVELY))
-			generateNavHtmlFor(subDir);
-
+		for (File subDir : contentHierarchy.listDirsFrom(dir, NONRECURSIVELY))
+			main(subDir);
 	}
 
-	private HtmlBuilder generateNavHtmlForAllFilesInDeploy(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
+
+	private String generateNavHtmlStringForDir(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
+		return recursivelyBuildHtmlBuilderForDir(rootDir, dirToMark, originalDir, numOfParentsToInclude).toString();
+	}
+
+
+	private HtmlBuilder recursivelyBuildHtmlBuilderForDir(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
 		HtmlBuilder builder;
 
 		if (numOfParentsToInclude > 0) {
 			// Ask for the solution to the parent of rootDir
-			builder = generateNavHtmlForAllFilesInDeploy(rootDir.getParentFile(), rootDir, originalDir, numOfParentsToInclude-1);
+			builder = recursivelyBuildHtmlBuilderForDir(rootDir.getParentFile(), rootDir, originalDir, numOfParentsToInclude-1);
 		} else {
 			// Base case, there is no more parents to include, so just generate for this rootDir
 			builder = new HtmlBuilder();
@@ -119,10 +127,10 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 		return builder;
 	}
 
-	private File[] sortByFileName(File[] files) {
-		Arrays.sort(files, NameFileComparator.NAME_COMPARATOR);
-		return files;
-	}
+
+	/* ===================================================== */
+
+	/* PRIVATE METHODS - HtmlBuilder related */
 
 	private void buildOlTag(HtmlBuilder builder, File rootDir, File dirToMark, File originalDir) throws IOException {
 		builder.open(OL);
@@ -136,7 +144,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 	private void buildLiTagsForDirs(HtmlBuilder builder, File rootDir, File originalDir, File dirToMark) throws IOException {
 
-		File[] dirs = sortByFileName(deployHierarchy.listDirsFrom(rootDir, NONRECURSIVELY));
+		File[] dirs = sortByFileName(contentHierarchy.listDirsFrom(rootDir, NONRECURSIVELY));
 		for (File file : dirs) {
 
 			List<String> classValues;
@@ -156,10 +164,6 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 			buildLiTagFor(builder, file, originalDir, List.of("file"));
 
-	}
-
-	private boolean isEqual(File fileA, File fileB) {
-		return fileA.toString().equals(fileB.toString());
 	}
 
 	private void buildLiTagFor(HtmlBuilder builder, File file, File originalDir, List<String> listOfClassValues) {
@@ -184,42 +188,25 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 				.close(LI);
 	}
 
+	/* ===================================================== */
+
+	/* === PRIVATE METHODS - Miscellaneous */
+
+	private boolean isEqual(File fileA, File fileB) {
+		return fileA.toString().equals(fileB.toString());
+	}
+
 	// Should take relative filePath as argument (instead of rootDir)
 	private void storeDirToNavHtml(File rootDir, String navHtml) {
 		assert rootDir.isDirectory(); // TODO remove when tested
 
-		String dirPath = relativePath(rootDir, deployRootFolder);
-		dirPathToNavHtmlOfFilesInTheDir.put(dirPath, navHtml);
+		String dirPath = relativePath(rootDir, contentRootDir);
+		relDirPathToNavHtml.put(dirPath, navHtml);
 	}
 
-	/**
-	 * Precondition: dirPath have a fileExt
-	 */
-	private String stripFileExt(String dirPath) {
-		int indexOfLastDot = dirPath.lastIndexOf(".");
-		assert indexOfLastDot != -1;
-		return dirPath.substring(0, indexOfLastDot);
+	private File[] sortByFileName(File[] files) {
+		Arrays.sort(files, NameFileComparator.NAME_COMPARATOR);
+		return files;
 	}
 
-
-	/**
-	 * E.g.
-	 * "/"                  -> dirLevel=1
-	 * "/content"           -> dirLevel=2     Note: (filePath is absolute not relative to root as seen here)
-	 * "/content/fileC.md"  -> dirLevel=3
-	 */
-//	private static final Map<String, Integer> filePathToDirLevel = new HashMap<>();
-
-
-	//	/**
-//	 * parentNumber is number of times to call `.getParent()` on the given {@code file}.
-//	 * Precondition: parentNum > 1
-//	 */
-//	private File getNthParent(File file, int parentNum) {
-//		File parent = file;
-//		for (int i = 0; i < parentNum; i++) {
-//			parent = file.getParentFile();
-//		}
-//		return parent;
-//	}
 }
