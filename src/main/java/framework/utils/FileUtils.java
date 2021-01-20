@@ -392,10 +392,30 @@ public class FileUtils {
 		 */
 		public static boolean areDistinctFilePaths(@NotNull String path1, 
 		                                           @NotNull String path2) {
-			String relativePath1 = relativePath(path1, CWD);
-			String relativePath2 = relativePath(path2, CWD);
-			return path1.equals(path2);
+			Path absPath1 = getAbsPathOf(path1);
+			Path absPath2 = getAbsPathOf(path2);
+
+			Path parent, possibleChild;
+
+			parent        = absPath1;
+			possibleChild = absPath2;
+
+			boolean path2IsChildToPath1 = possibleChild.toAbsolutePath()
+											.startsWith(parent);
+
+			parent        = absPath2;
+			possibleChild = absPath1;
+
+			boolean path1IsChildToPath2 = possibleChild.toAbsolutePath().startsWith(parent);
+
+			return !path1IsChildToPath2 && !path2IsChildToPath1;
 		}
+
+		public static Path getAbsPathOf(String path) {
+			return Paths.get(path).toAbsolutePath();
+		}
+
+
 
 		/**
 		 * Calculates the relative file path; Examples:

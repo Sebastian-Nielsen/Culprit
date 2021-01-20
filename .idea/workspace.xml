@@ -10,20 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultPreparatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultPreparatorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtmlGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Preparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stubs/NavigationHtmlStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stubs/NavigationHtmlStub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +142,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+  <component name="RunManager" selected="Gradle.FileUtils_areDistinctFilePaths">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -169,12 +156,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileUtils_areDistinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -190,12 +177,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="NavigationHtmlTest.shouldMarkParentFolders" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.NavigationHtmlTest.shouldMarkParentFolders&quot;" />
+        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -308,19 +295,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.NavigationHtmlTest.shouldMarkParentFolders" />
-      <item itemvalue="Gradle.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="Gradle.PreparatorTest.shouldCopyFileHierarchyToDeployDir" />
       <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
+      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths" />
+        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldBeDistinctFilePaths" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Gradle.PreparatorTest.shouldCopyFileHierarchyToDeployDir" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.FileUtils_getRelativePathsRecursivelyFrom.shouldRetrieveAllRelativePaths" />
-        <item itemvalue="Gradle.NavigationHtmlTest.shouldMarkParentFolders" />
       </list>
     </recent_temporary>
   </component>
@@ -368,7 +355,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
-          <line>421</line>
+          <line>432</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
