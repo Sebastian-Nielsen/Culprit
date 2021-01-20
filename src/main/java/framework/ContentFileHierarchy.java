@@ -38,10 +38,6 @@ public class ContentFileHierarchy {
 
 	/* === LISTERS */
 
-	public File[] listNonDirs(FileUtils.Lister.RECURSION isRecursive, String mdFilesOnly) throws IOException {
-		return listNonDirsFrom(contentRootDir, isRecursive, mdFilesOnly);
-	}
-
 	public File[] listNonDirs(FileUtils.Lister.RECURSION isRecursive) throws IOException {
 		return streamNonDirsFrom(contentRootDir, isRecursive)
 				.filter(file -> file.isDirectory() || hasValidContentFileExt(file))
