@@ -48,8 +48,8 @@ public class CompilerDataContainer {   // TODO: this container should contain su
 		return idToContentFile.get(id);
 	}
 
-	public String getNavigationHtmlOf(File deployFile) {
-		return navHtmlGenerator.getNavHtmlOf(deployFile);   //TODO does it really have to be a deploy file? (make it more general)
+	public String getNavigationHtmlOf(String relFilePath) {
+		return navHtmlGenerator.getNavHtmlOf(relFilePath);   //TODO does it really have to be a deploy file? (make it more general)
 	}
 
 

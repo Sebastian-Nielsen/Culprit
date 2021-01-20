@@ -1,6 +1,7 @@
 package common;
 
 import common.html.NavigationHtmlGenerator;
+import framework.DeployFileHierarchy;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -12,14 +13,20 @@ import java.io.File;
 public class PostEffectDataContainer {
 
 	private @NotNull final NavigationHtmlGenerator navHtmlGenerator;
+	private @NotNull final DeployFileHierarchy deployHierarchy;
 
-	public PostEffectDataContainer(@NotNull NavigationHtmlGenerator navHtmlGenerator) {
-
+	public PostEffectDataContainer(@NotNull DeployFileHierarchy deployHierarchy,
+	                               @NotNull NavigationHtmlGenerator navHtmlGenerator) {
+		this.deployHierarchy = deployHierarchy;
 		this.navHtmlGenerator = navHtmlGenerator;
 	}
 
-	public String getNavigationHtmlOf(File deployFile) {
-		return navHtmlGenerator.getNavHtmlOf(deployFile);
+	public String getNavigationHtmlOf(String relFilePathWithoutExt) {
+		return navHtmlGenerator.getNavHtmlOf(relFilePathWithoutExt);
+	}
+
+	public File getDeployRootDir() {
+		return deployHierarchy.getRootDir();
 	}
 
 }

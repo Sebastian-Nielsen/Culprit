@@ -4,6 +4,8 @@ import common.culpritFactory.DefaultPostEffectFactory;
 import common.html.HtmlFactory;
 import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultIndexHtmlTemplate;
 import common.preparatorFacade.Deployer;
+import framework.ContentFileHierarchy;
+import framework.DeployFileHierarchy;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 
@@ -22,6 +24,8 @@ public class PostEffectsFacade {
 	private @NotNull final File contentRootFolder;
 	private @NotNull final File deployRootFolder;
 	private @NotNull final PostEffectDataContainer dataContainer;
+	private @NotNull final ContentFileHierarchy contentHiearchy;
+	private @NotNull final DeployFileHierarchy  deployHiearchy;
 
 	public PostEffectsFacade(@NotNull DefaultPostEffectFactory factory,
 	                         @NotNull PostEffectDataContainer dataContainer) {
@@ -30,8 +34,11 @@ public class PostEffectsFacade {
 
 		this.dataContainer = dataContainer;
 
-		this.contentRootFolder = factory.getContentHierarchy().getRootDir();
-		this.deployRootFolder  = factory.getDeployHierarchy().getRootDir();
+		this.contentHiearchy = factory.getContentHierarchy();
+		this.deployHiearchy  = factory.getDeployHierarchy();
+
+		this.contentRootFolder = contentHiearchy.getRootDir();
+		this.deployRootFolder  = deployHiearchy.getRootDir();
 	}
 
 	/**

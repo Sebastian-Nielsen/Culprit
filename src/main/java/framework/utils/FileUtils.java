@@ -256,7 +256,7 @@ public class FileUtils {
 		 */
 		public static String[] getRelativePathsFrom(File folder) throws IOException {
 			return Arrays.stream(listFilesAndDirsFrom(folder, RECURSIVELY))
-					.map(file -> relativePath(file, folder))
+					.map(file -> relativePath(folder, file))
 					.toArray(String[]::new);
 		}
 
@@ -337,7 +337,11 @@ public class FileUtils {
 		 * @return filename
 		 */
 		public static String changeFileExt(String filename, String newExt) {
-			return filename.substring(0, filename.lastIndexOf(".")) + "." + newExt;
+			int indexOfLastDot = filename.lastIndexOf(".");
+			if (indexOfLastDot == -1)
+				return filename;
+			else
+				return filename.substring(0, indexOfLastDot) + "." + newExt;
 		}
 		public static String changeFileExt(File file, String newExt) {
 			return changeFileExt(file.toString(), newExt);
@@ -353,7 +357,7 @@ public class FileUtils {
 		 * Get the path of each file in the inputFolders.content dir RELATIVE to the base 'C:/.../culprit/content' dir
 		 * E.g. instead of 'C:/.../culprit/content/aa/test.md' then 'aa/test.md'
 		 */
-		public static String relativePath(File file, File basePath) {
+		public static String relativePath(File basePath, File file) {
 			return basePath.toURI().relativize(file.toURI()).getPath();
 		}
 
@@ -362,7 +366,7 @@ public class FileUtils {
 		 * E.g. instead of 'C:/.../culprit/content/aa/test.md' then 'aa/test.md'
 		 */
 		public static String relativePath(String basePath, String filename) {
-			return relativePath(new File(filename), new File(basePath));
+			return relativePath(new File(basePath), new File(filename));
 		}
 
 		public static String fileExtOf(File file) {

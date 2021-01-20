@@ -1,6 +1,7 @@
 package common.html.htmlTemplatesStrategy.concreteStrategy;
 
 import common.PostEffectDataContainer;
+import common.compilerFacade.CompilerDataContainer;
 import common.html.HtmlBuilder;
 import common.html.HtmlFactory;
 
@@ -11,7 +12,9 @@ import java.util.Map;
 import static common.html.HTML.Tag.*;
 import static common.html.htmlTemplatesStrategy.Helper.*;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
+import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
+import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 public class DefaultIndexHtmlTemplate {
 
@@ -37,7 +40,7 @@ public class DefaultIndexHtmlTemplate {
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
-							.insert(dataContainer.getNavigationHtmlOf(indexFile))
+							.insert(getNavigationHtmlOf(indexFile, dataContainer))
 						.close(NAV)
 					.close(BODY)
 				.close(HTML)
@@ -45,9 +48,25 @@ public class DefaultIndexHtmlTemplate {
 	}
 
 
+	/* ============================================================ */
+
 	/* === PRIVATE METHODS */
 
+	private String getNavigationHtmlOf(File contentFile, PostEffectDataContainer dataContainer) {
+
+		String filePath = relFilePathWithoutExt(contentFile, dataContainer);
+
+		return dataContainer.getNavigationHtmlOf(filePath);
+	}
 
 
-	/* ============================================================ */
+	private String relFilePathWithoutExt(File contentFile, PostEffectDataContainer dataContainer) {
+
+		File deployRootDir = dataContainer.getDeployRootDir();
+
+		String relativeFilePath = relativePath(deployRootDir, contentFile);
+
+		return removeExtension(relativeFilePath);
+	}
+
 }

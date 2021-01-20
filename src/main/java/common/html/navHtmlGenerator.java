@@ -15,8 +15,7 @@ import java.util.Map;
 import static common.html.HTML.Attribute.CLASS;
 import static common.html.HTML.Attribute.HREF;
 import static common.html.HTML.Tag.*;
-import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
-import static framework.utils.FileUtils.Filename.relativePath;
+import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
@@ -31,6 +30,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	private final int numberOfParentsToInclude;
 	private @NotNull final File contentRootDir;
 	private @NotNull final ContentFileHierarchy contentHierarchy;
+	private @NotNull final String contentRootPath;
 
 	/**
 	 * @param maxNumberOfParentsToInclude a positive number that for each file/folder in a file-hierarchy specifies
@@ -52,6 +52,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 		this.numberOfParentsToInclude = maxNumberOfParentsToInclude;
 		this.contentHierarchy = contentHierarchy;
 		this.contentRootDir   = contentHierarchy.getRootDir();
+		this.contentRootPath  = contentHierarchy.getRootPath();
 	}
 
 	public navHtmlGenerator(@NotNull ContentFileHierarchy deployHiearchy) {
@@ -71,20 +72,36 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 	/* ===================================================== */
 
-	/* === GETTERS */
+	/* === STORING AND RETRIEVAL */
 
 	/**
-	 * @param deployFile file or folder
 	 * @return Navigation html of the specified {@code File}
+	 * @param relFilePath
 	 */
 	@Override
-	public String getNavHtmlOf(File deployFile) {
+	public String getNavHtmlOf(String relFilePath) {
 
-		File parent = deployFile.getParentFile();
+		File parentDir = getParentFile(relFilePath);
 
-		String parentPath = relativePath(parent, contentRootDir);
+		String relParentDirPath = relativePath(contentRootDir, parentDir);
 
-		return relDirPathToNavHtml.get(parentPath);
+		return relDirPathToNavHtml.get(relParentDirPath);
+	}
+
+	private File getParentFile(String relFilePath) {
+
+		String absFilePath = contentRootPath + "/" + changeFileExt(relFilePath, "md");
+
+		File   file        = new File(absFilePath);
+		return file.getParentFile();
+	}
+
+	private void storeDirToNavHtml(File rootDir, String navHtml) {
+		assert rootDir.isDirectory(); // TODO remove when tested
+
+		String relDirPathWithoutExt = removeExtension(relativePath(contentRootDir, rootDir));
+
+		relDirPathToNavHtml.put(relDirPathWithoutExt, navHtml);
 	}
 
 
@@ -194,14 +211,6 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 	private boolean isEqual(File fileA, File fileB) {
 		return fileA.toString().equals(fileB.toString());
-	}
-
-	// Should take relative filePath as argument (instead of rootDir)
-	private void storeDirToNavHtml(File rootDir, String navHtml) {
-		assert rootDir.isDirectory(); // TODO remove when tested
-
-		String dirPath = relativePath(rootDir, contentRootDir);
-		relDirPathToNavHtml.put(dirPath, navHtml);
 	}
 
 	private File[] sortByFileName(File[] files) {

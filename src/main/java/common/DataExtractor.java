@@ -72,13 +72,16 @@ public class DataExtractor {
 
 		Logger.log(pathToFoContainer);
 
-		return new CompilerDataContainer(idToFile, pathToFoContainer, navHtmlGenerator,
-				contentHierarchy.getRootDir(), deployHierarchy.getRootDir());
+		return new CompilerDataContainer(
+				idToFile, pathToFoContainer, navHtmlGenerator,
+				contentHierarchy.getRootDir(), deployHierarchy.getRootDir()
+		);
 	}
 
 	public PostEffectDataContainer buildDataContainerForPostEffects(NavigationHtmlGenerator navigationHtml) {
 		return new PostEffectDataContainer(
-			navigationHtml
+				deployHierarchy,
+				navigationHtml
 		);
 	}
 

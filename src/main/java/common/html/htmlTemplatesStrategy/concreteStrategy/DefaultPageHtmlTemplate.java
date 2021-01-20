@@ -15,6 +15,8 @@ import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.htmlTemplatesStrategy.Helper.*;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
+import static framework.utils.FileUtils.Filename.relativePath;
+import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 public class DefaultPageHtmlTemplate {
 
@@ -28,7 +30,6 @@ public class DefaultPageHtmlTemplate {
 	public String buildUsing(File contentFile, String articleTag, CompilerDataContainer dataContainer) throws Exception {
 
 		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
-		File deployEquivOfContentFile = deployEquivalentOf(contentFile, dataContainer);
 
 		return new HtmlBuilder()
 				.insert("<!DOCTYPE html>\n")
@@ -42,7 +43,7 @@ public class DefaultPageHtmlTemplate {
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
-							.insert(dataContainer.getNavigationHtmlOf(deployEquivOfContentFile))
+							.insert(getNavigationHtmlOf(contentFile, dataContainer))
 //							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
 						.close(NAV)
 						.open(SCRIPT, defaultScriptAttributes("js/defaultPageFacade/INDEX_2/navOverlay_hotKeyToggle.js")).close(SCRIPT) // should be loaded after NAV
@@ -59,6 +60,12 @@ public class DefaultPageHtmlTemplate {
 	}
 
 
+	/* === PRIVATE METHODS */
+
+	private String getNavigationHtmlOf(File contentFile, CompilerDataContainer dataContainer) {
+		String relativeFilePath = relativePath(dataContainer.getContentRootFolder(), contentFile);
+		return dataContainer.getNavigationHtmlOf(relativeFilePath);
+	}
 
 	private File deployEquivalentOf(File indexFile, CompilerDataContainer dataContainer) {
 		return getDeployEquivalentOf(

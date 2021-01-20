@@ -80,7 +80,7 @@ public class Deployer {
 
 	private static String getRelativeDeployPath(File contentFile, File contentRootFolder) {
 
-		String relativePath = relativePath(contentFile, contentRootFolder);
+		String relativePath = relativePath(contentRootFolder, contentFile);
 
 		if (relativePath.endsWith(".md"))
 			relativePath = changeFileExt(relativePath, "html");
