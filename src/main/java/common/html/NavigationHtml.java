@@ -24,9 +24,10 @@ import static org.apache.commons.io.FilenameUtils.removeExtension;
  * Responsible for generating and storing NavigationHtml for each {@code File}
  */
 public class NavigationHtml implements NavigationHtmlGenerator {
-	private static final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
+	private final Map<String, String> DirPathToNavHtmlOfFilesInTheDir = new HashMap<>();
 	private final int numberOfParentsToInclude;
 	private @NotNull final File deployRootFolder;
+	private @NotNull final DeployFileHierarchy deployHierarchy;
 
 	/**
 	 * @param maxNumberOfParentsToInclude a positive number that for each file/folder in a file-hierarchy specifies
@@ -46,7 +47,8 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 			throw new IllegalArgumentException("Number of parents to include must be greater than 0");
 
 		this.numberOfParentsToInclude = maxNumberOfParentsToInclude;
-		this.deployRootFolder = deployHiearchy.getDeployRootDir();
+		this.deployHierarchy = deployHiearchy;
+		this.deployRootFolder = deployHiearchy.getRootDir();
 	}
 
 	public NavigationHtml(@NotNull DeployFileHierarchy deployHiearchy) {
@@ -58,7 +60,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	 * Extracts {@code File}s and generates navigation html on the basis of the dirs
 	 */
 	@Override
-	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
+	public void generateNavHtmlForAllFiles() throws Exception {
 		generateNavHtmlFor(deployRootFolder);
 	}
 
@@ -92,7 +94,7 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 		HtmlBuilder navHtmlBuilder = generateNavHtmlForAllFilesInDeploy( rootDir, dirToMark, originalDir, numberOfParentsToInclude);
 		storeDirToNavHtml(rootDir, navHtmlBuilder.toString());
 
-		for (File subDir : listDirsFrom(rootDir, NONRECURSIVELY))
+		for (File subDir : deployHierarchy.listDirsFrom(rootDir, NONRECURSIVELY))
 			generateNavHtmlFor(subDir);
 
 	}
@@ -128,7 +130,8 @@ public class NavigationHtml implements NavigationHtmlGenerator {
 	}
 
 	private void buildLiTagsForDirs(HtmlBuilder builder, File rootDir, File originalDir, File dirToMark) throws IOException {
-		File[] dirs = sortByFileName(listDirsFrom(rootDir, NONRECURSIVELY));
+
+		File[] dirs = sortByFileName(deployHierarchy.listDirsFrom(rootDir, NONRECURSIVELY));
 		for (File file : dirs) {
 
 			List<String> classValues;

@@ -30,8 +30,8 @@ public class PostEffectsFacade {
 
 		this.dataContainer = dataContainer;
 
-		this.contentRootFolder = factory.getContentHierarchy().getContentRootDir();
-		this.deployRootFolder  = factory.getDeployHierarchy().getDeployRootDir();
+		this.contentRootFolder = factory.getContentHierarchy().getRootDir();
+		this.deployRootFolder  = factory.getDeployHierarchy().getRootDir();
 	}
 
 	/**

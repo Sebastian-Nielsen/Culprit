@@ -12,62 +12,50 @@ import java.util.Set;
 import static framework.utils.FileUtils.Lister.*;
 import static org.apache.commons.io.FilenameUtils.getExtension;
 
-public class ContentFileHierarchy {
-
-	private @NotNull final String contentRootPath;
-	private @NotNull final File   contentRootDir;
+public class ContentFileHierarchy extends FileHierarchy {
 
 	/**
-	 * Content files are {@code File}s that have one of the file extensions listed in
+	 * <em>Content</em> files are {@code File}s that have one of the file extensions listed in {@code fileExtFilter}
 	 */
-	public static final Set<String> CONTENT_FILE_EXTENTIONS = new HashSet<>(List.of("md"));
+	public Set<String> fileExtFilter;
 
 	/* ===================================================== */
 
-	public ContentFileHierarchy(@NotNull String pathToRootOfHierarchy) {
-		this.contentRootPath = pathToRootOfHierarchy;
-		this.contentRootDir = new File(pathToRootOfHierarchy);
+	public ContentFileHierarchy(String pathToRootOfHierarchy) {
+		super(pathToRootOfHierarchy);
 	}
 
-	public ContentFileHierarchy(@NotNull File rootOfHierarchy) {
-		this.contentRootPath = rootOfHierarchy.toString();
-		this.contentRootDir = rootOfHierarchy;
+	public ContentFileHierarchy(File rootOfHierarchy) {
+		super(rootOfHierarchy);
+	}
+
+	@Override
+	public Set<String> initFileExtFilter() {
+		return new HashSet<>(List.of("md"));
 	}
 
 	/* ===================================================== */
 
 	/* === LISTERS */
 
-	public File[] listNonDirs(FileUtils.Lister.RECURSION isRecursive) throws IOException {
-		return streamNonDirsFrom(contentRootDir, isRecursive)
-				.filter(file -> file.isDirectory() || hasValidContentFileExt(file))
-				.toArray(File[]::new);
-	}
 
-	public File[] listFilesAndDirs(FileUtils.Lister.RECURSION isRecursive) throws IOException {
-		return streamFilesAndDirsFrom(contentRootDir, isRecursive)
-				.filter(file -> file.isDirectory() || hasValidContentFileExt(file))
-				.toArray(File[]::new);  // TODO: Implement cache for speedup
-	}
 
 
 	/* === PRIVATE METHODS */
 
-	/**
-	 * A <em>content</em> file is any file in the <em>content</em> folder that has any of
-	 * file extensions defined in {@link ContentFileHierarchy#CONTENT_FILE_EXTENTIONS}
-	 * @return whether the file is a <em>content</em> file
-	 */
-	private boolean hasValidContentFileExt(File file) {
-		return CONTENT_FILE_EXTENTIONS.contains(getExtension(file.toString()));
-	}
+//	/**
+//	 * A <em>content</em> file is any file in the <em>content</em> folder that has any of
+//	 * file extensions defined in {@link ContentFileHierarchy#CONTENT_FILE_EXTENTIONS}
+//	 * @return whether the file is a <em>content</em> file
+//	 */
+//	private boolean hasValidContentFileExt(File file) {
+//		return CONTENT_FILE_EXTENTIONS.contains(getExtension(file.toString()));
+//	}
 
 
 	/* ===================================================== */
+
 	/* === GETTERS */
 
-	public File getContentRootDir() {
-		return contentRootDir;
-	}
 
 }

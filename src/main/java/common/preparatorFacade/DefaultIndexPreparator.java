@@ -3,7 +3,7 @@ package common.preparatorFacade;
 import java.io.File;
 
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
-import static framework.utils.FileUtils.Lister.listDirsFrom;
+import static framework.utils.FileUtils.Lister.streamDirsFrom;
 import static framework.utils.FileUtils.Lister.streamNonDirsFrom;
 import static java.util.function.Predicate.isEqual;
 
@@ -14,7 +14,7 @@ public class DefaultIndexPreparator {  // TODO: this should be owned by deployer
 
 	public static void addDefaultIndexesRecursivelyTo(File folder) throws Exception {
 
-		for (File dir : listDirsFrom(folder, NONRECURSIVELY))
+		for (File dir : streamDirsFrom(folder, NONRECURSIVELY).toArray(File[]::new))
 
 			addDefaultIndexesRecursivelyTo(dir);
 

@@ -45,7 +45,7 @@ public class NavigationHtmlTest {
 		// Fixture phase
 		navHtml = new NavigationHtml(new DeployFileHierarchy(ROOT_INPUT_DIR), MAX_NUM_OF_PARENTS_TO_INCLUDE);
 		// Exercise phase
-		navHtml.generateNavHtmlForAllFilesInDeploy();
+		navHtml.generateNavHtmlForAllFiles();
 		navHtmlOfFileF = navHtml.getNavHtmlOf(FILE_F);
 	}
 
@@ -106,7 +106,7 @@ public class NavigationHtmlTest {
 		// Verify phase
 		String[] matches = getAllMatchesOfRegexInString(navHtmlOfFileF, "href=\".*?\"");
 
-		assertArrayEquals(matches,
+		assertArrayEquals(
 				new String[]{
 					"href=\"..\"",
 					"href=\"../../nested_v2\"",
@@ -116,7 +116,9 @@ public class NavigationHtmlTest {
 					"href=\"\"",
 					"href=\"../C.html\"",
 					"href=\"F.html\""
-				});
+				},
+				matches
+		);
 	}
 
 

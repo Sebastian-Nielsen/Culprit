@@ -4,7 +4,7 @@ import java.io.File;
 
 public interface NavigationHtmlGenerator {
 
-	void generateNavHtmlForAllFilesInDeploy() throws Exception;
+	void generateNavHtmlForAllFiles() throws Exception;
 
 	String getNavHtmlOf(File deployFile);
 }

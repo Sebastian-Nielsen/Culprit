@@ -1,6 +1,5 @@
 package framework.utils;
 
-import jdk.jshell.spi.ExecutionControl;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -15,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import static framework.Constants.Constants.CWD;
 import static framework.utils.FileUtils.Filename.relativePath;
-import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static framework.utils.FileUtils.Lister.RECURSION.RECURSIVELY;
 import static framework.utils.FileUtils.Retriever.contentOf;
 import static org.apache.commons.io.FileUtils.readFileToString;
@@ -25,7 +24,8 @@ public class FileUtils {
 	/**
 	 * FileUtil methods related to listing files
 	 */
-	public static class Lister {
+	public static class
+	Lister {
 
 		public enum RECURSION {
 			RECURSIVELY(true), NONRECURSIVELY(false);
@@ -169,28 +169,24 @@ public class FileUtils {
 		/* ===================================================== */
 
 
-		public static File[] listDirsFrom(File folder, RECURSION isRecursive) throws IOException {
+
+		public static Stream<File> streamDirsFrom(File folder, RECURSION isRecursive) throws IOException {
 			if (isRecursive.getBool())
-				return listDirsRecursivelyFrom(folder);
+				return streamDirsRecursivelyFrom(folder);
 			else
-				return listDirsNonRecursivelyFrom(folder);
+				return streamDirsNonRecursivelyFrom(folder);
 		}
 
-		private static File[] listDirsRecursivelyFrom(File folder) throws IOException {
+		private static Stream<File> streamDirsRecursivelyFrom(File folder) throws IOException {
 			return Files.walk(folder.toPath())  // lists recursively in a depth-first manner
 					.skip(1)  // Don't include the "root" aka. {@code folder}
 					.map(Path::toFile)
-					.filter(File::isDirectory)
-					.toArray(File[]::new);
+					.filter(File::isDirectory);
 		}
 
-		private static File[] listDirsNonRecursivelyFrom(File folder) {
-			File[] files = folder.listFiles();
-			if (files == null)
-				return new File[]{};
-			return Arrays.stream(files)
-					.filter(File::isDirectory)
-					.toArray(File[]::new);
+		private static Stream<File> streamDirsNonRecursivelyFrom(File folder) {
+			return Arrays.stream(folder.listFiles())
+					.filter(File::isDirectory);
 		}
 
 
@@ -246,7 +242,7 @@ public class FileUtils {
 			for (File file : listNonDirsRecursivelyFrom(folder))
 				fileToContent.put(
 						file,
-						String.join("\n", Files.readAllLines(file.toPath()))
+						String.join("/n", Files.readAllLines(file.toPath()))
 				);
 			return fileToContent;
 		}
@@ -329,9 +325,10 @@ public class FileUtils {
 	public static class Filename {
 
 		/**
-		 * Replace all "\\" occurences in a path with "/".
+		 * Replace all "\\\\" occurences in a path with "/".
 		 */
 		public static String normalize(String path) {
+
 			return path.replaceAll("\\\\", "/");
 		}
 
@@ -361,6 +358,44 @@ public class FileUtils {
 			return basePath.toURI().relativize(file.toURI()).getPath();
 		}
 
+		/**
+		 * Get the path of each file in the inputFolders.content dir RELATIVE to the base 'C:/.../culprit/content' dir
+		 * E.g. instead of 'C:/.../culprit/content/aa/test.md' then 'aa/test.md'
+		 */
+		public static String relativePath(String filename, String basePath) {
+			return relativePath(new File(filename), new File(basePath));
+		}
+
+		public static String fileExtOf(File file) {
+			String filename = file.toString();
+			return filename.substring(filename.lastIndexOf(".") + 1);
+		}
+
+		/**
+		 * Checks whether the paths aren't a subset of one another (i.e. is distinct).
+		 * <pre>
+		 * +-------------------------------------------------------------------------+
+		 * |CWD: "C:/Users/sebas/IdeaProjects/culprit_2"                             |
+		 * |  path1: "/someDir/content/"          (relative path in relation to CWD) |
+		 * |  path2: "/someDir/deploy/"           (relative path in relation to CWD) |                                   |
+		 * |    ->                                                                   |
+		 * | @return false       - since they share the common folder 'someDir' ´    |
+		 * +-------------------------------------------------------------------------+
+		 * |CWD: "C:/Users/sebas/IdeaProjects/culprit_2"                             |
+		 * |  path1: "/content/"                                                     |
+		 * |  path2: "/deploy/"                                                      |
+		 * |    ->                                                                   |
+		 * | @return true                                                            |
+		 * +-------------------------------------------------------------------------+
+		 * </pre>
+		 * @return true if they don't share a common dir (i.e. are distinct), false otherwise
+		 */
+		public static boolean areDistinctFilePaths(@NotNull String path1, 
+		                                           @NotNull String path2) {
+			String relativePath1 = relativePath(path1, CWD);
+			String relativePath2 = relativePath(path2, CWD);
+			return path1.equals(path2);
+		}
 
 		/**
 		 * Calculates the relative file path; Examples:

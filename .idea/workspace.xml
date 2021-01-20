@@ -10,7 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultCulpritFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultPreparatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/culpritFactory/DefaultPreparatorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/NavigationHtmlGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/DefaultIndexPreparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Deployer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Preparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/preparatorFacade/Preparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/ContentFileHierarchy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/DeployFileHierarchy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stubs/NavigationHtmlStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stubs/NavigationHtmlStub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,6 +351,28 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/unitTests/NavigationHtmlTest.java</url>
+          <line>43</line>
+          <properties class="unitTests.NavigationHtmlTest" method="setup">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/common/html/NavigationHtml.java</url>
+          <line>180</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java</url>
+          <line>421</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="common.CompilerDataContainer" memberName="idToRelativeDeployPath" />

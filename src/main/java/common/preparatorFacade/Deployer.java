@@ -66,7 +66,7 @@ public class Deployer {
 
 	private void createDeployFileFrom(File contentFile) throws IOException {
 
-		File deployFile = getDeployEquivalentOf(contentFile, contentHierarchy.getContentRootDir(), deployHierarchy.getDeployRootDir());
+		File deployFile = getDeployEquivalentOf(contentFile, contentHierarchy.getRootDir(), deployHierarchy.getRootDir());
 
 		if (contentFile.isFile())
 			deployFile.createNewFile();

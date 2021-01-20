@@ -79,7 +79,7 @@ public class DataExtractor {
 		Logger.log(pathToFoContainer);
 
 		return new CompilerDataContainer(idToFile, pathToFoContainer, navHtmlGenerator,
-				contentHiearchy.getContentRootDir(), deployHierarchy.getDeployRootDir());
+				contentHiearchy.getRootDir(), deployHierarchy.getRootDir());
 	}
 
 
@@ -97,7 +97,7 @@ public class DataExtractor {
 		int numberOfParentsToInclude = 3;
 		NavigationHtml navigationHtml;
 		navigationHtml = new NavigationHtml(deployHierarchy, numberOfParentsToInclude);
-		navigationHtml.generateNavHtmlForAllFilesInDeploy();
+		navigationHtml.generateNavHtmlForAllFiles();
 
 		this.compilerDataContainer   = buildDataContainerForCompiler(   navigationHtml);
 		this.postEffectDataContainer = buildDataContainerForPostEffects(navigationHtml);

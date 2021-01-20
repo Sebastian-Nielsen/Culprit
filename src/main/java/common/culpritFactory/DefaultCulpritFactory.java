@@ -16,6 +16,7 @@ public class DefaultCulpritFactory extends Factory implements CulpritFactory{
 
 	public DefaultCulpritFactory(@NotNull String contentRootFolder,
 	                             @NotNull String deployRootFolder) {
+
 		super(new ContentFileHierarchy(contentRootFolder),
 			  new DeployFileHierarchy(deployRootFolder));
 	}

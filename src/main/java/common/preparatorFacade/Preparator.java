@@ -53,7 +53,7 @@ public class Preparator implements PreparatorFacade {
 
 	@Override
 	public void addDefaultIndexes() throws Exception {
-		DefaultIndexPreparator.addDefaultIndexesRecursivelyTo(deployFileHierchy.getDeployRootDir());
+		DefaultIndexPreparator.addDefaultIndexesRecursivelyTo(deployFileHierchy.getRootDir());
 	}
 
 	/* ============================================= */

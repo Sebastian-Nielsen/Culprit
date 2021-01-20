@@ -6,7 +6,7 @@ import java.io.File;
 
 public class NavigationHtmlStub implements NavigationHtmlGenerator {
 	@Override
-	public void generateNavHtmlForAllFilesInDeploy() throws Exception {
+	public void generateNavHtmlForAllFiles() throws Exception {
 	}
 
 	@Override

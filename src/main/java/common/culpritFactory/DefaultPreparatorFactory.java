@@ -21,7 +21,7 @@ public class DefaultPreparatorFactory extends Factory implements PreparatorFacto
 	                                @NotNull FileOptionInserter fileOptionInserter) {
 		super(contentHierarchy, deployHierarchy);
 		this.fileOptionInserter = fileOptionInserter;
-		this.contentRootFile = contentHierarchy.getContentRootDir();
+		this.contentRootFile = contentHierarchy.getRootDir();
 	}
 
 	public DefaultPreparatorFactory(@NotNull ContentFileHierarchy contentHierarchy,
