@@ -669,6 +669,7 @@ public class HTML {
          * Attribute "background"
          */
         public static final Attribute BACKGROUND = new Attribute("background");
+        public static final Attribute AS = new Attribute("as");
 
         /**
          * Attribute "bgcolor"
@@ -1074,6 +1075,7 @@ public class HTML {
             ONLOAD,
             CLEAR,
             BACKGROUND,
+            AS,
             BGCOLOR,
             TEXT,
             DEFER,

@@ -12,6 +12,7 @@ import java.util.Map;
 import static common.html.HTML.Attribute.DEFER;
 import static common.html.HTML.Tag.*;
 import static common.html.htmlTemplatesStrategy.Helper.*;
+import static common.htmlBuilderMacros.HeadHtmlBuilderMacros.preloadStylesheet;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
@@ -37,7 +38,7 @@ public class DefaultIndexHtmlTemplate {
 				.open(HTML)
 					.open(HEAD)
 						.insert(defaultHeadTags)
-						.openSingle(LINK, defaultCssAttributes("css/defaultIndexFacade/INDEX.css"))
+						.insert(preloadStylesheet("css/defaultIndexFacade/INDEX.css"))
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)

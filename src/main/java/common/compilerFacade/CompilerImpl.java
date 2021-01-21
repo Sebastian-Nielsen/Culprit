@@ -17,7 +17,7 @@ public class CompilerImpl implements Compiler {
 	private CompilerImpl() {
         MutableDataSet options = new MutableDataSet();
 
-        options.set(HtmlRenderer.SOFT_BREAK, "<br />\n");
+//        options.set(HtmlRenderer.SOFT_BREAK, "<br />\n");
 
         parser   = Parser.builder(options).build();
         renderer = HtmlRenderer.builder(options).build();

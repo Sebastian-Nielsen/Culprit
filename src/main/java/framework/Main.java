@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static framework.Constants.Constants.CWD;
+import static framework.Constants.Constants.CWD_NAME;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static framework.utils.FileUtils.Lister.listFilesAndDirsFrom;
 import static org.apache.commons.io.FileUtils.deleteDirectory;
@@ -20,6 +22,11 @@ public class Main {
 
 	private static final Map<String, Boolean> argToVal = new HashMap<>();
 	private static CLIParser parser;
+
+	//==============================
+//	public static final String RESOURCES_PATH = "/" + CWD_NAME + "/";
+	public static final String RESOURCES_PATH = "/resources/";
+	//==============================
 
 	public static void main(String[] args) throws Exception {
 		parser = new CLIParser();

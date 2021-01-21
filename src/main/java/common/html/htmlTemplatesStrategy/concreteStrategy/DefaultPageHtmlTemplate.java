@@ -14,6 +14,8 @@ import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static common.html.HTML.Tag.LINK;
 import static common.html.htmlTemplatesStrategy.Helper.*;
+import static common.htmlBuilderMacros.HeadHtmlBuilderMacros.preloadJS;
+import static common.htmlBuilderMacros.HeadHtmlBuilderMacros.preloadStylesheet;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
@@ -36,15 +38,14 @@ public class DefaultPageHtmlTemplate {
 				.open(HTML)
 					.open(HEAD)
 						.insert(defaultHeadTags)
-						.openSingle(LINK, defaultCssAttributes("css/defaultPageFacade/INDEX.css"))
-						.open(SCRIPT, defaultScriptAttributes( "js/defaultPageFacade/globalConstVariables.js")).close(SCRIPT)
+						.insert(preloadStylesheet("css/defaultPageFacade/INDEX.css"))
+						.insert(preloadJS( "js/defaultPageFacade/globalConstVariables.js"))
 						.open(SCRIPT, defaultScriptAttributes( "js/defaultPageFacade/INDEX_1/navOverlay_colorCurrentlySelected.js", Map.of(DEFER, ""))).close(SCRIPT)
 						.insert(htmlFactory.createKatexHtml(foContainer))
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
 							.insert(getNavigationHtmlOf(contentFile, dataContainer))
-//							.insert(htmlFactory.createNavigationHtml(dirOfContentFile))
 						.close(NAV)
 						.open(SCRIPT, defaultScriptAttributes("js/defaultPageFacade/INDEX_2/navOverlay_hotKeyToggle.js")).close(SCRIPT) // should be loaded after NAV
 						.open(MAIN)

@@ -39,7 +39,7 @@ public class TestFlexMark {
 	public String compile(String markdown)  {
         MutableDataSet options = new MutableDataSet();
 
-        options.set(HtmlRenderer.SOFT_BREAK, "<br />\n");
+//        options.set(HtmlRenderer.SOFT_BREAK, "<br />\n");
 
         Parser parser = Parser.builder(options).build();
         HtmlRenderer renderer = HtmlRenderer.builder(options).build();

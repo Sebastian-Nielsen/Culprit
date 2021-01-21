@@ -12,6 +12,7 @@ import static common.html.HTML.Tag.LINK;
 import static common.html.HTML.Tag.TITLE;
 import static common.html.HTML.Tag.*;
 import static framework.Constants.Constants.CWD_NAME;
+import static framework.Main.RESOURCES_PATH;
 
 @SuppressWarnings("unchecked")
 public class Helper {
@@ -27,8 +28,7 @@ public class Helper {
 
 	public static @NotNull Map<HTML.Attribute, String> defaultCssAttributes(String hrefVal) {
 		return Map.of(
-				HREF, "/resources/" + hrefVal,
-//				HREF, "/%s/%s".formatted(CWD_NAME, hrefVal),
+				HREF, RESOURCES_PATH + hrefVal,
 				REL,  "stylesheet"
 		);
 	}
