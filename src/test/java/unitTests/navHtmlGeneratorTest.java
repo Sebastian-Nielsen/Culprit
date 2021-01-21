@@ -76,13 +76,15 @@ public class navHtmlGeneratorTest {
 	@Test
 	public void shouldMarkParentFolders() {
 		// Verify
-		String validHrefValuesForParents = "(|..(/..)*)"; // Regex
-		String classVal = "marked";
+		String validHrefValuesForParents = "(.|..(/..)*)"; // Regex
+		String classVal = "isParentDir";
 
 		String[] matches = getAllMatchesOfRegexInString(navHtmlOfFileF,
 				"class=\".*?"+classVal+".*?\">\n *" +
 					"<a href=\"" +validHrefValuesForParents+ '"'
 		);
+
+		System.out.println(navHtmlOfFileF);
 
 		assertEquals(2, matches.length);
 	}
@@ -98,7 +100,7 @@ public class navHtmlGeneratorTest {
 	@Test
 	public void shouldGenerateClassAttributesWithFileAsValue() {
 		// Verify phase
-		int numberOfFilesValues = countMatches(navHtmlOfFileF, "class=\"file");
+		int numberOfFilesValues = countMatches(navHtmlOfFileF, "class=\"nonDir");
 
 		assertEquals(4, numberOfFilesValues);
 	}
@@ -139,7 +141,7 @@ public class navHtmlGeneratorTest {
 					"href=\"../../x2nested_1\"",
 					"href=\"..\"",
 					"href=\"../../C.html\"",
-					"href=\"\"",
+					"href=\".\"",
 					"href=\"../x3nested_2\"",
 					"href=\"../H.html\"",
 					"href=\"F.html\"",

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import static common.html.HTML.Attribute.DEFER;
 import static common.html.HTML.Tag.*;
 import static common.html.htmlTemplatesStrategy.Helper.*;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;

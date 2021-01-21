@@ -153,44 +153,63 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 		buildLiTagsForDirs(builder, rootDir, originalDir, dirToMark);
 
-		buildLiTagsForNonDirs(builder, rootDir, originalDir);
+		buildLiTagForNonDirs(builder, rootDir, originalDir);
 
 		builder.close(OL);
 	}
 
+			/* ======================== */
+
 	private void buildLiTagsForDirs(HtmlBuilder builder, File rootDir, File originalDir, File dirToMark) throws IOException {
 
 		File[] dirs = sortByFileName(contentHierarchy.listDirsFrom(rootDir, NONRECURSIVELY));
-		for (File file : dirs) {
+		for (File dir : dirs) {
 
-			List<String> classValues;
-			if (isEqual(file, dirToMark))
-				classValues = List.of("dir", "marked");
+			String classValues;
+			if (isEqual(dir, dirToMark))
+				classValues = "dir isParentDir";
 			else
-				classValues = List.of("dir");
+				classValues = "dir";
 
-			buildLiTagFor(builder, file, originalDir, classValues);
+			buildLiTagForDir(builder, dir, originalDir, classValues);
 		}
 	}
 
-	private void buildLiTagsForNonDirs(HtmlBuilder builder, File rootDir, File originalDir) throws IOException {
+	private void buildLiTagForNonDirs(HtmlBuilder builder, File rootDir, File originalDir) throws IOException {
 
 		File[] nonDirs = sortByFileName(contentHierarchy.listNonDirsFrom(rootDir, NONRECURSIVELY));
 		for (File contentFile : nonDirs) {
 
 			File deployFile = new File(changeFileExt(contentFile, "html"));
 
-			buildLiTagFor(builder, deployFile, originalDir, List.of("file"));
-		}
+			String classValues = "nonDir";
 
+			buildLiTagForNonDir(builder, deployFile, originalDir, classValues);
+		}
 	}
 
-	private void buildLiTagFor(HtmlBuilder builder, File file, File originalDir, List<String> listOfClassValues) {
+			/* ======================== */
 
-		String classValues = String.join(" ", listOfClassValues);
+	private void buildLiTagForDir(HtmlBuilder builder, File dir, File originalDir, String classValues) {
+		String relPath = relativeFilePathBetween(originalDir, dir);
+
+		String hrefValue = relPath.equals("") ? "." : relPath;
+
+		buildLiTagFor(builder, dir, hrefValue, classValues);
+	}
+
+	private void buildLiTagForNonDir(HtmlBuilder builder, File nonDir, File originalDir, String classValues) {
+		String hrefValue = relativeFilePathBetween(originalDir, nonDir);
+
+		buildLiTagFor(builder, nonDir, hrefValue, classValues);
+	}
+
+			/* ======================== */
+
+	private void buildLiTagFor(HtmlBuilder builder, File file, String hrefValue, String classValues) {
 
 		builder	.open(LI, Map.of(CLASS, classValues))
-					.open(A, Map.of(HREF, relativeFilePathBetween(originalDir, file)))
+					.open(A, Map.of(HREF, hrefValue))
 						.setText(removeExtension(file.getName()))
 					.close(A)
 				.close(LI);

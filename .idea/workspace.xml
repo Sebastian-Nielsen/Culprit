@@ -9,7 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="" />
+    <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,27 +145,19 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.FileUtils_relativeFilePathBetween">
-    <configuration name="FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.FileUtilsSuiteClasses.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="framework.Main" />
+      <module name="culprit_2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="framework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="FileUtils_relativeFilePathBetween" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -301,20 +297,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="Gradle.navHtmlGeneratorTest" />
       <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Gradle.FileUtils_relativeFilePathBetween" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FileUtils_relativeFilePathBetween" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.FileUtils_relativeFilePathBetween" />
         <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
         <item itemvalue="Gradle.navHtmlGeneratorTest" />
-        <item itemvalue="Gradle.FileUtils_areDistinctFilePaths.shouldNotBeDinstinctFilePaths" />
       </list>
     </recent_temporary>
   </component>
@@ -354,14 +350,10 @@
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <condition expression="hrefValue.equals(&quot;&quot;)" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="44" />
+          <line>211</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -371,6 +363,7 @@
         <PinnedItemInfo parentTag="java.util.HashMap" memberName="table" />
         <PinnedItemInfo parentTag="common.html.HtmlBuilder" memberName="openedTags" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
+        <PinnedItemInfo parentTag="java.io.File" memberName="status" />
         <PinnedItemInfo parentTag="java.util.regex.Matcher" memberName="text" />
       </pinned-members>
     </pin-to-top-manager>
