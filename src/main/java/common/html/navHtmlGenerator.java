@@ -12,8 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static common.html.HTML.Attribute.CLASS;
-import static common.html.HTML.Attribute.HREF;
+import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Lister.*;
@@ -125,9 +124,10 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 
 	private String generateNavHtmlStringForDir(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
-		return recursivelyBuildHtmlBuilderForDir(rootDir, dirToMark, originalDir, numOfParentsToInclude).toString();
+		return wrapInDivContainer(
+				recursivelyBuildHtmlBuilderForDir(rootDir, dirToMark, originalDir, numOfParentsToInclude)
+		);
 	}
-
 
 	private HtmlBuilder recursivelyBuildHtmlBuilderForDir(File rootDir, File dirToMark, File originalDir, int numOfParentsToInclude) throws Exception {
 		HtmlBuilder builder;
@@ -143,7 +143,6 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 		return builder;
 	}
-
 
 	/* ===================================================== */
 
@@ -189,24 +188,24 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	private void buildLiTagFor(HtmlBuilder builder, File file, File originalDir, List<String> listOfClassValues) {
 
 		String classValues = String.join(" ", listOfClassValues);
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
-//		System.out.println("original");
-//		System.out.println(originalDir);
-//		System.out.println();
-//		System.out.println("file");        relativePathToHiearchyRoot
-//		System.out.println(file);  e.g.    contentHiearchy.relativePathToRoot(contentFile);
-//		System.out.println();
-//		System.out.println(relativeFilePathBetween(originalDir, file));
-//		System.out.println();
-//		System.out.println();
+
 		builder	.open(LI, Map.of(CLASS, classValues))
 					.open(A, Map.of(HREF, relativeFilePathBetween(originalDir, file)))
 						.setText(removeExtension(file.getName()))
 					.close(A)
 				.close(LI);
 	}
+
+	private String wrapInDivContainer(HtmlBuilder builder) {
+		HtmlBuilder htmlBuilder = new HtmlBuilder();
+
+		htmlBuilder .open(DIV, Map.of(ID, "container"))
+						.insert(builder.toString())
+					.close(DIV);
+
+		return htmlBuilder.toString();
+	}
+
 
 	/* ===================================================== */
 

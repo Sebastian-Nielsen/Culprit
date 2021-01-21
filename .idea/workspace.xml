@@ -10,15 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/.fileD_images/17871412.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/.fileD_images/b2bf1626.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/.fileD_images/b906fd27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/other/nested/x2nested/.fileF_images/5277510c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/other/nested/x2nested/.fileF_images/b188bdb0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/other/nested/x2nested/a69739a5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/fileD.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/fileD.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/other/nested/x2nested/fileF.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/nested/x2nested/fileF.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +106,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="a&#10;aasdf&#10;asdf [key1]: &lt;&gt; (val1) asdf ds&#10;&#10;asdsadf  " />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/content/math" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hotciv" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -352,7 +344,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="rootDir.toString().endsWith(&quot;input&quot;)" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>141</line>
+          <line>145</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
