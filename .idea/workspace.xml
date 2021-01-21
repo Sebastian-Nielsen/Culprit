@@ -10,9 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/navHtmlGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/other/fileA.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/fileA.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/other/fileB.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/fileB.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -180,12 +181,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'culprit_2.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestFlexMark.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests *" />
+        <option name="scriptParameters" value="--tests &quot;randomTests.TestFlexMark.test&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -201,12 +202,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="navHtmlGeneratorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'culprit_2.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;unitTests.navHtmlGeneratorTest&quot;" />
+        <option name="scriptParameters" value="--tests *" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -298,19 +299,19 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
-      <item itemvalue="Gradle.navHtmlGeneratorTest" />
       <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
       <item itemvalue="JAR Application.Unnamed" />
       <item itemvalue="Gradle.FileUtils_relativeFilePathBetween" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.TestFlexMark.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestFlexMark.test" />
         <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.FileUtils_relativeFilePathBetween" />
         <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />
-        <item itemvalue="Gradle.navHtmlGeneratorTest" />
       </list>
     </recent_temporary>
   </component>

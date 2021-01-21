@@ -21,15 +21,14 @@ public class Helper {
 			new HtmlBuilder()
 					.open(TITLE).setText("index").close(TITLE)
 					.openSingle(META, Map.of(CHARSET, "utf-8"))
-					.openSingle(LINK, defaultCssAttributes("global.css"))
 					.toString();
 
 
 
 	public static @NotNull Map<HTML.Attribute, String> defaultCssAttributes(String hrefVal) {
 		return Map.of(
-//				HREF, "/" + hrefVal,
-				HREF, "/%s/%s".formatted(CWD_NAME, hrefVal),
+				HREF, "/resources/" + hrefVal,
+//				HREF, "/%s/%s".formatted(CWD_NAME, hrefVal),
 				REL,  "stylesheet"
 		);
 	}
@@ -40,8 +39,8 @@ public class Helper {
 	public static @NotNull Map<HTML.Attribute, String> defaultScriptAttributes(String srcVal,
 	                                                                           Map<HTML.Attribute, String> attrs) {
 		HashMap<HTML.Attribute, String> temp = new HashMap<>();
-//						SRC, "/" + srcVal,
-		temp.put(SRC, "/%s/%s".formatted(CWD_NAME, srcVal));
+		temp.put(SRC, "/resources/" + srcVal);
+//		temp.put(SRC, "/%s/%s".formatted(CWD_NAME, srcVal));
 
 		return combineMaps(attrs, temp);
 	}

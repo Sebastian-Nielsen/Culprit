@@ -10,7 +10,18 @@ import org.jetbrains.annotations.NotNull;
 public class CompilerImpl implements Compiler {
 
 	private static final Compiler instance = new CompilerImpl();
-	private CompilerImpl() {}
+
+	private static Parser parser;
+	private static HtmlRenderer renderer;
+
+	private CompilerImpl() {
+        MutableDataSet options = new MutableDataSet();
+
+        options.set(HtmlRenderer.SOFT_BREAK, "<br />\n");
+
+        parser   = Parser.builder(options).build();
+        renderer = HtmlRenderer.builder(options).build();
+	}
 
 	@NotNull
 	public static Compiler getInstance() {
@@ -18,14 +29,10 @@ public class CompilerImpl implements Compiler {
 	}
 
 	@Override
-	public String compile(String markdown)  {
-        MutableDataSet options = new MutableDataSet();
+	public @NotNull String compile(String markdown)  {
 
-        Parser parser = Parser.builder(options).build();
-        HtmlRenderer renderer = HtmlRenderer.builder(options).build();
-
-        // You can re-use parser and renderer instances
         Node document = parser.parse(markdown);
+
         String html = renderer.render(document);
 
         return html;

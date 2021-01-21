@@ -2,4 +2,6 @@
 
 This file is "other/fileA"
 
-(:- D)
+line 1
+line 2
+line 3
