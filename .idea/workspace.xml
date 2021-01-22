@@ -10,13 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/other/fileA.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/fileA.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/other/fileB.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/other/fileB.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/DataExtractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultIndexHtmlTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/randomTests/TestFlexMark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/randomTests/TestFlexMark.java" afterDir="false" />
@@ -102,6 +100,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -152,7 +151,7 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -313,8 +312,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Gradle.TestFlexMark.test" />
+        <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.FileUtils_relativeFilePathBetween" />
         <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />

@@ -1,11 +1,16 @@
 package common.compilerFacade;
 
+import com.vladsch.flexmark.ext.abbreviation.AbbreviationExtension;
+import com.vladsch.flexmark.ext.footnotes.FootnoteExtension;
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
+import com.vladsch.flexmark.util.data.DataHolder;
 import com.vladsch.flexmark.util.data.MutableDataSet;
 import framework.compilerFacade.Compiler;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
 
 public class CompilerImpl implements Compiler {
 
@@ -15,12 +20,16 @@ public class CompilerImpl implements Compiler {
 	private static HtmlRenderer renderer;
 
 	private CompilerImpl() {
-        MutableDataSet options = new MutableDataSet();
+        final DataHolder OPTIONS = new MutableDataSet()
+		        .set(FootnoteExtension.FOOTNOTE_BACK_REF_STRING, "↩")
+		        .set(Parser.EXTENSIONS, Arrays.asList(AbbreviationExtension.create(),
+				                                FootnoteExtension.create()))
+		        .toImmutable();
 
 //        options.set(HtmlRenderer.SOFT_BREAK, "<br />\n");
 
-        parser   = Parser.builder(options).build();
-        renderer = HtmlRenderer.builder(options).build();
+        parser   = Parser.builder(OPTIONS).build();
+        renderer = HtmlRenderer.builder(OPTIONS).build();
 	}
 
 	@NotNull

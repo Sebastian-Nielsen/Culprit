@@ -39,7 +39,7 @@ public class DefaultPageHtmlTemplate {
 					.open(HEAD)
 						.insert(defaultHeadTags)
 						.insert(preloadStylesheet("css/defaultPageFacade/INDEX.css"))
-						.insert(preloadJS( "js/defaultPageFacade/globalConstVariables.js"))
+//						.insert(preloadJS( "js/defaultPageFacade/globalConstVariables.js"))
 						.open(SCRIPT, defaultScriptAttributes( "js/defaultPageFacade/INDEX_1/navOverlay_colorCurrentlySelected.js", Map.of(DEFER, ""))).close(SCRIPT)
 						.insert(htmlFactory.createKatexHtml(foContainer))
 					.close(HEAD)

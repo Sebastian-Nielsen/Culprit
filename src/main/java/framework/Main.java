@@ -24,8 +24,8 @@ public class Main {
 	private static CLIParser parser;
 
 	//==============================
-//	public static final String RESOURCES_PATH = "/" + CWD_NAME + "/";
-	public static final String RESOURCES_PATH = "/resources/";
+	public static final String RESOURCES_PATH = "/" + CWD_NAME + "/";
+//	public static final String RESOURCES_PATH = "/resources/";
 	//==============================
 
 	public static void main(String[] args) throws Exception {

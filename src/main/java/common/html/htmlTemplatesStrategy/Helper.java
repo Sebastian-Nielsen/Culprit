@@ -39,8 +39,7 @@ public class Helper {
 	public static @NotNull Map<HTML.Attribute, String> defaultScriptAttributes(String srcVal,
 	                                                                           Map<HTML.Attribute, String> attrs) {
 		HashMap<HTML.Attribute, String> temp = new HashMap<>();
-		temp.put(SRC, "/resources/" + srcVal);
-//		temp.put(SRC, "/%s/%s".formatted(CWD_NAME, srcVal));
+		temp.put(SRC, RESOURCES_PATH + srcVal);
 
 		return combineMaps(attrs, temp);
 	}
