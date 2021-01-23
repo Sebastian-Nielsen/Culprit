@@ -3,6 +3,7 @@ package common.compilerFacade;
 import com.vladsch.flexmark.ext.abbreviation.AbbreviationExtension;
 import com.vladsch.flexmark.ext.anchorlink.AnchorLinkExtension;
 import com.vladsch.flexmark.ext.footnotes.FootnoteExtension;
+import com.vladsch.flexmark.ext.typographic.TypographicExtension;
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
@@ -22,13 +23,13 @@ public class CompilerImpl implements Compiler {
 
 	private CompilerImpl() {
         final DataHolder OPTIONS = new MutableDataSet()
-		        .set(FootnoteExtension.FOOTNOTE_BACK_REF_STRING, "↩")
+		        .set(FootnoteExtension.FOOTNOTE_BACK_REF_STRING, "&#8617;")
 		        .set(Parser.EXTENSIONS,
 				        Arrays.asList(
 				        		AbbreviationExtension.create(),
 						        FootnoteExtension.create(),
-						        AnchorLinkExtension.create()
-
+						        AnchorLinkExtension.create(),
+						        TypographicExtension.create()
 				        )
 		        )
 		        .toImmutable();

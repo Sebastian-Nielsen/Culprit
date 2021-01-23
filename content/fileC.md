@@ -4,10 +4,15 @@
 This is file: "/fileC.md"
 
 
+This is a "test", that is <<what he said>> -- haha, I know. I need to stop.
 
-klklj
-k
-kj
+
+
+klklj[^1]
+kæøæøæåæøøåææøåøæåæåøæøæåææå
+kjæøåæøæåæ
 3
 jk
 
+
+[^1]: hello this is a footnote

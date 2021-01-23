@@ -18,7 +18,7 @@ dependencies {
     compile group: 'com.vladsch.flexmark', name: 'flexmark-ext-footnotes', version: '0.62.2'
     compile group: 'com.vladsch.flexmark', name: 'flexmark-ext-abbreviation', version: '0.62.2'
     compile group: 'com.vladsch.flexmark', name: 'flexmark-ext-anchorlink', version: '0.62.2'
-
+    compile group: 'com.vladsch.flexmark', name: 'flexmark-ext-typographic', version: '0.62.2'
 
     compile group: 'one.util', name: 'streamex', version: '0.7.3'
 

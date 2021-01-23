@@ -271,7 +271,7 @@ public class FileUtils {
 
 
 		public static void writeStringTo(File file, String content) throws IOException {
-			Charset charset = Charset.availableCharsets().get("windows-1252");
+			Charset charset = Charset.availableCharsets().get("utf-8");
 			org.apache.commons.io.FileUtils.writeStringToFile(file, content, charset);
 		}
 		public static void insertLineAtTopOf(File file, String lineToPrepend) throws IOException {
@@ -299,9 +299,9 @@ public class FileUtils {
 		public static String contentOf(File file) {
 			String content;
 			try {
-				content = readFileToString(file, "iso-8859-1");
+				content = readFileToString(file, "utf-8");
 
-//				if (file.getName().endsWith("twix.md")) {
+//				if (file.getName().endsWith("C.md")) {
 //					System.out.println("(((((((((((((((((((((");
 //					System.out.println(content);
 //					System.out.println("(((((((((((((((((((((");
@@ -311,6 +311,7 @@ public class FileUtils {
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
+
 			// For some reason ´readFileToString` adds '\r', which makes our tests fail because our
 			// expected doesn't have any "\r", so remove all '\r'.
 			return content.replaceAll("\r","");
