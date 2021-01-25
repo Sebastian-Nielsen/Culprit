@@ -1,19 +1,22 @@
 package common.compilerFacade;
 
+import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import framework.compilerFacade.Precompiler;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static common.fileOption.FileOption.KEY.D_LINKS;
+import static common.fileOption.FileOption.KEY.TOC;
 import static common.other.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Retriever.contentOf;
 
-public class PrecompilerImpl implements Precompiler {
+public class PrecompilerImpl implements Precompiler {  // TODO !IMPORTANT! THIS CLASS HAS SERIOUS DESIGN ISSUES 
 
 	private @NotNull final CompilerDataContainer dataContainer;
 
@@ -26,19 +29,34 @@ public class PrecompilerImpl implements Precompiler {
 
 		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
 
-		String content = contentOf(contentFile);
+		String contentOfFileToCompile = contentOf(contentFile);
 
 		// === Third, handle all the fileoptions; apply them on the retrieved content
-		content = compileDLinks(foContainer, content, contentFile);
-		content = compileBackslashes(content);
+		contentOfFileToCompile = compileDLinks(foContainer, contentOfFileToCompile, contentFile);
+		contentOfFileToCompile = compileBackslashes(contentOfFileToCompile);
+//		contentOfFileToCompile = compileTOC(foContainer, contentOfFileToCompile, contentFile);
 		// ===
 
-		return content;
+		return contentOfFileToCompile;
 	}
 
 
 
 	/* === PRIVATE METHODS */
+
+	/**
+	 * Compile Table Of Content (TOC)
+	 */
+//	private String compileTOC(FileOptionContainer foContainer, String contentOfFileToCompile, File contentFile) {
+//		String TOC_val = foContainer.getOrDefault(TOC, TOC.defaultVal);
+//
+//		if (TOC.equals("false"))
+//			return contentOfFileToCompile;
+//
+//
+//
+//		return "";
+//	}
 
 	/**
 	 * `\\\\` (in an .md) file will compile into `\\` (in a .html file).

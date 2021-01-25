@@ -1,5 +1,7 @@
 package common.html;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class HtmlBuilder {
@@ -54,7 +56,7 @@ public class HtmlBuilder {
 	 * Insert html in the form of a raw String.
 	 * Precondition: the html is valid (e.g. all tags that are opened are also closed)
 	 */
-	public HtmlBuilder insert(String html) {
+	public HtmlBuilder insert(@NotNull String html) {
 		stringBuilder.append(html);
 		return this;
 	}

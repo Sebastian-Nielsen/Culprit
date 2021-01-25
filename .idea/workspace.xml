@@ -10,12 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/fileC.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/fileC.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/compilerFacade/CompilerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/randomTests/TestFlexMark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/randomTests/TestFlexMark.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +145,21 @@
       <recent name="common.html" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.Tests in 'culprit_2.test'">
+    <configuration name="Main (--single file=fileC.md)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="framework.Main" />
+      <module name="culprit_2.main" />
+      <option name="PROGRAM_PARAMETERS" value="--single &quot;file C:\Users\sebas\IdeaProjects\culprit_2\content\fileC.md&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="framework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="framework.Main" />
       <module name="culprit_2.main" />
@@ -301,6 +311,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main (--single file=fileC.md)" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Tests in 'culprit_2.test'" />
       <item itemvalue="Gradle.navHtmlGeneratorTest.shouldStopIncludingNavHtmlForParentsWhenEncounteringParentMarkedAsTopicDir" />

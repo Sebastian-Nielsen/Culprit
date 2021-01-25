@@ -1,8 +1,10 @@
 package common.html;
 
+import org.jetbrains.annotations.NotNull;
+
 public interface NavigationHtmlGenerator {
 
 	void generateNavHtmlForAllFiles() throws Exception;
 
-	String getNavHtmlOf(String relFilePath);
+	@NotNull String getNavHtmlOf(String relFilePath);
 }

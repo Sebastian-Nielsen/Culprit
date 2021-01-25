@@ -18,7 +18,7 @@ import static framework.Main.RESOURCES_PATH;
 public class Helper {
 
 
-	public static String defaultHeadTags =
+	public static String defaultTrivialHeadTags =
 			new HtmlBuilder()
 					.open(TITLE).setText("index").close(TITLE)
 					.openSingle(META, Map.of(CHARSET, "utf-8"))

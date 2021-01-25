@@ -51,22 +51,22 @@ public class PostEffectsFacade {
 	 */
 	public void effectsFor(File contentFile, String htmlOfContentFile) throws IOException {
 
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println(htmlOfContentFile);
-//		if (shouldPrettifyHtml)
-//			htmlOfContentFile = prettifyHtml(htmlOfContentFile);
-		System.out.println("============0");
-		System.out.println(htmlOfContentFile);
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println(htmlOfContentFile);
+		if (shouldPrettifyHtml)
+			htmlOfContentFile = prettifyHtml(htmlOfContentFile);
+//		System.out.println("============0");
+//		System.out.println(htmlOfContentFile);
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
 
 		writeStringTo(getDeployEquivalentOf(contentFile), htmlOfContentFile);
 	}

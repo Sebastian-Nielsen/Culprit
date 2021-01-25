@@ -75,10 +75,10 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 
 	/**
 	 * @return Navigation html of the specified {@code File}
-	 * @param relFilePath
+	 * @param relFilePath relative file path to the file for which to get the nav html of
 	 */
 	@Override
-	public String getNavHtmlOf(String relFilePath) {
+	public @NotNull String getNavHtmlOf(String relFilePath) {
 
 		File parentDir = getParentFile(relFilePath);
 

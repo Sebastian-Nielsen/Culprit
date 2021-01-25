@@ -1,19 +1,14 @@
 package common.html.htmlTemplatesStrategy.concreteStrategy;
 
 import common.PostEffectDataContainer;
-import common.compilerFacade.CompilerDataContainer;
 import common.html.HtmlBuilder;
 import common.html.HtmlFactory;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Map;
 
-import static common.html.HTML.Attribute.DEFER;
 import static common.html.HTML.Tag.*;
 import static common.html.htmlTemplatesStrategy.Helper.*;
 import static common.htmlBuilderMacros.HeadHtmlBuilderMacros.preloadStylesheet;
-import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 import static framework.utils.FileUtils.Filename.relativePath;
 import static framework.utils.FileUtils.Lister.listNonDirsFrom;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
@@ -37,7 +32,7 @@ public class DefaultIndexHtmlTemplate {
 				.insert("<!DOCTYPE html>\n")
 				.open(HTML)
 					.open(HEAD)
-						.insert(defaultHeadTags)
+						.insert(defaultTrivialHeadTags)
 						.insert(preloadStylesheet("css/defaultIndexFacade/INDEX.css"))
 					.close(HEAD)
 					.open(BODY)

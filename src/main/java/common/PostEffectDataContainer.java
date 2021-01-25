@@ -21,6 +21,7 @@ public class PostEffectDataContainer {
 		this.navHtmlGenerator = navHtmlGenerator;
 	}
 
+	@NotNull
 	public String getNavigationHtmlOf(String relFilePathWithoutExt) {
 		return navHtmlGenerator.getNavHtmlOf(relFilePathWithoutExt);
 	}

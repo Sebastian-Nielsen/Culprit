@@ -28,13 +28,16 @@ public class FileOption {
 	 * The set of valid {@code FileOption} keys.
 	 */
 	public enum KEY {
-		 ID(REGEXES.UUID, null),
+		ID(REGEXES.UUID, null),
 
 		// Whether the file contains dynamic links
 		D_LINKS("(true|false)", "false"),
 
 		// Whether to inject KATEX into the html page
-		KATEX("(true|false)", "false");
+		KATEX("(true|false)", "false"),
+
+		// Whether to include a TOC (table of content) in the `#left-aside` tag
+		TOC("(true|false)", "false");
 
 		private final Pattern validValuesPattern;
 		public final String defaultVal;

@@ -1,24 +1,22 @@
 package common.html.htmlTemplatesStrategy.concreteStrategy;
 
-import common.PostEffectDataContainer;
-import common.PostEffectsFacade;
 import common.compilerFacade.CompilerDataContainer;
+import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import common.html.HtmlBuilder;
 import common.html.HtmlFactory;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.Map;
 
+import static common.fileOption.FileOption.KEY.TOC;
 import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
-import static common.html.HTML.Tag.LINK;
 import static common.html.htmlTemplatesStrategy.Helper.*;
-import static common.htmlBuilderMacros.HeadHtmlBuilderMacros.preloadJS;
 import static common.htmlBuilderMacros.HeadHtmlBuilderMacros.preloadStylesheet;
 import static common.preparatorFacade.Deployer.getDeployEquivalentOf;
 import static framework.utils.FileUtils.Filename.relativePath;
-import static org.apache.commons.io.FilenameUtils.removeExtension;
 
 public class DefaultPageHtmlTemplate {
 
@@ -29,7 +27,7 @@ public class DefaultPageHtmlTemplate {
 	}
 
 
-	public String buildUsing(File contentFile, String articleTag, CompilerDataContainer dataContainer) throws Exception {
+	public String buildUsing(File contentFile, String articleTag, CompilerDataContainer dataContainer) {
 
 		FileOptionContainer foContainer = dataContainer.getFOContainerOf(contentFile);
 
@@ -37,19 +35,20 @@ public class DefaultPageHtmlTemplate {
 				.insert("<!DOCTYPE html>\n")
 				.open(HTML)
 					.open(HEAD)
-						.insert(defaultHeadTags)
+						.insert(defaultTrivialHeadTags)
 						.insert(preloadStylesheet("css/defaultPageFacade/INDEX.css"))
-//						.insert(preloadJS( "js/defaultPageFacade/globalConstVariables.js"))
 						.open(SCRIPT, defaultScriptAttributes( "js/defaultPageFacade/INDEX_1/navOverlay_colorCurrentlySelected.js", Map.of(DEFER, ""))).close(SCRIPT)
 						.insert(htmlFactory.createKatexHtml(foContainer))
 					.close(HEAD)
 					.open(BODY)
 						.open(NAV)
-							.insert(getNavigationHtmlOf(contentFile, dataContainer))
+							.insert(getNavigationHtmlUsing(contentFile, dataContainer))
 						.close(NAV)
 						.open(SCRIPT, defaultScriptAttributes("js/defaultPageFacade/INDEX_2/navOverlay_hotKeyToggle.js")).close(SCRIPT) // should be loaded after NAV
 						.open(MAIN)
-							.open(ASIDE, Map.of(ID,  "left-aside")).close(ASIDE)
+							.open(ASIDE, Map.of(ID,  "left-aside"))
+								.insert(getLeftAsideHtmlUsing(contentFile, foContainer))
+							.close(ASIDE)
 //							.open(ASIDE, Map.of(ID, "right-aside")).close(ASIDE)
 							.open(ARTICLE)
 								.insert(articleTag)
@@ -63,7 +62,18 @@ public class DefaultPageHtmlTemplate {
 
 	/* === PRIVATE METHODS */
 
-	private String getNavigationHtmlOf(File contentFile, CompilerDataContainer dataContainer) {
+	private String getLeftAsideHtmlUsing(File contentFile, FileOptionContainer foContainer) {
+//		boolean shouldUseTOC = foContainer.getBoolVal(TOC);
+
+//		if (shouldUseTOC)
+//			return "";
+//		else
+//			return "";
+		return "";
+	}
+
+	@NotNull
+	private String getNavigationHtmlUsing(File contentFile, CompilerDataContainer dataContainer) {
 		String relativeFilePath = relativePath(dataContainer.getContentRootFolder(), contentFile);
 		return dataContainer.getNavigationHtmlOf(relativeFilePath);
 	}
