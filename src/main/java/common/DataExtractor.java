@@ -3,6 +3,9 @@ package common;
 import common.compilerFacade.CompilerDataContainer;
 import common.fileOption.FileOptionContainer;
 import common.fileOption.FileOptionExtractorImpl;
+import common.html.HtmlFactory;
+import common.html.htmlTemplatesStrategy.PageHtmlTemplateStrategy;
+import common.html.htmlTemplatesStrategy.concreteStrategy.DefaultPageHtmlTemplate;
 import common.html.navHtmlGenerator;
 import common.html.NavigationHtmlGenerator;
 import common.other.FileHandlerImpl;
@@ -48,9 +51,9 @@ public class DataExtractor {
 	 * For all content files, extracts all fileoptions in the given content-file and encapsulate them in a {@code FileOptionContainer}.
 	 * @return a mapping of each file to their respective {@code FileOptionContainer}
 	 */
-	public Map<File, FileOptionContainer> extractFOContainerFromEachContentFile() throws Exception {
+	public Map<File, FileOptionContainer> extractContentFileToFOContainer() throws Exception {
 		return FileOptionExtractorImpl.getInstance()
-				.extractFOContainerFromEachFileIn(contentHierarchy);
+				.extractContentToFOContainer(contentHierarchy);
 	}
 
 	/**
@@ -67,8 +70,9 @@ public class DataExtractor {
 	 */  // TODO This method should be private,  you'll have to rewrite your test class of it though!
 	public CompilerDataContainer buildDataContainerForCompiler(NavigationHtmlGenerator navHtmlGenerator) throws Exception {
 
-		Map<String, File>                idToContentFile   = extractIdToContentFile();
-		Map<String, FileOptionContainer> pathToFoContainer = extractPathToFOContainer();
+		Map<String, File>                   idToContentFile   = extractIdToContentFile();
+		Map<String, FileOptionContainer>    pathToFoContainer = extractContentPathToFOContainer();
+//		Map<File, PageHtmlTemplateStrategy> fileToTemplate    = extractContentFileToPageHtmlTemplateStrategy(pathToFoContainer);
 
 		Logger.log(pathToFoContainer);
 
@@ -77,6 +81,24 @@ public class DataExtractor {
 				contentHierarchy.getRootDir(), deployHierarchy.getRootDir()
 		);
 	}
+
+//	private Map<File, PageHtmlTemplateStrategy> extractContentFileToPageHtmlTemplateStrategy(
+//																Map<String, FileOptionContainer> pathToFoContainer) {
+//		return EntryStream.of(pathToFoContainer)
+//				.mapKeys(path -> new File(path))
+//				.mapValues(foContainer -> createPageHtmlTemplate(foContainer))
+//				.toMap();
+//	}
+
+//	private PageHtmlTemplateStrategy createPageHtmlTemplate(FileOptionContainer foContainer) {
+//		String templateName = foContainer.getOrDefault(PAGE_HTML_TEMPLATE, PAGE_HTML_TEMPLATE.defaultVal);
+//
+//		switch (templateName){
+//			case "default" -> return new DefaultPageHtmlTemplate(new HtmlFactory());
+//
+//		}
+//
+//	}
 
 	public PostEffectDataContainer buildDataContainerForPostEffects(NavigationHtmlGenerator navigationHtml) {
 		return new PostEffectDataContainer(
@@ -130,8 +152,8 @@ public class DataExtractor {
 
 	/* === PRIVATE METHODS */
 
-	private Map<String, FileOptionContainer> extractPathToFOContainer() throws Exception {
-		return EntryStream.of(extractFOContainerFromEachContentFile())
+	private Map<String, FileOptionContainer> extractContentPathToFOContainer() throws Exception {
+		return EntryStream.of(extractContentFileToFOContainer())
 				.mapKeys(File::toString)
 				.toMap();
 	}

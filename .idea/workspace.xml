@@ -10,8 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b05fd78-2f29-4052-94fc-81bae2ceb530" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/content/fileC.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/fileC.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/PostEffectsFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/fileOption/FileOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/HTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/html/htmlTemplatesStrategy/concreteStrategy/DefaultPageHtmlTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/framework/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +116,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="instant.run" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -367,7 +369,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="hrefValue.equals(&quot;&quot;)" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/common/html/navHtmlGenerator.java</url>
-          <line>211</line>
+          <line>209</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>

@@ -37,7 +37,10 @@ public class FileOption {
 		KATEX("(true|false)", "false"),
 
 		// Whether to include a TOC (table of content) in the `#left-aside` tag
-		TOC("(true|false)", "false");
+		TOC("(true|false)", "false"),
+
+		// if true, then "dark background, bright font"; else the opposite (default)
+		DARK_MODE("(true|false)", "false");
 
 		private final Pattern validValuesPattern;
 		public final String defaultVal;
@@ -68,7 +71,7 @@ public class FileOption {
 
 
 	public static final EnumSet<KEY> REQUIRED_KEYS = EnumSet.of(ID);
-	public static final EnumSet<KEY> BOOLEAN_KEYS = EnumSet.of(D_LINKS, KATEX);
+	public static final EnumSet<KEY> BOOLEAN_KEYS = EnumSet.of(D_LINKS, KATEX, DARK_MODE);
 
 
 	public static KEY parseKeyOf(String comment) {

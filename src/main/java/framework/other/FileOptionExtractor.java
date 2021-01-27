@@ -24,6 +24,6 @@ public interface FileOptionExtractor {
 	 * @param validator validator that determines what a valid fileOption format is
 	 * @return map of {@code File}s to their respective {@code FileOptionContainer}
 	 */
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy, Validator validator) throws Exception;
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy) throws Exception;
+	public Map<File, FileOptionContainer> extractContentToFOContainer(ContentFileHierarchy contentHierarchy, Validator validator) throws Exception;
+	public Map<File, FileOptionContainer> extractContentToFOContainer(ContentFileHierarchy contentHierarchy) throws Exception;
 }

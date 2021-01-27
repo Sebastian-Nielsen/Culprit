@@ -30,7 +30,7 @@ public class CompilerFacade {
 
 		String md         = precompiler.compile(contentFile);
 		String articleTag = compiler.compile(md);
-		String htmlTag    = buildDefaultPageUsing(contentFile, articleTag, dataContainer);
+		String htmlTag    = insertIntoHtmlTemplateUsing(contentFile, articleTag, dataContainer);
 
 		return htmlTag;
 	}
@@ -39,9 +39,7 @@ public class CompilerFacade {
 
 	/* === PRIVATE METHODS */
 
-	private String buildDefaultPageUsing(File contentFile,
-	                                     String articleTag,
-	                                     CompilerDataContainer dataContainer) throws Exception {
+	private String insertIntoHtmlTemplateUsing(File contentFile, String articleTag, CompilerDataContainer dataContainer) {
 
 		return new DefaultPageHtmlTemplate(new HtmlFactory()).buildUsing(contentFile, articleTag, dataContainer);
 	}

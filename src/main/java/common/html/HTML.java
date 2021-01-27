@@ -705,6 +705,8 @@ public class HTML {
          */
         public static final Attribute WIDTH = new Attribute("width");
 
+        public static final Attribute DATA_THEME = new Attribute("data-theme");
+
         /**
          * Attribute "height"
          */
@@ -1084,6 +1086,7 @@ public class HTML {
             ALINK,
             WIDTH,
             HEIGHT,
+            DATA_THEME,
             ALIGN,
             NAME,
             HREF,

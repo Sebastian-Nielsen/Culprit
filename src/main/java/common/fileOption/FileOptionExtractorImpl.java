@@ -47,11 +47,11 @@ public class  FileOptionExtractorImpl implements FileOptionExtractor {
 		return foContainer;
 	}
 
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy) throws Exception {
-		return extractFOContainerFromEachFileIn(contentHierarchy, ValidatorImpl.getInstance());
+	public Map<File, FileOptionContainer> extractContentToFOContainer(ContentFileHierarchy contentHierarchy) throws Exception {
+		return extractContentToFOContainer(contentHierarchy, ValidatorImpl.getInstance());
 	}
 
-	public Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentHierarchy, Validator validator) throws Exception {
+	public Map<File, FileOptionContainer> extractContentToFOContainer(ContentFileHierarchy contentHierarchy, Validator validator) throws Exception {
 
 		Map<File, FileOptionContainer> fileToFOContainer = new HashMap<>();
 

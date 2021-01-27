@@ -7,7 +7,6 @@ import common.fileOption.FileOptionInserter;
 import framework.ContentFileHierarchy;
 import framework.PreparatorFacade;
 
-import javax.swing.text.AbstractDocument;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -70,7 +69,7 @@ public class FileOptionPreparator {
 
 	private Map<File, FileOptionContainer> extractFOContainerFromEachFileIn(ContentFileHierarchy contentFileHierachy) throws Exception {
 		return FileOptionExtractorImpl.getInstance()
-				.extractFOContainerFromEachFileIn(contentFileHierachy);
+				.extractContentToFOContainer(contentFileHierachy);
 	}
 
 }
