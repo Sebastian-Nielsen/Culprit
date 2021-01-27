@@ -9,13 +9,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static common.html.HTML.Attribute.*;
 import static common.html.HTML.Tag.*;
 import static framework.utils.FileUtils.Filename.*;
-import static framework.utils.FileUtils.Lister.*;
 import static framework.utils.FileUtils.Lister.RECURSION.NONRECURSIVELY;
 import static org.apache.commons.io.FilenameUtils.removeExtension;
 
@@ -191,7 +189,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 			/* ======================== */
 
 	private void buildLiTagForDir(HtmlBuilder builder, File dir, File originalDir, String classValues) {
-		String relPath = relativeFilePathBetween(originalDir, dir);
+		String relPath = relativizePathBetween(originalDir, dir);
 
 		String hrefValue = relPath.equals("") ? "." : relPath;
 
@@ -199,7 +197,7 @@ public class navHtmlGenerator implements NavigationHtmlGenerator {
 	}
 
 	private void buildLiTagForNonDir(HtmlBuilder builder, File nonDir, File originalDir, String classValues) {
-		String hrefValue = relativeFilePathBetween(originalDir, nonDir);
+		String hrefValue = relativizePathBetween(originalDir, nonDir);
 
 		buildLiTagFor(builder, nonDir, hrefValue, classValues);
 	}

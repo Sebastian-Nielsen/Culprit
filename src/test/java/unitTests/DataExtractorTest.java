@@ -74,11 +74,11 @@ public class DataExtractorTest {
 		CompilerDataContainer dataContainer = dataExtractor.buildDataContainerForCompiler(new NavigationHtmlStub());
 
 		// Verify
-		assertThat(dataContainer.getFileOfId("11111111-1111-1111-1111-111111111111"), is(INPUT_FILE_A));
-		assertThat(dataContainer.getFileOfId("22222222-2222-2222-2222-222222222222"), is(INPUT_FILE_B));
-		assertThat(dataContainer.getFileOfId("33333333-3333-3333-3333-333333333333"), is(INPUT_FILE_C));
-		assertThat(dataContainer.getFileOfId("44444444-4444-4444-4444-444444444444"), is(INPUT_FILE_D));
-		assertThat(dataContainer.getFileOfId("55555555-5555-5555-5555-555555555555"), is(INPUT_FILE_E));
+		assertThat(dataContainer.getContentFileOfId("11111111-1111-1111-1111-111111111111"), is(INPUT_FILE_A));
+		assertThat(dataContainer.getContentFileOfId("22222222-2222-2222-2222-222222222222"), is(INPUT_FILE_B));
+		assertThat(dataContainer.getContentFileOfId("33333333-3333-3333-3333-333333333333"), is(INPUT_FILE_C));
+		assertThat(dataContainer.getContentFileOfId("44444444-4444-4444-4444-444444444444"), is(INPUT_FILE_D));
+		assertThat(dataContainer.getContentFileOfId("55555555-5555-5555-5555-555555555555"), is(INPUT_FILE_E));
 
 		assertThat(dataContainer.getFOContainerOf(INPUT_FILE_A).get(ID), is("11111111-1111-1111-1111-111111111111"));
 		assertThat(dataContainer.getFOContainerOf(INPUT_FILE_B).get(ID), is("22222222-2222-2222-2222-222222222222"));

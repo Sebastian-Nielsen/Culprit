@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static framework.utils.FileUtils.Filename.relativeFilePathBetween;
+import static framework.utils.FileUtils.Filename.relativizePathBetween;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static testHelper.TestHelper.getResourceFile;
@@ -30,15 +30,15 @@ public class FileUtils_relativeFilePathBetween {
 	@Test
 	public void shouldGetRelativeFilePathBetween() {
 		// Going one dir up
-		assertThat( relativeFilePathBetween(FILE_A, FILE_B), is("./x1nested/B.md") );
-		assertThat( relativeFilePathBetween(FILE_B, FILE_C), is("./x2nested/C.md") );
+		assertThat( relativizePathBetween(FILE_A, FILE_B), is("./x1nested/B.md") );
+		assertThat( relativizePathBetween(FILE_B, FILE_C), is("./x2nested/C.md") );
 		// Going one dir down
-		assertThat( relativeFilePathBetween(FILE_B, FILE_A), is("./../A.md") );
-		assertThat( relativeFilePathBetween(FILE_C, FILE_B), is("./../B.md") );
+		assertThat( relativizePathBetween(FILE_B, FILE_A), is("./../A.md") );
+		assertThat( relativizePathBetween(FILE_C, FILE_B), is("./../B.md") );
 		// The dir of file
-		assertThat( relativeFilePathBetween(FILE_A, DIR     ), is(".") );
-		assertThat( relativeFilePathBetween(FILE_B, x1nested), is(".") );
-		assertThat( relativeFilePathBetween(FILE_C, x2nested), is(".") );
-		assertThat( relativeFilePathBetween(FILE_D, x2nested), is(".") );
+		assertThat( relativizePathBetween(FILE_A, DIR     ), is(".") );
+		assertThat( relativizePathBetween(FILE_B, x1nested), is(".") );
+		assertThat( relativizePathBetween(FILE_C, x2nested), is(".") );
+		assertThat( relativizePathBetween(FILE_D, x2nested), is(".") );
 	}
 }

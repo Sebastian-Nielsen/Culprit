@@ -44,7 +44,7 @@ public class CompilerDataContainer {   // TODO: this container should contain su
 		return pathToFOContainer.get(file.toString());
 	}
 
-	public File getFileOfId(String id) {
+	public File getContentFileOfId(String id) {
 		return idToContentFile.get(id);
 	}
 

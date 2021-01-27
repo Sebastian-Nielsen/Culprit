@@ -441,7 +441,7 @@ public class FileUtils {
 		 * @param toFile   file to   which to end up
 		 * @return relative filePath, e.g.  "./../B.md"  or  "../../input"
 		 */
-		public static String relativeFilePathBetween(File fromFile, File toFile) {
+		public static String relativizePathBetween(File fromFile, File toFile) {
 			Path fromFilePath = getNormalizedPath(fromFile);
 			Path   toFilePath = getNormalizedPath(  toFile);
 

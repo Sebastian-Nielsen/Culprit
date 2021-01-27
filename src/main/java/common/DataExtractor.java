@@ -67,13 +67,13 @@ public class DataExtractor {
 	 */  // TODO This method should be private,  you'll have to rewrite your test class of it though!
 	public CompilerDataContainer buildDataContainerForCompiler(NavigationHtmlGenerator navHtmlGenerator) throws Exception {
 
-		Map<String, File>                idToFile          = extractIdToContentFile();
+		Map<String, File>                idToContentFile   = extractIdToContentFile();
 		Map<String, FileOptionContainer> pathToFoContainer = extractPathToFOContainer();
 
 		Logger.log(pathToFoContainer);
 
 		return new CompilerDataContainer(
-				idToFile, pathToFoContainer, navHtmlGenerator,
+				idToContentFile, pathToFoContainer, navHtmlGenerator,
 				contentHierarchy.getRootDir(), deployHierarchy.getRootDir()
 		);
 	}
@@ -113,17 +113,17 @@ public class DataExtractor {
 	 * </pre>
 	 */
 	public Map<String, File> extractIdToContentFile() throws IOException {
-		Map<String, File> idToFile = new HashMap<>();
+		Map<String, File> idToContentFile = new HashMap<>();
 
 		for (File contentFile : contentHierarchy.listNonDirs(RECURSIVELY)) {
 
-			idToFile.put(
+			idToContentFile.put(
 					extractFoContainerFrom(contentFile).get(ID),
 					contentFile
 			);
 		}
 
-		return idToFile;
+		return idToContentFile;
 	}
 
 

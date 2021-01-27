@@ -1,17 +1,14 @@
 package common.compilerFacade;
 
-import common.fileOption.FileOption;
 import common.fileOption.FileOptionContainer;
 import framework.compilerFacade.Precompiler;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static common.fileOption.FileOption.KEY.D_LINKS;
-import static common.fileOption.FileOption.KEY.TOC;
 import static common.other.ValidatorImpl.REGEXES;
 import static framework.utils.FileUtils.Filename.*;
 import static framework.utils.FileUtils.Retriever.contentOf;
@@ -102,8 +99,7 @@ public class PrecompilerImpl implements Precompiler {  // TODO !IMPORTANT! THIS 
 		do {
 			String linkText = matcher.group(1);
 			String id       = matcher.group(2);
-			File   fileOfId = dataContainer.getFileOfId(id);
-			String relDeployPath = relativeFilePathBetween(contentFile, fileOfId);
+			String relDeployPath = relativizePathBetween(contentFile, contentFileOf(id));
 			String replacement = "[" + linkText + "](" + changeFileExt(relDeployPath, "html") + ")";
 
 			matcher.appendReplacement(buffer, replacement);
@@ -114,6 +110,10 @@ public class PrecompilerImpl implements Precompiler {  // TODO !IMPORTANT! THIS 
 		return buffer.toString();
 	}
 
+
+	private File contentFileOf(String id) {
+		return dataContainer.getContentFileOfId(id);
+	}
 
 
 //	/**
